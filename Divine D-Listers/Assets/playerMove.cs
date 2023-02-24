@@ -11,10 +11,14 @@ public class playerMove : MonoBehaviour
     float moveLimiter = 0.7f;
     public float moveSpeed = 5f;
 
+    public Animator anim;
+    public float hf = 0.0f;
+    public float vf = 0.0f;
+
     public VectorValue startingPosition;
 
-    SpriteRenderer spriteRenderer;
-    public Sprite[] spriteArray;
+    //SpriteRenderer spriteRenderer;
+    //public Sprite[] spriteArray;
 
 
     // Start is called before the first frame update
@@ -22,7 +26,8 @@ public class playerMove : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         transform.position = startingPosition.initialValue;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        anim = this.GetComponent<Animator>();
+        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,6 +36,22 @@ public class playerMove : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        hf = body.velocity.x > 0.01f ? body.velocity.x : body.velocity.x < -0.01f ? 1 : 0;
+        vf = body.velocity.y > 0.01f ? body.velocity.y : body.velocity.y < -0.01f ? 1 : 0;
+        Debug.Log(hf);
+        Debug.Log(vf);
+        if (body.velocity.x < -0.01f)
+        {
+            this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            this.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        anim.SetFloat("Horizontal", hf);
+        anim.SetFloat("Vertical", body.velocity.y);
+        anim.SetFloat("Speed", vf);
 
     }
 
@@ -43,27 +64,27 @@ public class playerMove : MonoBehaviour
             vertical *= moveLimiter;
         }
 
-        if (horizontal != 0)
-        {
-            if (horizontal > 0)
-            {
-                spriteRenderer.sprite = spriteArray[3];
-            }else
-            {
-                spriteRenderer.sprite = spriteArray[2];
-            }
-        }
-        if (vertical != 0)
-        {
-            if (vertical > 0)
-            {
-                spriteRenderer.sprite = spriteArray[1];
-            }
-            else
-            {
-                spriteRenderer.sprite = spriteArray[0];
-            }
-        }
+        //if (horizontal != 0)
+        //{
+        //    if (horizontal > 0)
+        //    {
+        //        spriteRenderer.sprite = spriteArray[3];
+        //    }else
+        //    {
+        //        spriteRenderer.sprite = spriteArray[2];
+        //    }
+        //}
+        //if (vertical != 0)
+        //{
+        //    if (vertical > 0)
+        //    {
+        //        spriteRenderer.sprite = spriteArray[1];
+        //    }
+        //    else
+        //    {
+        //        spriteRenderer.sprite = spriteArray[0];
+        //    }
+        //}
         body.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
     }
 }
