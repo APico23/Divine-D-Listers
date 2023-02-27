@@ -17,6 +17,10 @@ public class playerMove : MonoBehaviour
 
     public VectorValue startingPosition;
 
+    GameObject footstepsAudioObject;
+    AudioSource footstepsAudio;
+    bool audioPlayingNow = false;
+
     //SpriteRenderer spriteRenderer;
     //public Sprite[] spriteArray;
 
@@ -28,6 +32,10 @@ public class playerMove : MonoBehaviour
         transform.position = startingPosition.initialValue;
         anim = this.GetComponent<Animator>();
         //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        footstepsAudioObject = GameObject.Find("footsteps");
+        footstepsAudio = footstepsAudioObject.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -39,8 +47,7 @@ public class playerMove : MonoBehaviour
 
         hf = body.velocity.x > 0.01f ? body.velocity.x : body.velocity.x < -0.01f ? 1 : 0;
         vf = body.velocity.y > 0.01f ? body.velocity.y : body.velocity.y < -0.01f ? 1 : 0;
-        Debug.Log(hf);
-        Debug.Log(vf);
+        
         if (body.velocity.x < -0.01f)
         {
             this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
@@ -62,6 +69,16 @@ public class playerMove : MonoBehaviour
             
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
+        }
+        if ((horizontal != 0 || vertical != 0) && (audioPlayingNow == false))
+        {
+            footstepsAudio.Play();
+            audioPlayingNow = true;
+        }
+        if (horizontal == 0 && vertical == 0)
+        {
+            footstepsAudio.Stop();
+            audioPlayingNow = false;
         }
 
         //if (horizontal != 0)
