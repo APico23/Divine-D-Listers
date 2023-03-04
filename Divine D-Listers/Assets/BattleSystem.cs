@@ -258,6 +258,7 @@ public class BattleSystem : MonoBehaviour
         battleSequence();
     }
 
+
     private IEnumerator enemyCoroutine() 
     {
         //any code before yeild runs on first frame
