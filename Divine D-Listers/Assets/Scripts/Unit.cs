@@ -11,8 +11,11 @@ public class Unit : MonoBehaviour
     public int luck;
     public int defence;
     public int mana;
+    public int currentMana;
     public int speed;
 
     public int maxHP;
     public int currentHp;
+
+    public bool isDead = false;
 }

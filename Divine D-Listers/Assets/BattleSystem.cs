@@ -30,7 +30,25 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit3;
     Unit enemyUnit;
 
+    private string[] speeds = new string[3];
+   
     public Text dialougeText;
+    public Text initiaviteHUD;
+    public Text jormLevel;
+    public Text hameedaLevel;
+    public Text exounosLevel;
+
+    private int turnNum = 0;
+
+    public healthBar jormHealthBar;
+    public healthBar jormManaBar;
+    public healthBar hameedaHealthBar;
+    public healthBar hameedaManaBar;
+    public healthBar exounosHealthBar;
+    public healthBar exounosManaBar;
+
+    public IEnumerator enemyAttack;
+
 
     // Start is called before the first frame update
 
@@ -58,15 +76,110 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>();
 
+        jormHealthBar.setMaxHealth(playerUnit1.maxHP);
+        jormHealthBar.setHealth(playerUnit1.maxHP);
+        jormManaBar.setMaxHealth(playerUnit1.mana);
+        jormManaBar.setHealth(playerUnit1.mana);
+
+        hameedaHealthBar.setMaxHealth(playerUnit2.maxHP);
+        hameedaHealthBar.setHealth(playerUnit2.maxHP);
+        hameedaManaBar.setMaxHealth(playerUnit2.mana);
+        hameedaManaBar.setHealth(playerUnit2.mana);
+
+        exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
+        exounosHealthBar.setHealth(playerUnit3.maxHP);
+        exounosManaBar.setMaxHealth(playerUnit3.mana);
+        exounosManaBar.setHealth(playerUnit3.mana);
+
+        jormLevel.text = "Lv. " + playerUnit1.unitLevel;
+        hameedaLevel.text = "Lv. " + playerUnit2.unitLevel;
+        exounosLevel.text = "Lv. " + playerUnit3.unitLevel;
+
         dialougeText.text = enemyUnit.unitName + " approaches!";
 
-        state = BattleState.JORMTURN;
-        jormTurn();
+        speeds = getInitiative();
+        battleSequence();
+    }
+
+    void battleSequence()
+    {
+        initiaviteHUD.text = "Turn order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
+        
+        if (turnNum > 4)
+        {
+            turnNum = 0;
+            speeds = getInitiative();
+        }
+
+        //make this a switch case later
+        if ((speeds[turnNum] == "Jorm") && (!playerUnit1.isDead))
+        {
+            state = BattleState.JORMTURN;
+            jormTurn();
+        }
+        else if ((speeds[turnNum] == "Hameeda") && (!playerUnit2.isDead))
+        {
+            state = BattleState.HAMEEDATURN;
+            hameedaTurn();
+        }
+        else if ((speeds[turnNum] == "Exounos") && (!playerUnit1.isDead))
+        {
+            state = BattleState.EXOUNOSTURN; 
+            exounosTurn();
+        }
+        else if ((speeds[turnNum] == "Enemy") && (!playerUnit1.isDead)) 
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(enemyCoroutine());
+        }
+
+            turnNum++; 
+       
+    }
+
+    string[] getInitiative() 
+        {
+        //take in all player and enemy names and speeds
+        string[] tempArr = { "Jorm", "Hameeda", "Exounos", "Enemy" };
+        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed };
+        //sort it from highest to lowest
+
+        bool swappedSomething = true;
+        while (swappedSomething) { 
+            swappedSomething = false;   
+            for (int i = 0; i < 3; i++) { 
+                if (entitySpeeds[i] < entitySpeeds[i + 1]) {
+                    
+                    int tempSpeed = entitySpeeds[i];
+                    entitySpeeds[i] = entitySpeeds[i + 1];
+                    entitySpeeds[i + 1] = tempSpeed;
+
+                    string tempState = tempArr[i];
+                    tempArr[i] = tempArr[i + 1];
+                    tempArr[i + 1] = tempState; 
+
+                    swappedSomething = true; 
+                }
+            }
+        }
+        //spit it back out    
+       
+        return tempArr; 
     }
 
     void jormTurn()
     {
+        dialougeText.text = "What will Jorm do?";
+    }
 
+    void hameedaTurn()
+    {
+        dialougeText.text = "What will Hameeda do?";
+    }
+
+    void exounosTurn()
+    {
+        dialougeText.text = "What will Exounos do?"; 
     }
 
     public void attackButton()
@@ -87,12 +200,11 @@ public class BattleSystem : MonoBehaviour
     
     void isBattleWon()
     {
-        //if (enemyUnit.currentHp <= 0) 
-        //{
+       if (enemyUnit.currentHp <= 0) 
+       {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
-        Debug.Log("You win");
-        //}   
+       }   
     }
 
     public void takeASeat()
@@ -102,8 +214,100 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.currentHp -= jormDamage;
         dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + jormDamage + " damage!";
         isBattleWon();
+        battleSequence();
     }
-        
-    
+
+    public void qualityAssurance() 
+    {
+        jormHUD.SetActive(false);
+
+        //code for attacks goes here
+        isBattleWon();
+        battleSequence();
+    }
+
+    public void yawn() 
+    {
+        exounosHUD.SetActive(false);
+        //code for attacks goes here
+        isBattleWon();
+        battleSequence();
+    }
+
+    public void powerNap() 
+    {
+        exounosHUD.SetActive(false);
+        //code for attacks goes here
+        isBattleWon();
+        battleSequence();
+    }
+
+    public void kohldShoulder() 
+    {
+        hameedaHUD.SetActive(false);
+        //code for attacks goes here
+        isBattleWon();
+        battleSequence();
+    }
+
+    public void itsNotAPhase()
+    {
+        hameedaHUD.SetActive(false);
+        //code for attacks goes here
+        isBattleWon();
+        battleSequence();
+    }
+
+    private IEnumerator enemyCoroutine() 
+    {
+        //any code before yeild runs on first frame
+        //yield return null;
+        dialougeText.text = "The " + enemyUnit.unitName + " attacks!";
+        //runs code up to this point on first frame then waits 3 seconds.
+        yield return new WaitForSeconds(3);
+        //after 3 seconds, picks up from here
+
+        int randNum = Random.Range(0, 3);
+
+        if (randNum == 0)
+        {
+            playerUnit1.currentHp -= enemyUnit.damage;
+            jormHealthBar.setHealth(playerUnit1.currentHp);
+            dialougeText.text = enemyUnit.unitName + "attacks Jorm for " + enemyUnit.damage + " damage!";
+            isDead(playerUnit1);
+        }
+        else if (randNum == 1)
+        {
+            playerUnit2.currentHp -= enemyUnit.damage;
+            hameedaHealthBar.setHealth(playerUnit2.currentHp);
+            dialougeText.text = enemyUnit.unitName + "attacks Hameeda for " + enemyUnit.damage + " damage!";
+            isDead(playerUnit1);
+        }
+        else if (randNum == 2)
+        {
+            playerUnit3.currentHp -= enemyUnit.damage;
+            exounosHealthBar.setHealth(playerUnit3.currentHp);
+            dialougeText.text = enemyUnit.unitName + "attacks Exounos for " + enemyUnit.damage + " damage!";
+            isDead(playerUnit1);
+        }
+
+        yield return new WaitForSeconds(2);
+        //any code after runs one frame after the first frame;
+        battleSequence();
+    }
+
+
+    void isDead(Unit player) 
+    {
+        if (player.currentHp >= 0) {
+            player.isDead = true;
+        }
+        if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead) 
+        {
+            state = BattleState.LOST;
+            dialougeText.text = "You lose!";
+        }
+    }
+
 
 }
