@@ -19,6 +19,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject exounosHUD;
 
     private int jormDamage;
+    private int damageDone;
+    private float rounded;
 
     public Transform enemyBattleSpawn;
     public Transform jormBattleSpawn;
@@ -87,20 +89,29 @@ public class BattleSystem : MonoBehaviour
     
     void isBattleWon()
     {
-        //if (enemyUnit.currentHp <= 0) 
-        //{
+       if (enemyUnit.currentHp <= 0) 
+        {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
         Debug.Log("You win");
-        //}   
+        }   
     }
 
     public void takeASeat()
     {
+        int crit=Random.Range(1, 200);
         jormHUD.SetActive(false);
-        jormDamage = 10 * (playerUnit1.damage/10);
-        enemyUnit.currentHp -= jormDamage;
-        dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + jormDamage + " damage!";
+        rounded =8 * (playerUnit1.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        jormDamage = Mathf.RoundToInt(8 * rounded);
+        damageDone = jormDamage - Mathf.RoundToInt(jormDamage * (enemyUnit.defence / 100f));
+        Debug.Log(crit);
+        if (crit <= playerUnit1.luck)
+        {
+            damageDone *= 2;
+        }
+        enemyUnit.currentHp -= damageDone;
+        dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + damageDone + " damage!";
         isBattleWon();
     }
         
