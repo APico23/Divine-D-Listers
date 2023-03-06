@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { START, JORMTURN, HAMEEDATURN, EXOUNOSTURN, ENEMYTURN, WON, LOST }
+public enum BattleState { START, JORMTURN, HAMEEDATURN, EXOUNOSTURN, ENEMYTURN, WON, LOST, PAUSE }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class BattleSystem : MonoBehaviour
     public healthBar exounosHealthBar;
     public healthBar exounosManaBar;
 
-    public IEnumerator enemyAttack;
+    public IEnumerator testing;
 
 
     // Start is called before the first frame update
@@ -114,7 +114,7 @@ public class BattleSystem : MonoBehaviour
             turnNum = 0;
             speeds = getInitiative();
         }
-
+        Debug.Log(speeds[turnNum]);
         //make this a switch case later
         if ((speeds[turnNum] == "Jorm") && (!playerUnit1.isDead))
         {
@@ -126,12 +126,12 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.HAMEEDATURN;
             hameedaTurn();
         }
-        else if ((speeds[turnNum] == "Exounos") && (!playerUnit1.isDead))
+        else if ((speeds[turnNum] == "Exounos") && (!playerUnit3.isDead))
         {
-            state = BattleState.EXOUNOSTURN; 
+            state = BattleState.EXOUNOSTURN;
             exounosTurn();
         }
-        else if ((speeds[turnNum] == "Enemy") && (!playerUnit1.isDead)) 
+        else if ((speeds[turnNum] == "Enemy") && (!enemyUnit.isDead)) 
         {
             state = BattleState.ENEMYTURN;
             StartCoroutine(enemyCoroutine());
@@ -228,6 +228,7 @@ public class BattleSystem : MonoBehaviour
         }
         enemyUnit.currentHp -= damageDone;
         dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + damageDone + " damage!";
+        state=BattleState.PAUSE;
         isBattleWon();
         battleSequence();
     }
@@ -253,6 +254,7 @@ public class BattleSystem : MonoBehaviour
             dialougeText.text = "The " + enemyUnit.unitName + " is drowzy enough.";
         }
         //code for attacks goes here
+        state = BattleState.PAUSE;
         isBattleWon();
         battleSequence();
     }
@@ -281,6 +283,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.currentHp -= damageDone;
         dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + damageDone + " damage!";
         //code for attacks goes here
+        state = BattleState.PAUSE;
         isBattleWon();
         battleSequence();
     }
@@ -309,21 +312,21 @@ public class BattleSystem : MonoBehaviour
         {
             playerUnit1.currentHp -= enemyUnit.damage;
             jormHealthBar.setHealth(playerUnit1.currentHp);
-            dialougeText.text = enemyUnit.unitName + "attacks Jorm for " + enemyUnit.damage + " damage!";
+            dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + enemyUnit.damage + " damage!";
             isDead(playerUnit1);
         }
         else if (randNum == 1)
         {
             playerUnit2.currentHp -= enemyUnit.damage;
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
-            dialougeText.text = enemyUnit.unitName + "attacks Hameeda for " + enemyUnit.damage + " damage!";
+            dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + enemyUnit.damage + " damage!";
             isDead(playerUnit1);
         }
         else if (randNum == 2)
         {
             playerUnit3.currentHp -= enemyUnit.damage;
             exounosHealthBar.setHealth(playerUnit3.currentHp);
-            dialougeText.text = enemyUnit.unitName + "attacks Exounos for " + enemyUnit.damage + " damage!";
+            dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + enemyUnit.damage + " damage!";
             isDead(playerUnit1);
         }
 
