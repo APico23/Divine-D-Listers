@@ -1,8 +1,7 @@
 using UnityEngine;
 
-
-
-public class Unit: MonoBehaviour
+[System.Serializable]
+public class Stats
 {
     public string unitName;
     public int unitLevel;
