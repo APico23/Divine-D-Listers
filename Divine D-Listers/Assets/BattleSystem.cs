@@ -19,8 +19,10 @@ public class BattleSystem : MonoBehaviour
     public GameObject exounosHUD;
 
     private int jormDamage;
+    private int hameedaDamage;
     private int damageDone;
     private float rounded;
+    private int crit;
 
     public Transform enemyBattleSpawn;
     public Transform jormBattleSpawn;
@@ -207,19 +209,13 @@ public class BattleSystem : MonoBehaviour
        {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
-       }   
-
-        {
-            state = BattleState.WON;
-            dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
-        Debug.Log("You win");
-        }   
+       }    
 
     }
 
     public void takeASeat()
     {
-        int crit=Random.Range(1, 200);
+        crit=Random.Range(1, 201);
         jormHUD.SetActive(false);
         rounded =8 * (playerUnit1.damage / 100f);
         if (rounded < 1) rounded = 1;
@@ -248,6 +244,14 @@ public class BattleSystem : MonoBehaviour
     public void yawn() 
     {
         exounosHUD.SetActive(false);
+        if (enemyUnit.speed >= (enemyUnit.speed - Mathf.RoundToInt(enemyUnit.speed * .25f)))
+        {
+            enemyUnit.speed -= 1;
+        }
+        else
+        {
+            dialougeText.text = "The " + enemyUnit.unitName + " is drowzy enough.";
+        }
         //code for attacks goes here
         isBattleWon();
         battleSequence();
@@ -264,6 +268,18 @@ public class BattleSystem : MonoBehaviour
     public void kohldShoulder() 
     {
         hameedaHUD.SetActive(false);
+        crit = Random.Range(1, 201);
+        rounded = 10 * (playerUnit2.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        hameedaDamage = Mathf.RoundToInt(10 * rounded);
+        damageDone = hameedaDamage - Mathf.RoundToInt(hameedaDamage * (enemyUnit.defence / 100f));
+        Debug.Log(crit);
+        if (crit <= playerUnit2.luck)
+        {
+            damageDone *= 2;
+        }
+        enemyUnit.currentHp -= damageDone;
+        dialougeText.text = "Hit! " + enemyUnit.unitName + " takes " + damageDone + " damage!";
         //code for attacks goes here
         isBattleWon();
         battleSequence();
