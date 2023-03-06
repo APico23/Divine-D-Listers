@@ -48,6 +48,9 @@ MonoBehaviour:
   sceneToLoad: 
   playerPosition: {x: 0, y: 0}
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  fadeInPanel: {fileID: 8141140690596591496, guid: 84c12d21966ee37428e2e37d22b29e55, type: 3}
+  fadeOutPanel: {fileID: 77927408449156218, guid: 664d46af31fe3d04ba9444a81a60207c, type: 3}
+  fadeWait: 0.33
 --- !u!61 &6771243390083628506
 BoxCollider2D:
   m_ObjectHideFlags: 0

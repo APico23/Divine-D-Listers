@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 
@@ -60,6 +60,7 @@ public class DialogueManager : MonoBehaviour
             speaker2Sprite.sprite = empty;
             instance.backdrop.SetActive(false);
             player.GetComponent<playerMove>().canMove = true;
+            Destroy(transform.parent.gameObject,0.2f);
             return;
         }
         if(currentIndex == currentConvo.GetLength())
