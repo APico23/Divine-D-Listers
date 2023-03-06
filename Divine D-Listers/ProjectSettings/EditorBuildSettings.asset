@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/startingRoom.unity
+    guid: 2adc255d2b3e24746afd15dc66e7c1af
+  - enabled: 1
+    path: Assets/Scenes/sphinxRoom.unity
+    guid: 3927db1b79497f54c9522a7b8a9e19fc
+  - enabled: 1
     path: Assets/Scenes/mainRoom1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -18,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/battleScene.unity
     guid: a3b90afd552e4d44fbeb5c84cf78b10d
   - enabled: 1
-    path: Assets/Scenes/sphinxRoom.unity
-    guid: 3927db1b79497f54c9522a7b8a9e19fc
+    path: Assets/Scenes/mainRoom2.unity
+    guid: 83df6cf76dff43b439385c7303aeadda
+  - enabled: 1
+    path: Assets/Scenes/mainRoom3.unity
+    guid: 2d07532f43c310d4bbbdcde6f9db2446
+  - enabled: 1
+    path: Assets/Scenes/buttonMinigame.unity
+    guid: 2793b78ed281131419cc75fff576247c
   m_configObjects: {}

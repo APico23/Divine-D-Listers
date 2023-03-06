@@ -4048,8 +4048,9 @@ GameObject:
   m_Component:
   - component: {fileID: 623221611}
   - component: {fileID: 623221610}
-  - component: {fileID: 623221609}
   - component: {fileID: 623221608}
+  - component: {fileID: 623221612}
+  - component: {fileID: 623221614}
   m_Layer: 0
   m_Name: Phoenix
   m_TagString: Untagged
@@ -4067,7 +4068,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4083,21 +4084,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.73, y: 2.31}
   m_EdgeRadius: 0
---- !u!114 &623221609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623221607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1158dd30268d57b4f802abbb7e4ead4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: battleScene
-  playerPosition: {x: -27, y: 0}
-  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
 --- !u!212 &623221610
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4165,6 +4151,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623221612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623221607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0d774139026414d901ac375b3f8226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convos:
+  - {fileID: 11400000, guid: 7d3c92d213cbae349a67ba9a22ffc768, type: 2}
+  - {fileID: 11400000, guid: 064e9ac7f9ad63d469c7c9d959a8141c, type: 2}
+  tracker: {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
+  dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
+--- !u!114 &623221614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623221607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8f264a8b566484391212545135f775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
+  missionsDone: {fileID: 11400000, guid: 9e7593cd8bab0db4e8ccb25b5354e834, type: 2}
 --- !u!1 &1383704915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493054, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
