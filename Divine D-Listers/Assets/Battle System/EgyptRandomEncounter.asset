@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aeeb0c4d9a7fb84d883d2cc75b0342a, type: 3}
   m_Name: EgyptRandomEncounter
   m_EditorClassIdentifier: 
-  encounters: []
+  encounters:
+  - {fileID: 11400000, guid: 51e7c83c7e1ae954281316c8a9cfe1e4, type: 2}
+  - {fileID: 11400000, guid: 51e7c83c7e1ae954281316c8a9cfe1e4, type: 2}

@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 358414307}
   - component: {fileID: 358414306}
   - component: {fileID: 358414308}
+  - component: {fileID: 358414309}
   m_Layer: 0
   m_Name: GameBackgroundMusic
   m_TagString: GameMusic
@@ -1036,6 +1037,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24fb44b451f7534f9ace241b35970d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &358414309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358414305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f989329c6e5ce4cbcf494b9b4d82ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 358414306}
+  mainTheme: {fileID: 8300000, guid: 1cfc4ead0aa8b0a4eb0247e0e1582891, type: 3}
+  battleTheme: {fileID: 8300000, guid: f2b103aa92d196c44b1fa5a16b746c36, type: 3}
 --- !u!1001 &456455486
 PrefabInstance:
   m_ObjectHideFlags: 0
