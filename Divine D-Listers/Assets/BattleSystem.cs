@@ -203,18 +203,18 @@ public class BattleSystem : MonoBehaviour
     void isBattleWon()
     {
        if (enemyUnit.currentHp <= 0) 
-<<<<<<< HEAD
+
        {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
        }   
-=======
+
         {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
         Debug.Log("You win");
         }   
->>>>>>> 499cf32b2903d33cb3df2794ae85a8f2379dc5d7
+
     }
 
     public void takeASeat()
