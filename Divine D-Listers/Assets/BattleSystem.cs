@@ -17,6 +17,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject jormHUD;
     public GameObject hameedaHUD;
     public GameObject exounosHUD;
+    public GameObject attack;
 
     private int jormDamage;
     private int hameedaDamage;
@@ -67,6 +68,7 @@ public class BattleSystem : MonoBehaviour
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
+        
 
         GameObject playerGO = Instantiate(jormPrefab, jormBattleSpawn);
         playerUnit1 = playerGO.GetComponent<Unit>();
@@ -108,37 +110,41 @@ public class BattleSystem : MonoBehaviour
     void battleSequence()
     {
         initiaviteHUD.text = "Turn order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
-        
-        if (turnNum > 4)
+        attack.SetActive(false);
+        if (turnNum > 3)
         {
             turnNum = 0;
             speeds = getInitiative();
         }
         Debug.Log(speeds[turnNum]);
         //make this a switch case later
-        if ((speeds[turnNum] == "Jorm") && (!playerUnit1.isDead))
-        {
-            state = BattleState.JORMTURN;
-            jormTurn();
-        }
-        else if ((speeds[turnNum] == "Hameeda") && (!playerUnit2.isDead))
-        {
-            state = BattleState.HAMEEDATURN;
-            hameedaTurn();
-        }
-        else if ((speeds[turnNum] == "Exounos") && (!playerUnit3.isDead))
-        {
-            state = BattleState.EXOUNOSTURN;
-            exounosTurn();
-        }
-        else if ((speeds[turnNum] == "Enemy") && (!enemyUnit.isDead)) 
-        {
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(enemyCoroutine());
-        }
+        if (state != BattleState.WON){
+            if ((speeds[turnNum] == "Jorm") && (!playerUnit1.isDead))
+            {
+                state = BattleState.JORMTURN;
+                attack.SetActive(true);
+                jormTurn();
+            }
+            else if ((speeds[turnNum] == "Hameeda") && (!playerUnit2.isDead))
+            {
+                state = BattleState.HAMEEDATURN;
+                attack.SetActive(true);
+                hameedaTurn();
+            }
+            else if ((speeds[turnNum] == "Exounos") && (!playerUnit3.isDead))
+            {
+                state = BattleState.EXOUNOSTURN;
+                attack.SetActive(true);
+                exounosTurn();
+            }
+            else if ((speeds[turnNum] == "Enemy") && (!enemyUnit.isDead))
+            {
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(enemyCoroutine());
+            }
 
-            turnNum++; 
-       
+            turnNum++;
+        }
     }
 
     string[] getInitiative() 
@@ -174,6 +180,7 @@ public class BattleSystem : MonoBehaviour
     void jormTurn()
     {
         dialougeText.text = "What will Jorm do?";
+        
     }
 
     void hameedaTurn()
@@ -338,7 +345,7 @@ public class BattleSystem : MonoBehaviour
 
     void isDead(Unit player) 
     {
-        if (player.currentHp >= 0) {
+        if (player.currentHp <= 0) {
             player.isDead = true;
         }
         if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead) 
