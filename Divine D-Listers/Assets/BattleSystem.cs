@@ -120,31 +120,65 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(speeds[turnNum]);
         //make this a switch case later
         if (state != BattleState.WON){
-            if ((speeds[turnNum] == "Jorm") && (!playerUnit1.isDead))
+            if (speeds[turnNum] == "Jorm")
             {
-                state = BattleState.JORMTURN;
-                attack.SetActive(true);
-                jormTurn();
+                if (playerUnit1.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else
+                {
+                    turnNum++;
+                    state = BattleState.JORMTURN;
+                    attack.SetActive(true);
+                    jormTurn();
+                }
             }
-            else if ((speeds[turnNum] == "Hameeda") && (!playerUnit2.isDead))
+            else if (speeds[turnNum] == "Hameeda")
             {
-                state = BattleState.HAMEEDATURN;
-                attack.SetActive(true);
-                hameedaTurn();
+                if (playerUnit2.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else {
+                    turnNum++;
+                    state = BattleState.HAMEEDATURN;
+                    attack.SetActive(true);
+                    hameedaTurn();
+                }
             }
-            else if ((speeds[turnNum] == "Exounos") && (!playerUnit3.isDead))
+            else if (speeds[turnNum] == "Exounos")
             {
-                state = BattleState.EXOUNOSTURN;
-                attack.SetActive(true);
-                exounosTurn();
+                if (playerUnit3.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else
+                {
+                    turnNum++;
+                    state = BattleState.EXOUNOSTURN;
+                    attack.SetActive(true);
+                    exounosTurn();
+                }
             }
-            else if ((speeds[turnNum] == "Enemy") && (!enemyUnit.isDead))
+            else if (speeds[turnNum] == "Enemy")
             {
-                state = BattleState.ENEMYTURN;
-                StartCoroutine(enemyCoroutine());
+                if (enemyUnit.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else {
+                    turnNum++;
+                    state = BattleState.ENEMYTURN;
+                    StartCoroutine(enemyCoroutine());
+                }
             }
-
-            turnNum++;
+            
+            
         }
     }
 
@@ -283,31 +317,31 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit1.currentHp < playerUnit1.maxHP)
         {
             playerUnit1.currentHp += 4;
-            if (playerUnit1.currentHp > playerUnit1.maxHP)
+            if (playerUnit1.currentHp > playerUnit1.maxHP && !playerUnit1.isDead)
             {
                 playerUnit1.currentHp= playerUnit1.maxHP;
             }
-
+            jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
             jormHealthBar.setHealth(playerUnit1.currentHp);
         }
-        if (playerUnit2.currentHp < playerUnit2.maxHP)
+        if (playerUnit2.currentHp < playerUnit2.maxHP && !playerUnit2.isDead)
         {
             playerUnit2.currentHp += 4;
             if (playerUnit2.currentHp > playerUnit2.maxHP)
             {
                 playerUnit2.currentHp = playerUnit2.maxHP;
             }
-
+            hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
         }
-        if (playerUnit3.currentHp < playerUnit3.maxHP)
+        if (playerUnit3.currentHp < playerUnit3.maxHP && !playerUnit3.isDead)
         {
             playerUnit3.currentHp += 4;
             if (playerUnit3.currentHp > playerUnit3.maxHP)
             {
                 playerUnit3.currentHp = playerUnit3.maxHP;
             }
-
+            exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             exounosHealthBar.setHealth(playerUnit3.currentHp);
         }
         dialougeText.text ="The party dozes off for a moment before waking rejuvinated.";
@@ -398,6 +432,10 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             playerUnit1.currentHp -= damageDone;
+            if (playerUnit1.currentHp <= 0)
+            {
+                playerUnit1.currentHp = 0;
+            }
             jormHealthBar.setHealth(playerUnit1.currentHp);
             dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
 
@@ -419,6 +457,10 @@ public class BattleSystem : MonoBehaviour
             }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
             playerUnit2.currentHp -= damageDone;
+            if (playerUnit2.currentHp <= 0)
+            {
+                playerUnit2.currentHp = 0;
+            }
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
             dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
 
@@ -442,6 +484,10 @@ public class BattleSystem : MonoBehaviour
             }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             playerUnit3.currentHp -= damageDone;
+            if (playerUnit3.currentHp <= 0)
+            {
+                playerUnit3.currentHp = 0;
+            }
             exounosHealthBar.setHealth(playerUnit3.currentHp);
             dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
 
