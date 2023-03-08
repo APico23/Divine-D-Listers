@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -422,31 +424,27 @@ public class BattleSystem : MonoBehaviour
         //any code before yeild runs on first frame
         //yield return null;
         dialougeText.text = "The " + enemyUnit.unitName + " attacks!";
+        int randNum;
+        double unit1 = playerUnit1.maxHP;
+        double unit2 = playerUnit2.maxHP;
+        double unit3 = playerUnit3.maxHP;
         //runs code up to this point on first frame then waits 3 seconds.
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
-
-        int randNum = Random.Range(0, 3);
-        crit = Random.Range(1, 201);
-        rounded = 10 * (enemyUnit.damage / 100f);
-        if (rounded < 1) rounded = 1;
-        enemyDamage = Mathf.RoundToInt(10 * rounded);
-
-        if (randNum == 0 && !playerUnit1.isDead)
+        randNum = Random.Range(0, 10);
+        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum<7)
         {
+            rounded = 5 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            dialougeText.text = enemyUnit.unitName + " breathes fire";
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
-            }
             playerUnit1.currentHp -= damageDone;
             if (playerUnit1.currentHp <= 0)
             {
                 playerUnit1.currentHp = 0;
             }
             jormHealthBar.setHealth(playerUnit1.currentHp);
-            dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
-
             if (playerUnit1.currentHp <= 0)
             {
                 jormHp.text = "0/" + playerUnit1.maxHP;
@@ -456,13 +454,6 @@ public class BattleSystem : MonoBehaviour
                 jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
             }
             isDead(playerUnit1);
-        }
-        else if (randNum == 1 && !playerUnit2.isDead)
-        {
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
-            }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
             playerUnit2.currentHp -= damageDone;
             if (playerUnit2.currentHp <= 0)
@@ -470,9 +461,6 @@ public class BattleSystem : MonoBehaviour
                 playerUnit2.currentHp = 0;
             }
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
-            dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
-
-
             if (playerUnit2.currentHp <= 0)
             {
                 hameedaHp.text = "0/" + playerUnit2.maxHP;
@@ -481,15 +469,8 @@ public class BattleSystem : MonoBehaviour
             {
                 hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
             }
-            
+
             isDead(playerUnit2);
-        }
-        else if (randNum == 2 && !playerUnit3.isDead)
-        {
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
-            }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             playerUnit3.currentHp -= damageDone;
             if (playerUnit3.currentHp <= 0)
@@ -497,8 +478,6 @@ public class BattleSystem : MonoBehaviour
                 playerUnit3.currentHp = 0;
             }
             exounosHealthBar.setHealth(playerUnit3.currentHp);
-            dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
-
             if (playerUnit3.currentHp <= 0)
             {
                 exounosHp.text = "0/" + playerUnit3.maxHP;
@@ -507,14 +486,100 @@ public class BattleSystem : MonoBehaviour
             {
                 exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             }
-            
-            isDead(playerUnit2);
+
+            isDead(playerUnit3);
         }
         else
         {
-            dialougeText.text = "The attack missed!";
-        }
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
 
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                playerUnit1.currentHp -= damageDone;
+                if (playerUnit1.currentHp <= 0)
+                {
+                    playerUnit1.currentHp = 0;
+                }
+                jormHealthBar.setHealth(playerUnit1.currentHp);
+                dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
+
+                if (playerUnit1.currentHp <= 0)
+                {
+                    jormHp.text = "0/" + playerUnit1.maxHP;
+                }
+                else
+                {
+                    jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+                }
+                isDead(playerUnit1);
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                playerUnit2.currentHp -= damageDone;
+                if (playerUnit2.currentHp <= 0)
+                {
+                    playerUnit2.currentHp = 0;
+                }
+                hameedaHealthBar.setHealth(playerUnit2.currentHp);
+                dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
+
+
+                if (playerUnit2.currentHp <= 0)
+                {
+                    hameedaHp.text = "0/" + playerUnit2.maxHP;
+                }
+                else
+                {
+                    hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+                }
+
+                isDead(playerUnit2);
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                playerUnit3.currentHp -= damageDone;
+                if (playerUnit3.currentHp <= 0)
+                {
+                    playerUnit3.currentHp = 0;
+                }
+                exounosHealthBar.setHealth(playerUnit3.currentHp);
+                dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
+
+                if (playerUnit3.currentHp <= 0)
+                {
+                    exounosHp.text = "0/" + playerUnit3.maxHP;
+                }
+                else
+                {
+                    exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+                }
+
+                isDead(playerUnit3);
+            }
+            else
+            {
+                dialougeText.text = "The attack missed!";
+            }
+        }
         yield return new WaitForSeconds(2);
         //any code after runs one frame after the first frame;
         battleSequence();
