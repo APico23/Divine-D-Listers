@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class phoenixManager : MonoBehaviour
 {
     public convoTracker tracker;
-    public playerMissions missionsDone;
+    public Quest riddle1;
     public VectorValue playerStorage;
     public Vector2 playerPosition;
     public Sprite egg;
@@ -14,7 +14,7 @@ public class phoenixManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (missionsDone.riddle1Start)
+            if (riddle1.isStarted)
             {   if (tracker.convoAt == 0)
                 {
                     tracker.continueConvo();
@@ -24,7 +24,7 @@ public class phoenixManager : MonoBehaviour
                     dialogueStarter.startConvo();
                     tracker.continueConvo();
                 }
-                else if ((tracker.convoAt == 2) && (missionsDone.riddle1Done == false))
+                else if ((tracker.convoAt == 2) && (riddle1.isCompleted == false))
                 {
                     playerStorage.initialValue = playerPosition;
                     SceneManager.LoadScene("battleScene");
@@ -32,10 +32,10 @@ public class phoenixManager : MonoBehaviour
                 }                
                 else if (tracker.convoAt == 3)
                 {
-                    tracker.convoAt -= 1;
+                    tracker.convoAt = 2;
                     dialogueStarter.startConvo();
                     gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                    missionsDone.riddle1Done = true;
+                    riddle1.isCompleted = true;
                     tracker.continueConvo();
                     tracker.continueConvo();
                 }

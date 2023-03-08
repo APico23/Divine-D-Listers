@@ -5974,4 +5974,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
-  missionsDone: {fileID: 11400000, guid: 9e7593cd8bab0db4e8ccb25b5354e834, type: 2}
+  riddle1: {fileID: 11400000, guid: f8aa99ea2d9ac8845acdcaf2d26c1f7e, type: 2}

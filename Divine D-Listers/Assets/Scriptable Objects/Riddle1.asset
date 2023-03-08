@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11196b535f5e03145928d40156f9bebb, type: 3}
-  m_Name: phoenixTracker
+  m_Script: {fileID: 11500000, guid: 02781bfceb0c38d43a6f44ae7da677f9, type: 3}
+  m_Name: Riddle1
   m_EditorClassIdentifier: 
-  convoAt: 3
+  qName: Riddle1
+  isCompleted: 0
+  isStarted: 0

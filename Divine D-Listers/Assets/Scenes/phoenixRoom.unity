@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
-  missionsDone: {fileID: 11400000, guid: 9e7593cd8bab0db4e8ccb25b5354e834, type: 2}
+  riddle1: {fileID: 11400000, guid: f8aa99ea2d9ac8845acdcaf2d26c1f7e, type: 2}
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   playerPosition: {x: -27, y: 0}
   egg: {fileID: 21300000, guid: c8adf1e251f5f2740b8329ab3c98064d, type: 3}
