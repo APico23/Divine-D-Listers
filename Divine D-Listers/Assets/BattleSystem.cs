@@ -432,7 +432,6 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
         randNum = Random.Range(0, 10);
-        Debug.Log(randNum);
         if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum<7)
         {
             rounded = 5 * (enemyUnit.damage / 100f);
