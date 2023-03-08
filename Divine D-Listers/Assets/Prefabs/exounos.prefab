@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1666338304, guid: 1be81207abd360f4ab1f8563d3c51df6, type: 3}
+  m_Sprite: {fileID: 344700482, guid: 32b1dd6fd3ceef046a14a4a4bcd6ed99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   speed: 9
   maxHP: 21
   currentHp: 21
+  isDead: 0
 --- !u!95 &6526883554535980642
 Animator:
   serializedVersion: 5
