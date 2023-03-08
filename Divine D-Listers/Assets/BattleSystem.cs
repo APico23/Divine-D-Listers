@@ -395,7 +395,7 @@ public class BattleSystem : MonoBehaviour
             jormHealthBar.setHealth(playerUnit1.currentHp);
             dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
 
-            if (playerUnit1.currentHp > 0)
+            if (playerUnit1.currentHp <= 0)
             {
                 jormHp.text = "0/" + playerUnit1.maxHP;
             }
@@ -417,7 +417,7 @@ public class BattleSystem : MonoBehaviour
             dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
 
 
-            if (playerUnit2.currentHp > 0)
+            if (playerUnit2.currentHp <= 0)
             {
                 hameedaHp.text = "0/" + playerUnit2.maxHP;
             }
@@ -426,7 +426,7 @@ public class BattleSystem : MonoBehaviour
                 hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
             }
             
-            isDead(playerUnit1);
+            isDead(playerUnit2);
         }
         else if (randNum == 2 && !playerUnit3.isDead)
         {
@@ -439,7 +439,7 @@ public class BattleSystem : MonoBehaviour
             exounosHealthBar.setHealth(playerUnit3.currentHp);
             dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
 
-            if (playerUnit3.currentHp > 0)
+            if (playerUnit3.currentHp <= 0)
             {
                 exounosHp.text = "0/" + playerUnit3.maxHP;
             }
@@ -448,7 +448,7 @@ public class BattleSystem : MonoBehaviour
                 exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             }
             
-            isDead(playerUnit1);
+            isDead(playerUnit2);
         }
         else
         {
