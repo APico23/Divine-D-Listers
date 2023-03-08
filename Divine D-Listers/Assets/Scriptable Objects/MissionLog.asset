@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0234113a6775c4b9de0c3b04bb3137, type: 3}
   m_Name: MissionLog
   m_EditorClassIdentifier: 
-  riddle1Start: 1
+  riddle1Start: 0
   riddle1Done: 0
