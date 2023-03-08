@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allLines:
   - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
-    dialogue: Wait, who are you?
+    dialogue: Hail warriors! I am the great and powerful bird of fla-
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: That looks like a walking fried chicken.
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Maybe that's the answer?
-  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
-    dialogue: It looks pretty angry.
   - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
-    dialogue: "You won\u2019t leave this place alive!"
+    dialogue: What???? I am no chicken! I AM THE MAJEST-
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Well, best answer we've found so far. Let's get it.
+  - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
+    dialogue: How dare you! Bring it on!
