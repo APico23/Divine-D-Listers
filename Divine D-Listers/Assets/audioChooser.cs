@@ -12,15 +12,17 @@ public class audioChooser : MonoBehaviour
 
     void Start()
     {
-        speaker = GetComponent<AudioSource>();
-        speaker.clip = battleTheme;
-        speaker.Play();
+        //speaker = GetComponent<AudioSource>();
+        //speaker.clip = battleTheme;
+        //Debug.Log(speaker.clip.name);
+        //speaker.Play();
+        //Debug.Log(speaker.isPlaying);
     }
 
     // Update is called once per frame
     void Update()
     {
-        speaker.Stop();
+        //speaker.Stop();
 
     }
 }

@@ -10,25 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
-  m_Name: SphinxConvo
+  m_Name: SphinxConvo3
   m_EditorClassIdentifier: 
   allLines:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Halt, ye who wish to enter the Palace of Ra. To seek an audience with
-      the Creator, you must first pass my test.
-  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
-    dialogue: A riddle, right?
-  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Indeed. You must answer three riddles in order to pass through.
+    dialogue: Have you found the answer?
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
-    dialogue: THREE? What do you mean THREE?
+    dialogue: Fried chicken?
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Sorry, inflation is a nightmare.
-  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
-    dialogue: "It's fine, please, tell us the first riddle.\r"
-  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: What is my favorite food?
+    dialogue: No, I don't think so. Did you come up with anything else?
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
-    dialogue: What?
+    dialogue: We've got this phoenix egg...
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Is that your favorite food?
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Oh, yeah! That's what it was...
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: ... ... ... Did you forget?
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: What? Of course not!
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Just give us the next riddle.
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Who owes me 20 bucks?
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: You can't be serious.
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Return to me when you have found the answer.

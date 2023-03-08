@@ -17,5 +17,20 @@ MonoBehaviour:
     dialogue: Have you found the answer?
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: No, not yet.
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: So why is the new rule that you need to give three riddles?
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Then do not bother me.
+    dialogue: Anubis was getting on my case about security issues, apparently my
+      previous riddles were too "mainstream"
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Oh come on it couldn't have been that bad. What was the original riddle?
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: What has four legs in the morning, two legs-
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Man!
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: SEE! Everyone knows that one, it made my job so much easier.
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: Soooo, since we got the answer right can we go through?
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Nice try, come back when you know my favorite food.

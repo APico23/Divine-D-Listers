@@ -5958,6 +5958,7 @@ MonoBehaviour:
   convos:
   - {fileID: 11400000, guid: ff3a426293c573b4f8d2ee0918204b98, type: 2}
   - {fileID: 11400000, guid: 6265713276a275c44afa18adff5efcc4, type: 2}
+  - {fileID: 11400000, guid: 1e61c966a8a876f488121819f422a262, type: 2}
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &1795018209

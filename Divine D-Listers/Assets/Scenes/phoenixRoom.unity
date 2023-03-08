@@ -4071,18 +4071,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.21794531, y: 0.0146326125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 2.73, y: 2.31}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.73, y: 2.31}
+  m_Size: {x: 0.7431571, y: 0.87384576}
   m_EdgeRadius: 0
 --- !u!212 &623221610
 SpriteRenderer:
@@ -4125,12 +4125,12 @@ SpriteRenderer:
   m_SortingLayerID: 1564096457
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4fca5d602fedce4491a49d34f8dd0a6, type: 3}
+  m_Sprite: {fileID: 518393919, guid: 2a581f9f415c4d44cb3a91d25a71b867, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.73, y: 2.31}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4144,8 +4144,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623221607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.53, y: -0.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -31.03, y: 0.12, z: 0}
+  m_LocalScale: {x: 3.6782, y: 3.6782, z: 3.6782}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4166,6 +4166,7 @@ MonoBehaviour:
   convos:
   - {fileID: 11400000, guid: 7d3c92d213cbae349a67ba9a22ffc768, type: 2}
   - {fileID: 11400000, guid: 064e9ac7f9ad63d469c7c9d959a8141c, type: 2}
+  - {fileID: 11400000, guid: 277fdab8d376eb84fa5a9e23dc150008, type: 2}
   tracker: {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &623221614
@@ -4182,6 +4183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
   missionsDone: {fileID: 11400000, guid: 9e7593cd8bab0db4e8ccb25b5354e834, type: 2}
+  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  playerPosition: {x: -27, y: 0}
+  egg: {fileID: 21300000, guid: c8adf1e251f5f2740b8329ab3c98064d, type: 3}
 --- !u!1 &1383704915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,11 +4326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.35
+      value: -15.25
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.z

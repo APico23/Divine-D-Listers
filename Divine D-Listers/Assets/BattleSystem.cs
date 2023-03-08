@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum BattleState { START, JORMTURN, HAMEEDATURN, EXOUNOSTURN, ENEMYTURN, WON, LOST, PAUSE }
@@ -253,6 +254,7 @@ public class BattleSystem : MonoBehaviour
        {
             state = BattleState.WON;
             dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
+            StartCoroutine(winCoroutineWait());
        }    
 
     }
@@ -410,6 +412,12 @@ public class BattleSystem : MonoBehaviour
         isBattleWon();
         battleSequence();
     } 
+
+    private IEnumerator winCoroutineWait()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("phoenixRoom");
+    }
 
     private IEnumerator enemyCoroutine() 
     {
