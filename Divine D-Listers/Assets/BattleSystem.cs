@@ -287,6 +287,8 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit1.currentHp= playerUnit1.maxHP;
             }
+
+            jormHealthBar.setHealth(playerUnit1.currentHp);
         }
         if (playerUnit2.currentHp < playerUnit2.maxHP)
         {
@@ -295,6 +297,8 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit2.currentHp = playerUnit2.maxHP;
             }
+
+            hameedaHealthBar.setHealth(playerUnit2.currentHp);
         }
         if (playerUnit3.currentHp < playerUnit3.maxHP)
         {
@@ -303,6 +307,8 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit3.currentHp = playerUnit3.maxHP;
             }
+
+            exounosHealthBar.setHealth(playerUnit3.currentHp);
         }
         dialougeText.text ="The party dozes off for a moment before waking rejuvinated.";
         //code for attacks goes here
