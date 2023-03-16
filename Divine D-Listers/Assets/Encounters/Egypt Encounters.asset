@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38834859d83cde240a45fbbd478ed801, type: 3}
-  m_Name: Current Position
+  m_Script: {fileID: 11500000, guid: 6aeeb0c4d9a7fb84d883d2cc75b0342a, type: 3}
+  m_Name: Egypt Encounters
   m_EditorClassIdentifier: 
-  initialValue: {x: 20, y: -12}
-  currentScene: sphinxRoom
-  defaultValue: {x: 20, y: -12}
-  defaultScene: startingRoom
+  encounters:
+  - {fileID: 4714891483199731882, guid: 0182dad496312714fb2f32eac6c3de2e, type: 3}

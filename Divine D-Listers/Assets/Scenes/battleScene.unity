@@ -1168,7 +1168,7 @@ MonoBehaviour:
   jormPrefab: {fileID: 5414976602541213657, guid: 5a680178ced87544e8124d5be2b0bc20, type: 3}
   hameedaPrefab: {fileID: 7174722585883007405, guid: 691158315278a25478b7c14dd392ff0c, type: 3}
   exounosPrefab: {fileID: 8520190963824623131, guid: f84f586b3db954d49b356fa6d36308f0, type: 3}
-  enemyPrefab: {fileID: 4714891483199731882, guid: 0182dad496312714fb2f32eac6c3de2e, type: 3}
+  battleStart: {fileID: 0}
   jormHUD: {fileID: 937998985}
   hameedaHUD: {fileID: 1281682007}
   exounosHUD: {fileID: 1231043196}
@@ -1188,6 +1188,7 @@ MonoBehaviour:
   jormHealthBar: {fileID: 1584778987}
   hameedaHealthBar: {fileID: 83816153}
   exounosHealthBar: {fileID: 216327331}
+  currentPosition: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
 --- !u!4 &468622195
 Transform:
   m_ObjectHideFlags: 0

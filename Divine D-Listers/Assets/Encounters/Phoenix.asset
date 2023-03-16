@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aeeb0c4d9a7fb84d883d2cc75b0342a, type: 3}
-  m_Name: EgyptRandomEncounter
+  m_Name: Phoenix
   m_EditorClassIdentifier: 
   encounters:
-  - {fileID: 11400000, guid: 51e7c83c7e1ae954281316c8a9cfe1e4, type: 2}
-  - {fileID: 11400000, guid: 51e7c83c7e1ae954281316c8a9cfe1e4, type: 2}
+  - {fileID: 4714891483199731882, guid: 0182dad496312714fb2f32eac6c3de2e, type: 3}

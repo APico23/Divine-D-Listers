@@ -4186,6 +4186,7 @@ MonoBehaviour:
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   playerPosition: {x: -27, y: 0}
   egg: {fileID: 21300000, guid: c8adf1e251f5f2740b8329ab3c98064d, type: 3}
+  phoenixEnemy: {fileID: 11400000, guid: db31fd2c4354f0f4ea051a866302b438, type: 2}
 --- !u!1 &1383704915
 GameObject:
   m_ObjectHideFlags: 0

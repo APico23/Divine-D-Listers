@@ -10,6 +10,7 @@ public class phoenixManager : MonoBehaviour
     public VectorValue playerStorage;
     public Vector2 playerPosition;
     public Sprite egg;
+    public randomEncounters phoenixEnemy;
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -27,6 +28,7 @@ public class phoenixManager : MonoBehaviour
                 else if ((tracker.convoAt == 2) && (riddle1.isCompleted == false))
                 {
                     playerStorage.initialValue = playerPosition;
+                    GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(phoenixEnemy);
                     SceneManager.LoadScene("battleScene");
                     tracker.continueConvo();
                 }                
