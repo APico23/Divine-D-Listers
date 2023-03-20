@@ -1049,7 +1049,6 @@ MonoBehaviour:
   jormPrefab: {fileID: 5414976602541213657, guid: 5a680178ced87544e8124d5be2b0bc20, type: 3}
   hameedaPrefab: {fileID: 7174722585883007405, guid: 691158315278a25478b7c14dd392ff0c, type: 3}
   exounosPrefab: {fileID: 8520190963824623131, guid: f84f586b3db954d49b356fa6d36308f0, type: 3}
-<<<<<<< HEAD
   enemyPrefab: {fileID: 4714891483199731882, guid: 0182dad496312714fb2f32eac6c3de2e, type: 3}
   jormHUD: {fileID: 758023600}
   hameedaHUD: {fileID: 1565364951}
@@ -1058,13 +1057,7 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
-=======
   battleStart: {fileID: 0}
-  jormHUD: {fileID: 937998985}
-  hameedaHUD: {fileID: 1281682007}
-  exounosHUD: {fileID: 1231043196}
-  attack: {fileID: 308654869}
->>>>>>> 553fb09cd1b6e2779a273883534a53bd0aa0ee8e
   enemyBattleSpawn: {fileID: 1902739}
   jormBattleSpawn: {fileID: 1282965513}
   hameedaBattleSpawn: {fileID: 590583181}
@@ -3381,13 +3374,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
+
   m_AnchoredPosition: {x: 25.985538, y: 8.91735}
   m_SizeDelta: {x: 974.77686, y: 81.1907}
-=======
-  m_AnchoredPosition: {x: -163.36935, y: 130.99973}
-  m_SizeDelta: {x: 2896.3508, y: 958.0923}
->>>>>>> 553fb09cd1b6e2779a273883534a53bd0aa0ee8e
   m_Pivot: {x: 0.5, y: 0.4999997}
 --- !u!1 &1244719273
 GameObject:
@@ -3468,13 +3457,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
+
   m_AnchoredPosition: {x: 27.151154, y: -4.03}
   m_SizeDelta: {x: 947.6206, y: 532.83374}
-=======
-  m_AnchoredPosition: {x: -278, y: 166.46436}
-  m_SizeDelta: {x: 1663.0186, y: 958.0923}
->>>>>>> 553fb09cd1b6e2779a273883534a53bd0aa0ee8e
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1274598273
 GameObject:
