@@ -121,5 +121,10 @@ public class playerMove : MonoBehaviour
             //}
             body.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
         }
+        else
+        {
+            isMoving = false;
+        }
+        
     }
 }

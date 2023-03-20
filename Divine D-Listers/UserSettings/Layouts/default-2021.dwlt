@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 677.3334
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 302
     height: 627.3333
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 99
+  controlID: 65
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 100
+  controlID: 52
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,23 +317,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/URP
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets
+  - Assets/URP
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\PicoAustin\OneDrive - University of Wisconsin-Stout\Documents\GitHub\Divine-D-Listers\Divine
     D-Listers
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44620000
-    m_LastClickedID: 25156
-    m_ExpandedIDs: 00000000386200003a6200003c6200003e62000000ca9a3b
+    scrollPos: {x: 0, y: 266.33334}
+    m_SelectedIDs: 3ec30000
+    m_LastClickedID: 49982
+    m_ExpandedIDs: 00000000d6610000d8610000da610000dc6100004e62000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000386200003a6200003c6200003e620000
+    m_ExpandedIDs: 00000000d6610000d8610000da610000dc610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -489,9 +489,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 92610000
+      m_SelectedIDs: 3ec30000
       m_LastClickedID: 0
-      m_ExpandedIDs: 38cbffff02cdffffb8cdffff0ad2ffff3edeffffd0f1ffffd2f9ffff2afbfffff4ffffff
+      m_ExpandedIDs: 14ecffffd6f7ffff32f8ffffd8f9ffff2afbffffe8620000a6630000ce630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -795,9 +795,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 16.115763, y: -16.25506, z: -24.629875}
+    m_Target: {x: 14.756396, y: -17.998613, z: -23.957779}
     speed: 2
-    m_Value: {x: 16.115763, y: -16.25506, z: -24.629875}
+    m_Value: {x: 14.756396, y: -17.998613, z: -23.957779}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -848,9 +848,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.900364
+    m_Target: 7.366416
     speed: 2
-    m_Value: 9.900364
+    m_Value: 7.366416
   m_Ortho:
     m_Target: 1
     speed: 2
