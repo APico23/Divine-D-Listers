@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11196b535f5e03145928d40156f9bebb, type: 3}
   m_Name: phoenixTracker
   m_EditorClassIdentifier: 
-  convoAt: 0
+  convoAt: 3

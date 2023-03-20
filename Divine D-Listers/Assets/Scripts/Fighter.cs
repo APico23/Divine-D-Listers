@@ -1,9 +1,6 @@
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "New Fighter", menuName = "Battle/New Fighter")]
-
-public class Fighter : ScriptableObject
+public class Fighter : MonoBehaviour
 {
     [SerializeField] private Stats stats;
     [SerializeField] private Sprite sprite;

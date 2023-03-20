@@ -8,7 +8,7 @@ public class sphinxManager : MonoBehaviour
 {
 
     public convoTracker tracker;
-    public playerMissions missionsDone;
+    public Quest riddle1;
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,11 +17,11 @@ public class sphinxManager : MonoBehaviour
             {
                 dialogueStarter.startConvo();
                 tracker.continueConvo();
-                missionsDone.riddle1Start= true;
+                riddle1.isStarted = true;
             }
             else
             {
-                if (missionsDone.riddle1Done)
+                if (riddle1.isCompleted)
                 {
                     tracker.continueConvo();
                     dialogueStarter.startConvo();

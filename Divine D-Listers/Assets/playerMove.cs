@@ -17,6 +17,7 @@ public class playerMove : MonoBehaviour
     public float vf = 0.0f;
 
     public bool canMove;
+    public bool isMoving;
 
     public VectorValue startingPosition;
 
@@ -88,11 +89,13 @@ public class playerMove : MonoBehaviour
             {
                 footstepsAudio.Play();
                 audioPlayingNow = true;
+                isMoving = true;
             }
             if (horizontal == 0 && vertical == 0)
             {
                 footstepsAudio.Stop();
                 audioPlayingNow = false;
+                isMoving = false;
             }
 
             //if (horizontal != 0)
@@ -118,5 +121,10 @@ public class playerMove : MonoBehaviour
             //}
             body.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
         }
+        else
+        {
+            isMoving = false;
+        }
+        
     }
 }

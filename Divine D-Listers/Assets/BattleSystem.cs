@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public enum BattleState { START, JORMTURN, HAMEEDATURN, EXOUNOSTURN, ENEMYTURN, WON, LOST, PAUSE }
 
+
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
@@ -15,7 +16,10 @@ public class BattleSystem : MonoBehaviour
     public GameObject jormPrefab;
     public GameObject hameedaPrefab;
     public GameObject exounosPrefab;
-    public GameObject enemyPrefab;
+
+    public battleStarter battleStart;
+
+    private GameObject enemyPrefab;
 
     public GameObject jormHUD;
     public GameObject hameedaHUD;
@@ -59,7 +63,8 @@ public class BattleSystem : MonoBehaviour
     public newHealthBar jormHealthBar;
     public newHealthBar hameedaHealthBar;
     public newHealthBar exounosHealthBar;
-    
+
+    public VectorValue currentPosition;
    
 
     public IEnumerator testing;
@@ -70,6 +75,7 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
+        battleStart = GameObject.Find("BattleStarter").GetComponent<battleStarter>();
         setupBattle();
     }
 
@@ -78,7 +84,8 @@ public class BattleSystem : MonoBehaviour
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
-        
+
+        enemyPrefab = battleStart.enemyMain.getRandomFighter();
 
         GameObject playerGO = Instantiate(jormPrefab, jormBattleSpawn);
         playerUnit1 = playerGO.GetComponent<Unit>();
@@ -428,7 +435,7 @@ public class BattleSystem : MonoBehaviour
     private IEnumerator winCoroutineWait()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("phoenixRoom");
+        SceneManager.LoadScene(currentPosition.currentScene);
     }
 
     private IEnumerator enemyCoroutine() 

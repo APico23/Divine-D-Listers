@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class randomEncounters : ScriptableObject
 {
-    [SerializeField] private Fighter[] encounters;
+    [SerializeField] private GameObject[] encounters;
 
-    public Fighter getFighter(int index)
+    public GameObject getFighter(int index)
     {
         return encounters[index];
     }
     
-    public Fighter getRandomFighter()
+    public GameObject getRandomFighter()
     {
         int rand = Random.Range(0, encounters.Length-1);
         return encounters[rand];
