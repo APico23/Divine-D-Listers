@@ -21,6 +21,9 @@ public class BattleSystem : MonoBehaviour
     public GameObject hameedaHUD;
     public GameObject exounosHUD;
     public GameObject attack;
+    public GameObject jormStats;
+    public GameObject hameedaStats;
+    public GameObject exounosStats;
 
     private int jormDamage;
     private int hameedaDamage;
@@ -98,9 +101,9 @@ public class BattleSystem : MonoBehaviour
         exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
         exounosHealthBar.setHealth(playerUnit3.maxHP);
       
-        jormLevel.text = "Lv. " + playerUnit1.unitLevel;
-        hameedaLevel.text = "Lv. " + playerUnit2.unitLevel;
-        exounosLevel.text = "Lv. " + playerUnit3.unitLevel;
+        jormLevel.text = "" + playerUnit1.unitLevel;
+        hameedaLevel.text = "" + playerUnit2.unitLevel;
+        exounosLevel.text = "" + playerUnit3.unitLevel;
         jormHp.text = playerUnit1.maxHP + "/" + playerUnit1.currentHp;
         hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
         exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
@@ -113,7 +116,7 @@ public class BattleSystem : MonoBehaviour
 
     void battleSequence()
     {
-        initiaviteHUD.text = "Turn order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
+        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
         attack.SetActive(false);
         if (turnNum > 3)
         {
@@ -235,14 +238,17 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.JORMTURN)
         {
+            jormStats.SetActive(false);
             jormHUD.SetActive(true);
         }
         else if (state == BattleState.HAMEEDATURN)
         {
+            hameedaStats.SetActive(false);
             hameedaHUD.SetActive(true);
         }
         else if (state == BattleState.EXOUNOSTURN)
         {
+            exounosStats.SetActive(false);
             exounosHUD.SetActive(true);
         }
     }
@@ -264,6 +270,7 @@ public class BattleSystem : MonoBehaviour
         isCrit = false;
         crit=Random.Range(1, 201);
         jormHUD.SetActive(false);
+        jormStats.SetActive(true);
         rounded =8 * (playerUnit1.damage / 100f);
         if (rounded < 1) rounded = 1;
         jormDamage = Mathf.RoundToInt(8 * rounded);
@@ -281,6 +288,7 @@ public class BattleSystem : MonoBehaviour
     public void qualityAssurance() 
     {
         jormHUD.SetActive(false);
+        jormStats.SetActive(true);
         if (playerUnit1.defence <= (playerUnit1.defence + Mathf.RoundToInt(playerUnit1.defence * .25f)))
         {
             playerUnit1.defence += 1;
@@ -302,6 +310,7 @@ public class BattleSystem : MonoBehaviour
     public void yawn() 
     {
         exounosHUD.SetActive(false);
+        exounosStats.SetActive(true);
         if (enemyUnit.speed >= (enemyUnit.speed - Mathf.RoundToInt(enemyUnit.speed * .25f)))
         {
             enemyUnit.speed -= 1;
@@ -318,6 +327,7 @@ public class BattleSystem : MonoBehaviour
     public void powerNap() 
     {
         exounosHUD.SetActive(false);
+        exounosStats.SetActive(true);
         if (playerUnit1.currentHp < playerUnit1.maxHP)
         {
             playerUnit1.currentHp += 4;
@@ -357,6 +367,7 @@ public class BattleSystem : MonoBehaviour
     {
         isCrit = false;
         hameedaHUD.SetActive(false);
+        hameedaStats.SetActive(true);
         crit = Random.Range(1, 201);
         rounded = 10 * (playerUnit2.damage / 100f);
         if (rounded < 1) rounded = 1;
@@ -376,6 +387,7 @@ public class BattleSystem : MonoBehaviour
     public void itsNotAPhase()
     {
         hameedaHUD.SetActive(false);
+        hameedaStats.SetActive(true);
         if (playerUnit2.damage <= (playerUnit2.damage + Mathf.RoundToInt(playerUnit2.damage * .25f)))
         {
             playerUnit2.damage += 1;
