@@ -167,7 +167,7 @@ Transform:
   - {fileID: 462967693}
   - {fileID: 2042159337}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &137787943 stripped
 Transform:
@@ -283,7 +283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &462967692
 GameObject:
@@ -4622,6 +4622,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4664,7 +4666,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.7443607
+  orthographic size: 2.85
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4688,13 +4690,62 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00999999, y: 0, z: -10}
+  m_LocalPosition: {x: -6.9, y: -5.03, z: -10}
   m_LocalScale: {x: 2.0909705, y: 2.0909705, z: 2.0909705}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 137787943}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ec53b1fc504fb408372714e2401c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 137787943}
+  smoothing: 1
+  maxPosition: {x: 6.93, y: 5.11}
+  minPosition: {x: -6.9, y: -5}
 --- !u!1001 &1486161756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4704,7 +4755,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4785,7 +4836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6009,7 +6060,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6066,7 +6117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_LocalPosition.x
