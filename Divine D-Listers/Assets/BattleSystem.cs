@@ -289,6 +289,7 @@ public class BattleSystem : MonoBehaviour
             damageDone *= 2;
         }
         enemyUnit.currentHp -= damageDone;
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));   
     }
 
@@ -310,6 +311,7 @@ public class BattleSystem : MonoBehaviour
         }
         dialougeText.text = "Jorm makes sure the party is safe. Just a few extra nails in place.";
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
        
     }
@@ -328,6 +330,7 @@ public class BattleSystem : MonoBehaviour
             dialougeText.text = "The " + enemyUnit.unitName + " is drowzy enough.";
         }
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -367,6 +370,7 @@ public class BattleSystem : MonoBehaviour
         }
         dialougeText.text ="The party dozes off for a moment before waking rejuvinated.";
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -387,6 +391,7 @@ public class BattleSystem : MonoBehaviour
             damageDone *= 2;
         }
         enemyUnit.currentHp -= damageDone;
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit));
         //code for attacks goes here
     }
@@ -405,6 +410,7 @@ public class BattleSystem : MonoBehaviour
             dialougeText.text = playerUnit2.unitName + " has gained the most energy she can handle.";
         }
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
