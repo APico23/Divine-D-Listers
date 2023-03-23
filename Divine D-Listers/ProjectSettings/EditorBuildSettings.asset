@@ -32,4 +32,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/buttonMinigame.unity
     guid: 2793b78ed281131419cc75fff576247c
+  - enabled: 1
+    path: Assets/Scenes/ammitRoom.unity
+    guid: 83093916554c0664f8f5f2bbdd6117ef
+  - enabled: 1
+    path: Assets/Scenes/village.unity
+    guid: f9d4be08656f1774eafb1173cc609ea1
+  - enabled: 1
+    path: Assets/Scenes/goldStash.unity
+    guid: ef479a889a357b94e87545c43732de14
+  - enabled: 1
+    path: Assets/Scenes/goldStashUnlock.unity
+    guid: f034d4764a3b8854b9c7cf278fd8d1bc
   m_configObjects: {}
