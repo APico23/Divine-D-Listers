@@ -14,7 +14,7 @@ public class randomEncounters : ScriptableObject
     
     public GameObject getRandomFighter()
     {
-        int rand = Random.Range(0, encounters.Length-1);
+        int rand = Random.Range(0, encounters.Length);
         return encounters[rand];
     }
 }
