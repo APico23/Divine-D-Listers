@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38834859d83cde240a45fbbd478ed801, type: 3}
   m_Name: Current Position
   m_EditorClassIdentifier: 
-  initialValue: {x: 20, y: -12}
-  currentScene: mainRoom1
-  defaultValue: {x: 20, y: -12}
+  initialValue: {x: -0.46, y: 2.53}
+  currentScene: realmOfForgottenGods
+  defaultValue: {x: -0.46, y: 2.53}
+  defaultScene: realmOfForgottenGods
