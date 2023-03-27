@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 1958064945161155510}
   unitName: Phoenix
   unitLevel: 6
   damage: 19
@@ -109,6 +110,7 @@ MonoBehaviour:
   maxHP: 22
   currentHp: 22
   isDead: 0
+  isAttacking: 0
 --- !u!95 &1958064945161155510
 Animator:
   serializedVersion: 5
