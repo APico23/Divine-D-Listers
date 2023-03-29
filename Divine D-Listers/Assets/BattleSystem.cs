@@ -289,6 +289,7 @@ public class BattleSystem : MonoBehaviour
             damageDone *= 2;
         }
         enemyUnit.currentHp -= damageDone;
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));   
     }
 
@@ -310,6 +311,7 @@ public class BattleSystem : MonoBehaviour
         }
         StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
        
     }
@@ -328,6 +330,7 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " is drowzy enough."));
         }
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -367,6 +370,7 @@ public class BattleSystem : MonoBehaviour
         }
         StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -387,6 +391,7 @@ public class BattleSystem : MonoBehaviour
             damageDone *= 2;
         }
         enemyUnit.currentHp -= damageDone;
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit));
         //code for attacks goes here
     }
@@ -405,6 +410,7 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(TypeText(playerUnit2.unitName + " has gained the most energy she can handle."));
         }
         //code for attacks goes here
+        attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -442,162 +448,25 @@ public class BattleSystem : MonoBehaviour
     {
         //any code before yeild runs on first frame
         //yield return null;
+
         StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
         int randNum;
+
         double unit1 = playerUnit1.maxHP;
         double unit2 = playerUnit2.maxHP;
         double unit3 = playerUnit3.maxHP;
         //runs code up to this point on first frame then waits 3 seconds.
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
-        randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum<7)
+        if (enemyUnit.unitName == "Phoenix")
         {
-            rounded = 5 * (enemyUnit.damage / 100f);
-            if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(5 * rounded);
-            StartCoroutine(TypeText(enemyUnit.unitName + " breathes fire"));
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-            playerUnit1.currentHp -= damageDone;
-            if (playerUnit1.currentHp <= 0)
-            {
-                playerUnit1.currentHp = 0;
-            }
-            jormHealthBar.setHealth(playerUnit1.currentHp);
-            if (playerUnit1.currentHp <= 0)
-            {
-                jormHp.text = "0/" + playerUnit1.maxHP;
-            }
-            else
-            {
-                jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
-            }
-            isDead(playerUnit1);
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-            playerUnit2.currentHp -= damageDone;
-            if (playerUnit2.currentHp <= 0)
-            {
-                playerUnit2.currentHp = 0;
-            }
-            hameedaHealthBar.setHealth(playerUnit2.currentHp);
-            if (playerUnit2.currentHp <= 0)
-            {
-                hameedaHp.text = "0/" + playerUnit2.maxHP;
-            }
-            else
-            {
-                hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
-            }
 
-            isDead(playerUnit2);
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-            playerUnit3.currentHp -= damageDone;
-            if (playerUnit3.currentHp <= 0)
-            {
-                playerUnit3.currentHp = 0;
-            }
-            exounosHealthBar.setHealth(playerUnit3.currentHp);
-            if (playerUnit3.currentHp <= 0)
-            {
-                exounosHp.text = "0/" + playerUnit3.maxHP;
-            }
-            else
-            {
-                exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
-            }
-
-            isDead(playerUnit3);
+            Pheonix(randNum, unit1, unit2, unit3);
         }
         else
         {
-            randNum = Random.Range(0, 3);
-            crit = Random.Range(1, 201);
-            rounded = 10 * (enemyUnit.damage / 100f);
-            if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            basic(randNum, unit1,unit2,unit3);
 
-            if (randNum == 0 && !playerUnit1.isDead)
-            {
-                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-                if (crit <= enemyUnit.luck)
-                {
-                    damageDone *= 2;
-                }
-                playerUnit1.currentHp -= damageDone;
-                if (playerUnit1.currentHp <= 0)
-                {
-                    playerUnit1.currentHp = 0;
-                }
-                jormHealthBar.setHealth(playerUnit1.currentHp);
-                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
-
-                if (playerUnit1.currentHp <= 0)
-                {
-                    jormHp.text = "0/" + playerUnit1.maxHP;
-                }
-                else
-                {
-                    jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
-                }
-                isDead(playerUnit1);
-            }
-            else if (randNum == 1 && !playerUnit2.isDead)
-            {
-                if (crit <= enemyUnit.luck)
-                {
-                    damageDone *= 2;
-                }
-                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-                playerUnit2.currentHp -= damageDone;
-                if (playerUnit2.currentHp <= 0)
-                {
-                    playerUnit2.currentHp = 0;
-                }
-                hameedaHealthBar.setHealth(playerUnit2.currentHp);
-                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
-
-
-                if (playerUnit2.currentHp <= 0)
-                {
-                    hameedaHp.text = "0/" + playerUnit2.maxHP;
-                }
-                else
-                {
-                    hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
-                }
-
-                isDead(playerUnit2);
-            }
-            else if (randNum == 2 && !playerUnit3.isDead)
-            {
-                if (crit <= enemyUnit.luck)
-                {
-                    damageDone *= 2;
-                }
-                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-                playerUnit3.currentHp -= damageDone;
-                if (playerUnit3.currentHp <= 0)
-                {
-                    playerUnit3.currentHp = 0;
-                }
-                exounosHealthBar.setHealth(playerUnit3.currentHp);
-                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
-
-                if (playerUnit3.currentHp <= 0)
-                {
-                    exounosHp.text = "0/" + playerUnit3.maxHP;
-                }
-                else
-                {
-                    exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
-                }
-
-                isDead(playerUnit3);
-            }
-            else
-            {
-                StartCoroutine(TypeText("The attack missed!"));
-            }
         }
         yield return new WaitForSeconds(2);
         //any code after runs one frame after the first frame;
@@ -618,6 +487,7 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(TypeText("You lose!"));
         }
     }
+
 
     private IEnumerator TypeText(string text)
     {
@@ -640,4 +510,161 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    void damaged(Unit player, int target, int damage)
+    {
+        player.currentHp -= damageDone;
+        if (player.currentHp <= 0)
+        {
+            player.currentHp = 0;
+        }
+        if (target == 0)
+        {
+            jormHealthBar.setHealth(player.currentHp);
+            if (player.currentHp <= 0)
+            {
+                jormHp.text = "0/" + player.maxHP;
+            }
+            else
+            {
+                jormHp.text = player.currentHp + "/" + player.maxHP;
+            }
+        }
+        else if (target == 1)
+        {
+            hameedaHealthBar.setHealth(player.currentHp);
+            if (player.currentHp <= 0)
+            {
+                hameedaHp.text = "0/" + player.maxHP;
+            }
+            else
+            {
+                hameedaHp.text = player.currentHp + "/" + player.maxHP;
+            }
+
+        }
+        else if (target == 2)
+        {
+            exounosHealthBar.setHealth(player.currentHp);
+            if (player.currentHp <= 0)
+            {
+                exounosHp.text = "0/" + player.maxHP;
+            }
+            else
+            {
+                exounosHp.text = player.currentHp + "/" + player.maxHP;
+            }
+        }
+        isDead(player);
+    }
+
+    void Pheonix(int randNum, double unit1, double unit2, double unit3 )
+    {
+        randNum = Random.Range(0, 10);
+        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum < 7)
+        {
+            rounded = 5 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            dialougeText.text = enemyUnit.unitName + " breathes fire";
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
+
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
+
+            }
+            else
+            {
+                dialougeText.text = "The attack missed!";
+            }
+        }
+    }
+    void basic(int randNum, double unit1, double unit2, double unit3)
+    {
+        randNum = Random.Range(0, 3);
+        crit = Random.Range(1, 201);
+        rounded = 10 * (enemyUnit.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+        if (randNum == 0 && !playerUnit1.isDead)
+        {
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            if (crit <= enemyUnit.luck)
+            {
+                damageDone *= 2;
+            }
+            damaged(playerUnit1, 0, damageDone);
+            dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
+
+        }
+        else if (randNum == 1 && !playerUnit2.isDead)
+        {
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            if (crit <= enemyUnit.luck)
+            {
+                damageDone *= 2;
+            }
+            damaged(playerUnit2, 1, damageDone);
+            dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
+        }
+        else if (randNum == 2 && !playerUnit3.isDead)
+        {
+
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            if (crit <= enemyUnit.luck)
+            {
+                damageDone *= 2;
+            }
+            damaged(playerUnit3, 2, damageDone);
+            dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
+
+        }
+        else
+        {
+            dialougeText.text = "The attack missed!";
+        }
+    }
 }
+    
