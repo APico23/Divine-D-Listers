@@ -450,7 +450,7 @@ public class BattleSystem : MonoBehaviour
         //yield return null;
 
         StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
-        int randNum;
+        int randNum=0;
 
         double unit1 = playerUnit1.maxHP;
         double unit2 = playerUnit2.maxHP;
