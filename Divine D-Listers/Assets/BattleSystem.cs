@@ -48,7 +48,7 @@ public class BattleSystem : MonoBehaviour
     Unit enemyUnit;
 
     private string[] speeds = new string[3];
-   
+
     public Text dialougeText;
     public Text initiaviteHUD;
     public Text jormLevel;
@@ -103,10 +103,10 @@ public class BattleSystem : MonoBehaviour
 
         hameedaHealthBar.setMaxHealth(playerUnit2.maxHP);
         hameedaHealthBar.setHealth(playerUnit2.maxHP);
-      
+
         exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
         exounosHealthBar.setHealth(playerUnit3.maxHP);
-      
+
         jormLevel.text = "" + playerUnit1.unitLevel;
         hameedaLevel.text = "" + playerUnit2.unitLevel;
         exounosLevel.text = "" + playerUnit3.unitLevel;
@@ -131,7 +131,8 @@ public class BattleSystem : MonoBehaviour
         }
         Debug.Log(speeds[turnNum]);
         //make this a switch case later
-        if (state != BattleState.WON){
+        if (state != BattleState.WON)
+        {
             if (speeds[turnNum] == "Jorm")
             {
                 if (playerUnit1.isDead)
@@ -154,7 +155,8 @@ public class BattleSystem : MonoBehaviour
                     turnNum++;
                     battleSequence();
                 }
-                else {
+                else
+                {
                     turnNum++;
                     state = BattleState.HAMEEDATURN;
                     attack.SetActive(true);
@@ -183,51 +185,55 @@ public class BattleSystem : MonoBehaviour
                     turnNum++;
                     battleSequence();
                 }
-                else {
+                else
+                {
                     turnNum++;
                     state = BattleState.ENEMYTURN;
                     StartCoroutine(enemyCoroutine());
                 }
             }
-            
-            
+
+
         }
     }
 
-    string[] getInitiative() 
-        {
+    string[] getInitiative()
+    {
         //take in all player and enemy names and speeds
         string[] tempArr = { "Jorm", "Hameeda", "Exounos", "Enemy" };
         int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed };
         //sort it from highest to lowest
 
         bool swappedSomething = true;
-        while (swappedSomething) { 
-            swappedSomething = false;   
-            for (int i = 0; i < 3; i++) { 
-                if (entitySpeeds[i] < entitySpeeds[i + 1]) {
-                    
+        while (swappedSomething)
+        {
+            swappedSomething = false;
+            for (int i = 0; i < 3; i++)
+            {
+                if (entitySpeeds[i] < entitySpeeds[i + 1])
+                {
+
                     int tempSpeed = entitySpeeds[i];
                     entitySpeeds[i] = entitySpeeds[i + 1];
                     entitySpeeds[i + 1] = tempSpeed;
 
                     string tempState = tempArr[i];
                     tempArr[i] = tempArr[i + 1];
-                    tempArr[i + 1] = tempState; 
+                    tempArr[i + 1] = tempState;
 
-                    swappedSomething = true; 
+                    swappedSomething = true;
                 }
             }
         }
         //spit it back out    
-       
-        return tempArr; 
+
+        return tempArr;
     }
 
     void jormTurn()
     {
         StartCoroutine(TypeText("What will Jorm do?"));
-        
+
     }
 
     void hameedaTurn()
@@ -237,7 +243,7 @@ public class BattleSystem : MonoBehaviour
 
     void exounosTurn()
     {
-        StartCoroutine(TypeText("What will Exounos do?")); 
+        StartCoroutine(TypeText("What will Exounos do?"));
     }
 
     public void attackButton()
@@ -258,27 +264,27 @@ public class BattleSystem : MonoBehaviour
             exounosHUD.SetActive(true);
         }
     }
-    
+
     void isBattleWon()
     {
-       if (enemyUnit.currentHp <= 0) 
+        if (enemyUnit.currentHp <= 0)
 
-       {
+        {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
             StartCoroutine(winCoroutineWait());
-       }    
+        }
 
     }
 
     public void takeASeat()
     {
-        
+
         isCrit = false;
-        crit=Random.Range(1, 201);
+        crit = Random.Range(1, 201);
         jormHUD.SetActive(false);
         jormStats.SetActive(true);
-        rounded =8 * (playerUnit1.damage / 100f);
+        rounded = 8 * (playerUnit1.damage / 100f);
         if (rounded < 1) rounded = 1;
         jormDamage = Mathf.RoundToInt(8 * rounded);
         damageDone = jormDamage - Mathf.RoundToInt(jormDamage * (enemyUnit.defence / 100f));
@@ -290,10 +296,10 @@ public class BattleSystem : MonoBehaviour
         }
         enemyUnit.currentHp -= damageDone;
         attack.SetActive(false);
-        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));   
+        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));
     }
 
-    public void qualityAssurance() 
+    public void qualityAssurance()
     {
         jormHUD.SetActive(false);
         jormStats.SetActive(true);
@@ -313,10 +319,10 @@ public class BattleSystem : MonoBehaviour
         //code for attacks goes here
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
-       
+
     }
 
-    public void yawn() 
+    public void yawn()
     {
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
@@ -334,7 +340,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
-    public void powerNap() 
+    public void powerNap()
     {
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
@@ -343,7 +349,7 @@ public class BattleSystem : MonoBehaviour
             playerUnit1.currentHp += 4;
             if (playerUnit1.currentHp > playerUnit1.maxHP && !playerUnit1.isDead)
             {
-                playerUnit1.currentHp= playerUnit1.maxHP;
+                playerUnit1.currentHp = playerUnit1.maxHP;
             }
             jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
             jormHealthBar.setHealth(playerUnit1.currentHp);
@@ -374,7 +380,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
-    public void kohldShoulder() 
+    public void kohldShoulder()
     {
         isCrit = false;
         hameedaHUD.SetActive(false);
@@ -420,7 +426,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        if (b) 
+        if (b)
         {
             StartCoroutine(TypeText("A CRITICAL HIT!"));
             yield return new WaitForSeconds(3);
@@ -430,13 +436,13 @@ public class BattleSystem : MonoBehaviour
         battleSequence();
     }
 
-    private IEnumerator playerCoroutineNeutral() 
+    private IEnumerator playerCoroutineNeutral()
     {
         yield return new WaitForSeconds(3);
         state = BattleState.PAUSE;
         isBattleWon();
         battleSequence();
-    } 
+    }
 
     private IEnumerator winCoroutineWait()
     {
@@ -444,13 +450,13 @@ public class BattleSystem : MonoBehaviour
         SceneManager.LoadScene(currentPosition.currentScene);
     }
 
-    private IEnumerator enemyCoroutine() 
+    private IEnumerator enemyCoroutine()
     {
         //any code before yeild runs on first frame
         //yield return null;
 
         StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
-        int randNum=0;
+        int randNum = 0;
 
         double unit1 = playerUnit1.maxHP;
         double unit2 = playerUnit2.maxHP;
@@ -463,9 +469,14 @@ public class BattleSystem : MonoBehaviour
 
             Pheonix(randNum, unit1, unit2, unit3);
         }
+        else if (enemyUnit.unitName == "Ammit")
+        {
+
+            Ammit(randNum, unit1, unit2, unit3);
+        }
         else
         {
-            basic(randNum, unit1,unit2,unit3);
+            basic(randNum, unit1, unit2, unit3);
 
         }
         yield return new WaitForSeconds(2);
@@ -474,14 +485,14 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    void isDead(Unit player) 
+    void isDead(Unit player)
     {
         if (player.currentHp <= 0)
         {
             player.isDead = true;
-        } 
+        }
 
-        if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead) 
+        if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead)
         {
             state = BattleState.LOST;
             StartCoroutine(TypeText("You lose!"));
@@ -557,7 +568,7 @@ public class BattleSystem : MonoBehaviour
         isDead(player);
     }
 
-    void Pheonix(int randNum, double unit1, double unit2, double unit3 )
+    void Pheonix(int randNum, double unit1, double unit2, double unit3)
     {
         randNum = Random.Range(0, 10);
         if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum < 7)
@@ -589,7 +600,7 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit1, 0, damageDone);
-                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));               
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
 
             }
             else if (randNum == 1 && !playerUnit2.isDead)
@@ -601,7 +612,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 damaged(playerUnit2, 1, damageDone);
                 StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
-               
+
             }
             else if (randNum == 2 && !playerUnit3.isDead)
             {
@@ -616,7 +627,7 @@ public class BattleSystem : MonoBehaviour
 
             }
             else
-            {                
+            {
                 StartCoroutine(TypeText("The attack missed!"));
             }
         }
@@ -667,5 +678,68 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(TypeText("The attack missed!"));
         }
     }
+    void Ammit(int randNum, double unit1, double unit2, double unit3)
+    {
+        randNum = Random.Range(0, 10);
+        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum < 7)
+        {
+            rounded = 8 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            StartCoroutine(TypeText(enemyUnit.unitName + " slams the ground and rocks fall from the ceiling."));
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+
+            }
+            else
+            {
+                StartCoroutine(TypeText("The attack missed!"));
+            }
+        }
+    }
 }
-    
