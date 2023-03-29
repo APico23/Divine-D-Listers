@@ -8,6 +8,7 @@ public class audioChooser : MonoBehaviour
     private AudioSource speaker;
     public AudioClip mainTheme;
     public AudioClip battleTheme;
+    public AudioClip realmTheme;
 
 
     void Start()
