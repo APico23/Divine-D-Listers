@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 4720867034053284128}
   unitName: Hameeda
   unitLevel: 1
   damage: 21
@@ -109,6 +110,7 @@ MonoBehaviour:
   maxHP: 13
   currentHp: 13
   isDead: 0
+  isAttacking: 0
 --- !u!95 &4720867034053284128
 Animator:
   serializedVersion: 5

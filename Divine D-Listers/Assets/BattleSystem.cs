@@ -65,7 +65,6 @@ public class BattleSystem : MonoBehaviour
     public newHealthBar exounosHealthBar;
 
     public VectorValue currentPosition;
-   
 
     public IEnumerator testing;
 
@@ -115,7 +114,7 @@ public class BattleSystem : MonoBehaviour
         hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
         exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
 
-        dialougeText.text = enemyUnit.unitName + " approaches!";
+        StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
 
         speeds = getInitiative();
         battleSequence();
@@ -227,18 +226,18 @@ public class BattleSystem : MonoBehaviour
 
     void jormTurn()
     {
-        dialougeText.text = "What will Jorm do?";
+        StartCoroutine(TypeText("What will Jorm do?"));
         
     }
 
     void hameedaTurn()
     {
-        dialougeText.text = "What will Hameeda do?";
+        StartCoroutine(TypeText("What will Hameeda do?"));
     }
 
     void exounosTurn()
     {
-        dialougeText.text = "What will Exounos do?"; 
+        StartCoroutine(TypeText("What will Exounos do?")); 
     }
 
     public void attackButton()
@@ -266,7 +265,7 @@ public class BattleSystem : MonoBehaviour
 
        {
             state = BattleState.WON;
-            dialougeText.text = "The " + enemyUnit.unitName + " has been slain! YOU WIN!";
+            StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
             StartCoroutine(winCoroutineWait());
        }    
 
@@ -274,6 +273,7 @@ public class BattleSystem : MonoBehaviour
 
     public void takeASeat()
     {
+        
         isCrit = false;
         crit=Random.Range(1, 201);
         jormHUD.SetActive(false);
@@ -309,7 +309,7 @@ public class BattleSystem : MonoBehaviour
         {
             playerUnit3.defence += 1;
         }
-        dialougeText.text = "Jorm makes sure the party is safe. Just a few extra nails in place.";
+        StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
         //code for attacks goes here
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
@@ -323,11 +323,11 @@ public class BattleSystem : MonoBehaviour
         if (enemyUnit.speed >= (enemyUnit.speed - Mathf.RoundToInt(enemyUnit.speed * .25f)))
         {
             enemyUnit.speed -= 1;
-            dialougeText.text = "The " + enemyUnit.unitName + " grows drowzy.";
+            StartCoroutine(TypeText("The " + enemyUnit.unitName + " grows drowzy."));
         }
         else
         {
-            dialougeText.text = "The " + enemyUnit.unitName + " is drowzy enough.";
+            StartCoroutine(TypeText("The " + enemyUnit.unitName + " is drowzy enough."));
         }
         //code for attacks goes here
         attack.SetActive(false);
@@ -368,7 +368,7 @@ public class BattleSystem : MonoBehaviour
             exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             exounosHealthBar.setHealth(playerUnit3.currentHp);
         }
-        dialougeText.text ="The party dozes off for a moment before waking rejuvinated.";
+        StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
@@ -403,11 +403,11 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit2.damage <= (playerUnit2.damage + Mathf.RoundToInt(playerUnit2.damage * .25f)))
         {
             playerUnit2.damage += 1;
-            dialougeText.text = playerUnit2.unitName + " gathers magical energy.";
+            StartCoroutine(TypeText(playerUnit2.unitName + " gathers magical energy."));
         }
         else
         {
-            dialougeText.text = playerUnit2.unitName + " has gained the most energy she can handle.";
+            StartCoroutine(TypeText(playerUnit2.unitName + " has gained the most energy she can handle."));
         }
         //code for attacks goes here
         attack.SetActive(false);
@@ -416,13 +416,13 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator playerCoroutineAttack(Unit u, int d, bool b)
     {
-        dialougeText.text = "Hit! " + u.unitName + " attacks " + enemyUnit.unitName + " for " + d + " damage!";
+        StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + enemyUnit.unitName + " for " + d + " damage!"));
 
         yield return new WaitForSeconds(3);
 
         if (b) 
         {
-            dialougeText.text = "A CRITICAL HIT!";
+            StartCoroutine(TypeText("A CRITICAL HIT!"));
             yield return new WaitForSeconds(3);
         }
         state = BattleState.PAUSE;
@@ -448,8 +448,10 @@ public class BattleSystem : MonoBehaviour
     {
         //any code before yeild runs on first frame
         //yield return null;
-        dialougeText.text = "The " + enemyUnit.unitName + " attacks!";
-        int randNum = 0;
+
+        StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
+        int randNum=0;
+
         double unit1 = playerUnit1.maxHP;
         double unit2 = playerUnit2.maxHP;
         double unit3 = playerUnit3.maxHP;
@@ -458,11 +460,13 @@ public class BattleSystem : MonoBehaviour
         //after 3 seconds, picks up from here
         if (enemyUnit.unitName == "Phoenix")
         {
+
             Pheonix(randNum, unit1, unit2, unit3);
         }
         else
         {
             basic(randNum, unit1,unit2,unit3);
+
         }
         yield return new WaitForSeconds(2);
         //any code after runs one frame after the first frame;
@@ -472,14 +476,38 @@ public class BattleSystem : MonoBehaviour
 
     void isDead(Unit player) 
     {
-        if (player.currentHp <= 0) {
+        if (player.currentHp <= 0)
+        {
             player.isDead = true;
-        }
+        } 
+
         if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead) 
         {
             state = BattleState.LOST;
-            dialougeText.text = "You lose!";
+            StartCoroutine(TypeText("You lose!"));
         }
+    }
+
+
+    private IEnumerator TypeText(string text)
+    {
+        dialougeText.text = "";
+        bool complete = false;
+
+        int index = 0;
+
+        while (!complete)
+        {
+            dialougeText.text += text[index];
+            yield return new WaitForSeconds(0.02f);
+            index++;
+
+            if (index == text.Length)
+            {
+                complete = true;
+            }
+        }
+
     }
 
     void damaged(Unit player, int target, int damage)

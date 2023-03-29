@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08286623eba82ad40b057c23ec699734
+guid: d1dda8d48e5bf7b479d5166abc07f76d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,17 +101,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hameeda_Combat_Idle_Sprites_0
+      name: Scarab_Enemy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 96
+        x: 6
+        y: 19
+        width: 44
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e19566c89ff22047b44bd642cc8f18f
-      internalID: -92718791
+      spriteID: 782eac97388cbad4187e4ab66ff1498a
+      internalID: 1615936083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hameeda_Combat_Idle_Sprites_1
+      name: Scarab_Enemy_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 96
+        x: 70
+        y: 19
+        width: 44
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af76a9c13db0d2e4ca74cfd9b8a00ab0
-      internalID: 66822598
+      spriteID: a1961a534808da9458a6f7b7bdb487cb
+      internalID: -1666463548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hameeda_Combat_Idle_Sprites_2
+      name: Scarab_Enemy_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 96
+        x: 134
+        y: 19
+        width: 44
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,50 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 970ac538dc9d9254284eb92eb0f75181
-      internalID: 348844873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hameeda_Combat_Idle_Sprites_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04b442094df5fcc458f298a693cc53cd
-      internalID: -24444236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hameeda_Combat_Idle_Sprites_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 365314242b094734d9dd6a9a0aaf69d1
-      internalID: -384592612
+      spriteID: 3a6ce50375543f34989ce9d66d9be08e
+      internalID: 1479460435
       vertices: []
       indices: 
       edges: []
@@ -220,11 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hameeda_Combat_Idle_Sprites_3: -24444236
-      Hameeda_Combat_Idle_Sprites_4: -384592612
-      Hameeda_Combat_Idle_Sprites_1: 66822598
-      Hameeda_Combat_Idle_Sprites_2: 348844873
-      Hameeda_Combat_Idle_Sprites_0: -92718791
+      Scarab_Enemy_1: -1666463548
+      Scarab_Enemy_0: 1615936083
+      Scarab_Enemy_2: 1479460435
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
