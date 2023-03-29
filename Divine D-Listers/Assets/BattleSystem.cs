@@ -565,7 +565,7 @@ public class BattleSystem : MonoBehaviour
             rounded = 5 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(5 * rounded);
-            dialougeText.text = enemyUnit.unitName + " breathes fire";
+            StartCoroutine(TypeText(enemyUnit.unitName + " breathes fire"));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
@@ -589,7 +589,7 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit1, 0, damageDone);
-                dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));               
 
             }
             else if (randNum == 1 && !playerUnit2.isDead)
@@ -600,7 +600,8 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit2, 1, damageDone);
-                dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+               
             }
             else if (randNum == 2 && !playerUnit3.isDead)
             {
@@ -611,12 +612,12 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit3, 2, damageDone);
-                dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
 
             }
             else
-            {
-                dialougeText.text = "The attack missed!";
+            {                
+                StartCoroutine(TypeText("The attack missed!"));
             }
         }
     }
@@ -636,7 +637,7 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit1, 0, damageDone);
-            dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
+            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
 
         }
         else if (randNum == 1 && !playerUnit2.isDead)
@@ -647,7 +648,7 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit2, 1, damageDone);
-            dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
+            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
         }
         else if (randNum == 2 && !playerUnit3.isDead)
         {
@@ -658,12 +659,12 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit3, 2, damageDone);
-            dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
+            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
 
         }
         else
         {
-            dialougeText.text = "The attack missed!";
+            StartCoroutine(TypeText("The attack missed!"));
         }
     }
 }
