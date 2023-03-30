@@ -681,7 +681,7 @@ public class BattleSystem : MonoBehaviour
     void Ammit(int randNum, double unit1, double unit2, double unit3)
     {
         randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum < 7)
+        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
