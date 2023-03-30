@@ -63,6 +63,7 @@ public class BattleSystem : MonoBehaviour
     public newHealthBar jormHealthBar;
     public newHealthBar hameedaHealthBar;
     public newHealthBar exounosHealthBar;
+    public Special specialMeter;
 
     public VectorValue currentPosition;
 
@@ -106,6 +107,9 @@ public class BattleSystem : MonoBehaviour
       
         exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
         exounosHealthBar.setHealth(playerUnit3.maxHP);
+
+        specialMeter.setMaxMeter(10);
+        specialMeter.setMeter(0);
       
         jormLevel.text = "" + playerUnit1.unitLevel;
         hameedaLevel.text = "" + playerUnit2.unitLevel;
@@ -262,18 +266,20 @@ public class BattleSystem : MonoBehaviour
     void isBattleWon()
     {
        if (enemyUnit.currentHp <= 0) 
-
        {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
+            playerUnit1.AttemptLevelUp(1);
+            playerUnit2.AttemptLevelUp(2);
+            playerUnit3.AttemptLevelUp(3);
             StartCoroutine(winCoroutineWait());
        }    
-
     }
 
     public void takeASeat()
     {
-        
+        playerUnit1.isAttacking = true;
+        specialMeter.setMeter(specialMeter.getMeter() + 1);
         isCrit = false;
         crit=Random.Range(1, 201);
         jormHUD.SetActive(false);
@@ -295,6 +301,7 @@ public class BattleSystem : MonoBehaviour
 
     public void qualityAssurance() 
     {
+        playerUnit1.isAttacking = true;
         jormHUD.SetActive(false);
         jormStats.SetActive(true);
         if (playerUnit1.defence <= (playerUnit1.defence + Mathf.RoundToInt(playerUnit1.defence * .25f)))
@@ -318,6 +325,7 @@ public class BattleSystem : MonoBehaviour
 
     public void yawn() 
     {
+        playerUnit3.isAttacking = true;
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
         if (enemyUnit.speed >= (enemyUnit.speed - Mathf.RoundToInt(enemyUnit.speed * .25f)))
@@ -336,6 +344,7 @@ public class BattleSystem : MonoBehaviour
 
     public void powerNap() 
     {
+        playerUnit3.isAttacking = true;
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
         if (playerUnit1.currentHp < playerUnit1.maxHP)
@@ -376,6 +385,8 @@ public class BattleSystem : MonoBehaviour
 
     public void kohldShoulder() 
     {
+        playerUnit2.isAttacking = true;
+        specialMeter.setMeter(specialMeter.getMeter() + 1f);
         isCrit = false;
         hameedaHUD.SetActive(false);
         hameedaStats.SetActive(true);
@@ -398,6 +409,7 @@ public class BattleSystem : MonoBehaviour
 
     public void itsNotAPhase()
     {
+        playerUnit2.isAttacking = true;       
         hameedaHUD.SetActive(false);
         hameedaStats.SetActive(true);
         if (playerUnit2.damage <= (playerUnit2.damage + Mathf.RoundToInt(playerUnit2.damage * .25f)))
@@ -589,6 +601,7 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit1, 0, damageDone);
+                playerUnit1.isHit = true;
                 dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
 
             }
@@ -600,6 +613,7 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit2, 1, damageDone);
+                playerUnit2.isHit = true;
                 dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
             }
             else if (randNum == 2 && !playerUnit3.isDead)
@@ -611,6 +625,7 @@ public class BattleSystem : MonoBehaviour
                     damageDone *= 2;
                 }
                 damaged(playerUnit3, 2, damageDone);
+                playerUnit3.isHit = true;
                 dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
 
             }
@@ -636,6 +651,7 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit1, 0, damageDone);
+            playerUnit1.isHit = true;
             dialougeText.text = enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!";
 
         }
@@ -647,6 +663,7 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit2, 1, damageDone);
+            playerUnit2.isHit = true;
             dialougeText.text = enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!";
         }
         else if (randNum == 2 && !playerUnit3.isDead)
@@ -658,12 +675,22 @@ public class BattleSystem : MonoBehaviour
                 damageDone *= 2;
             }
             damaged(playerUnit3, 2, damageDone);
+            playerUnit3.isHit = true;
             dialougeText.text = enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!";
 
         }
         else
         {
             dialougeText.text = "The attack missed!";
+        }
+    }
+
+    void special() { 
+        if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
+        {
+            specialMeter.setMeter(0);
+
+            //do the cool attack thing
         }
     }
 }
