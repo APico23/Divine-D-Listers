@@ -498,7 +498,7 @@ public class BattleSystem : MonoBehaviour
         else if (enemyUnit.unitName == "Ra")
         {
 
-            Ammit(randNum, unit1, unit2, unit3);
+            Ra(randNum, unit1, unit2, unit3);
         }
         else
         {
