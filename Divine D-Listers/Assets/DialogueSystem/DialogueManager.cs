@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private Animator anim;
     private Coroutine typing;
     private GameObject player;
+    private AudioSource audioPlayer;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         {
             instance = this;
             anim = GetComponent<Animator>();
+            audioPlayer = GetComponent<AudioSource>();
         }
         else
         {
@@ -60,6 +62,7 @@ public class DialogueManager : MonoBehaviour
             speaker2Sprite.sprite = empty;
             instance.backdrop.SetActive(false);
             player.GetComponent<playerMove>().canMove = true;
+            audioPlayer.Stop();
             Destroy(transform.parent.gameObject,0.2f);
             return;
         }
@@ -76,6 +79,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             instance.StopCoroutine(typing);
+            audioPlayer.Stop();
             typing = null;
             typing = instance.StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
         }
@@ -113,7 +117,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogue.text = "";
         bool complete = false;
-
+        audioPlayer.clip = currentConvo.GetLineByIndex(currentIndex).audio;
+        audioPlayer.Play();
         int index = 0;
 
         while (!complete)
