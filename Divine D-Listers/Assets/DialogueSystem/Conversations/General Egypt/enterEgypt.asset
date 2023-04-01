@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: enterEgypt
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: Ugh. I forgot how much I hate this place.
+    audio: {fileID: 8300000, guid: 48d986b81f8aca34cb8246950383f34c, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "What do you mean? It\u2019s warm!"
+    audio: {fileID: 8300000, guid: f0cd6d27cd8f2fa47930548c35ccd030, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: So, who are we looking for, again?
+    audio: {fileID: 8300000, guid: 08619172211525049bfcd27d883057c3, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Ra, the almighty sun god. He\u2019s probably holed up in his pyramid."
+    audio: {fileID: 8300000, guid: 1e61f0fc0322b234ba6e175530d26deb, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "Well, there\u2019s a pyramid just over to the West. Let\u2019s go
+      check it out."
+    audio: {fileID: 8300000, guid: ab3a16bb43b4ccf4a882af8f0e5bb691, type: 3}

@@ -16,19 +16,28 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Halt, ye who wish to enter the Palace of Ra. To seek an audience with
       the Creator, you must first pass my test.
+    audio: {fileID: 8300000, guid: 54fc10b73e9412449ae2a900d3e02174, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: A riddle, right?
+    audio: {fileID: 8300000, guid: 846539420c3cbc346882d4936b72ba10, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Indeed. You must answer three riddles in order to pass through.
+    audio: {fileID: 8300000, guid: dd1fa300f7362ba4894dabcfab8cff57, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: THREE? What do you mean THREE?
+    audio: {fileID: 8300000, guid: 119de0cc4f18fe249a01a4ff90cb9a29, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Sorry, inflation is a nightmare.
+    audio: {fileID: 8300000, guid: 1a7f2505bbedf834a8ca076ebeebb560, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: "It's fine, please, tell us the first riddle.\r"
+    audio: {fileID: 8300000, guid: f455968ec8c7b5b45aaa018b480c6b45, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: What is my favorite food?
+    audio: {fileID: 8300000, guid: 59728f24284ca75458270167e5890f9d, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
-    dialogue: What?
+    dialogue: Wha?
+    audio: {fileID: 8300000, guid: 6f3d70f38279fa84991223e0f4b2031b, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Return to me when you have found the answer.
+    audio: {fileID: 8300000, guid: 9a3026a875e1e2e4dafa65a433f2e3dd, type: 3}

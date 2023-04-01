@@ -29,6 +29,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject hameedaStats;
     public GameObject exounosStats;
 
+    public Image background;
+
     private int jormDamage;
     private int hameedaDamage;
     private int enemyDamage;
@@ -86,6 +88,8 @@ public class BattleSystem : MonoBehaviour
         exounosHUD.SetActive(false);
 
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
+
+        background.sprite = battleStart.background;
 
         GameObject playerGO = Instantiate(jormPrefab, jormBattleSpawn);
         playerUnit1 = playerGO.GetComponent<Unit>();

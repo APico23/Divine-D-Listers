@@ -22,6 +22,8 @@ public class dialogueStarter : MonoBehaviour
     {
         
         Instantiate(instance.dialogue, Vector3.zero, Quaternion.identity);
+        Debug.Log(instance.tracker.convoAt);
+        Debug.Log(instance.convos[instance.tracker.convoAt].name);
         DialogueManager.startConversation(instance.convos[instance.tracker.convoAt]);
     }
 

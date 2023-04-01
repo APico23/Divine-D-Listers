@@ -9,6 +9,8 @@ public class battleStarter : MonoBehaviour
 
     public bool isMultiple;
 
+    public Sprite background;
+
     private void Awake()
     {
         GameObject[] battleStarters = GameObject.FindGameObjectsWithTag("BattleStarter");

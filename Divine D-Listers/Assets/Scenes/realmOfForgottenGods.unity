@@ -4340,7 +4340,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1cfc4ead0aa8b0a4eb0247e0e1582891, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4664,6 +4664,8 @@ MonoBehaviour:
   convos:
   - {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   - {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
+  - {fileID: 11400000, guid: 5384a8aa4ab438c4b92e3a2de509b4b8, type: 2}
+  - {fileID: 11400000, guid: 07eb7b90570749a43bc75ea941ecb0a4, type: 2}
 --- !u!4 &484953264
 Transform:
   m_ObjectHideFlags: 0
