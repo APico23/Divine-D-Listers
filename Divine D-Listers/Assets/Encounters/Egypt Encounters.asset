@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Egypt Encounters
   m_EditorClassIdentifier: 
   encounters:
-  - {fileID: 4714891483199731882, guid: 0182dad496312714fb2f32eac6c3de2e, type: 3}
   - {fileID: 6373692430186946058, guid: d34d8f5d87d2a46408c96f58ea40c977, type: 3}
   - {fileID: 7722417129316082706, guid: 56e3efaed5f588245a0fb3de44ad2b7d, type: 3}
   - {fileID: 7879702313683575399, guid: 79d09fe3867120b41a71e9530f973863, type: 3}

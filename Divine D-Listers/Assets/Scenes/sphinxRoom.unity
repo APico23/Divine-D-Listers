@@ -6121,6 +6121,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff3a426293c573b4f8d2ee0918204b98, type: 2}
   - {fileID: 11400000, guid: 6265713276a275c44afa18adff5efcc4, type: 2}
   - {fileID: 11400000, guid: 1e61c966a8a876f488121819f422a262, type: 2}
+  - {fileID: 11400000, guid: 44686070af9d24148932885ab62468c4, type: 2}
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &1795018209
@@ -6137,3 +6138,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   riddle1: {fileID: 11400000, guid: f8aa99ea2d9ac8845acdcaf2d26c1f7e, type: 2}
+--- !u!1 &1833017204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833017207}
+  - component: {fileID: 1833017208}
+  - component: {fileID: 1833017209}
+  m_Layer: 0
+  m_Name: postSphinx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833017207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833017204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: -9, z: -1.4225503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1833017208
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833017204}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.1030407, y: -6.3335524}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.206081, y: 13.667105}
+  m_EdgeRadius: 0
+--- !u!114 &1833017209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833017204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5ff8466fa1da145896164bde226341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: {fileID: 11400000, guid: 07eb7b90570749a43bc75ea941ecb0a4, type: 2}
+  sphinxCheck: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
