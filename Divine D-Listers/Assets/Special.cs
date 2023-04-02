@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Special : MonoBehaviour
 {
     public Slider slider;
+    public Animator meterAnimator;
+
+    void Start() {
+        meterAnimator = GameObject.Find("Special Fill").GetComponent<Animator>();
+    }
     
     public void setMeter(float h)
     {
@@ -26,5 +31,16 @@ public class Special : MonoBehaviour
     public float getMaxMeter() 
     {
         return slider.maxValue;
+    }
+
+    void Update() {
+        if (slider.value == slider.maxValue) 
+        {
+            meterAnimator.SetBool("MeterIsFull", true);
+        }
+        if (slider.value != slider.maxValue)
+        {
+            meterAnimator.SetBool("MeterIsFull", false);
+        }
     }
 }

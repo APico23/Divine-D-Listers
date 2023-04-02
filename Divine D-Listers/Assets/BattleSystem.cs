@@ -119,6 +119,8 @@ public class BattleSystem : MonoBehaviour
         hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
         exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
 
+        StartCoroutine(playerCoroutineNeutral());
+
         StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
 
         speeds = getInitiative();
@@ -153,7 +155,7 @@ public class BattleSystem : MonoBehaviour
                     jormTurn();
                 }
             }
-            else if (speeds[turnNum] == "Hameeda")
+            else if (speeds[turnNum] == "Ham.")
             {
                 if (playerUnit2.isDead)
                 {
@@ -168,7 +170,7 @@ public class BattleSystem : MonoBehaviour
                     hameedaTurn();
                 }
             }
-            else if (speeds[turnNum] == "Exounos")
+            else if (speeds[turnNum] == "Ex.")
             {
                 if (playerUnit3.isDead)
                 {
@@ -205,7 +207,7 @@ public class BattleSystem : MonoBehaviour
     string[] getInitiative()
     {
         //take in all player and enemy names and speeds
-        string[] tempArr = { "Jorm", "Hameeda", "Exounos", "Enemy" };
+        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy" };
         int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed };
         //sort it from highest to lowest
 
@@ -459,10 +461,17 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator playerCoroutineNeutral()
     {
-        yield return new WaitForSeconds(3);
-        state = BattleState.PAUSE;
-        isBattleWon();
-        battleSequence();
+        if (state == BattleState.START)
+        {
+            yield return new WaitForSeconds(2);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3);
+            state = BattleState.PAUSE;
+            isBattleWon();
+            battleSequence();
+        }
     }
 
     private IEnumerator winCoroutineWait()
@@ -545,6 +554,7 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
+        
     }
 
     void damaged(Unit player, int target, int damage)
