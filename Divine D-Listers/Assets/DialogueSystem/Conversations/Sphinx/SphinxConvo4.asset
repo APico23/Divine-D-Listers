@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: SphinxConvo4
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Have you found the answer?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Here\u2019s the 20 bucks from Ammit."
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Oh, yeah! Thanks!
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "\u2026why do I get the feeling that\u2014"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: "I didn\u2019t know who owed me? Because I forgot to write it down!"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: You forgot to write it down. Of course. Are we just running errands
+      for you?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Do you want to know the final riddle or not?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Please.
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: What is my favorite color?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Do you actually know the answer to this one?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Of course! Return to me when you have found the answer.
+    audio: {fileID: 0}

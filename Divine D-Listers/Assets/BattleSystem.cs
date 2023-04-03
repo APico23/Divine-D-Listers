@@ -326,6 +326,7 @@ public class BattleSystem : MonoBehaviour
         }
         enemyUnit.currentHp -= damageDone;
         attack.SetActive(false);
+        Debug.Log(damageDone);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));
     }
 

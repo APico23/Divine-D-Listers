@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: AmmitConvo1
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
+    dialogue: Did the Sphinx send you?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Maybe. What\u2019s it to you?"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
+    dialogue: "It\u2019s been 1000 years since I borrowed that money! Why do you
+      people keep getting sent to collect?"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "So it\u2019s you, then."
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
+    dialogue: "You\u2019ll have to fight me if you want it!"
+    audio: {fileID: 0}

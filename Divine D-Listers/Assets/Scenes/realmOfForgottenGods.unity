@@ -3825,7 +3825,8 @@ GameObject:
   - component: {fileID: 13644269}
   - component: {fileID: 13644268}
   - component: {fileID: 13644267}
-  - component: {fileID: 13644270}
+  - component: {fileID: 13644271}
+  - component: {fileID: 13644272}
   m_Layer: 0
   m_Name: Matt
   m_TagString: Untagged
@@ -3920,7 +3921,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &13644270
+--- !u!114 &13644271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3929,9 +3930,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 13644266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e0304d99bf89c4398e7fa0ebdcbeb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bc22590083c4f42991c723961930b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  playerPosition: {x: 7.1, y: -2.75}
+  trainingBag: {fileID: 11400000, guid: af60a63457e2ddb4986927284a3cd3cb, type: 2}
+  background: {fileID: 21300000, guid: 66082f2d56dd89847a495fb3080d93aa, type: 3}
+--- !u!61 &13644272
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13644266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.53125, y: 0.96875}
+    newSize: {x: 0.53125, y: 0.96875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.53125, y: 0.96875}
+  m_EdgeRadius: 0
 --- !u!1 &138116278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4660,12 +4691,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - {fileID: 11400000, guid: f8aa99ea2d9ac8845acdcaf2d26c1f7e, type: 2}
+  - {fileID: 11400000, guid: 6c35563a7307bce49a89ef492eab3c8c, type: 2}
   position: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   convos:
   - {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   - {fileID: 11400000, guid: efc6b4b194d1ee34098cbe8c7495eb52, type: 2}
   - {fileID: 11400000, guid: 5384a8aa4ab438c4b92e3a2de509b4b8, type: 2}
   - {fileID: 11400000, guid: 07eb7b90570749a43bc75ea941ecb0a4, type: 2}
+  - {fileID: 11400000, guid: 219f33ed2cd88b243a03e550b4106397, type: 2}
 --- !u!4 &484953264
 Transform:
   m_ObjectHideFlags: 0
@@ -4706,11 +4739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9753,6 +9786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMain: {fileID: 11400000, guid: 0a336e68fa6b65840b707c95207fea26, type: 2}
   isMultiple: 0
+  background: {fileID: 0}
 --- !u!4 &1984480244
 Transform:
   m_ObjectHideFlags: 0

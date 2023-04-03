@@ -9,6 +9,7 @@ public class sphinxManager : MonoBehaviour
 
     public convoTracker tracker;
     public Quest riddle1;
+    public Quest riddle2;
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -25,11 +26,28 @@ public class sphinxManager : MonoBehaviour
                 {
                     tracker.continueConvo();
                     dialogueStarter.startConvo();
+                    riddle2.isStarted = true;
+                    return;
                 }
-                else
+                else if (!riddle2.isStarted)
                 {
                     dialogueStarter.startConvo();
                 }
+            }
+            if (riddle2.isStarted)
+            {
+                if (riddle2.isCompleted)
+                {
+                    tracker.convoAt = 4;
+                    dialogueStarter.startConvo();
+                }
+                else
+                {
+                    tracker.convoAt = 1;
+                    dialogueStarter.startConvo();
+                    tracker.convoAt = 2;
+                }
+                
             }
             
         }

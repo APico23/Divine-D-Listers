@@ -9,5 +9,7 @@ public class playerMissions : ScriptableObject
 {
     public Boolean riddle1Start;
     public Boolean riddle1Done;
+    public Boolean riddle2Start;
+    public Boolean riddle2Done;
 
 }

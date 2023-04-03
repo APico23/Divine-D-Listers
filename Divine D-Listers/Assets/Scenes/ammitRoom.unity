@@ -1652,6 +1652,9 @@ GameObject:
   m_Component:
   - component: {fileID: 807713751}
   - component: {fileID: 807713750}
+  - component: {fileID: 807713752}
+  - component: {fileID: 807713754}
+  - component: {fileID: 807713753}
   m_Layer: 0
   m_Name: Ammit
   m_TagString: Untagged
@@ -1726,6 +1729,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &807713752
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807713749}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2213664, y: -0.17048997}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.03125, y: 4}
+    newSize: {x: 5.03125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9815655, y: 1.8639425}
+  m_EdgeRadius: 0
+--- !u!114 &807713753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807713749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9151943f0973f28479ae9eefdc72fed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: {fileID: 11400000, guid: 219f33ed2cd88b243a03e550b4106397, type: 2}
+  riddle2: {fileID: 11400000, guid: 6c35563a7307bce49a89ef492eab3c8c, type: 2}
+  hurt: {fileID: 21300000, guid: 226ae0e9df860664984e615b5c392ba3, type: 3}
+  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  playerPosition: {x: 53, y: 44}
+  ammitEnemy: {fileID: 11400000, guid: 7c1712b0c37369f4092aaff662ccfe92, type: 2}
+  background: {fileID: 21300000, guid: 942bdf2019c040146985af875d689870, type: 3}
+--- !u!114 &807713754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807713749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0d774139026414d901ac375b3f8226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convos:
+  - {fileID: 11400000, guid: 0f9fb6fc99e6fdd4aa71532d2b7486ba, type: 2}
+  - {fileID: 11400000, guid: c8ea2a951f6234b40b8d39dccc29c876, type: 2}
+  tracker: {fileID: 11400000, guid: 219f33ed2cd88b243a03e550b4106397, type: 2}
+  dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!1 &1137196586
 GameObject:
   m_ObjectHideFlags: 0
@@ -6034,11 +6099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.075943
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.4
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6076,6 +6141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8519630834430379954, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 21300000, guid: 942bdf2019c040146985af875d689870, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
 --- !u!4 &1657805114 stripped
