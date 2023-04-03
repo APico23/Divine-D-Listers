@@ -278,21 +278,15 @@ public class BattleSystem : MonoBehaviour
 
     void isBattleWon()
     {
-
         if (enemyUnit.currentHp <= 0)
-
         {
-
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
             playerUnit1.AttemptLevelUp(1);
             playerUnit2.AttemptLevelUp(2);
             playerUnit3.AttemptLevelUp(3);
             StartCoroutine(winCoroutineWait());
-
         }
-
-
     }
 
     public void takeASeat()
@@ -465,17 +459,10 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator playerCoroutineNeutral()
     {
-        if (state == BattleState.START)
-        {
-            yield return new WaitForSeconds(2);
-        }
-        else
-        {
             yield return new WaitForSeconds(3);
             state = BattleState.PAUSE;
             isBattleWon();
             battleSequence();
-        }
     }
 
     private IEnumerator winCoroutineWait()
