@@ -10,6 +10,7 @@ public class randomEncounterMaker : MonoBehaviour
     public VectorValue playerStorage;
     public randomEncounters worldEncounters;
     private Transform player;
+    public Sprite background;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class randomEncounterMaker : MonoBehaviour
             {
                 playerStorage.initialValue = new Vector2(player.position.x , player.position.y);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(worldEncounters);
+                GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
                 SceneManager.LoadScene("battleScene");
             }
         }

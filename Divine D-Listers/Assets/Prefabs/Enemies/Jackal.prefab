@@ -48,6 +48,8 @@ MonoBehaviour:
   unitAnimator: {fileID: 0}
   unitName: Jackal
   unitLevel: 2
+  exp: 0
+  expNeeded: 0
   damage: 10
   luck: 20
   defence: 8
@@ -57,6 +59,8 @@ MonoBehaviour:
   isDead: 0
   isAttacking: 0
   isHit: 0
+  attack: {fileID: -1506306454, guid: 018946abfd5734842bc61d2c4d02667e, type: 3}
+  hurt: {fileID: 1616946872, guid: 018946abfd5734842bc61d2c4d02667e, type: 3}
 --- !u!212 &675214357050898391
 SpriteRenderer:
   m_ObjectHideFlags: 0

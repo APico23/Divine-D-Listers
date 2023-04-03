@@ -101,16 +101,19 @@ MonoBehaviour:
   unitAnimator: {fileID: 6914324638878142984}
   unitName: Jorm
   unitLevel: 1
+  exp: 0
+  expNeeded: 0
   damage: 14
   luck: 15
   defence: 23
-  mana: 9
-  currentMana: 9
   speed: 12
   maxHP: 21
   currentHp: 21
   isDead: 0
   isAttacking: 0
+  isHit: 0
+  attack: {fileID: 21300000, guid: f721e92a951a00b46b7525a6f38cf72e, type: 3}
+  hurt: {fileID: 21300000, guid: 095bebf33fd80e847bb0f9372e4cabad, type: 3}
 --- !u!95 &6914324638878142984
 Animator:
   serializedVersion: 5
