@@ -126,12 +126,8 @@ public class BattleSystem : MonoBehaviour
         hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
         exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
 
-        StartCoroutine(playerCoroutineNeutral());
 
-        StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
-
-        speeds = getInitiative();
-        battleSequence();
+        StartCoroutine(BattleBegin()); 
     }
 
     void battleSequence()
@@ -495,6 +491,7 @@ public class BattleSystem : MonoBehaviour
     {
         //any code before yeild runs on first frame
         //yield return null;
+        yield return new WaitForSeconds(2);
 
         StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
         int randNum = 0;
@@ -546,6 +543,13 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    public IEnumerator BattleBegin() {
+        yield return new WaitForSeconds(1);
+        StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
+        yield return new WaitForSeconds(3);
+        speeds = getInitiative();
+        battleSequence();
+    }
 
     private IEnumerator TypeText(string text)
     {
