@@ -100,6 +100,8 @@ MonoBehaviour:
   unitAnimator: {fileID: 0}
   unitName: Ammit
   unitLevel: 10
+  exp: 0
+  expNeeded: 0
   damage: 24
   luck: 25
   defence: 30
@@ -109,3 +111,5 @@ MonoBehaviour:
   isDead: 0
   isAttacking: 0
   isHit: 0
+  attack: {fileID: 21300000, guid: 716fe2ad90a23c44bb9693ad3af63509, type: 3}
+  hurt: {fileID: 21300000, guid: 226ae0e9df860664984e615b5c392ba3, type: 3}

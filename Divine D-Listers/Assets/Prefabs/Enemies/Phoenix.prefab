@@ -101,16 +101,19 @@ MonoBehaviour:
   unitAnimator: {fileID: 1958064945161155510}
   unitName: Phoenix
   unitLevel: 6
+  exp: 0
+  expNeeded: 0
   damage: 19
   luck: 26
   defence: 24
-  mana: 29
-  currentMana: 29
   speed: 25
   maxHP: 22
   currentHp: 22
   isDead: 0
   isAttacking: 0
+  isHit: 0
+  attack: {fileID: 2117258568, guid: c898899f8d9187b45926abdc4c24aebb, type: 3}
+  hurt: {fileID: 21300000, guid: 15db1bb33bab3e247a91de5e53aedd5f, type: 3}
 --- !u!95 &1958064945161155510
 Animator:
   serializedVersion: 5

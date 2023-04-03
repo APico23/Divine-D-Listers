@@ -1133,6 +1133,7 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
+  background: {fileID: 483414075}
   enemyBattleSpawn: {fileID: 1902739}
   jormBattleSpawn: {fileID: 1282965513}
   hameedaBattleSpawn: {fileID: 590583181}
@@ -1150,6 +1151,7 @@ MonoBehaviour:
   exounosHealthBar: {fileID: 216327331}
   specialMeter: {fileID: 1541216475}
   currentPosition: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  hitHurtScreen: {fileID: 1707668158873912514, guid: 940933ef47be7cc448bf7ba1c2c1207f, type: 3}
 --- !u!4 &468622195
 Transform:
   m_ObjectHideFlags: 0
@@ -1223,7 +1225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fcea470b2e0b9124d8d51e0d25b758c3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

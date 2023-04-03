@@ -22,7 +22,10 @@ public class Unit: MonoBehaviour
 
     public bool isDead = false;
     public bool isAttacking = false;
-    public bool isHit = false; 
+    public bool isHit = false;
+
+    public Sprite attack;
+    public Sprite hurt;
 
     void Update()
     {
@@ -30,31 +33,31 @@ public class Unit: MonoBehaviour
         {
             unitAnimator.SetBool("UnitIsDowned", true);
         }
-        if (isAttacking) 
+        if (isAttacking)
         {
-            StartCoroutine(animationAttack());  
+            //StartCoroutine(animationAttack());
         }
-        if (isHit) 
+        if (isHit)
         {
-            StartCoroutine(animationHit());
+            //StartCoroutine(animationHit());
         }
     }
 
-    private IEnumerator animationAttack() 
-    {
-        unitAnimator.SetBool("UnitIsAttacking", true);
-        yield return new WaitForSeconds(0.5f);
-        unitAnimator.SetBool("UnitIsAttacking", false);
-        isAttacking = false;
-    }
+    //private IEnumerator animationAttack()
+    //{
+    //    unitAnimator.SetBool("UnitIsAttacking", true);
+    //    yield return new WaitForSeconds(0.5f);
+    //    unitAnimator.SetBool("UnitIsAttacking", false);
+    //    isAttacking = false;
+    //}
 
-    private IEnumerator animationHit()
-    {
-        unitAnimator.SetBool("UnitIsHit", true);
-        yield return new WaitForSeconds(0.5f);
-        unitAnimator.SetBool("UnitIsHit", false);
-        isHit = false; 
-    }
+    //private IEnumerator animationHit()
+    //{
+    //    unitAnimator.SetBool("UnitIsHit", true);
+    //    yield return new WaitForSeconds(0.5f);
+    //    unitAnimator.SetBool("UnitIsHit", false);
+    //    isHit = false;
+    //}
 
     public void AttemptLevelUp(int playerNum) 
     {

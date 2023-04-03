@@ -71,6 +71,9 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator testing;
 
+    public GameObject hitHurtScreen;
+    private hitHurtManager hitHurtManager;
+
 
     // Start is called before the first frame update
 
@@ -296,6 +299,12 @@ public class BattleSystem : MonoBehaviour
     public void takeASeat()
     {
 
+
+        Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+        hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+        hitHurtManager.playerHit(playerUnit1, enemyUnit);
+
+
         playerUnit1.isAttacking = true;
         specialMeter.setMeter(specialMeter.getMeter() + 1);
 
@@ -320,6 +329,7 @@ public class BattleSystem : MonoBehaviour
 
     public void qualityAssurance()
     {
+
         playerUnit1.isAttacking = true;
         jormHUD.SetActive(false);
         jormStats.SetActive(true);
@@ -344,6 +354,11 @@ public class BattleSystem : MonoBehaviour
 
     public void yawn()
     {
+
+        Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+        hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+        hitHurtManager.playerHit(playerUnit3, enemyUnit);
+
         playerUnit3.isAttacking = true;
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
@@ -404,6 +419,11 @@ public class BattleSystem : MonoBehaviour
 
     public void kohldShoulder()
     {
+
+        Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+        hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+        hitHurtManager.playerHit(playerUnit2, enemyUnit);
+
         playerUnit2.isAttacking = true;
         specialMeter.setMeter(specialMeter.getMeter() + 1f);
         isCrit = false;
@@ -489,6 +509,7 @@ public class BattleSystem : MonoBehaviour
         //runs code up to this point on first frame then waits 3 seconds.
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
+        
         if (enemyUnit.unitName == "Phoenix")
         {
 
@@ -624,6 +645,9 @@ public class BattleSystem : MonoBehaviour
 
             if (randNum == 0 && !playerUnit1.isDead)
             {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -638,6 +662,9 @@ public class BattleSystem : MonoBehaviour
             }
             else if (randNum == 1 && !playerUnit2.isDead)
             {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -652,7 +679,9 @@ public class BattleSystem : MonoBehaviour
             }
             else if (randNum == 2 && !playerUnit3.isDead)
             {
-
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -681,6 +710,9 @@ public class BattleSystem : MonoBehaviour
 
         if (randNum == 0 && !playerUnit1.isDead)
         {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.playerHurt(playerUnit1, enemyUnit);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
@@ -695,6 +727,9 @@ public class BattleSystem : MonoBehaviour
         }
         else if (randNum == 1 && !playerUnit2.isDead)
         {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.playerHurt(playerUnit2, enemyUnit);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
@@ -709,7 +744,9 @@ public class BattleSystem : MonoBehaviour
         }
         else if (randNum == 2 && !playerUnit3.isDead)
         {
-
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.playerHurt(playerUnit3, enemyUnit);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
@@ -752,6 +789,9 @@ public class BattleSystem : MonoBehaviour
 
             if (randNum == 0 && !playerUnit1.isDead)
             {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -763,6 +803,9 @@ public class BattleSystem : MonoBehaviour
             }
             else if (randNum == 1 && !playerUnit2.isDead)
             {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -774,7 +817,9 @@ public class BattleSystem : MonoBehaviour
             }
             else if (randNum == 2 && !playerUnit3.isDead)
             {
-
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
                 if (crit <= enemyUnit.luck)
                 {
@@ -817,7 +862,10 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
 
         if (randNum == 0 && !playerUnit1.isDead)
         {
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
                 damageDone *= 2;
@@ -828,7 +876,10 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
         }
         else if (randNum == 1 && !playerUnit2.isDead)
         {
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
                 damageDone *= 2;
@@ -839,8 +890,10 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
         }
         else if (randNum == 2 && !playerUnit3.isDead)
         {
-
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             if (crit <= enemyUnit.luck)
             {
                 damageDone *= 2;

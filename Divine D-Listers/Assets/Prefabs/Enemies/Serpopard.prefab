@@ -97,14 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 0}
   unitName: Serpopard
   unitLevel: 2
+  exp: 0
+  expNeeded: 0
   damage: 13
   luck: 5
   defence: 10
-  mana: 0
-  currentMana: 0
   speed: 20
   maxHP: 13
   currentHp: 13
   isDead: 0
+  isAttacking: 0
+  isHit: 0
+  attack: {fileID: 21300000, guid: 34e7860be8efdf041a8006ba41f28a87, type: 3}
+  hurt: {fileID: 21300000, guid: 9065449ab85b2ce40aa8e93c58d9b3cb, type: 3}

@@ -101,16 +101,19 @@ MonoBehaviour:
   unitAnimator: {fileID: 4720867034053284128}
   unitName: Hameeda
   unitLevel: 1
+  exp: 0
+  expNeeded: 0
   damage: 21
   luck: 15
   defence: 12
-  mana: 15
-  currentMana: 15
   speed: 14
   maxHP: 13
   currentHp: 13
   isDead: 0
   isAttacking: 0
+  isHit: 0
+  attack: {fileID: 1335435987, guid: 64cfc36547cca774682284f97cfe173c, type: 3}
+  hurt: {fileID: 21300000, guid: 43caf9a632ded6f458cd3778fd70b6f6, type: 3}
 --- !u!95 &4720867034053284128
 Animator:
   serializedVersion: 5

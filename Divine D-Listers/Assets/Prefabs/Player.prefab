@@ -311,10 +311,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2663285427986493054}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ed4a4fa518e6624583b662b159c0cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   worldEncounters: {fileID: 11400000, guid: 0a336e68fa6b65840b707c95207fea26, type: 2}
+  background: {fileID: 21300000, guid: fcea470b2e0b9124d8d51e0d25b758c3, type: 3}
