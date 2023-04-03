@@ -126,12 +126,8 @@ public class BattleSystem : MonoBehaviour
         hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
         exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
 
-        StartCoroutine(playerCoroutineNeutral());
 
-        StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
-
-        speeds = getInitiative();
-        battleSequence();
+        StartCoroutine(BattleBegin()); 
     }
 
     void battleSequence()
@@ -281,21 +277,15 @@ public class BattleSystem : MonoBehaviour
 
     void isBattleWon()
     {
-
         if (enemyUnit.currentHp <= 0)
-
         {
-
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
             playerUnit1.AttemptLevelUp(1);
             playerUnit2.AttemptLevelUp(2);
             playerUnit3.AttemptLevelUp(3);
             StartCoroutine(winCoroutineWait());
-
         }
-
-
     }
 
     public void takeASeat()
@@ -486,17 +476,10 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator playerCoroutineNeutral()
     {
-        if (state == BattleState.START)
-        {
-            yield return new WaitForSeconds(2);
-        }
-        else
-        {
             yield return new WaitForSeconds(3);
             state = BattleState.PAUSE;
             isBattleWon();
             battleSequence();
-        }
     }
 
     private IEnumerator winCoroutineWait()
@@ -509,6 +492,7 @@ public class BattleSystem : MonoBehaviour
     {
         //any code before yeild runs on first frame
         //yield return null;
+        yield return new WaitForSeconds(2);
 
         StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
         int randNum = 0;
@@ -560,6 +544,13 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    public IEnumerator BattleBegin() {
+        yield return new WaitForSeconds(1);
+        StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
+        yield return new WaitForSeconds(3);
+        speeds = getInitiative();
+        battleSequence();
+    }
 
     private IEnumerator TypeText(string text)
     {
