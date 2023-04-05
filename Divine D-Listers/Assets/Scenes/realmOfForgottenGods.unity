@@ -4699,6 +4699,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5384a8aa4ab438c4b92e3a2de509b4b8, type: 2}
   - {fileID: 11400000, guid: 07eb7b90570749a43bc75ea941ecb0a4, type: 2}
   - {fileID: 11400000, guid: 219f33ed2cd88b243a03e550b4106397, type: 2}
+  players:
+  - {fileID: 11400000, guid: c244862502e2a3c459a18b02350ccae2, type: 2}
+  - {fileID: 11400000, guid: bd6bb00c258dba247b590c40bea92d19, type: 2}
+  - {fileID: 11400000, guid: 4267bdd37d746b24a800fe036affcbce, type: 2}
 --- !u!4 &484953264
 Transform:
   m_ObjectHideFlags: 0
