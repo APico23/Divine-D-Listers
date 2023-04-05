@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-
+[CreateAssetMenu(fileName = "New Unit Stats", menuName = "Battle/New Unit Stats")]
 public class UnitStats : ScriptableObject
 {
     public Animator unitAnimator;

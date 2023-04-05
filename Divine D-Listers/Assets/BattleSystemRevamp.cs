@@ -44,10 +44,10 @@ public class BattleSystemRevamp : MonoBehaviour
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
 
-    Unit playerUnit1;
-    Unit playerUnit2;
-    Unit playerUnit3;
-    Unit enemyUnit;
+    UnitStats playerUnit1;
+    UnitStats playerUnit2;
+    UnitStats playerUnit3;
+    UnitStats enemyUnit;
 
     private string[] speeds = new string[3];
 
@@ -95,16 +95,16 @@ public class BattleSystemRevamp : MonoBehaviour
         background.sprite = battleStart.background;
 
         GameObject playerGO = Instantiate(jormPrefab, jormBattleSpawn);
-        playerUnit1 = playerGO.GetComponent<Unit>();
+        playerUnit1 = playerGO.GetComponent<Unit>().unitStats;
 
         GameObject player2GO = Instantiate(hameedaPrefab, hameedaBattleSpawn);
-        playerUnit2 = player2GO.GetComponent<Unit>();
+        playerUnit2 = player2GO.GetComponent<Unit>().unitStats;
 
         GameObject player3GO = Instantiate(exounosPrefab, exounosBattleSpawn);
-        playerUnit3 = player3GO.GetComponent<Unit>();
+        playerUnit3 = player3GO.GetComponent<Unit>().unitStats;
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+        enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
         jormHealthBar.setHealth(playerUnit1.maxHP);
@@ -281,9 +281,9 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
-            playerUnit1.AttemptLevelUp(1);
-            playerUnit2.AttemptLevelUp(2);
-            playerUnit3.AttemptLevelUp(3);
+            //playerUnit1.AttemptLevelUp(1);
+            //playerUnit2.AttemptLevelUp(2);
+            //playerUnit3.AttemptLevelUp(3);
             StartCoroutine(winCoroutineWait());
         }
     }
@@ -458,7 +458,7 @@ public class BattleSystemRevamp : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
-    private IEnumerator playerCoroutineAttack(Unit u, int d, bool b)
+    private IEnumerator playerCoroutineAttack(UnitStats u, int d, bool b)
     {
         StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + enemyUnit.unitName + " for " + d + " damage!"));
 
@@ -530,7 +530,7 @@ public class BattleSystemRevamp : MonoBehaviour
     }
 
 
-    void isDead(Unit player)
+    void isDead(UnitStats player)
     {
         if (player.currentHp <= 0)
         {
@@ -574,7 +574,7 @@ public class BattleSystemRevamp : MonoBehaviour
         
     }
 
-    void damaged(Unit player, int target, int damage)
+    void damaged(UnitStats player, int target, int damage)
     {
         player.currentHp -= damageDone;
         if (player.currentHp <= 0)

@@ -27,7 +27,7 @@ public class hitHurtManager : MonoBehaviour
         }
     }
 
-   public void playerHit(Unit player, Unit enemy)
+   public void playerHit(UnitStats player, UnitStats enemy)
     {
         playerSprite.sprite = player.attack;
         enemySprite.sprite = enemy.hurt;
@@ -36,7 +36,7 @@ public class hitHurtManager : MonoBehaviour
         return;
     }
 
-    public void playerHurt(Unit player, Unit enemy)
+    public void playerHurt(UnitStats player, UnitStats enemy)
     {
         playerSprite.sprite = player.hurt;
         enemySprite.sprite = enemy.attack;
