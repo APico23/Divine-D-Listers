@@ -98,22 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 1958064945161155510}
-  unitName: Phoenix
-  unitLevel: 6
-  exp: 0
-  expNeeded: 0
-  damage: 19
-  luck: 26
-  defence: 24
-  speed: 25
-  maxHP: 22
-  currentHp: 22
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 2117258568, guid: c898899f8d9187b45926abdc4c24aebb, type: 3}
-  hurt: {fileID: 21300000, guid: 15db1bb33bab3e247a91de5e53aedd5f, type: 3}
+  unitStats: {fileID: 11400000, guid: 63a347fb5389f114c9822b1ab56f0867, type: 2}
 --- !u!95 &1958064945161155510
 Animator:
   serializedVersion: 5

@@ -45,22 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 0}
-  unitName: Jackal
-  unitLevel: 2
-  exp: 0
-  expNeeded: 0
-  damage: 10
-  luck: 20
-  defence: 8
-  speed: 30
-  maxHP: 12
-  currentHp: 12
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: -1506306454, guid: 018946abfd5734842bc61d2c4d02667e, type: 3}
-  hurt: {fileID: 1616946872, guid: 018946abfd5734842bc61d2c4d02667e, type: 3}
+  unitStats: {fileID: 11400000, guid: 69ccbf6178373954087b73fca5625b8d, type: 2}
 --- !u!212 &675214357050898391
 SpriteRenderer:
   m_ObjectHideFlags: 0

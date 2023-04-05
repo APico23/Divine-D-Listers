@@ -29,18 +29,18 @@ public class Unit: MonoBehaviour
 
     void Update()
     {
-        if (unitStats.isDead) 
-        {
-            unitStats.unitAnimator.SetBool("UnitIsDowned", true);
-        }
-        if (unitStats.isAttacking)
-        {
+        //if (unitStats.isDead) 
+        //{
+         //   unitStats.unitAnimator.SetBool("UnitIsDowned", true);
+       // }
+        //if (unitStats.isAttacking)
+        //{
             //StartCoroutine(animationAttack());
-        }
-        if (unitStats.isHit)
-        {
+       // }
+       // if (unitStats.isHit)
+       // {
             //StartCoroutine(animationHit());
-        }
+       // }
     }
 
     //private IEnumerator animationAttack()

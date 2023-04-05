@@ -98,22 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 6526883554535980642}
-  unitName: Exounos
-  unitLevel: 1
-  exp: 0
-  expNeeded: 0
-  damage: 11
-  luck: 15
-  defence: 23
-  speed: 9
-  maxHP: 21
-  currentHp: 21
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 21300000, guid: 101c827a9ff337946a84a6732e5ef2aa, type: 3}
-  hurt: {fileID: 21300000, guid: f1e84aca3fd42794e810332b74bd1abc, type: 3}
+  unitStats: {fileID: 11400000, guid: 4267bdd37d746b24a800fe036affcbce, type: 2}
 --- !u!95 &6526883554535980642
 Animator:
   serializedVersion: 5

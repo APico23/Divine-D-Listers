@@ -97,19 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 0}
-  unitName: Ammit
-  unitLevel: 10
-  exp: 0
-  expNeeded: 0
-  damage: 24
-  luck: 25
-  defence: 30
-  speed: 10
-  maxHP: 40
-  currentHp: 40
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 21300000, guid: 716fe2ad90a23c44bb9693ad3af63509, type: 3}
-  hurt: {fileID: 21300000, guid: 226ae0e9df860664984e615b5c392ba3, type: 3}
+  unitStats: {fileID: 11400000, guid: b7b92ff9941f277479ee20987e3c0990, type: 2}

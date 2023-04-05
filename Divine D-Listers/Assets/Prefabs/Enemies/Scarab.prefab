@@ -97,19 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 0}
-  unitName: Scarab
-  unitLevel: 1
-  exp: 0
-  expNeeded: 0
-  damage: 5
-  luck: 12
-  defence: 10
-  speed: 5
-  maxHP: 6
-  currentHp: 6
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 1479460435, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
-  hurt: {fileID: -1666463548, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
+  unitStats: {fileID: 11400000, guid: 18e010f3e40c60c49b6857cf057bf6e3, type: 2}

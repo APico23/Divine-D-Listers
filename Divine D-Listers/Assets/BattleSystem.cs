@@ -107,13 +107,13 @@ public class BattleSystem : MonoBehaviour
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
-        jormHealthBar.setHealth(playerUnit1.maxHP);
+        jormHealthBar.setHealth(playerUnit1.currentHp);
 
         hameedaHealthBar.setMaxHealth(playerUnit2.maxHP);
-        hameedaHealthBar.setHealth(playerUnit2.maxHP);
+        hameedaHealthBar.setHealth(playerUnit2.currentHp);
 
         exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
-        exounosHealthBar.setHealth(playerUnit3.maxHP);
+        exounosHealthBar.setHealth(playerUnit3.currentHp);
 
 
         specialMeter.setMaxMeter(10);
@@ -122,9 +122,9 @@ public class BattleSystem : MonoBehaviour
         jormLevel.text = "" + playerUnit1.unitLevel;
         hameedaLevel.text = "" + playerUnit2.unitLevel;
         exounosLevel.text = "" + playerUnit3.unitLevel;
-        jormHp.text = playerUnit1.maxHP + "/" + playerUnit1.currentHp;
-        hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
-        exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
+        jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+        hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+        exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
 
 
         StartCoroutine(BattleBegin()); 
