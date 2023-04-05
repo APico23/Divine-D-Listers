@@ -20,7 +20,7 @@ public class sphinxManager : MonoBehaviour
                 tracker.continueConvo();
                 riddle1.isStarted = true;
             }
-            else
+            else if (!riddle2.isStarted)
             {
                 if (riddle1.isCompleted)
                 {

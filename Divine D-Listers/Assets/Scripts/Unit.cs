@@ -1,43 +1,43 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEditor;
 
 public class Unit: MonoBehaviour
 {
+    public UnitStats unitStats;
+    //public Animator unitAnimator;
+    //public string unitName;
+    //public int unitLevel;
 
-    public Animator unitAnimator;
-    public string unitName;
-    public int unitLevel;
+    //public int exp;
+    //public int expNeeded;
 
-    public int exp;
-    public int expNeeded;
+    //public int damage;
+    //public int luck;
+    //public int defence;
+    //public int speed;
 
-    public int damage;
-    public int luck;
-    public int defence;
-    public int speed;
+    //public int maxHP;
+    //public int currentHp;
 
-    public int maxHP;
-    public int currentHp;
+    //public bool isDead = false;
+    //public bool isAttacking = false;
+    //public bool isHit = false;
 
-    public bool isDead = false;
-    public bool isAttacking = false;
-    public bool isHit = false;
-
-    public Sprite attack;
-    public Sprite hurt;
+    //public Sprite attack;
+    //public Sprite hurt;
 
     void Update()
     {
-        if (isDead) 
+        if (unitStats.isDead) 
         {
-            unitAnimator.SetBool("UnitIsDowned", true);
+            unitStats.unitAnimator.SetBool("UnitIsDowned", true);
         }
-        if (isAttacking)
+        if (unitStats.isAttacking)
         {
             //StartCoroutine(animationAttack());
         }
-        if (isHit)
+        if (unitStats.isHit)
         {
             //StartCoroutine(animationHit());
         }
@@ -61,36 +61,36 @@ public class Unit: MonoBehaviour
 
     public void AttemptLevelUp(int playerNum) 
     {
-        exp += 10;
-        if (exp >= expNeeded) 
+        unitStats.exp += 10;
+        if (unitStats.exp >= unitStats.expNeeded) 
         {
-            unitLevel++;
-            exp = 0; 
+            unitStats.unitLevel++;
+            unitStats.exp = 0; 
             if (playerNum == 1)
             {
-                maxHP += 2;
-                damage += 1;
-                luck += 2;
-                defence += 3;
-                speed += 2;
+                unitStats.maxHP += 2;
+                unitStats.damage += 1;
+                unitStats.luck += 2;
+                unitStats.defence += 3;
+                unitStats.speed += 2;
             }
             else if (playerNum == 2)
             {
-                maxHP += 1;
-                damage += 3;
-                luck += 2;
-                defence += 1;
-                speed += 2;
+                unitStats.maxHP += 1;
+                unitStats.damage += 3;
+                unitStats.luck += 2;
+                unitStats.defence += 1;
+                unitStats.speed += 2;
             }
             else if (playerNum == 3)
             {
-                maxHP += 1;
-                damage += 2;
-                luck += 3;
-                defence += 2;
-                speed += 1;
+                unitStats.maxHP += 1;
+                unitStats.damage += 2;
+                unitStats.luck += 3;
+                unitStats.defence += 2;
+                unitStats.speed += 1;
             }
-            expNeeded += 10;
+            unitStats.expNeeded += 10;
         } 
     }
 
