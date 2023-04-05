@@ -19,6 +19,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public battleStarter battleStart;
 
+    private GameObject enemyPrefab2;
     private GameObject enemyPrefab;
 
     public GameObject jormHUD;
@@ -40,6 +41,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private bool isCrit;
 
     public Transform enemyBattleSpawn;
+    public Transform enemyBattleSpawn2;
     public Transform jormBattleSpawn;
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
@@ -48,6 +50,7 @@ public class BattleSystemRevamp : MonoBehaviour
     UnitStats playerUnit2;
     UnitStats playerUnit3;
     UnitStats enemyUnit;
+    UnitStats enemyUnit2;
 
     private string[] speeds = new string[3];
 
@@ -91,6 +94,7 @@ public class BattleSystemRevamp : MonoBehaviour
         exounosHUD.SetActive(false);
 
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
+        enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
 
         background.sprite = battleStart.background;
 
@@ -105,6 +109,9 @@ public class BattleSystemRevamp : MonoBehaviour
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
+
+        GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
+        enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
         jormHealthBar.setHealth(playerUnit1.currentHp);
