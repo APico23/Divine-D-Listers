@@ -52,7 +52,7 @@ public class BattleSystemRevamp : MonoBehaviour
     UnitStats enemyUnit;
     UnitStats enemyUnit2;
 
-    private string[] speeds = new string[3];
+    private string[] speeds = new string[4];
 
     public Text dialougeText;
     public Text initiaviteHUD;
@@ -139,9 +139,9 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void battleSequence()
     {
-        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
+        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3] + " " + speeds[4];
         attack.SetActive(false);
-        if (turnNum > 3)
+        if (turnNum > 4)
         {
             turnNum = 0;
             speeds = getInitiative();
@@ -195,7 +195,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     exounosTurn();
                 }
             }
-            else if (speeds[turnNum] == "Enemy")
+            else if (speeds[turnNum] == "Enemy1")
             {
                 if (enemyUnit.isDead)
                 {
@@ -209,7 +209,20 @@ public class BattleSystemRevamp : MonoBehaviour
                     StartCoroutine(enemyCoroutine());
                 }
             }
-
+            else if (speeds[turnNum] == "Enemy2")
+            {
+                if (enemyUnit2.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else
+                {
+                    turnNum++;
+                    state = BattleState.ENEMYTURN;
+                    StartCoroutine(enemyCoroutine());
+                }
+            }
 
         }
     }
@@ -217,15 +230,15 @@ public class BattleSystemRevamp : MonoBehaviour
     string[] getInitiative()
     {
         //take in all player and enemy names and speeds
-        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy" };
-        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed };
+        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy1", "Enemy2" };
+        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed, enemyUnit2.speed};
         //sort it from highest to lowest
 
         bool swappedSomething = true;
         while (swappedSomething)
         {
             swappedSomething = false;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (entitySpeeds[i] < entitySpeeds[i + 1])
                 {
@@ -284,7 +297,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void isBattleWon()
     {
-        if (enemyUnit.currentHp <= 0)
+        if (enemyUnit.currentHp <= 0 && enemyUnit2.currentHp <= 0)
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
