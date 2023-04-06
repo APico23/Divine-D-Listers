@@ -830,7 +830,6 @@ MonoBehaviour:
   speakerSprite: {fileID: 8186640830150786453}
   speaker2Sprite: {fileID: 8186640829830952479}
   backdrop: {fileID: 3195146580131873763}
-  audioPlayer: {fileID: 0}
 --- !u!95 &8186640829858698519
 Animator:
   serializedVersion: 5
