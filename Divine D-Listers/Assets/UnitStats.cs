@@ -23,6 +23,7 @@ public class UnitStats : ScriptableObject
     public bool isDead = false;
     public bool isAttacking = false;
     public bool isHit = false;
+    public bool leveledUp = false;  
 
     public Sprite attack;
     public Sprite hurt;

@@ -29,6 +29,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public GameObject jormStats;
     public GameObject hameedaStats;
     public GameObject exounosStats;
+    public GameObject winScreen;
 
     public Image background;
 
@@ -62,6 +63,9 @@ public class BattleSystemRevamp : MonoBehaviour
     public Text jormHp;
     public Text hameedaHp;
     public Text exounosHp;
+    public Text Jexp;
+    public Text Eexp;
+    public Text Hexp; 
 
     private int turnNum = 0;
 
@@ -89,9 +93,15 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void setupBattle()
     {
+
+
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
+
+
+        winScreen = GameObject.Find("Game Win");
+        winScreen.SetActive(false);
 
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
         enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
@@ -304,14 +314,41 @@ public class BattleSystemRevamp : MonoBehaviour
             //playerUnit1.AttemptLevelUp(1);
             //playerUnit2.AttemptLevelUp(2);
             //playerUnit3.AttemptLevelUp(3);
+            if (playerUnit1.leveledUp)
+            {
+                Jexp.text = "+10 - LEVEL UP!";
+            }
+            else {
+                Jexp.text = "+10";
+            }
+            if (playerUnit2.leveledUp)
+            {
+                Hexp.text = "+10 - LEVEL UP!";
+            }
+            else
+            {
+                Hexp.text = "+10";
+            }
+            if (playerUnit3.leveledUp)
+            {
+                Eexp.text = "+10 - LEVEL UP!";
+            }
+            else
+            {
+                Eexp.text = "+10";
+            }
+
             StartCoroutine(winCoroutineWait());
         }
     }
 
+    void exitBattle() 
+    {
+        SceneManager.LoadScene(currentPosition.currentScene);
+    }
+
     public void takeASeat()
     {
-
-
         Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
         hitHurtManager.playerHit(playerUnit1, enemyUnit);
@@ -505,7 +542,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private IEnumerator winCoroutineWait()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(currentPosition.currentScene);
+        winScreen.SetActive(true);
     }
 
     private IEnumerator enemyCoroutine()

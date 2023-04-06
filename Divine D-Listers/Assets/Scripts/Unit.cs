@@ -64,6 +64,7 @@ public class Unit: MonoBehaviour
         unitStats.exp += 10;
         if (unitStats.exp >= unitStats.expNeeded) 
         {
+            unitStats.leveledUp = true;
             unitStats.unitLevel++;
             unitStats.exp = 0; 
             if (playerNum == 1)
