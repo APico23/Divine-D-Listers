@@ -45,22 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 0}
-  unitName: Ra
-  unitLevel: 12
-  exp: 0
-  expNeeded: 0
-  damage: 32
-  luck: 24
-  defence: 12
-  speed: 15
-  maxHP: 25
-  currentHp: 25
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 21300000, guid: 5757d6594be760d4fbcf573619771285, type: 3}
-  hurt: {fileID: 21300000, guid: f8d4b83600af2d7449ed5bbeac2019a5, type: 3}
+  unitStats: {fileID: 11400000, guid: c8ef89e73672b1b4797b422acc7d2aa2, type: 2}
 --- !u!212 &693236623553607596
 SpriteRenderer:
   m_ObjectHideFlags: 0

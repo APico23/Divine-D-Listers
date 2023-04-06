@@ -19,6 +19,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public battleStarter battleStart;
 
+    private GameObject enemyPrefab2;
     private GameObject enemyPrefab;
 
     public GameObject jormHUD;
@@ -40,6 +41,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private bool isCrit;
 
     public Transform enemyBattleSpawn;
+    public Transform enemyBattleSpawn2;
     public Transform jormBattleSpawn;
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
@@ -48,8 +50,9 @@ public class BattleSystemRevamp : MonoBehaviour
     UnitStats playerUnit2;
     UnitStats playerUnit3;
     UnitStats enemyUnit;
+    UnitStats enemyUnit2;
 
-    private string[] speeds = new string[3];
+    private string[] speeds = new string[4];
 
     public Text dialougeText;
     public Text initiaviteHUD;
@@ -91,6 +94,7 @@ public class BattleSystemRevamp : MonoBehaviour
         exounosHUD.SetActive(false);
 
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
+        enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
 
         background.sprite = battleStart.background;
 
@@ -106,14 +110,17 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
 
+        GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
+        enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
+
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
-        jormHealthBar.setHealth(playerUnit1.maxHP);
+        jormHealthBar.setHealth(playerUnit1.currentHp);
 
         hameedaHealthBar.setMaxHealth(playerUnit2.maxHP);
-        hameedaHealthBar.setHealth(playerUnit2.maxHP);
+        hameedaHealthBar.setHealth(playerUnit2.currentHp);
 
         exounosHealthBar.setMaxHealth(playerUnit3.maxHP);
-        exounosHealthBar.setHealth(playerUnit3.maxHP);
+        exounosHealthBar.setHealth(playerUnit3.currentHp);
 
 
         specialMeter.setMaxMeter(10);
@@ -122,9 +129,9 @@ public class BattleSystemRevamp : MonoBehaviour
         jormLevel.text = "" + playerUnit1.unitLevel;
         hameedaLevel.text = "" + playerUnit2.unitLevel;
         exounosLevel.text = "" + playerUnit3.unitLevel;
-        jormHp.text = playerUnit1.maxHP + "/" + playerUnit1.currentHp;
-        hameedaHp.text = playerUnit2.maxHP + "/" + playerUnit2.currentHp;
-        exounosHp.text = playerUnit3.maxHP + "/" + playerUnit3.currentHp;
+        jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+        hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+        exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
 
 
         StartCoroutine(BattleBegin()); 
@@ -132,9 +139,9 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void battleSequence()
     {
-        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
+        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3] + " " + speeds[4];
         attack.SetActive(false);
-        if (turnNum > 3)
+        if (turnNum > 4)
         {
             turnNum = 0;
             speeds = getInitiative();
@@ -188,7 +195,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     exounosTurn();
                 }
             }
-            else if (speeds[turnNum] == "Enemy")
+            else if (speeds[turnNum] == "Enemy1")
             {
                 if (enemyUnit.isDead)
                 {
@@ -202,7 +209,20 @@ public class BattleSystemRevamp : MonoBehaviour
                     StartCoroutine(enemyCoroutine());
                 }
             }
-
+            else if (speeds[turnNum] == "Enemy2")
+            {
+                if (enemyUnit2.isDead)
+                {
+                    turnNum++;
+                    battleSequence();
+                }
+                else
+                {
+                    turnNum++;
+                    state = BattleState.ENEMYTURN;
+                    StartCoroutine(enemyCoroutine());
+                }
+            }
 
         }
     }
@@ -210,15 +230,15 @@ public class BattleSystemRevamp : MonoBehaviour
     string[] getInitiative()
     {
         //take in all player and enemy names and speeds
-        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy" };
-        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed };
+        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy1", "Enemy2" };
+        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed, enemyUnit2.speed};
         //sort it from highest to lowest
 
         bool swappedSomething = true;
         while (swappedSomething)
         {
             swappedSomething = false;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (entitySpeeds[i] < entitySpeeds[i + 1])
                 {
@@ -277,7 +297,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void isBattleWon()
     {
-        if (enemyUnit.currentHp <= 0)
+        if (enemyUnit.currentHp <= 0 && enemyUnit2.currentHp <= 0)
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
