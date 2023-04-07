@@ -1472,6 +1472,7 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
+  winScreen: {fileID: 244618579}
   background: {fileID: 483414075}
   enemyBattleSpawn: {fileID: 1902739}
   enemyBattleSpawn2: {fileID: 1123781678}
@@ -1494,7 +1495,7 @@ MonoBehaviour:
   exounosHealthBar: {fileID: 216327331}
   specialMeter: {fileID: 1541216475}
   currentPosition: {fileID: 11400000, guid: 7297f019132d9bd43a86103948861c6a, type: 2}
-  hitHurtScreen: {fileID: 0}
+  hitHurtScreen: {fileID: 1707668158873912514, guid: 940933ef47be7cc448bf7ba1c2c1207f, type: 3}
 --- !u!1 &483414073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2021,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 468622194}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: attackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
         m_MethodName: attackButton
         m_Mode: 1
         m_Arguments:
