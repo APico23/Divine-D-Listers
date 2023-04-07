@@ -9,5 +9,6 @@ public class PlayerInfo : MonoBehaviour
     public VectorValue position;
     public convoTracker[] convos;
     public UnitStats[] players;
+    public inventory inventory;
 
 }
