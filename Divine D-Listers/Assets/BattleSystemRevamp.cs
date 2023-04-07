@@ -26,10 +26,12 @@ public class BattleSystemRevamp : MonoBehaviour
     public GameObject hameedaHUD;
     public GameObject exounosHUD;
     public GameObject attack;
+    public GameObject runButton;
     public GameObject jormStats;
     public GameObject hameedaStats;
     public GameObject exounosStats;
     public GameObject winScreen;
+    public GameObject loseScreen;
 
     public Image background;
 
@@ -103,6 +105,9 @@ public class BattleSystemRevamp : MonoBehaviour
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
 
+        loseScreen = GameObject.Find("Game Lose");
+        loseScreen.SetActive(false);
+
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
         enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
 
@@ -151,6 +156,7 @@ public class BattleSystemRevamp : MonoBehaviour
     {
         initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3] + " " + speeds[4];
         attack.SetActive(false);
+        runButton.SetActive(false);
         if (turnNum > 4)
         {
             turnNum = 0;
@@ -172,6 +178,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.JORMTURN;
                     attack.SetActive(true);
+                    runButton.SetActive(true);
                     jormTurn();
                 }
             }
@@ -187,6 +194,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.HAMEEDATURN;
                     attack.SetActive(true);
+                    runButton.SetActive(true);
                     hameedaTurn();
                 }
             }
@@ -202,6 +210,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.EXOUNOSTURN;
                     attack.SetActive(true);
+                    runButton.SetActive(true);
                     exounosTurn();
                 }
             }
@@ -342,7 +351,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-    void exitBattle() 
+    public void exitBattle() 
     {
         SceneManager.LoadScene(currentPosition.currentScene);
     }
@@ -586,6 +595,29 @@ public class BattleSystemRevamp : MonoBehaviour
         battleSequence();
     }
 
+    public IEnumerator run() {
+        
+        int randNum = Random.Range(0, 3);
+
+        if (randNum == 0)
+        {
+            StartCoroutine(TypeText("Jorm and the party got away safely!"));
+            yield return new WaitForSeconds(3);
+            exitBattle();
+        }
+        else {
+            StartCoroutine(TypeText("You couldnt get away!"));
+            yield return new WaitForSeconds(3);
+            battleSequence();
+        }
+
+    }
+
+    public void callTheRunFuntion() 
+    {
+        runButton.SetActive(false);
+        StartCoroutine(run()); 
+    }
 
     void isDead(UnitStats player)
     {
@@ -597,7 +629,7 @@ public class BattleSystemRevamp : MonoBehaviour
         if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead)
         {
             state = BattleState.LOST;
-            StartCoroutine(TypeText("You lose!"));
+            loseScreen.SetActive(true);
         }
     }
 
@@ -781,8 +813,6 @@ public class BattleSystemRevamp : MonoBehaviour
 
             playerUnit1.isHit = true;
             StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
-
-
         }
         else if (randNum == 1 && !playerUnit2.isDead)
         {

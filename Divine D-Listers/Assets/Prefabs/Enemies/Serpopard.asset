@@ -14,17 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
   unitName: Serpopard
-  unitLevel: 4
+  unitLevel: 3
   exp: 25
   expNeeded: 0
-  damage: 13
-  luck: 14
-  defence: 9
+  damage: 14
+  luck: 20
+  defence: 15
   speed: 15
   maxHP: 20
-  currentHp: -17
+  currentHp: 20
   isDead: 0
   isAttacking: 0
   isHit: 0
-  attack: {fileID: 0}
-  hurt: {fileID: 0}
+  leveledUp: 0
+  attack: {fileID: 21300000, guid: 34e7860be8efdf041a8006ba41f28a87, type: 3}
+  hurt: {fileID: 21300000, guid: 9065449ab85b2ce40aa8e93c58d9b3cb, type: 3}
+  defaultUnitLevel: 3
+  defaultExp: 25
+  defaultExpNeeded: 0
+  defaultDamage: 14
+  defaultLuck: 20
+  defaultDefence: 15
+  defaultSpeed: 15
+  defaultMaxHP: 20
+  defaultCurrentHp: 20

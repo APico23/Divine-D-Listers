@@ -17,14 +17,24 @@ MonoBehaviour:
   unitLevel: 1
   exp: 5
   expNeeded: 0
-  damage: 8
-  luck: 40
+  damage: 6
+  luck: 30
   defence: 10
-  speed: 9
-  maxHP: 7
-  currentHp: 7
+  speed: 4
+  maxHP: 6
+  currentHp: 6
   isDead: 0
   isAttacking: 0
   isHit: 0
-  attack: {fileID: 0}
-  hurt: {fileID: 0}
+  leveledUp: 0
+  attack: {fileID: 1479460435, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
+  hurt: {fileID: -1666463548, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
+  defaultUnitLevel: 1
+  defaultExp: 5
+  defaultExpNeeded: 0
+  defaultDamage: 6
+  defaultLuck: 30
+  defaultDefence: 10
+  defaultSpeed: 4
+  defaultMaxHP: 6
+  defaultCurrentHp: 6
