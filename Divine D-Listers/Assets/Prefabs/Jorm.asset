@@ -27,8 +27,8 @@ MonoBehaviour:
   isAttacking: 0
   isHit: 0
   leveledUp: 0
-  attack: {fileID: 0}
-  hurt: {fileID: 0}
+  attack: {fileID: 21300000, guid: f721e92a951a00b46b7525a6f38cf72e, type: 3}
+  hurt: {fileID: 21300000, guid: 4077de65b61260f419d294c4cb59e088, type: 3}
   defaultUnitLevel: 1
   defaultExp: 0
   defaultExpNeeded: 50

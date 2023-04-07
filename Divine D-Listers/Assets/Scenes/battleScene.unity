@@ -1473,10 +1473,8 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
-
-  winScreen: {fileID: 0}
-  loseScreen: {fileID: 0}
-  
+  winScreen: {fileID: 244618579}
+  loseScreen: {fileID: 2118498669}
   background: {fileID: 483414075}
   enemyBattleSpawn: {fileID: 1902739}
   enemyBattleSpawn2: {fileID: 1123781678}
@@ -1487,7 +1485,7 @@ MonoBehaviour:
   initiaviteHUD: {fileID: 1220466093}
   jormLevel: {fileID: 926833540}
   hameedaLevel: {fileID: 111517382}
-  exounosLevel: {fileID: 111517382}
+  exounosLevel: {fileID: 1290625405}
   jormHp: {fileID: 499621921}
   hameedaHp: {fileID: 1924431295}
   exounosHp: {fileID: 155900317}
@@ -1498,10 +1496,8 @@ MonoBehaviour:
   hameedaHealthBar: {fileID: 842421202}
   exounosHealthBar: {fileID: 216327331}
   specialMeter: {fileID: 1541216475}
-
-  currentPosition: {fileID: 11400000, guid: 7297f019132d9bd43a86103948861c6a, type: 2}
+  currentPosition: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   hitHurtScreen: {fileID: 1707668158873912514, guid: 940933ef47be7cc448bf7ba1c2c1207f, type: 3}
-
 --- !u!1 &483414073
 GameObject:
   m_ObjectHideFlags: 0
