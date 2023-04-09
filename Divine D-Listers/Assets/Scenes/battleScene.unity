@@ -1687,8 +1687,10 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
-  winScreen: {fileID: 263244143}
-  loseScreen: {fileID: 662106458}
+
+  winScreen: {fileID: 244618579}
+  loseScreen: {fileID: 2118498669}
+
   background: {fileID: 483414075}
   enemyBattleSpawn: {fileID: 1902739}
   enemyBattleSpawn2: {fileID: 1123781678}

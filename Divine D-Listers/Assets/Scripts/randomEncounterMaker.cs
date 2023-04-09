@@ -27,6 +27,15 @@ public class randomEncounterMaker : MonoBehaviour
             if (rand == 0)
             {
                 playerStorage.initialValue = new Vector2(player.position.x , player.position.y);
+                int rand2 = Random.Range(0, 4);
+                if (rand2 == 0)
+                {
+                    GameObject.Find("BattleStarter").GetComponent<battleStarter>().isMultiple = true;
+                }
+                else
+                {
+                    GameObject.Find("BattleStarter").GetComponent<battleStarter>().isMultiple = false;
+                }
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(worldEncounters);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
                 SceneManager.LoadScene("battleScene");
