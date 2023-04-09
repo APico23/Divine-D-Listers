@@ -362,7 +362,6 @@ public class BattleSystemRevamp : MonoBehaviour
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
         hitHurtManager.playerHit(playerUnit1, enemyUnit);
 
-
         playerUnit1.isAttacking = true;
         specialMeter.setMeter(specialMeter.getMeter() + 1);
 
