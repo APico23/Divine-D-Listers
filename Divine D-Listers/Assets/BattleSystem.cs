@@ -20,6 +20,7 @@ public class BattleSystem : MonoBehaviour
     public battleStarter battleStart;
 
     private GameObject enemyPrefab;
+    private GameObject enemyPrefab2;
 
     public GameObject jormHUD;
     public GameObject hameedaHUD;
@@ -47,6 +48,7 @@ public class BattleSystem : MonoBehaviour
     public Transform jormBattleSpawn;
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
+    public Transform enemyBattleSpawn2;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -98,6 +100,7 @@ public class BattleSystem : MonoBehaviour
         enemy2select.SetActive(false);
 
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
+        enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
 
         background.sprite = battleStart.background;
 
@@ -342,15 +345,15 @@ public class BattleSystem : MonoBehaviour
     {
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
-        if (currentAttack = "Yawn") 
+        if (currentAttack == "Yawn") 
         {
             yawn(enemyUnit);
         }
-        else if (currentAttack = "Take a Seat")
+        else if (currentAttack == "Take a Seat")
         {
             takeASeat(enemyUnit);
         }
-        else if (currentAttack = "Kohld Shoulder")
+        else if (currentAttack == "Kohld Shoulder")
         {
             kohldShoulder(enemyUnit);
         }
@@ -360,15 +363,15 @@ public class BattleSystem : MonoBehaviour
     {
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
-        if (currentAttack = "Yawn")
+        if (currentAttack == "Yawn")
         {
             yawn(enemyUnit2);
         }
-        else if (currentAttack = "Take a Seat")
+        else if (currentAttack == "Take a Seat")
         {
             takeASeat(enemyUnit2);
         }
-        else if (currentAttack = "Kohld Shoulder")
+        else if (currentAttack == "Kohld Shoulder")
         {
             kohldShoulder(enemyUnit2);
         }
