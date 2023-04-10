@@ -1614,31 +1614,33 @@ MonoBehaviour:
   jormStats: {fileID: 1489116843}
   hameedaStats: {fileID: 1055880689}
   exounosStats: {fileID: 1812653985}
-  winScreen: {fileID: 0}
-  loseScreen: {fileID: 0}
-  background: {fileID: 0}
-  enemyBattleSpawn: {fileID: 0}
-  enemyBattleSpawn2: {fileID: 0}
-  jormBattleSpawn: {fileID: 0}
-  hameedaBattleSpawn: {fileID: 0}
-  exounosBattleSpawn: {fileID: 0}
-  dialougeText: {fileID: 0}
-  initiaviteHUD: {fileID: 0}
-  jormLevel: {fileID: 0}
-  hameedaLevel: {fileID: 0}
-  exounosLevel: {fileID: 0}
-  jormHp: {fileID: 0}
-  hameedaHp: {fileID: 0}
-  exounosHp: {fileID: 0}
-  Jexp: {fileID: 0}
-  Eexp: {fileID: 0}
-  Hexp: {fileID: 0}
-  jormHealthBar: {fileID: 0}
-  hameedaHealthBar: {fileID: 0}
-  exounosHealthBar: {fileID: 0}
-  specialMeter: {fileID: 0}
-  currentPosition: {fileID: 0}
-  hitHurtScreen: {fileID: 0}
+  winScreen: {fileID: 244618579}
+  loseScreen: {fileID: 2118498669}
+  enemy1Select: {fileID: 1027138773}
+  enemy2select: {fileID: 1454624929}
+  background: {fileID: 483414075}
+  enemyBattleSpawn: {fileID: 1902739}
+  enemyBattleSpawn2: {fileID: 1123781678}
+  jormBattleSpawn: {fileID: 1282965513}
+  hameedaBattleSpawn: {fileID: 590583181}
+  exounosBattleSpawn: {fileID: 1312433890}
+  dialougeText: {fileID: 1244719274}
+  initiaviteHUD: {fileID: 1220466093}
+  jormLevel: {fileID: 926833540}
+  hameedaLevel: {fileID: 111517382}
+  exounosLevel: {fileID: 1290625405}
+  jormHp: {fileID: 499621921}
+  hameedaHp: {fileID: 1924431295}
+  exounosHp: {fileID: 155900317}
+  Jexp: {fileID: 365517298}
+  Eexp: {fileID: 1003160213}
+  Hexp: {fileID: 432289983}
+  jormHealthBar: {fileID: 1993709651}
+  hameedaHealthBar: {fileID: 842421202}
+  exounosHealthBar: {fileID: 216327331}
+  specialMeter: {fileID: 1541216475}
+  currentPosition: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  hitHurtScreen: {fileID: 1707668158873912514, guid: 940933ef47be7cc448bf7ba1c2c1207f, type: 3}
 --- !u!1 &483414073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,9 +2079,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: kohldShoulder
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: kohldShoulderButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2930,9 +2932,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: yawn
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: yawnButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6534,9 +6536,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: takeASeat
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: takeASeatButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
