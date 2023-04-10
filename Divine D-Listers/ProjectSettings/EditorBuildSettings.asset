@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/realmOfForgottenGods.unity
+    guid: f8c340e2190c4f64eb5c239b8c34b861
+  - enabled: 1
     path: Assets/Scenes/startingRoom.unity
     guid: 2adc255d2b3e24746afd15dc66e7c1af
   - enabled: 1
@@ -44,7 +47,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/goldStashUnlock.unity
     guid: f034d4764a3b8854b9c7cf278fd8d1bc
-  - enabled: 1
-    path: Assets/Scenes/realmOfForgottenGods.unity
-    guid: f8c340e2190c4f64eb5c239b8c34b861
   m_configObjects: {}
