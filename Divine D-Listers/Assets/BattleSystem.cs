@@ -19,6 +19,7 @@ public class BattleSystem : MonoBehaviour
 
     public battleStarter battleStart;
 
+
     private GameObject enemyPrefab;
     private GameObject enemyPrefab2;
 
