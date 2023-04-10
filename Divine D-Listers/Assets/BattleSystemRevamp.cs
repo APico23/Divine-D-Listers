@@ -32,6 +32,9 @@ public class BattleSystemRevamp : MonoBehaviour
     public GameObject exounosStats;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public GameObject enemy1Select;
+    public GameObject enemy2select;
+    private string currentAttack;
 
     public Image background;
 
@@ -100,6 +103,8 @@ public class BattleSystemRevamp : MonoBehaviour
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
 
 
         winScreen = GameObject.Find("Game Win");
