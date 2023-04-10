@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0dee8d8baafcb9f4e996532939612ec6
+guid: 831e47353614bfd4a949c9b0eb6d6c98
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ddl_pheonix_attack 1_0
+      name: particle_FX_medium_slash_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 1
-        width: 124
-        height: 85
+        x: 0
+        y: 0
+        width: 32
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01ad427d1765b2e42b26cc7a34299da6
-      internalID: -1292682928
+      spriteID: 347e29c0c2ebb6841ac4c619e02b9a67
+      internalID: 1294941848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ddl_pheonix_attack 1_1
+      name: particle_FX_medium_slash_1
       rect:
         serializedVersion: 2
-        x: 166
-        y: 1
-        width: 151
-        height: 85
+        x: 32
+        y: 0
+        width: 32
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb62bf2f9bd6b448a1681f95e6f8bd3
-      internalID: 797520397
+      spriteID: 02d493e3b499f5f47937e41337cacd86
+      internalID: -675164949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particle_FX_medium_slash_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476b9913193bcec46b6b46d55053571f
+      internalID: -1450759010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particle_FX_medium_slash_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62657284017622147b9178fb2a179720
+      internalID: 1607069503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particle_FX_medium_slash_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72774bfba694786498d2c530d645c50c
+      internalID: -438143575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particle_FX_medium_slash_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77aede01926c4847bf2682d90f882b6
+      internalID: 196433337
       vertices: []
       indices: 
       edges: []
@@ -157,8 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ddl_pheonix_attack 1_1: 797520397
-      ddl_pheonix_attack 1_0: -1292682928
+      particle_FX_medium_slash_0: 1294941848
+      particle_FX_medium_slash_1: -675164949
+      particle_FX_medium_slash_4: -438143575
+      particle_FX_medium_slash_5: 196433337
+      particle_FX_medium_slash_2: -1450759010
+      particle_FX_medium_slash_3: 1607069503
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
