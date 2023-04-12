@@ -45,6 +45,12 @@ public class BattleSystemRevamp : MonoBehaviour
     private float rounded;
     private int crit;
     private bool isCrit;
+    private int enemyhp;
+    private int enemy2hp;
+    private bool isEnemy1=false;
+    private bool isEnemy1dead = false;
+    private bool isEnemy2dead = false;
+
 
     public Transform enemyBattleSpawn;
     public Transform enemyBattleSpawn2;
@@ -132,6 +138,14 @@ public class BattleSystemRevamp : MonoBehaviour
 
         GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
         enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
+
+        playerUnit1.currentHp = playerUnit1.maxHP; 
+        playerUnit2.currentHp=playerUnit2.maxHP;
+        playerUnit3.currentHp = playerUnit3.maxHP;
+        enemyhp=enemyUnit.maxHP;
+        isEnemy1dead= false;
+        enemy2hp = enemyUnit2.maxHP;
+        isEnemy2dead = false;
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
         jormHealthBar.setHealth(playerUnit1.currentHp);
@@ -221,7 +235,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             else if (speeds[turnNum] == "Enemy1")
             {
-                if (enemyUnit.isDead)
+                if (isEnemy1dead)
                 {
                     turnNum++;
                     battleSequence();
@@ -235,7 +249,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             else if (speeds[turnNum] == "Enemy2")
             {
-                if (enemyUnit2.isDead)
+                if (isEnemy2dead)
                 {
                     turnNum++;
                     battleSequence();
@@ -321,7 +335,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void isBattleWon()
     {
-        if (enemyUnit.currentHp <= 0 && enemyUnit2.currentHp <= 0)
+        if (isEnemy1dead && isEnemy2dead)
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
@@ -363,13 +377,13 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void takeASeatButton()
     {
-        if (!enemyUnit.isDead)
+        if (!isEnemy1dead)
         {
             enemy1Select.SetActive(true);
         }
         if (battleStart.isMultiple)
         {
-            if (!enemyUnit2.isDead)
+            if (!isEnemy2dead)
             {
                 enemy2select.SetActive(true);
             }
@@ -402,7 +416,14 @@ public class BattleSystemRevamp : MonoBehaviour
             isCrit = true;
             damageDone *= 2;
         }
-        u.currentHp -= damageDone;
+        if (isEnemy1)
+        {
+            enemyhp -= damageDone;
+        }
+        else
+        {
+            enemy2hp -= damageDone;
+        }
         attack.SetActive(false);
         Debug.Log(damageDone);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, u));
@@ -410,6 +431,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void buttonEnemyOne()
     {
+        isEnemy1 = true;
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
         if (currentAttack == "Yawn")
@@ -427,7 +449,8 @@ public class BattleSystemRevamp : MonoBehaviour
     }
 
    public void buttonEnemyTwo()
-    {
+    {  
+        isEnemy1= false;
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
         if (currentAttack == "Yawn")
@@ -471,13 +494,13 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void yawnButton()
     {
-        if (!enemyUnit.isDead)
+        if (!isEnemy1dead)
         {
             enemy1Select.SetActive(true);
         }
         if (battleStart.isMultiple)
         {
-            if (!enemyUnit2.isDead)
+            if (!isEnemy2dead)
             {
                 enemy2select.SetActive(true);
             }
@@ -552,13 +575,13 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void kohldShoulderButton()
     {
-        if (!enemyUnit.isDead)
+        if (!isEnemy1dead)
         {
             enemy1Select.SetActive(true);
         }
         if (battleStart.isMultiple)
         {
-            if (!enemyUnit2.isDead)
+            if (!isEnemy2dead)
             {
                 enemy2select.SetActive(true);
             }
@@ -590,7 +613,14 @@ public class BattleSystemRevamp : MonoBehaviour
             isCrit = true;
             damageDone *= 2;
         }
-        u.currentHp -= damageDone;
+        if (isEnemy1)
+        {
+            enemyhp -= damageDone;
+        }
+        else
+        {
+            enemy2hp -= damageDone;
+        }
         attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
         //code for attacks goes here
@@ -619,9 +649,13 @@ public class BattleSystemRevamp : MonoBehaviour
     {
         StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
 
-        if(e.currentHp<=0)
+        if(isEnemy1 && enemyhp<=0)
         {
-            e.isDead = true;
+            isEnemy1dead = true;
+        }
+        else if (enemy2hp<=0)
+        {
+            isEnemy2dead = true;
         }
         yield return new WaitForSeconds(3);
 
