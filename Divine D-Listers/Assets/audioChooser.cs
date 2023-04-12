@@ -10,13 +10,12 @@ public class audioChooser : MonoBehaviour
     public AudioClip mainTheme;
     public AudioClip battleTheme;
     public AudioClip realmTheme;
-    private bool isPlaying;
+    
 
 
     void Start()
     {
        speaker = GetComponent<AudioSource>();
-       isPlaying= false;
     }
 
     void Update()
