@@ -696,8 +696,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
         m_MethodName: powerNap
         m_Mode: 1
         m_Arguments:
@@ -4197,7 +4197,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 468622196}
         m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
-        m_MethodName: exitBattle
+        m_MethodName: buttonEnemyOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5860,7 +5860,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 468622196}
         m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
-        m_MethodName: exitBattle
+        m_MethodName: buttonEnemyTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6247,8 +6247,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
         m_MethodName: itsNotAPhase
         m_Mode: 1
         m_Arguments:
@@ -6670,8 +6670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
         m_MethodName: qualityAssurance
         m_Mode: 1
         m_Arguments:

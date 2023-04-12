@@ -99,7 +99,7 @@ public class BattleSystemRevamp : MonoBehaviour
     void setupBattle()
     {
 
-
+        battleStart.isMultiple = true;
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
@@ -230,7 +230,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 {
                     turnNum++;
                     state = BattleState.ENEMYTURN;
-                    StartCoroutine(enemyCoroutine());
+                    StartCoroutine(enemyCoroutine(enemyUnit));
                 }
             }
             else if (speeds[turnNum] == "Enemy2")
@@ -244,7 +244,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 {
                     turnNum++;
                     state = BattleState.ENEMYTURN;
-                    StartCoroutine(enemyCoroutine());
+                    StartCoroutine(enemyCoroutine(enemyUnit2));
                 }
             }
 
@@ -363,22 +363,29 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void takeASeatButton()
     {
-        enemy1Select.SetActive(true);
+        if (!enemyUnit.isDead)
+        {
+            enemy1Select.SetActive(true);
+        }
         if (battleStart.isMultiple)
         {
-            enemy2select.SetActive(true);
+            if (!enemyUnit2.isDead)
+            {
+                enemy2select.SetActive(true);
+            }
         }
         currentAttack = "Take a Seat";
     }
 
     void takeASeat(UnitStats u)
-    {
+    {   
+        playerUnit1.isAttacking = true;
         Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
         hitHurtManager.playerHit(playerUnit1, u);
 
 
-        playerUnit1.isAttacking = true;
+        
         specialMeter.setMeter(specialMeter.getMeter() + 1);
 
         isCrit = false;
@@ -398,10 +405,10 @@ public class BattleSystemRevamp : MonoBehaviour
         u.currentHp -= damageDone;
         attack.SetActive(false);
         Debug.Log(damageDone);
-        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit));
+        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, u));
     }
 
-    void buttonEnemy1()
+    public void buttonEnemyOne()
     {
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
@@ -419,7 +426,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-    void buttonEnemy2()
+   public void buttonEnemyTwo()
     {
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
@@ -464,26 +471,33 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void yawnButton()
     {
-        enemy1Select.SetActive(true);
+        if (!enemyUnit.isDead)
+        {
+            enemy1Select.SetActive(true);
+        }
         if (battleStart.isMultiple)
         {
-            enemy2select.SetActive(true);
+            if (!enemyUnit2.isDead)
+            {
+                enemy2select.SetActive(true);
+            }
         }
-        currentAttack = "Yawn";
+            currentAttack = "Yawn";
     }
 
     void yawn(UnitStats u)
-    {
+    {   
+        playerUnit3.isAttacking = true;
         Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
         hitHurtManager.playerHit(playerUnit3, u);
 
-        playerUnit3.isAttacking = true;
+        
         exounosHUD.SetActive(false);
         exounosStats.SetActive(true);
-        if (enemyUnit.speed >= (u.speed - Mathf.RoundToInt(u.speed * .25f)))
+        if (u.speed >= (u.speed - Mathf.RoundToInt(u.speed * .25f)))
         {
-            enemyUnit.speed -= 1;
+            u.speed -= 1;
             StartCoroutine(TypeText("The " + u.unitName + " grows drowzy."));
         }
         else
@@ -538,22 +552,29 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void kohldShoulderButton()
     {
-        enemy1Select.SetActive(true);
+        if (!enemyUnit.isDead)
+        {
+            enemy1Select.SetActive(true);
+        }
         if (battleStart.isMultiple)
         {
-            enemy2select.SetActive(true);
+            if (!enemyUnit2.isDead)
+            {
+                enemy2select.SetActive(true);
+            }
         }
         currentAttack = "Kohld Shoulder";
     }
 
 
     void kohldShoulder(UnitStats u)
-    {
+    {   
+        playerUnit2.isAttacking = true;
         Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
         hitHurtManager.playerHit(playerUnit2, u);
 
-        playerUnit2.isAttacking = true;
+        
         specialMeter.setMeter(specialMeter.getMeter() + 1f);
         isCrit = false;
         hameedaHUD.SetActive(false);
@@ -569,9 +590,9 @@ public class BattleSystemRevamp : MonoBehaviour
             isCrit = true;
             damageDone *= 2;
         }
-        enemyUnit.currentHp -= damageDone;
+        u.currentHp -= damageDone;
         attack.SetActive(false);
-        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit));
+        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
         //code for attacks goes here
     }
 
@@ -594,10 +615,14 @@ public class BattleSystemRevamp : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
-    private IEnumerator playerCoroutineAttack(UnitStats u, int d, bool b)
+    private IEnumerator playerCoroutineAttack(UnitStats u, int d, bool b, UnitStats e)
     {
-        StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + enemyUnit.unitName + " for " + d + " damage!"));
+        StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
 
+        if(e.currentHp<=0)
+        {
+            e.isDead = true;
+        }
         yield return new WaitForSeconds(3);
 
         if (b)
@@ -624,13 +649,13 @@ public class BattleSystemRevamp : MonoBehaviour
         winScreen.SetActive(true);
     }
 
-    private IEnumerator enemyCoroutine()
+    private IEnumerator enemyCoroutine(UnitStats u)
     {
         //any code before yeild runs on first frame
         //yield return null;
         yield return new WaitForSeconds(2);
 
-        StartCoroutine(TypeText("The " + enemyUnit.unitName + " attacks!"));
+        StartCoroutine(TypeText("The " + u.unitName + " attacks!"));
         int randNum = 0;
 
         double unit1 = playerUnit1.maxHP;
@@ -640,24 +665,24 @@ public class BattleSystemRevamp : MonoBehaviour
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
         
-        if (enemyUnit.unitName == "Phoenix")
+        if (u.unitName == "Phoenix")
         {
 
             Pheonix(randNum, unit1, unit2, unit3);
         }
-        else if (enemyUnit.unitName == "Ammit")
+        else if (u.unitName == "Ammit")
         {
 
             Ammit(randNum, unit1, unit2, unit3);
         }
-        else if (enemyUnit.unitName == "Ra")
+        else if (u.unitName == "Ra")
         {
 
             Ra(randNum, unit1, unit2, unit3);
         }
         else
         {
-            basic(randNum, unit1, unit2, unit3);
+            basic(randNum, unit1, unit2, unit3, u);
 
         }
         yield return new WaitForSeconds(2);
@@ -861,11 +886,11 @@ public class BattleSystemRevamp : MonoBehaviour
             }
         }
     }
-    void basic(int randNum, double unit1, double unit2, double unit3)
+    void basic(int randNum, double unit1, double unit2, double unit3, UnitStats u)
     {
         randNum = Random.Range(0, 3);
         crit = Random.Range(1, 201);
-        rounded = 10 * (enemyUnit.damage / 100f);
+        rounded = 10 * (u.damage / 100f);
         if (rounded < 1) rounded = 1;
         enemyDamage = Mathf.RoundToInt(10 * rounded);
 
@@ -873,24 +898,24 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.playerHurt(playerUnit1, enemyUnit);
+            hitHurtManager.playerHurt(playerUnit1, u);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-            if (crit <= enemyUnit.luck)
+            if (crit <= u.luck)
             {
                 damageDone *= 2;
             }
             damaged(playerUnit1, 0, damageDone);
 
             playerUnit1.isHit = true;
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+            StartCoroutine(TypeText(u.unitName + " attacks Jorm for " + damageDone + " damage!"));
         }
         else if (randNum == 1 && !playerUnit2.isDead)
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+            hitHurtManager.playerHurt(playerUnit2,u);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-            if (crit <= enemyUnit.luck)
+            if (crit <= u.luck)
             {
                 damageDone *= 2;
             }
@@ -898,23 +923,23 @@ public class BattleSystemRevamp : MonoBehaviour
 
             playerUnit2.isHit = true;
 
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+            StartCoroutine(TypeText(u.unitName + " attacks Hameeda for " + damageDone + " damage!"));
 
         }
         else if (randNum == 2 && !playerUnit3.isDead)
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+            hitHurtManager.playerHurt(playerUnit3, u);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-            if (crit <= enemyUnit.luck)
+            if (crit <= u.luck)
             {
                 damageDone *= 2;
             }
             damaged(playerUnit3, 2, damageDone);
 
             playerUnit3.isHit = true;
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+            StartCoroutine(TypeText(u.unitName + " attacks Exounos for " + damageDone + " damage!"));
 
         }
         else
