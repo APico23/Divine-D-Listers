@@ -11,13 +11,14 @@ public class clickManage : MonoBehaviour
     public Vector3 change;
     GameObject particles;
     public float change2;
-    
+
+    AudioSource charge;
 
     public void Start()
     {
         button = GameObject.Find("Orb");
         particles = GameObject.Find("magic");
-        
+        charge = gameObject.GetComponent<AudioSource>();
     }
 
     public void OnMouseDown()
@@ -27,6 +28,7 @@ public class clickManage : MonoBehaviour
         button.transform.localScale += change;
         var shape = particles.GetComponent<ParticleSystem>().shape;
         shape.radius += change2;
+        charge.Play();
         
     }
     
