@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class rockingChair : MonoBehaviour
 {
-
+    AudioSource creak;
     bool leftNow;
 
     void Start()
     {
         leftNow= true;
+        creak = gameObject.GetComponent<AudioSource>();
     }
 
     
@@ -22,6 +23,7 @@ public class rockingChair : MonoBehaviour
                 leftNow= false;
                 Vector3 newRotation = new Vector3(0, 0, -10);
                 transform.eulerAngles = newRotation;
+                creak.Play();
             }
         }
 
@@ -32,6 +34,7 @@ public class rockingChair : MonoBehaviour
                 leftNow = true;
                 Vector3 newRotation = new Vector3(0, 0, 10);
                 transform.eulerAngles = newRotation;
+                creak.Play();
             }
         }
     }
