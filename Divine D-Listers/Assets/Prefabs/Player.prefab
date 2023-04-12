@@ -319,3 +319,5 @@ MonoBehaviour:
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   worldEncounters: {fileID: 11400000, guid: 0a336e68fa6b65840b707c95207fea26, type: 2}
   background: {fileID: 21300000, guid: fcea470b2e0b9124d8d51e0d25b758c3, type: 3}
+  transition: {fileID: 5434199453523577457, guid: b713cb6bc0b73fd449ab4f5dfa8095a7, type: 3}
+  waitTime: 3.5

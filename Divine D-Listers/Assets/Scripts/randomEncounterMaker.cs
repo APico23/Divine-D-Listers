@@ -11,6 +11,8 @@ public class randomEncounterMaker : MonoBehaviour
     public randomEncounters worldEncounters;
     private Transform player;
     public Sprite background;
+    public GameObject transition;
+    public float waitTime = 2f;
 
     private void Start()
     {
@@ -38,8 +40,24 @@ public class randomEncounterMaker : MonoBehaviour
                 }
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(worldEncounters);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
-                SceneManager.LoadScene("battleScene");
+                StartCoroutine(startBattle());
             }
         }
     }
+
+
+    public IEnumerator startBattle()
+    {
+        if (transition != null)
+        {
+            Instantiate(transition, Vector3.zero, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(waitTime);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("battleScene");
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
+    }
+
 }

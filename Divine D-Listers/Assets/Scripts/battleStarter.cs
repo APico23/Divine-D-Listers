@@ -11,6 +11,7 @@ public class battleStarter : MonoBehaviour
 
     public Sprite background;
 
+
     private void Awake()
     {
         GameObject[] battleStarters = GameObject.FindGameObjectsWithTag("BattleStarter");
