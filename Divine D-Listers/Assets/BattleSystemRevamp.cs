@@ -50,6 +50,8 @@ public class BattleSystemRevamp : MonoBehaviour
     private bool isEnemy1=false;
     private bool isEnemy1dead = false;
     private bool isEnemy2dead = false;
+    private int qualityCounter = 0;
+    private int PhaseCounter = 0;
 
 
     public Transform enemyBattleSpawn;
