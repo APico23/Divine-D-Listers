@@ -52,6 +52,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private bool isEnemy2dead = false;
     private int qualityCounter = 0;
     private int PhaseCounter = 0;
+    private int randNum;
 
 
     public Transform enemyBattleSpawn;
@@ -66,7 +67,7 @@ public class BattleSystemRevamp : MonoBehaviour
     UnitStats enemyUnit;
     UnitStats enemyUnit2;
 
-    private string[] speeds = new string[4];
+    private string[] speeds;
 
     public Text dialougeText;
     public Text initiaviteHUD;
@@ -106,8 +107,24 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void setupBattle()
     {
+        randNum = Random.Range(0, 10);
+        if (randNum > 5)
+        {
+            battleStart.isMultiple= true;
+        }
+        else
+        {
+            battleStart.isMultiple= false;
+        }
 
-        battleStart.isMultiple = true;
+        if (battleStart.isMultiple )
+        {
+            speeds = new string[4];
+        }
+        else
+        {
+            speeds = new string[3];
+        }
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
         exounosHUD.SetActive(false);
@@ -138,16 +155,22 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
 
-        GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
-        enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
+        if (battleStart.isMultiple)
+        {
+            GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
+            enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
+        }
 
         playerUnit1.currentHp = playerUnit1.maxHP; 
         playerUnit2.currentHp=playerUnit2.maxHP;
         playerUnit3.currentHp = playerUnit3.maxHP;
         enemyhp=enemyUnit.maxHP;
         isEnemy1dead= false;
-        enemy2hp = enemyUnit2.maxHP;
-        isEnemy2dead = false;
+        if (battleStart.isMultiple)
+        {
+            enemy2hp = enemyUnit2.maxHP;
+            isEnemy2dead = false;
+        }
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
         jormHealthBar.setHealth(playerUnit1.currentHp);
@@ -175,14 +198,33 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void battleSequence()
     {
-        initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3] + " " + speeds[4];
+        if (battleStart.isMultiple)
+        {
+            initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3] + " " + speeds[4];
+        }
+        else
+        {
+            initiaviteHUD.text = "Order: " + speeds[0] + " " + speeds[1] + " " + speeds[2] + " " + speeds[3];
+        }
         attack.SetActive(false);
         runButton.SetActive(false);
+        if (battleStart.isMultiple)
+        {
         if (turnNum > 4)
         {
             turnNum = 0;
             speeds = getInitiative();
         }
+        }
+        else
+        {
+            if (turnNum > 3)
+            {
+                turnNum = 0;
+                speeds = getInitiative();
+            }
+        }
+        
         Debug.Log(speeds[turnNum]);
         //make this a switch case later
         if (state != BattleState.WON)
@@ -270,28 +312,60 @@ public class BattleSystemRevamp : MonoBehaviour
     string[] getInitiative()
     {
         //take in all player and enemy names and speeds
-        string[] tempArr = { "Jorm", "Ham.", "Ex.", "Enemy1", "Enemy2" };
-        int[] entitySpeeds = { playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed, enemyUnit2.speed};
+        string[] tempArr;
+        int[] entitySpeeds;
+        if (battleStart.isMultiple)
+        {
+        tempArr =new string[] { "Jorm", "Ham.", "Ex.", "Enemy1", "Enemy2" };
+        entitySpeeds =new int[]{ playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed, enemyUnit2.speed};
+        }
+        else
+        {
+           tempArr = new string[]{ "Jorm", "Ham.", "Ex.", "Enemy1"};
+           entitySpeeds = new int[]{ playerUnit1.speed, playerUnit2.speed, playerUnit3.speed, enemyUnit.speed};
+        }
         //sort it from highest to lowest
 
         bool swappedSomething = true;
         while (swappedSomething)
         {
             swappedSomething = false;
-            for (int i = 0; i < 4; i++)
+            if (battleStart.isMultiple)
             {
-                if (entitySpeeds[i] < entitySpeeds[i + 1])
+                for (int i = 0; i < 4; i++)
                 {
+                    if (entitySpeeds[i] < entitySpeeds[i + 1])
+                    {
 
-                    int tempSpeed = entitySpeeds[i];
-                    entitySpeeds[i] = entitySpeeds[i + 1];
-                    entitySpeeds[i + 1] = tempSpeed;
+                        int tempSpeed = entitySpeeds[i];
+                        entitySpeeds[i] = entitySpeeds[i + 1];
+                        entitySpeeds[i + 1] = tempSpeed;
 
-                    string tempState = tempArr[i];
-                    tempArr[i] = tempArr[i + 1];
-                    tempArr[i + 1] = tempState;
+                        string tempState = tempArr[i];
+                        tempArr[i] = tempArr[i + 1];
+                        tempArr[i + 1] = tempState;
 
-                    swappedSomething = true;
+                        swappedSomething = true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (entitySpeeds[i] < entitySpeeds[i + 1])
+                    {
+
+                        int tempSpeed = entitySpeeds[i];
+                        entitySpeeds[i] = entitySpeeds[i + 1];
+                        entitySpeeds[i + 1] = tempSpeed;
+
+                        string tempState = tempArr[i];
+                        tempArr[i] = tempArr[i + 1];
+                        tempArr[i + 1] = tempState;
+
+                        swappedSomething = true;
+                    }
                 }
             }
         }
@@ -337,7 +411,41 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void isBattleWon()
     {
-        if (isEnemy1dead && isEnemy2dead)
+        if (isEnemy1dead && !battleStart.isMultiple)
+        {
+            state = BattleState.WON;
+            StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
+            //playerUnit1.AttemptLevelUp(1);
+            //playerUnit2.AttemptLevelUp(2);
+            //playerUnit3.AttemptLevelUp(3);
+            if (playerUnit1.leveledUp)
+            {
+                Jexp.text = "+10 - LEVEL UP!";
+            }
+            else
+            {
+                Jexp.text = "+10";
+            }
+            if (playerUnit2.leveledUp)
+            {
+                Hexp.text = "+10 - LEVEL UP!";
+            }
+            else
+            {
+                Hexp.text = "+10";
+            }
+            if (playerUnit3.leveledUp)
+            {
+                Eexp.text = "+10 - LEVEL UP!";
+            }
+            else
+            {
+                Eexp.text = "+10";
+            }
+
+            StartCoroutine(winCoroutineWait());
+        }
+        else if (isEnemy1dead && isEnemy2dead)
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
@@ -655,7 +763,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             isEnemy1dead = true;
         }
-        else if (enemy2hp<=0)
+        else if (battleStart.isMultiple && enemy2hp<=0)
         {
             isEnemy2dead = true;
         }
@@ -692,7 +800,7 @@ public class BattleSystemRevamp : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         StartCoroutine(TypeText("The " + u.unitName + " attacks!"));
-        int randNum = 0;
+        randNum = 0;
 
         double unit1 = playerUnit1.maxHP;
         double unit2 = playerUnit2.maxHP;
