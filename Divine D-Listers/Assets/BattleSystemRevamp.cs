@@ -171,6 +171,9 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.currentHp = playerUnit1.maxHP; 
         playerUnit2.currentHp=playerUnit2.maxHP;
         playerUnit3.currentHp = playerUnit3.maxHP;
+        playerUnit1.isDead= false;
+        playerUnit2.isDead= false;
+        playerUnit3.isDead= false;
         enemyhp=enemyUnit.maxHP;
         isEnemy1dead= false;
         enemyUnit.speed = enemyUnit.defaultSpeed;
