@@ -185,7 +185,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
 
         specialMeter.setMaxMeter(10);
-        specialMeter.setMeter(0);
+        
 
         jormLevel.text = "" + playerUnit1.unitLevel;
         hameedaLevel.text = "" + playerUnit2.unitLevel;
@@ -595,6 +595,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             enemy2hp -= damageDone;
         }
+        specialMeter.increaseMeter(1);
         attack.SetActive(false);
         Debug.Log(damageDone);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, u));
@@ -792,6 +793,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             enemy2hp -= damageDone;
         }
+        specialMeter.increaseMeter(1);
         attack.SetActive(false);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
         //code for attacks goes here
@@ -1007,6 +1009,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 exounosHp.text = player.currentHp + "/" + player.maxHP;
             }
         }
+        specialMeter.increaseMeter(1);
         isDead(player);
     }
 
@@ -1297,11 +1300,41 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
         }
     }
 
-    void special() { 
+    void special(string unit) { 
         if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
         {
             specialMeter.setMeter(0);
-
+            if(unit == "Jorm")
+                {
+                    damageDone = 18;
+                    isCrit = false;
+                    if (battleStart.isMultiple)
+                    {
+                        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit2));
+                    }
+                    StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
+                    
+                   
+                }
+            else if(unit== "Hameeda")
+                {
+                    damageDone = 22;
+                    isCrit = false;
+                    if (battleStart.isMultiple)
+                    {
+                        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit2));
+                    }
+                    StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
+                }
+            else if(unit== "Exounos")
+                {
+                    playerUnit1.isDead= false;
+                    playerUnit2.isDead= false;
+                    playerUnit3.isDead = false;
+                    playerUnit1.currentHp = playerUnit1.maxHP;
+                    playerUnit2.currentHp = playerUnit2.maxHP;
+                    playerUnit3.currentHp = playerUnit3.maxHP;
+                }
             //do the cool attack thing
         }
     }
