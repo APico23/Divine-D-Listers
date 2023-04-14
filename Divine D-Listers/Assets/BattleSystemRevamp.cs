@@ -166,10 +166,12 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit3.currentHp = playerUnit3.maxHP;
         enemyhp=enemyUnit.maxHP;
         isEnemy1dead= false;
+        enemyUnit.speed = enemyUnit.defaultSpeed;
         if (battleStart.isMultiple)
         {
             enemy2hp = enemyUnit2.maxHP;
             isEnemy2dead = false;
+            enemyUnit2.speed = enemyUnit2.defaultSpeed;
         }
 
         jormHealthBar.setMaxHealth(playerUnit1.maxHP);
@@ -415,32 +417,91 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
-            //playerUnit1.AttemptLevelUp(1);
-            //playerUnit2.AttemptLevelUp(2);
-            //playerUnit3.AttemptLevelUp(3);
-            if (playerUnit1.leveledUp)
+            if (battleStart.isMultiple)
             {
-                Jexp.text = "+10 - LEVEL UP!";
+                playerUnit1.attemptLvlUp(enemyUnit.exp+enemyUnit2.exp, 1);
+                playerUnit2.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 2);
+                playerUnit3.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 3);
             }
             else
             {
-                Jexp.text = "+10";
+                playerUnit1.attemptLvlUp(enemyUnit.exp, 1);
+                playerUnit2.attemptLvlUp(enemyUnit.exp, 2);
+                playerUnit3.attemptLvlUp(enemyUnit.exp, 3);
+            }
+            if (playerUnit1.leveledUp)
+            {
+                if(battleStart.isMultiple)
+                {
+                    Jexp.text = "+" + (enemyUnit.exp+enemyUnit2.exp) + " - LEVEL UP!";
+                    playerUnit1.leveledUp = false;
+                }
+                else
+                {
+                Jexp.text = "+"+ enemyUnit.exp + " - LEVEL UP!";
+                    playerUnit1.leveledUp = false;
+                }
+                
+            }
+            else
+            {
+                if (battleStart.isMultiple)
+                {
+                    Jexp.text = "+" + (enemyUnit.exp+enemyUnit2.exp);
+                }
+                else
+                {
+                Jexp.text = "+"+ enemyUnit.exp;
+                }
+                
             }
             if (playerUnit2.leveledUp)
             {
-                Hexp.text = "+10 - LEVEL UP!";
+                if (battleStart.isMultiple)
+                {
+                    Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
+                    playerUnit2.leveledUp = false;
+                }
+                else
+                {
+                    Hexp.text = "+" + enemyUnit.exp + " - LEVEL UP!";
+                    playerUnit2.leveledUp = false;
+                }
             }
             else
             {
-                Hexp.text = "+10";
+                if (battleStart.isMultiple)
+                {
+                    Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
+                }
+                else
+                {
+                    Hexp.text = "+" + enemyUnit.exp;
+                }
             }
             if (playerUnit3.leveledUp)
             {
-                Eexp.text = "+10 - LEVEL UP!";
+                if (battleStart.isMultiple)
+                {
+                    Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
+                    playerUnit3.leveledUp = false;
+                }
+                else
+                {
+                    Eexp.text = "+" + enemyUnit.exp + " - LEVEL UP!";
+                    playerUnit3.leveledUp = false;
+                }
             }
             else
             {
-                Eexp.text = "+10";
+                if (battleStart.isMultiple)
+                {
+                    Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
+                }
+                else
+                {
+                    Eexp.text = "+" + enemyUnit.exp;
+                }
             }
 
             StartCoroutine(winCoroutineWait());
