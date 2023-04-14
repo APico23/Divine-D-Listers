@@ -40,6 +40,7 @@ public class randomEncounterMaker : MonoBehaviour
                 }
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(worldEncounters);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
+                move.canMove = false;
                 StartCoroutine(startBattle());
             }
         }
