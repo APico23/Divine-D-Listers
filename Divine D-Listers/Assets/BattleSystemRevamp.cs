@@ -121,6 +121,9 @@ public class BattleSystemRevamp : MonoBehaviour
             battleStart.isMultiple= false;
         }
 
+        if(battleStart.enemyMain.getLength() == 1) { 
+            battleStart.isMultiple= false;
+        }
         if (battleStart.isMultiple )
         {
             speeds = new string[4];
