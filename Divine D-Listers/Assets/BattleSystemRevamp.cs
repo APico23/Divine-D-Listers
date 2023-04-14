@@ -35,8 +35,9 @@ public class BattleSystemRevamp : MonoBehaviour
     public GameObject enemy1Select;
     public GameObject enemy2select;
     private string currentAttack;
-
+    public Animator actualTransition;
     public Image background;
+    public GameObject transition;
 
     private int jormDamage;
     private int hameedaDamage;
@@ -53,6 +54,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private int qualityCounter = 0;
     private int PhaseCounter = 0;
     private int randNum;
+    
 
 
     public Transform enemyBattleSpawn;
@@ -100,6 +102,8 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void Start()
     {
+        transition.SetActive(true);
+        actualTransition.SetBool("Transition1Done", true);
         state = BattleState.START;
         battleStart = GameObject.Find("BattleStarter").GetComponent<battleStarter>();
         setupBattle();
@@ -936,6 +940,8 @@ public class BattleSystemRevamp : MonoBehaviour
     }
 
     public IEnumerator BattleBegin() {
+        yield return new WaitForSeconds(0.5f);
+        transition.SetActive(false);
         yield return new WaitForSeconds(1);
         StartCoroutine(TypeText(enemyUnit.unitName + " approaches!"));
         yield return new WaitForSeconds(3);
