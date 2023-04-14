@@ -421,91 +421,35 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
-            if (battleStart.isMultiple)
-            {
-                playerUnit1.attemptLvlUp(enemyUnit.exp+enemyUnit2.exp, 1);
-                playerUnit2.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 2);
-                playerUnit3.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 3);
-            }
-            else
-            {
-                playerUnit1.attemptLvlUp(enemyUnit.exp, 1);
-                playerUnit2.attemptLvlUp(enemyUnit.exp, 2);
-                playerUnit3.attemptLvlUp(enemyUnit.exp, 3);
-            }
+            playerUnit1.attemptLvlUp(enemyUnit.exp, 1);
+            playerUnit2.attemptLvlUp(enemyUnit.exp, 2);
+            playerUnit3.attemptLvlUp(enemyUnit.exp, 3);
             if (playerUnit1.leveledUp)
             {
-                if(battleStart.isMultiple)
-                {
-                    Jexp.text = "+" + (enemyUnit.exp+enemyUnit2.exp) + " - LEVEL UP!";
-                    playerUnit1.leveledUp = false;
-                }
-                else
-                {
                 Jexp.text = "+"+ enemyUnit.exp + " - LEVEL UP!";
-                    playerUnit1.leveledUp = false;
-                }
-                
+                playerUnit1.leveledUp = false;
             }
             else
             {
-                if (battleStart.isMultiple)
-                {
-                    Jexp.text = "+" + (enemyUnit.exp+enemyUnit2.exp);
-                }
-                else
-                {
                 Jexp.text = "+"+ enemyUnit.exp;
-                }
-                
             }
             if (playerUnit2.leveledUp)
             {
-                if (battleStart.isMultiple)
-                {
-                    Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
-                    playerUnit2.leveledUp = false;
-                }
-                else
-                {
                     Hexp.text = "+" + enemyUnit.exp + " - LEVEL UP!";
                     playerUnit2.leveledUp = false;
-                }
             }
             else
             {
-                if (battleStart.isMultiple)
-                {
-                    Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
-                }
-                else
-                {
                     Hexp.text = "+" + enemyUnit.exp;
-                }
             }
             if (playerUnit3.leveledUp)
             {
-                if (battleStart.isMultiple)
-                {
-                    Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
-                    playerUnit3.leveledUp = false;
-                }
-                else
-                {
                     Eexp.text = "+" + enemyUnit.exp + " - LEVEL UP!";
                     playerUnit3.leveledUp = false;
-                }
             }
             else
             {
-                if (battleStart.isMultiple)
-                {
-                    Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
-                }
-                else
-                {
                     Eexp.text = "+" + enemyUnit.exp;
-                }
             }
 
             StartCoroutine(winCoroutineWait());
@@ -514,31 +458,34 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             state = BattleState.WON;
             StartCoroutine(TypeText("The " + enemyUnit.unitName + " has been slain! YOU WIN!"));
-            //playerUnit1.AttemptLevelUp(1);
-            //playerUnit2.AttemptLevelUp(2);
-            //playerUnit3.AttemptLevelUp(3);
+            playerUnit1.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 1);
+            playerUnit2.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 2);
+            playerUnit3.attemptLvlUp(enemyUnit.exp + enemyUnit2.exp, 3);
             if (playerUnit1.leveledUp)
             {
-                Jexp.text = "+10 - LEVEL UP!";
+                Jexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
+                playerUnit1.leveledUp = false;
             }
             else {
-                Jexp.text = "+10";
+                Jexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
             if (playerUnit2.leveledUp)
             {
-                Hexp.text = "+10 - LEVEL UP!";
+                Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
+                playerUnit2.leveledUp = false;
             }
             else
             {
-                Hexp.text = "+10";
+                Hexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
             if (playerUnit3.leveledUp)
             {
-                Eexp.text = "+10 - LEVEL UP!";
+                Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp) + " - LEVEL UP!";
+                playerUnit3.leveledUp = false;
             }
             else
             {
-                Eexp.text = "+10";
+                Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
 
             StartCoroutine(winCoroutineWait());
