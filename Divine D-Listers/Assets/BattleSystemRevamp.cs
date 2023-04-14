@@ -966,6 +966,11 @@ public class BattleSystemRevamp : MonoBehaviour
 
             Ra(randNum, unit1, unit2, unit3);
         }
+        else if (u.unitName == "Punching Bag")
+        {
+
+            punchingBag();
+        }
         else
         {
             basic(randNum, unit1, unit2, unit3, u);
@@ -1309,83 +1314,84 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-void Ra(int randNum, double unit1, double unit2, double unit3)
-{
-    randNum = Random.Range(0, 10);
-    if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
+    void Ra(int randNum, double unit1, double unit2, double unit3)
     {
-        rounded = 8 * (enemyUnit.damage / 100f);
-        if (rounded < 1) rounded = 1;
-        enemyDamage = Mathf.RoundToInt(5 * rounded);
-        StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
-        damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-        damaged(playerUnit1, 0, damageDone);
-        damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-        damaged(playerUnit2, 1, damageDone);
-        damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-        damaged(playerUnit3, 2, damageDone);
-    }
-    else
-    {
-        randNum = Random.Range(0, 3);
-        crit = Random.Range(1, 201);
-        rounded = 10 * (enemyUnit.damage / 100f);
-        if (rounded < 1) rounded = 1;
-        enemyDamage = Mathf.RoundToInt(10 * rounded);
-
-        if (randNum == 0 && !playerUnit1.isDead)
+        randNum = Random.Range(0, 10);
+        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
         {
+            rounded = 8 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
                 Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
                 hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
                 hitHurtManager.playerHurt(playerUnit1, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
-            }
-            damaged(playerUnit1, 0, damageDone);
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
 
-        }
-        else if (randNum == 1 && !playerUnit2.isDead)
-        {
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
                 Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
                 hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
                 hitHurtManager.playerHurt(playerUnit2, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
-            }
-            damaged(playerUnit2, 1, damageDone);
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
 
-        }
-        else if (randNum == 2 && !playerUnit3.isDead)
-        {
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
                 Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
                 hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
                 hitHurtManager.playerHurt(playerUnit3, enemyUnit);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-            if (crit <= enemyUnit.luck)
-            {
-                damageDone *= 2;
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+
             }
-            damaged(playerUnit3, 2, damageDone);
-            StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
-
+            else
+            {
+                StartCoroutine(TypeText("The attack missed!"));
+            }
         }
-        else
-        {
-            StartCoroutine(TypeText("The attack missed!"));
-        }
-    }
 
-    void special(string unit) { 
-        if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
+        void special(string unit)
         {
-            specialMeter.setMeter(0);
-            if(unit == "Jorm")
+            if (specialMeter.getMeter() == specialMeter.getMaxMeter())
+            {
+                specialMeter.setMeter(0);
+                if (unit == "Jorm")
                 {
                     damageDone = 18;
                     isCrit = false;
@@ -1394,10 +1400,10 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
                         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit2));
                     }
                     StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
-                    
-                   
+
+
                 }
-            else if(unit== "Hameeda")
+                else if (unit == "Hameeda")
                 {
                     damageDone = 22;
                     isCrit = false;
@@ -1407,17 +1413,24 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
                     }
                     StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
                 }
-            else if(unit== "Exounos")
+                else if (unit == "Exounos")
                 {
-                    playerUnit1.isDead= false;
-                    playerUnit2.isDead= false;
+                    playerUnit1.isDead = false;
+                    playerUnit2.isDead = false;
                     playerUnit3.isDead = false;
                     playerUnit1.currentHp = playerUnit1.maxHP;
                     playerUnit2.currentHp = playerUnit2.maxHP;
                     playerUnit3.currentHp = playerUnit3.maxHP;
                 }
-            //do the cool attack thing
+                //do the cool attack thing
+            }
         }
     }
-}
+        void punchingBag()
+        {
+            
+                StartCoroutine(TypeText("Its a punching bag. It can't attack."));
+            
+        }
+    
 }
