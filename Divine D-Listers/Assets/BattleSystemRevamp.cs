@@ -41,6 +41,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private int jormDamage;
     private int hameedaDamage;
+    private int exounosDamage;
     private int enemyDamage;
     private int damageDone;
     private float rounded;
@@ -53,6 +54,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private bool isEnemy2dead = false;
     private int qualityCounter = 0;
     private int PhaseCounter = 0;
+    private int builtCounter=0;
     private int randNum;
     
 
@@ -174,7 +176,24 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.isDead= false;
         playerUnit2.isDead= false;
         playerUnit3.isDead= false;
-        enemyhp=enemyUnit.maxHP;
+        if (qualityCounter > 0)
+        {
+            playerUnit1.defence -= qualityCounter;
+            playerUnit2.defence -= qualityCounter;
+            playerUnit3.defence -= qualityCounter;
+            qualityCounter= 0;
+        }
+        if (PhaseCounter > 0)
+        {
+            playerUnit2.damage-=PhaseCounter;
+            PhaseCounter = 0;
+        }
+        if (builtCounter > 0)
+        {
+            playerUnit1.defence -= builtCounter*2;
+            builtCounter = 0;
+        }
+        enemyhp =enemyUnit.maxHP;
         isEnemy1dead= false;
         enemyUnit.speed = enemyUnit.defaultSpeed;
         if (battleStart.isMultiple)
@@ -575,6 +594,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             kohldShoulder(enemyUnit);
         }
+        else if (currentAttack == "Sleep")
+        {
+            sleep(enemyUnit);
+        }
     }
 
    public void buttonEnemyTwo()
@@ -593,6 +616,10 @@ public class BattleSystemRevamp : MonoBehaviour
         else if (currentAttack == "Kohld Shoulder")
         {
             kohldShoulder(enemyUnit2);
+        }
+        else if (currentAttack == "Sleep")
+        {
+            sleep(enemyUnit2);
         }
     }
 
@@ -616,9 +643,29 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
         //code for attacks goes here
+        qualityCounter++;
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
 
+    }
+    public void builtToLast()
+    {
+        playerUnit1.isAttacking = true;
+        jormHUD.SetActive(false);
+       jormStats.SetActive(true);
+        if (playerUnit1.defence <= (playerUnit1.defence + Mathf.RoundToInt(playerUnit1.defence * .25f)))
+        {
+            playerUnit1.defence += 2;
+            StartCoroutine(TypeText(playerUnit1.unitName + " builds up his defence with chairs."));
+        }
+        else
+        {
+            StartCoroutine(TypeText(playerUnit1.unitName + " has become as fortified as possible."));
+        }
+        //code for attacks goes here
+        builtCounter++;
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineNeutral());
     }
 
     public void yawnButton()
@@ -636,6 +683,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
             currentAttack = "Yawn";
     }
+
+   
 
     void yawn(UnitStats u)
     {   
@@ -661,6 +710,58 @@ public class BattleSystemRevamp : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
+    public void SleepButton()
+    {
+        if (!isEnemy1dead)
+        {
+            enemy1Select.SetActive(true);
+        }
+        if (battleStart.isMultiple)
+        {
+            if (!isEnemy2dead)
+            {
+                enemy2select.SetActive(true);
+            }
+        }
+        currentAttack = "Sleep";
+    }
+
+    void sleep(UnitStats u)
+    {
+        playerUnit3.isAttacking = true;
+        Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+        hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+        hitHurtManager.playerHit(playerUnit3, u);
+
+
+        exounosHUD.SetActive(false);
+        exounosStats.SetActive(true);
+        specialMeter.setMeter(specialMeter.getMeter() + 1f);
+        isCrit = false;
+        crit = Random.Range(1, 201);
+        rounded = 6 * (playerUnit3.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        exounosDamage = Mathf.RoundToInt(6 * rounded);
+        damageDone = exounosDamage - Mathf.RoundToInt(exounosDamage * (u.defence / 100f));
+        Debug.Log(crit);
+        if (crit <= playerUnit3.luck)
+        {
+            isCrit = true;
+            damageDone *= 2;
+        }
+        if (isEnemy1)
+        {
+            enemyhp -= damageDone;
+        }
+        else
+        {
+            enemy2hp -= damageDone;
+        }
+        specialMeter.increaseMeter(1);
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineAttack(playerUnit3, damageDone, isCrit, u));
+
+    }
     public void powerNap()
     {
         playerUnit3.isAttacking = true;
@@ -771,6 +872,27 @@ public class BattleSystemRevamp : MonoBehaviour
             StartCoroutine(TypeText(playerUnit2.unitName + " has gained the most energy she can handle."));
         }
         //code for attacks goes here
+        PhaseCounter++;
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineNeutral());
+    }
+
+    public void kholLuck()
+    {
+        playerUnit2.isAttacking = true;
+        hameedaHUD.SetActive(false);
+        hameedaStats.SetActive(true);
+        if (playerUnit2.luck <= (playerUnit2.luck + Mathf.RoundToInt(playerUnit2.luck * .25f)))
+        {
+            playerUnit2.luck += 1;
+            StartCoroutine(TypeText(playerUnit2.unitName + " applies more khol."));
+        }
+        else
+        {
+            StartCoroutine(TypeText(playerUnit2.unitName + " is fabulous enough."));
+        }
+        //code for attacks goes here
+        PhaseCounter++;
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }

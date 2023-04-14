@@ -855,7 +855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Third Option
+  m_Text: Go to Sleep
 --- !u!222 &289498447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 299215649}
   - component: {fileID: 299215648}
   m_Layer: 5
-  m_Name: Exounos Third Option
+  m_Name: Go to Sleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,9 +948,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: yawn
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: SleepButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2717,7 +2717,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Its Not a Phase
+  m_Text: Khol Luck
 --- !u!222 &713219466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5272,7 +5272,7 @@ GameObject:
   - component: {fileID: 1415449962}
   - component: {fileID: 1415449961}
   m_Layer: 5
-  m_Name: Jorm Third Option
+  m_Name: Built To Last
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5343,9 +5343,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: qualityAssurance
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: builtToLast
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6654,7 +6654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quality Assurance
+  m_Text: Built to Last
 --- !u!222 &1752155698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6756,7 +6756,7 @@ GameObject:
   - component: {fileID: 1922999864}
   - component: {fileID: 1922999863}
   m_Layer: 5
-  m_Name: Its Not a Phase (1)
+  m_Name: Khol Luck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6827,9 +6827,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468622194}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: itsNotAPhase
+      - m_Target: {fileID: 468622196}
+        m_TargetAssemblyTypeName: BattleSystemRevamp, Assembly-CSharp
+        m_MethodName: kholLuck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
