@@ -67,6 +67,41 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
 
     }
 
-
+    public void attemptLvlUp(int xp,int unit)
+    {
+        exp += xp;
+        if(exp>=expNeeded)
+        {
+            leveledUp = true;
+            unitLevel++;
+            if (unit == 1)
+            {
+                damage += 1;
+                luck += 1;
+                defence += 2;
+                speed += 1;
+                maxHP += 3;
+            }
+            if (unit == 2)
+            {
+                damage += 2;
+                luck += 2;
+                defence += 1;
+                speed += 1;
+                maxHP += 2;
+            }
+            if (unit == 3)
+            {
+                damage += 1;
+                luck += 2;
+                defence += 2;
+                speed += 1;
+                maxHP += 2;
+            }
+            exp -= expNeeded;
+            expNeeded += 50;
+            attemptLvlUp(exp,unit);
+        }
+    }
 
 }

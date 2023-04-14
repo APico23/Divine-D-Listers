@@ -45,22 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa66da0b9855f4fa79d3f30005aad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 0}
-  unitName: Punching Bag
-  unitLevel: 1
-  exp: 0
-  expNeeded: 0
-  damage: 1
-  luck: 0
-  defence: 2
-  speed: 1
-  maxHP: 30
-  currentHp: 30
-  isDead: 0
-  isAttacking: 0
-  isHit: 0
-  attack: {fileID: 1350182733, guid: 532346612237cd340b9dd2e3a570b2c7, type: 3}
-  hurt: {fileID: 21300000, guid: f41be86363687df43b75f99f84661f17, type: 3}
+  unitStats: {fileID: 11400000, guid: 4d438d13ff9e6a9488d28a6f5fe78ca4, type: 2}
 --- !u!212 &675214357050898391
 SpriteRenderer:
   m_ObjectHideFlags: 0

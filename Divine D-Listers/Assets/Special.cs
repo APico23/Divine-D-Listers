@@ -10,17 +10,24 @@ public class Special : MonoBehaviour
 
     void Start() {
         meterAnimator = GameObject.Find("Special Fill").GetComponent<Animator>();
+        slider.value= 0;
     }
     
     public void setMeter(float h)
     {
         slider.value = h;
     }
+    public void increaseMeter(float h)
+    {
+        if(slider.value < slider.maxValue) {
+            slider.value += h;
+        }
+       
+    }
 
     public void setMaxMeter(float h)
     {
         slider.maxValue = h;
-        slider.value = h;
     }
 
     public float getMeter() 
