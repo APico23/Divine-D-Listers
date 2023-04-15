@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5164877229642194767}
   - component: {fileID: 5164877229642194764}
-  - component: {fileID: 5164877229642194766}
   - component: {fileID: 5480950372170073359}
   - component: {fileID: 285156244908444302}
+  - component: {fileID: 3047342397600185538}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Food1 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 083f7d3064d7fba419069530e4c5ef8c, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1832181749, guid: 42198047d05d26247a056019986160ca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5164877229642194766
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5164877229642194765}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &5480950372170073359
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +120,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacfefe68d352074c9993db34ec8f212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &3047342397600185538
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5164877229642194765}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.31, y: 0.45}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014268398, y: 0.22876859}
+      - {x: -0.028454475, y: 0.16225621}
+      - {x: -0.089843065, y: 0.10673562}
+      - {x: -0.1576271, y: 0.061405778}
+      - {x: -0.113975525, y: -0.09052062}
+      - {x: -0.1067355, y: -0.11465285}
+      - {x: -0.085741974, y: -0.17204103}
+      - {x: -0.010024853, y: -0.22502384}
+      - {x: 0.13810757, y: -0.085347146}
+      - {x: 0.15017393, y: 0.08432233}
+      - {x: 0.083358765, y: 0.09069991}
+      - {x: 0.012442589, y: 0.17242062}
+      - {x: 0.015363902, y: 0.22741315}

@@ -13,6 +13,8 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
     public int exp;
     public int expNeeded;
 
+    public int gold;
+
     public int damage;
     public int luck;
     public int defence;
@@ -21,10 +23,17 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
     public int maxHP;
     public int currentHp;
 
+    public int statusCounter;
+
     public bool isDead = false;
     public bool isAttacking = false;
     public bool isHit = false;
     public bool leveledUp = false;
+    public bool onFire = false;
+    public bool statusEffect = false;
+    public bool poisoned = false;
+
+    
 
     public Sprite attack;
     public Sprite hurt;
@@ -99,7 +108,7 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
                 maxHP += 2;
             }
             exp -= expNeeded;
-            expNeeded += 50;
+            expNeeded += 10;
             attemptLvlUp(exp,unit);
         }
     }

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c900192484e89df48a872fb2b72c6ef3, type: 3}
-  m_Name: Phoenix
+  m_Name: Annubis
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
-  unitName: Pheonix
-  unitLevel: 5
-  exp: 120
+  unitName: Annubis
+  unitLevel: 10
+  exp: 250
   expNeeded: 0
-  damage: 19
-  luck: 30
-  defence: 14
-  speed: 19
-  maxHP: 44
-  currentHp: 44
+  damage: 20
+  luck: 25
+  defence: 25
+  speed: 10
+  maxHP: 45
+  currentHp: 45
   statusCounter: 0
   isDead: 0
   isAttacking: 0
@@ -31,14 +31,14 @@ MonoBehaviour:
   onFire: 0
   statusEffect: 0
   poisoned: 0
-  attack: {fileID: -1292682928, guid: 0dee8d8baafcb9f4e996532939612ec6, type: 3}
-  hurt: {fileID: 21300000, guid: 15db1bb33bab3e247a91de5e53aedd5f, type: 3}
-  defaultUnitLevel: 5
-  defaultExp: 120
+  attack: {fileID: 310394925, guid: 6bbdfb2d0dab9bd489e5abe07db07b18, type: 3}
+  hurt: {fileID: -896262848, guid: 6bbdfb2d0dab9bd489e5abe07db07b18, type: 3}
+  defaultUnitLevel: 10
+  defaultExp: 250
   defaultExpNeeded: 0
-  defaultDamage: 19
-  defaultLuck: 30
-  defaultDefence: 14
-  defaultSpeed: 19
-  defaultMaxHP: 44
-  defaultCurrentHp: 44
+  defaultDamage: 20
+  defaultLuck: 25
+  defaultDefence: 25
+  defaultSpeed: 10
+  defaultMaxHP: 45
+  defaultCurrentHp: 45

@@ -13,6 +13,8 @@ public class BattleSystemRevamp : MonoBehaviour
 {
     public BattleState state;
 
+    private inventory playerInventory;
+
     public GameObject jormPrefab;
     public GameObject hameedaPrefab;
     public GameObject exounosPrefab;
@@ -41,18 +43,21 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private int jormDamage;
     private int hameedaDamage;
+    private int exounosDamage;
     private int enemyDamage;
     private int damageDone;
     private float rounded;
     private int crit;
     private bool isCrit;
-    private int enemyhp;
-    private int enemy2hp;
+    private float enemyhp;
+    private float enemy2hp;
     private bool isEnemy1=false;
     private bool isEnemy1dead = false;
     private bool isEnemy2dead = false;
     private int qualityCounter = 0;
     private int PhaseCounter = 0;
+    private int builtCounter=0;
+    private int kholCounter = 0;
     private int randNum;
     
 
@@ -106,6 +111,7 @@ public class BattleSystemRevamp : MonoBehaviour
         actualTransition.SetBool("Transition1Done", true);
         state = BattleState.START;
         battleStart = GameObject.Find("BattleStarter").GetComponent<battleStarter>();
+        playerInventory = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>().inventory;
         setupBattle();
     }
 
@@ -121,6 +127,13 @@ public class BattleSystemRevamp : MonoBehaviour
             battleStart.isMultiple= false;
         }
 
+        if(battleStart.enemyMain.getLength() == 1) { 
+            battleStart.isMultiple= false;
+        }
+        if (battleStart.enemyMain.getLength() == 2)
+        {
+            battleStart.isMultiple = true;
+        }
         if (battleStart.isMultiple )
         {
             speeds = new string[4];
@@ -168,7 +181,46 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.currentHp = playerUnit1.maxHP; 
         playerUnit2.currentHp=playerUnit2.maxHP;
         playerUnit3.currentHp = playerUnit3.maxHP;
-        enemyhp=enemyUnit.maxHP;
+        playerUnit1.isDead= false;
+        playerUnit2.isDead= false;
+        playerUnit3.isDead= false;
+        playerUnit1.statusEffect = false;
+        playerUnit2.statusEffect = false;
+        playerUnit3.statusEffect = false;
+        playerUnit1.onFire = false;
+        playerUnit2.onFire = false;
+        playerUnit3.onFire = false;
+        playerUnit1.poisoned = false;
+        playerUnit2.poisoned = false;
+        playerUnit3.poisoned = false;
+        playerUnit1.statusCounter = 0;
+        playerUnit2.statusCounter = 0;
+        playerUnit3.statusCounter = 0;
+
+
+        if (qualityCounter > 0)
+        {
+            playerUnit1.defence -= qualityCounter;
+            playerUnit2.defence -= qualityCounter;
+            playerUnit3.defence -= qualityCounter;
+            qualityCounter= 0;
+        }
+        if (PhaseCounter > 0)
+        {
+            playerUnit2.damage-=PhaseCounter;
+            PhaseCounter = 0;
+        }
+        if (builtCounter > 0)
+        {
+            playerUnit1.defence -= builtCounter*2;
+            builtCounter = 0;
+        }
+        if (kholCounter > 0)
+        {
+            playerUnit2.luck -= kholCounter;
+            kholCounter = 0;
+        }
+        enemyhp =enemyUnit.maxHP;
         isEnemy1dead= false;
         enemyUnit.speed = enemyUnit.defaultSpeed;
         if (battleStart.isMultiple)
@@ -237,6 +289,17 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             if (speeds[turnNum] == "Jorm")
             {
+                if (playerUnit1.statusEffect)
+                {
+                    if(playerUnit1.onFire)
+                    {
+                        burn(playerUnit1, 0);
+                    }
+                    else if(playerUnit1.poisoned)
+                    {
+                        melt(playerUnit1, 0);
+                    }
+                }
                 if (playerUnit1.isDead)
                 {
                     turnNum++;
@@ -253,7 +316,18 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             else if (speeds[turnNum] == "Ham.")
             {
-                if (playerUnit2.isDead)
+                if (playerUnit2.statusEffect)
+                {
+                    if (playerUnit2.onFire)
+                    {
+                        burn(playerUnit2, 1);
+                    }
+                    else if (playerUnit2.poisoned)
+                    {
+                        melt(playerUnit2, 1);
+                    }
+                }
+                    if (playerUnit2.isDead)
                 {
                     turnNum++;
                     battleSequence();
@@ -269,6 +343,17 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             else if (speeds[turnNum] == "Ex.")
             {
+                if (playerUnit3.statusEffect)
+                {
+                    if (playerUnit3.onFire)
+                    {
+                        burn(playerUnit3, 2);
+                    }
+                    else if (playerUnit3.poisoned)
+                    {
+                        melt(playerUnit3, 2);
+                    }
+                }
                 if (playerUnit3.isDead)
                 {
                     turnNum++;
@@ -451,7 +536,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                     Eexp.text = "+" + enemyUnit.exp;
             }
-
+            playerInventory.playerGold += enemyUnit.gold;
             StartCoroutine(winCoroutineWait());
         }
         else if (isEnemy1dead && isEnemy2dead)
@@ -487,7 +572,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
-
+            playerInventory.playerGold += (enemyUnit.gold + enemyUnit2.gold);
             StartCoroutine(winCoroutineWait());
         }
     }
@@ -569,6 +654,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             kohldShoulder(enemyUnit);
         }
+        else if (currentAttack == "Sleep")
+        {
+            sleep(enemyUnit);
+        }
     }
 
    public void buttonEnemyTwo()
@@ -587,6 +676,10 @@ public class BattleSystemRevamp : MonoBehaviour
         else if (currentAttack == "Kohld Shoulder")
         {
             kohldShoulder(enemyUnit2);
+        }
+        else if (currentAttack == "Sleep")
+        {
+            sleep(enemyUnit2);
         }
     }
 
@@ -610,9 +703,29 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
         //code for attacks goes here
+        qualityCounter++;
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
 
+    }
+    public void builtToLast()
+    {
+        playerUnit1.isAttacking = true;
+        jormHUD.SetActive(false);
+       jormStats.SetActive(true);
+        if (playerUnit1.defence <= (playerUnit1.defence + Mathf.RoundToInt(playerUnit1.defence * .25f)))
+        {
+            playerUnit1.defence += 2;
+            StartCoroutine(TypeText(playerUnit1.unitName + " builds up his defence with chairs."));
+        }
+        else
+        {
+            StartCoroutine(TypeText(playerUnit1.unitName + " has become as fortified as possible."));
+        }
+        //code for attacks goes here
+        builtCounter++;
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineNeutral());
     }
 
     public void yawnButton()
@@ -630,6 +743,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
             currentAttack = "Yawn";
     }
+
+   
 
     void yawn(UnitStats u)
     {   
@@ -655,6 +770,58 @@ public class BattleSystemRevamp : MonoBehaviour
         StartCoroutine(playerCoroutineNeutral());
     }
 
+    public void SleepButton()
+    {
+        if (!isEnemy1dead)
+        {
+            enemy1Select.SetActive(true);
+        }
+        if (battleStart.isMultiple)
+        {
+            if (!isEnemy2dead)
+            {
+                enemy2select.SetActive(true);
+            }
+        }
+        currentAttack = "Sleep";
+    }
+
+    void sleep(UnitStats u)
+    {
+        playerUnit3.isAttacking = true;
+        Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+        hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+        hitHurtManager.playerHit(playerUnit3, u);
+
+
+        exounosHUD.SetActive(false);
+        exounosStats.SetActive(true);
+        specialMeter.setMeter(specialMeter.getMeter() + 1f);
+        isCrit = false;
+        crit = Random.Range(1, 201);
+        rounded = 6 * (playerUnit3.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        exounosDamage = Mathf.RoundToInt(6 * rounded);
+        damageDone = exounosDamage - Mathf.RoundToInt(exounosDamage * (u.defence / 100f));
+        Debug.Log(crit);
+        if (crit <= playerUnit3.luck)
+        {
+            isCrit = true;
+            damageDone *= 2;
+        }
+        if (isEnemy1)
+        {
+            enemyhp -= damageDone;
+        }
+        else
+        {
+            enemy2hp -= damageDone;
+        }
+        specialMeter.increaseMeter(1);
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineAttack(playerUnit3, damageDone, isCrit, u));
+
+    }
     public void powerNap()
     {
         playerUnit3.isAttacking = true;
@@ -765,6 +932,27 @@ public class BattleSystemRevamp : MonoBehaviour
             StartCoroutine(TypeText(playerUnit2.unitName + " has gained the most energy she can handle."));
         }
         //code for attacks goes here
+        PhaseCounter++;
+        attack.SetActive(false);
+        StartCoroutine(playerCoroutineNeutral());
+    }
+
+    public void kholLuck()
+    {
+        playerUnit2.isAttacking = true;
+        hameedaHUD.SetActive(false);
+        hameedaStats.SetActive(true);
+        if (playerUnit2.luck <= (playerUnit2.luck + Mathf.RoundToInt(playerUnit2.luck * .25f)))
+        {
+            playerUnit2.luck += 1;
+            StartCoroutine(TypeText(playerUnit2.unitName + " applies more khol."));
+        }
+        else
+        {
+            StartCoroutine(TypeText(playerUnit2.unitName + " is fabulous enough."));
+        }
+        //code for attacks goes here
+        kholCounter++;
         attack.SetActive(false);
         StartCoroutine(playerCoroutineNeutral());
     }
@@ -823,20 +1011,30 @@ public class BattleSystemRevamp : MonoBehaviour
         yield return new WaitForSeconds(3);
         //after 3 seconds, picks up from here
         
-        if (u.unitName == "Phoenix")
+        if (u.unitName == "Pheonix")
         {
 
-            Pheonix(randNum, unit1, unit2, unit3);
+            Pheonix(randNum);
         }
         else if (u.unitName == "Ammit")
         {
 
-            Ammit(randNum, unit1, unit2, unit3);
+            Ammit(randNum);
         }
         else if (u.unitName == "Ra")
         {
 
-            Ra(randNum, unit1, unit2, unit3);
+            Ra(randNum);
+        }
+        else if (u.unitName == "Punching Bag")
+        {
+
+            punchingBag();
+        }
+        else if (u.unitName == "Annubis")
+        {
+
+            Annubis(randNum);
         }
         else
         {
@@ -920,7 +1118,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void damaged(UnitStats player, int target, int damage)
     {
-        player.currentHp -= damageDone;
+        player.currentHp -= damage;
         if (player.currentHp <= 0)
         {
             player.currentHp = 0;
@@ -966,21 +1164,42 @@ public class BattleSystemRevamp : MonoBehaviour
         isDead(player);
     }
 
-    void Pheonix(int randNum, double unit1, double unit2, double unit3)
+    void Pheonix(int randNum)
     {
-        randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .7 && playerUnit2.currentHp / unit2 > .7 && playerUnit3.currentHp / unit3 > .7 && randNum < 7)
+        randNum = Random.Range(0, 10);        
+        if (randNum<7 && enemyhp/enemyUnit.maxHP<.5)
         {
-            rounded = 5 * (enemyUnit.damage / 100f);
+            enemyhp += 15;
+            if(enemyhp>enemyUnit.maxHP)
+            {
+                enemyhp = enemyUnit.maxHP;
+            }
+            StartCoroutine(TypeText(enemyUnit.unitName + " wraps itself in fire and some of its wounds heal"));
+        }
+        else if (randNum < 7)
+        {
+            rounded = 7 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            enemyDamage = Mathf.RoundToInt(7 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + " breathes fire"));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
+            if (!playerUnit1.isDead)
+            {
+                ignite(playerUnit1);
+            }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
             damaged(playerUnit2, 1, damageDone);
+            if (!playerUnit2.isDead)
+            {
+                ignite(playerUnit2);
+            }
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             damaged(playerUnit3, 2, damageDone);
+            if (!playerUnit3.isDead)
+            {
+                ignite(playerUnit3);
+            }
         }
         else
         {
@@ -1108,15 +1327,97 @@ public class BattleSystemRevamp : MonoBehaviour
             StartCoroutine(TypeText("The attack missed!"));
         }
     }
-    void Ammit(int randNum, double unit1, double unit2, double unit3)
+    void Ammit(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
+        if (randNum < 5)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(5 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + " slams the ground and rocks fall from the ceiling."));
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+                if (!playerUnit1.isDead)
+                {
+                    poison(playerUnit1);
+                }
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+                if (!playerUnit2.isDead)
+                {
+                    poison(playerUnit2);
+                }
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+                if (!playerUnit3.isDead)
+                {
+                    poison(playerUnit3);
+                }
+            }
+            else
+            {
+                StartCoroutine(TypeText("The attack missed!"));
+            }
+        }
+    }
+
+    void Ra(int randNum)
+    {
+        randNum = Random.Range(0, 10);
+        if (randNum < 7)
+        {
+            rounded = 8 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
@@ -1181,21 +1482,14 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-    void Ra(int randNum, double unit1, double unit2, double unit3)
+    void Annubis(int randNum)
     {
-        randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
+
+        if (isEnemy1dead)
         {
-            rounded = 8 * (enemyUnit.damage / 100f);
-            if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(5 * rounded);
-            StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
-            damaged(playerUnit1, 0, damageDone);
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
-            damaged(playerUnit2, 1, damageDone);
-            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
-            damaged(playerUnit3, 2, damageDone);
+            enemyhp = enemyUnit.maxHP;
+            enemyUnit.isDead = false;
+            isEnemy1dead = false;
         }
         else
         {
@@ -1293,6 +1587,53 @@ public class BattleSystemRevamp : MonoBehaviour
             //do the cool attack thing
         }
     }
-}
+    
+    void punchingBag()
+    {
+            
+        StartCoroutine(TypeText("Its a punching bag. It can't attack."));
+            
+    }
+    void ignite(UnitStats u)
+    {
+        u.statusEffect = true;
+        u.onFire= true;
+    }
+    void burn(UnitStats u,int unit)
+    {
+        if (u.statusCounter >= 3)
+        {
+            u.statusEffect = false;
+            u.onFire= false;
+            u.statusCounter = 0;
+        }
+        else
+        {
+            StartCoroutine(TypeText(u.unitName+" is hurt by their burns."));
+            damaged(u,unit,2);
+            u.statusCounter++;
+        }
+    }
+    void poison(UnitStats u)
+    {
+        u.statusEffect = true;
+        u.poisoned = true;
+    }
+    void melt(UnitStats u, int unit)
+    {
+        if (u.statusCounter >= 2)
+        {
+            u.statusEffect = false;
+            u.onFire = false;
+            u.statusCounter = 0;
+        }
+        else
+        {
+            StartCoroutine(TypeText(u.unitName + " is hurt by the poison."));
+            damaged(u, unit, 3);
+            u.statusCounter++;
 
+        }
+    }
+}
 

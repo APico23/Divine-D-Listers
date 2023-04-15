@@ -5,7 +5,7 @@ using UnityEngine;
 public class foodSpawner : MonoBehaviour
 {
 
-    public GameObject food;
+    public GameObject[] food;
 
     //Time it takes to spawn food
     [Space(3)]
@@ -46,7 +46,10 @@ public class foodSpawner : MonoBehaviour
         Vector2 pos = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
 
         // Creates the random object at the random 2D position.
-        Instantiate(food, pos, transform.rotation);
+        int rand = Random.Range(0, food.Length);
+        Quaternion rot = transform.rotation;
+        rot = Quaternion.Euler(0,0,Random.Range(0,360));
+        Instantiate(food[rand], pos, rot);
 
         // If I wanted to get the result of instantiate and fiddle with it, I might do this instead:
         //GameObject newRock = (GameObject)Instantiate(rock, pos)

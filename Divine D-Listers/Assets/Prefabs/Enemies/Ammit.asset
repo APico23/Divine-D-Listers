@@ -14,17 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
   unitName: Ammit
-  unitLevel: 10
-  exp: 240
+  unitLevel: 8
+  exp: 250
   expNeeded: 0
-  damage: 30
-  luck: 10
-  defence: 25
-  speed: 4
-  maxHP: 50
-  currentHp: 50
+  damage: 22
+  luck: 20
+  defence: 30
+  speed: 5
+  maxHP: 64
+  currentHp: 64
+  statusCounter: 0
   isDead: 0
   isAttacking: 0
   isHit: 0
-  attack: {fileID: 0}
-  hurt: {fileID: 0}
+  leveledUp: 0
+  onFire: 0
+  statusEffect: 0
+  poisoned: 0
+  attack: {fileID: 21300000, guid: 716fe2ad90a23c44bb9693ad3af63509, type: 3}
+  hurt: {fileID: 21300000, guid: 226ae0e9df860664984e615b5c392ba3, type: 3}
+  defaultUnitLevel: 8
+  defaultExp: 250
+  defaultExpNeeded: 0
+  defaultDamage: 22
+  defaultLuck: 20
+  defaultDefence: 30
+  defaultSpeed: 5
+  defaultMaxHP: 64
+  defaultCurrentHp: 64
