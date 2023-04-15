@@ -127,6 +127,10 @@ public class BattleSystemRevamp : MonoBehaviour
         if(battleStart.enemyMain.getLength() == 1) { 
             battleStart.isMultiple= false;
         }
+        if (battleStart.enemyMain.getLength() == 2)
+        {
+            battleStart.isMultiple = true;
+        }
         if (battleStart.isMultiple )
         {
             speeds = new string[4];
@@ -290,7 +294,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     else if(playerUnit1.poisoned)
                     {
-
+                        melt(playerUnit1, 0);
                     }
                 }
                 if (playerUnit1.isDead)
@@ -317,7 +321,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     else if (playerUnit2.poisoned)
                     {
-
+                        melt(playerUnit2, 1);
                     }
                 }
                     if (playerUnit2.isDead)
@@ -344,7 +348,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     else if (playerUnit3.poisoned)
                     {
-
+                        melt(playerUnit3, 2);
                     }
                 }
                 if (playerUnit3.isDead)
@@ -1012,12 +1016,12 @@ public class BattleSystemRevamp : MonoBehaviour
         else if (u.unitName == "Ammit")
         {
 
-            Ammit(randNum, unit1, unit2, unit3);
+            Ammit(randNum);
         }
         else if (u.unitName == "Ra")
         {
 
-            Ra(randNum, unit1, unit2, unit3);
+            Ra(randNum);
         }
         else if (u.unitName == "Punching Bag")
         {
@@ -1154,8 +1158,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void Pheonix(int randNum)
     {
-        randNum = Random.Range(0, 10);
-        Debug.Log(randNum);
+        randNum = Random.Range(0, 10);        
         if (randNum<7 && enemyhp/enemyUnit.maxHP<.5)
         {
             enemyhp += 15;
@@ -1316,10 +1319,10 @@ public class BattleSystemRevamp : MonoBehaviour
             StartCoroutine(TypeText("The attack missed!"));
         }
     }
-    void Ammit(int randNum, double unit1, double unit2, double unit3)
+    void Ammit(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
+        if (randNum < 5)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
@@ -1352,7 +1355,10 @@ public class BattleSystemRevamp : MonoBehaviour
                 }
                 damaged(playerUnit1, 0, damageDone);
                 StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
-
+                if (!playerUnit1.isDead)
+                {
+                    poison(playerUnit1);
+                }
             }
             else if (randNum == 1 && !playerUnit2.isDead)
             {
@@ -1366,7 +1372,10 @@ public class BattleSystemRevamp : MonoBehaviour
                 }
                 damaged(playerUnit2, 1, damageDone);
                 StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
-
+                if (!playerUnit2.isDead)
+                {
+                    poison(playerUnit2);
+                }
             }
             else if (randNum == 2 && !playerUnit3.isDead)
             {
@@ -1380,7 +1389,10 @@ public class BattleSystemRevamp : MonoBehaviour
                 }
                 damaged(playerUnit3, 2, damageDone);
                 StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
-
+                if (!playerUnit3.isDead)
+                {
+                    poison(playerUnit3);
+                }
             }
             else
             {
@@ -1389,10 +1401,10 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-    void Ra(int randNum, double unit1, double unit2, double unit3)
+    void Ra(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (playerUnit1.currentHp / unit1 > .6 && playerUnit2.currentHp / unit2 > .6 && playerUnit3.currentHp / unit3 > .6 && randNum < 7)
+        if (randNum < 7)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
@@ -1527,6 +1539,25 @@ public class BattleSystemRevamp : MonoBehaviour
             u.statusCounter++;
         }
     }
-   
+    void poison(UnitStats u)
+    {
+        u.statusEffect = true;
+        u.poisoned = true;
+    }
+    void melt(UnitStats u, int unit)
+    {
+        if (u.statusCounter >= 2)
+        {
+            u.statusEffect = false;
+            u.onFire = false;
+            u.statusCounter = 0;
+        }
+        else
+        {
+            StartCoroutine(TypeText(u.unitName + " is hurt by the poison."));
+            damaged(u, unit, 3);
+            u.statusCounter++;
+        }
+    }
 }
 
