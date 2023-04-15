@@ -21,12 +21,16 @@ MonoBehaviour:
   luck: 30
   defence: 14
   speed: 19
-  maxHP: 26
-  currentHp: 26
+  maxHP: 44
+  currentHp: 44
+  statusCounter: 0
   isDead: 0
   isAttacking: 0
   isHit: 0
   leveledUp: 0
+  onFire: 0
+  statusEffect: 0
+  poisoned: 0
   attack: {fileID: -1292682928, guid: 0dee8d8baafcb9f4e996532939612ec6, type: 3}
   hurt: {fileID: 21300000, guid: 15db1bb33bab3e247a91de5e53aedd5f, type: 3}
   defaultUnitLevel: 5
@@ -36,5 +40,5 @@ MonoBehaviour:
   defaultLuck: 30
   defaultDefence: 14
   defaultSpeed: 19
-  defaultMaxHP: 26
-  defaultCurrentHp: 26
+  defaultMaxHP: 44
+  defaultCurrentHp: 44

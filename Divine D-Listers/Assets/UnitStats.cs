@@ -106,7 +106,7 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
                 maxHP += 2;
             }
             exp -= expNeeded;
-            expNeeded += 50;
+            expNeeded += 10;
             attemptLvlUp(exp,unit);
         }
     }
