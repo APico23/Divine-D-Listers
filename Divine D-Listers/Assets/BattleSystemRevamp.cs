@@ -1028,6 +1028,11 @@ public class BattleSystemRevamp : MonoBehaviour
 
             punchingBag();
         }
+        else if (u.unitName == "Annubis")
+        {
+
+            Annubis(randNum);
+        }
         else
         {
             basic(randNum, unit1, unit2, unit3, u);
@@ -1472,8 +1477,76 @@ public class BattleSystemRevamp : MonoBehaviour
                 StartCoroutine(TypeText("The attack missed!"));
             }
         }
+    }
 
-        void special(string unit)
+    void Annubis(int randNum)
+    {
+
+        if (isEnemy1dead)
+        {
+            enemyhp = enemyUnit.maxHP;
+            enemyUnit.isDead = false;
+            isEnemy1dead = false;
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+
+            }
+            else
+            {
+                StartCoroutine(TypeText("The attack missed!"));
+            }
+        }
+    }
+        
+
+            void special(string unit)
         {
             if (specialMeter.getMeter() == specialMeter.getMaxMeter())
             {
@@ -1512,7 +1585,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 //do the cool attack thing
             }
         }
-    }
+    
         void punchingBag()
         {
             

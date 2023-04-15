@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c900192484e89df48a872fb2b72c6ef3, type: 3}
+  m_Name: Annubis
+  m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 0}
+  unitName: Annubis
+  unitLevel: 10
+  exp: 250
+  expNeeded: 0
+  damage: 20
+  luck: 25
+  defence: 25
+  speed: 10
+  maxHP: 45
+  currentHp: 45
+  statusCounter: 0
+  isDead: 0
+  isAttacking: 0
+  isHit: 0
+  leveledUp: 0
+  onFire: 0
+  statusEffect: 0
+  poisoned: 0
+  attack: {fileID: 310394925, guid: 6bbdfb2d0dab9bd489e5abe07db07b18, type: 3}
+  hurt: {fileID: -896262848, guid: 6bbdfb2d0dab9bd489e5abe07db07b18, type: 3}
+  defaultUnitLevel: 10
+  defaultExp: 250
+  defaultExpNeeded: 0
+  defaultDamage: 20
+  defaultLuck: 25
+  defaultDefence: 25
+  defaultSpeed: 10
+  defaultMaxHP: 45
+  defaultCurrentHp: 45
