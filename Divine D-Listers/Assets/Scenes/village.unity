@@ -2007,7 +2007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493054, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8519630834430379954, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_Enabled
@@ -8923,6 +8923,7 @@ GameObject:
   - component: {fileID: 1825564714}
   - component: {fileID: 1825564713}
   - component: {fileID: 1825564715}
+  - component: {fileID: 1825564716}
   m_Layer: 0
   m_Name: Marketplace_house
   m_TagString: Untagged
@@ -9023,3 +9024,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6124368, y: 0.62966377}
   m_EdgeRadius: 0
+--- !u!114 &1825564716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825564712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc71a91d0164ebc4ca134e42349fdf42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopWindow: {fileID: 8129998259802829435, guid: 90354fceeeb0636419abcb35bd5b1ca4, type: 3}
