@@ -21,10 +21,17 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
     public int maxHP;
     public int currentHp;
 
+    public int statusCounter;
+
     public bool isDead = false;
     public bool isAttacking = false;
     public bool isHit = false;
     public bool leveledUp = false;
+    public bool onFire = false;
+    public bool statusEffect = false;
+    public bool poisoned = false;
+
+    
 
     public Sprite attack;
     public Sprite hurt;
