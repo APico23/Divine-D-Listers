@@ -13,6 +13,8 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
     public int exp;
     public int expNeeded;
 
+    public int gold;
+
     public int damage;
     public int luck;
     public int defence;

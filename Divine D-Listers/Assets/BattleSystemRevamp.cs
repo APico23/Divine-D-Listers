@@ -13,6 +13,8 @@ public class BattleSystemRevamp : MonoBehaviour
 {
     public BattleState state;
 
+    private inventory playerInventory;
+
     public GameObject jormPrefab;
     public GameObject hameedaPrefab;
     public GameObject exounosPrefab;
@@ -109,6 +111,7 @@ public class BattleSystemRevamp : MonoBehaviour
         actualTransition.SetBool("Transition1Done", true);
         state = BattleState.START;
         battleStart = GameObject.Find("BattleStarter").GetComponent<battleStarter>();
+        playerInventory = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>().inventory;
         setupBattle();
     }
 
@@ -533,7 +536,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                     Eexp.text = "+" + enemyUnit.exp;
             }
-
+            playerInventory.playerGold += enemyUnit.gold;
             StartCoroutine(winCoroutineWait());
         }
         else if (isEnemy1dead && isEnemy2dead)
@@ -569,7 +572,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
-
+            playerInventory.playerGold += (enemyUnit.gold + enemyUnit2.gold);
             StartCoroutine(winCoroutineWait());
         }
     }
