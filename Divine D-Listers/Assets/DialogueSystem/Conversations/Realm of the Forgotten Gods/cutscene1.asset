@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: cutscene1
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Welcome to this week\u2019s meeting, everyone. I see we have a lot
+      of returning faces, and I even see that we have a new person."
+    audio: {fileID: 8300000, guid: e900490e7bafa824a8fa107b1ad022c9, type: 3}
+  - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
+    dialogue: "Guess who finally convinced this guy to join therapy \u2014 uh, I
+      mean AA \u2014 uh, I mean \u2014"
+    audio: {fileID: 8300000, guid: 2fd0e5bc1ced129448a83df2b2c4a167, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Welcome to the Divine D-Listers, friend. We are a group that meets
+      weekly to discuss the troubles that we lower gods face on a daily basis. I
+      am Exounos, god of power naps. Would our new guest like to introduce themselves?
+    audio: {fileID: 8300000, guid: 8e62d4aaef2ca8842937cd1ccb08b39a, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "Jorm, god of chairs. And just so you all know I\u2019m only here because
+      Mat won\u2019t stop bothering me about it."
+    audio: {fileID: 8300000, guid: 38b5bea8e08173f4c9a67ea407981fe9, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Well I hope you decide to stay with us, Now everyone, please introduce
+      yourselves to our new member, Jorm. Let's start with you, Zoop.
+    audio: {fileID: 8300000, guid: beced19b6bf55f04184c088ba328c354, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: " Your name is Zoop?\r"
+    audio: {fileID: 8300000, guid: 8ac84b5de1f569c478da2dc79700d80c, type: 3}
+  - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
+    dialogue: '*slide whistle noises*'
+    audio: {fileID: 8300000, guid: 5e258c9e6e2444945b558cdd64d8aa35, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Oh.
+    audio: {fileID: 8300000, guid: 11666defc85d8cf4cba5480551a48e44, type: 3}
+  - speaker: {fileID: 11400000, guid: a6211ce8e27537e43936c1d7c82dc45e, type: 2}
+    dialogue: The little dear loves her slide whistles. Miss Rizzle here! My domain
+      is public transportation.
+    audio: {fileID: 8300000, guid: 71b49fcc946da934a82eb6f67c334999, type: 3}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "And I\u2019m Deathskull ruler of the 8th Realm of Cosmic Chaos and\u2014"
+    audio: {fileID: 8300000, guid: 79e708a4e3461b14d83e4f5ccea5a6a5, type: 3}
+  - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
+    dialogue: "Your name is Phil and you\u2019re the god of social awkwardness."
+    audio: {fileID: 8300000, guid: fb74254cf6a0f684fab2e8268ce555b8, type: 3}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "No! It\u2019s Deathskull! I\u2019m a Discord mod! I\u2019m cool\u2026"
+    audio: {fileID: 8300000, guid: b6b4b72989c56c84a89fe38e557ffcdd, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Hush.
+    audio: {fileID: 8300000, guid: 6cd3cf517401bcb429a310b7ac94e18e, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Hameeda. I\u2019m the goddess of kohl. No, not coal in your stocking.
+      Not Kohl\u2019s the department store \u2014 though it is spelled that way \u2014
+      but kohl, a kind of makeup that no one seems to care about anymore."
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "That\u2019s because everyone is afraid of lead poisoning. "
+    audio: {fileID: 8300000, guid: 2482ae35c460a5a42bd9d5b7001bf108, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: Shut up.
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
+    dialogue: " I\u2019m Mat. Punching bags are my thing."
+    audio: {fileID: 8300000, guid: e14339e31bb580043830433f4991d71d, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Nice to meet you all I guess.
+    audio: {fileID: 8300000, guid: 87dba66307cc3ce4c96bb99211035fa0, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Shall we resume our meeting? Now, Zoop, you were going to tell us about
+      your recent struggles?
+    audio: {fileID: 8300000, guid: 3e5d3c8ddd77bc04abc1841d3c689378, type: 3}
+  - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
+    dialogue: '*slide whistle noises*'
+    audio: {fileID: 8300000, guid: be1858e5107f34a4b976f6a73e3f783e, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: We as a community are here to support you through this. Remember that.
+    audio: {fileID: 8300000, guid: d51f064bd85a0f349b3c69013f5f6eb6, type: 3}
+  - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
+    dialogue: '*happy slide whistle*'
+    audio: {fileID: 8300000, guid: 13768122a74c47743a558194ce1ba588, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Now, Jorm\u2026 Jorm?"
+    audio: {fileID: 8300000, guid: 9dbd69113fdc49e4b9291b25a6125977, type: 3}

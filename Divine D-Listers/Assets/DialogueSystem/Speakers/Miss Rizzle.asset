@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Miss Rizzle
   m_EditorClassIdentifier: 
   speakerName: Miss Rizzle
-  speakerSprite: {fileID: 21300000, guid: a3d0f26756472234bac8ca96942d2b73, type: 3}
+  speakerSprite: {fileID: -1788526673, guid: a3d0f26756472234bac8ca96942d2b73, type: 3}

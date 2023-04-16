@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29da8afd341f0c04aa0c3ff7bbe41d9d
+guid: 054de9bf3dc3bb34999ae30ceda627a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mat_-_Conversation_0
+      name: Realm_NPCs_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 5
-        width: 34
-        height: 57
+        x: 8
+        y: 1
+        width: 15
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87d8305829606094f9e2467240fa3df1
-      internalID: -2107091075
+      spriteID: f5fede0ec6146a64eae677b2aaf28b10
+      internalID: -304420525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Realm_NPCs_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f878fd7e980e347aeeb12b5b27b2f1
+      internalID: 1265072816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Realm_NPCs_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58409c4fabbcfee4abe5e2bb3bc5c86c
+      internalID: -345129230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Realm_NPCs_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e7f3c6892146f4780ac046d5b2c811
+      internalID: 1720887751
       vertices: []
       indices: 
       edges: []
@@ -136,7 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mat_-_Conversation_0: -2107091075
+      Realm_NPCs_1: 1265072816
+      Realm_NPCs_2: -345129230
+      Realm_NPCs_3: 1720887751
+      Realm_NPCs_0: -304420525
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
