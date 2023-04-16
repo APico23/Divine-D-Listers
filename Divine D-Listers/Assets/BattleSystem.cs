@@ -987,13 +987,13 @@ void Ra(int randNum, double unit1, double unit2, double unit3)
         }
     }
 
-    void special() { 
-        if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
-        {
-            specialMeter.setMeter(0);
+    //void special() { 
+    //    if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
+    //    {
+    //        specialMeter.setMeter(0);
 
-            //do the cool attack thing
-        }
-    }
+    //        //do the cool attack thing
+    //    }
+    //}
 }
 }

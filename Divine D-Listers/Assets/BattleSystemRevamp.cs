@@ -540,6 +540,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     Eexp.text = "+" + enemyUnit.exp;
             }
             playerInventory.playerGold += enemyUnit.gold;
+            //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + enemyUnit.gold;
             StartCoroutine(winCoroutineWait());
         }
         else if (isEnemy1dead && isEnemy2dead)
@@ -576,6 +577,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
             playerInventory.playerGold += (enemyUnit.gold + enemyUnit2.gold);
+            //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + (enemyUnit.gold + enemyUnit2.gold);
             StartCoroutine(winCoroutineWait());
         }
     }
@@ -609,8 +611,9 @@ public class BattleSystemRevamp : MonoBehaviour
         hitHurtManager.playerHit(playerUnit1, u);
 
 
-        
+
         specialMeter.setMeter(specialMeter.getMeter() + 1);
+        //specialMeter.setMeter(specialMeter.getMaxMeter());
 
         isCrit = false;
         crit = Random.Range(1, 201);
@@ -1553,6 +1556,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public void special()
     {
+        Debug.Log("Hit");
         if (specialMeter.getMeter() == specialMeter.getMaxMeter())
         {
             specialMeter.setMeter(0);
