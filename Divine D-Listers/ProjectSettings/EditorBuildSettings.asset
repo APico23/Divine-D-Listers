@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/goldStashUnlock.unity
     guid: f034d4764a3b8854b9c7cf278fd8d1bc
+  - enabled: 1
+    path: Assets/Scenes/Pause screen.unity
+    guid: 8360ba3680fdabc4399d5c9b5db3f79e
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 10469c7bfe48e864bb58bd09d337b51f
   m_configObjects: {}
