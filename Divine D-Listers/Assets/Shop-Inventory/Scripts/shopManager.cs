@@ -25,6 +25,7 @@ public class shopManager : MonoBehaviour
         if (playerInventory.playerGold >= 25)
         {
             playerInventory.playerGold -= 25;
+            goldCount.SetText("" + playerInventory.playerGold);
             playerInventory.addItem(itemType.AMBROSIA);
         }
     }
