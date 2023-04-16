@@ -8,6 +8,7 @@ TagManager:
   - PlayerInfo
   - BattleStarter
   - Floor
+  - Log
   layers:
   - Default
   - TransparentFX

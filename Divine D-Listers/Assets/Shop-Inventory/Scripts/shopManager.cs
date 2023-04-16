@@ -9,21 +9,30 @@ public class shopManager : MonoBehaviour
 
     public TextMeshProUGUI goldCount;
     private inventory playerInventory;
+    private playerMove move;
 
     void Start()
     {
         playerInventory = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>().inventory;
         goldCount.SetText("" + playerInventory.playerGold);
+        move = GameObject.Find("Player").GetComponent<playerMove>();
+        move.canMove = false;
     }
 
     
     public void ambrosiaBought()
     {
-
+        if (playerInventory.playerGold >= 25)
+        {
+            playerInventory.playerGold -= 25;
+            goldCount.SetText("" + playerInventory.playerGold);
+            playerInventory.addItem(itemType.AMBROSIA);
+        }
     }
 
     public void back()
     {
+        move.canMove = true;
         Destroy(transform.parent.gameObject);
     }
 }

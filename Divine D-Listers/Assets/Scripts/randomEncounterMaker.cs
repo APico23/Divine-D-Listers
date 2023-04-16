@@ -25,7 +25,7 @@ public class randomEncounterMaker : MonoBehaviour
     {
         if (move.isMoving == true)
         {
-            int rand = Random.Range(0, 3500);
+            int rand = Random.Range(0, 5000);
             if (rand == 0)
             {
                 playerStorage.initialValue = new Vector2(player.position.x , player.position.y);

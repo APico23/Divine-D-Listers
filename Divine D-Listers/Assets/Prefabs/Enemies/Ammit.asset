@@ -17,6 +17,7 @@ MonoBehaviour:
   unitLevel: 8
   exp: 250
   expNeeded: 0
+  gold: 15
   damage: 22
   luck: 20
   defence: 30

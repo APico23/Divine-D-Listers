@@ -17,16 +17,21 @@ MonoBehaviour:
   unitLevel: 1
   exp: 5
   expNeeded: 0
+  gold: 3
   damage: 6
   luck: 30
   defence: 10
   speed: 4
   maxHP: 6
   currentHp: 6
+  statusCounter: 0
   isDead: 0
   isAttacking: 0
   isHit: 0
   leveledUp: 0
+  onFire: 0
+  statusEffect: 0
+  poisoned: 0
   attack: {fileID: 1479460435, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
   hurt: {fileID: -1666463548, guid: d1dda8d48e5bf7b479d5166abc07f76d, type: 3}
   defaultUnitLevel: 1

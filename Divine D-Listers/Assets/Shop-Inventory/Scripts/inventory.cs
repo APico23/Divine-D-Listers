@@ -11,7 +11,7 @@ public class inventory : ScriptableObject, ISerializationCallbackReceiver
 
     public Sprite[] itemSprites;
 
-    private item[] playerItems;
+    public item[] playerItems;
 
     private int openPosition;
 
