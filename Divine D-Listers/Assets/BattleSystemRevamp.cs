@@ -832,7 +832,7 @@ public class BattleSystemRevamp : MonoBehaviour
         exounosStats.SetActive(true);
         if (playerUnit1.currentHp < playerUnit1.maxHP)
         {
-            playerUnit1.currentHp += 4;
+            playerUnit1.currentHp += (4 + playerUnit3.unitLevel);
             if (playerUnit1.currentHp > playerUnit1.maxHP && !playerUnit1.isDead)
             {
                 playerUnit1.currentHp = playerUnit1.maxHP;
@@ -842,7 +842,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         if (playerUnit2.currentHp < playerUnit2.maxHP && !playerUnit2.isDead)
         {
-            playerUnit2.currentHp += 4;
+            playerUnit2.currentHp += (4 + playerUnit3.unitLevel);
             if (playerUnit2.currentHp > playerUnit2.maxHP)
             {
                 playerUnit2.currentHp = playerUnit2.maxHP;
@@ -852,7 +852,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         if (playerUnit3.currentHp < playerUnit3.maxHP && !playerUnit3.isDead)
         {
-            playerUnit3.currentHp += 4;
+            playerUnit3.currentHp += (4+playerUnit3.unitLevel);
             if (playerUnit3.currentHp > playerUnit3.maxHP)
             {
                 playerUnit3.currentHp = playerUnit3.maxHP;
