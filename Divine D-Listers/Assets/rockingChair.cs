@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class rockingChair : MonoBehaviour
 {
+    public counterSpecial count;
     AudioSource creak;
     bool leftNow;
 
@@ -20,6 +21,7 @@ public class rockingChair : MonoBehaviour
         {
             if (leftNow)
             {
+                count.count++;
                 leftNow= false;
                 Vector3 newRotation = new Vector3(0, 0, -10);
                 transform.eulerAngles = newRotation;
@@ -31,6 +33,7 @@ public class rockingChair : MonoBehaviour
         {
             if (!leftNow)
             {
+                count.count++;
                 leftNow = true;
                 Vector3 newRotation = new Vector3(0, 0, 10);
                 transform.eulerAngles = newRotation;

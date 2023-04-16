@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class clickManage : MonoBehaviour
 {
 
-    float totalClicks;
+    
     GameObject button;
     public Vector3 change;
     GameObject particles;
     public float change2;
+
+    public counterSpecial count;
 
     AudioSource charge;
 
@@ -23,8 +25,7 @@ public class clickManage : MonoBehaviour
 
     public void OnMouseDown()
     {
-        ++totalClicks;
-        Debug.Log(totalClicks);
+        count.count++;
         button.transform.localScale += change;
         var shape = particles.GetComponent<ParticleSystem>().shape;
         shape.radius += change2;

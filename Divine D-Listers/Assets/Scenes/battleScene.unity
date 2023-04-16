@@ -1466,6 +1466,10 @@ MonoBehaviour:
   actualTransition: {fileID: 1701846714}
   background: {fileID: 483414075}
   transition: {fileID: 1701846712}
+  ragnarockingChair: {fileID: 5627431546941220094, guid: ff6eed04b8afaf64e84c1587f0d867c1, type: 3}
+  mythiKohl: {fileID: 37186850432750270, guid: 74b11fe7595107b468d6ce81e67d260f, type: 3}
+  foodComa: {fileID: 4284534793152499085, guid: c6116d8be3eebf44483c8a69703555e2, type: 3}
+  mainUI: {fileID: 0}
   enemyBattleSpawn: {fileID: 1902739}
   enemyBattleSpawn2: {fileID: 1123781678}
   jormBattleSpawn: {fileID: 1282965513}
@@ -4225,7 +4229,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1076551161
 Canvas:
   m_ObjectHideFlags: 0
@@ -4235,7 +4239,7 @@ Canvas:
   m_GameObject: {fileID: 1076551158}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -4255,8 +4259,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076551158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.025172923, y: 0.025172923, z: 0.025172923}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 483414074}
@@ -4266,8 +4270,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 397.25223}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1082749850
 GameObject:
   m_ObjectHideFlags: 0

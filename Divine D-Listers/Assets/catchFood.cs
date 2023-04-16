@@ -6,6 +6,7 @@ public class catchFood : MonoBehaviour
 {
 
     AudioSource chomp;
+    public counterSpecial count;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class catchFood : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         chomp.Play();
+        count.count++;
         Destroy(other.gameObject, 0.2f);
 
     }

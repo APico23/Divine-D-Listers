@@ -59,8 +59,11 @@ public class BattleSystemRevamp : MonoBehaviour
     private int builtCounter=0;
     private int kholCounter = 0;
     private int randNum;
-    
 
+    public GameObject ragnarockingChair;
+    public GameObject mythiKohl;
+    public GameObject foodComa;
+    public GameObject mainUI;
 
     public Transform enemyBattleSpawn;
     public Transform enemyBattleSpawn2;
@@ -1555,39 +1558,82 @@ public class BattleSystemRevamp : MonoBehaviour
             specialMeter.setMeter(0);
             if (state == BattleState.JORMTURN)
             {
-                damageDone = 18;
-                isCrit = false;
-                if (battleStart.isMultiple)
-                {
-                    StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit2));
-                }
-                StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
-
-
+                StartCoroutine(jormSpecial());
             }
             else if (state == BattleState.HAMEEDATURN)
             {
-                damageDone = 22;
-                isCrit = false;
-                if (battleStart.isMultiple)
-                {
-                    StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit2));
-                }
-                StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
+                StartCoroutine(hameedaSpecial());
             }
             else if (state == BattleState.EXOUNOSTURN)
             {
-                playerUnit1.isDead = false;
-                playerUnit2.isDead = false;
-                playerUnit3.isDead = false;
-                playerUnit1.currentHp = playerUnit1.maxHP;
-                playerUnit2.currentHp = playerUnit2.maxHP;
-                playerUnit3.currentHp = playerUnit3.maxHP;
+                StartCoroutine(exounousSpecial());
             }
             //do the cool attack thing
         }
     }
-    
+
+    private IEnumerator jormSpecial()
+    {
+        mainUI.SetActive(false);
+        GameObject ult = Instantiate(ragnarockingChair);
+        yield return new WaitForSeconds(5.2f);
+        int add = ult.GetComponent<counterSpecial>().getCount();
+        damageDone = 18 + add;
+        isCrit = false;
+        Destroy(ult.gameObject);
+        mainUI.SetActive(true);
+        if (battleStart.isMultiple)
+        {
+            StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit2));
+        }
+        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
+    }
+
+    private IEnumerator exounousSpecial()
+    {
+        mainUI.SetActive(false);
+        GameObject ult = Instantiate(foodComa);
+        yield return new WaitForSeconds(5.2f);
+        int add = ult.GetComponent<counterSpecial>().getCount();
+        playerUnit1.isDead = false;
+        playerUnit2.isDead = false;
+        playerUnit3.isDead = false;
+        playerUnit1.currentHp = playerUnit1.maxHP + add;
+        playerUnit2.currentHp = playerUnit2.maxHP + add;
+        playerUnit3.currentHp = playerUnit3.maxHP + add;
+        playerUnit1.statusEffect = false;
+        playerUnit2.statusEffect = false;
+        playerUnit3.statusEffect = false;
+        playerUnit1.statusCounter = 0;
+        playerUnit2.statusCounter = 0;
+        playerUnit3.statusCounter = 0;
+        playerUnit1.onFire = false;
+        playerUnit2.onFire = false;
+        playerUnit3.onFire = false;
+        playerUnit1.poisoned = false;
+        playerUnit2.poisoned = false;
+        playerUnit3.poisoned = false;
+        Destroy(ult.gameObject);
+        mainUI.SetActive(true);
+    }
+
+    private IEnumerator hameedaSpecial()
+    {
+        mainUI.SetActive(false);
+        GameObject ult = Instantiate(mythiKohl);
+        yield return new WaitForSeconds(5.2f);
+        int add = ult.GetComponent<counterSpecial>().getCount();
+        damageDone = 22 + add;
+        isCrit = false;
+        Destroy(ult.gameObject);
+        mainUI.SetActive(true);
+        if (battleStart.isMultiple)
+        {
+            StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit2));
+        }
+        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
+    }
+
     void punchingBag()
     {
             
