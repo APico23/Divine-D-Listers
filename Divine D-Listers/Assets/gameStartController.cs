@@ -17,10 +17,11 @@ public class gameStartController : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (tracker.convoAt == 0)
         {
+            Debug.Log(move.canMove);
             if (move.canMove)
             {
                 tracker.continueConvo();
