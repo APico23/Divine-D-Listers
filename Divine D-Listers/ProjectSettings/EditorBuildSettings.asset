@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 10469c7bfe48e864bb58bd09d337b51f
+  - enabled: 1
+    path: Assets/Scenes/pyramid.unity
+    guid: 3ba97d10882d5ad4cb52514492d53882
   m_configObjects: {}

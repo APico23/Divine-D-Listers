@@ -345,7 +345,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         runButton.SetActive(true);
                     }
                     attack.SetActive(true);
-                    if (playerUnit1.onFire || isTutorial)
+                    if (playerUnit1.onFire )
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
                     }
@@ -423,7 +423,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         runButton.SetActive(true);
                     }
                     attack.SetActive(true);
-                    if (playerUnit3.onFire||isTutorial)
+                    if (playerUnit3.onFire)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
                     }
