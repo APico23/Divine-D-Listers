@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: cutscene2
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Now that we\u2019re back, I\u2019d like to give Jorm a chance to speak."
+    audio: {fileID: 8300000, guid: 4a9cdb2fd3241ca4788950f90915ef97, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: What? Already?
+    audio: {fileID: 8300000, guid: 950374b5c8ae0b848aed31c030597473, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "You don\u2019t have to say much. What\u2019s on your mind? A fun fact
+      about you? Do you have any deep, burning anger against anyone or anything?"
+    audio: {fileID: 8300000, guid: 54a0cc2e76f832b4aa50a8aa8c367595, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "\u2026 yes, actually. As I have said, I am the god of chairs. Chairs
+      are my thing. And recently Odin\u2019s throne was broken by his thundering
+      oaf of a son."
+    audio: {fileID: 8300000, guid: 3ee987411f8f2d14e84bb1f7695ab168, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: And him breaking the chair is what set you off?
+    audio: {fileID: 8300000, guid: dd9ab5a2df58e174d89f4e106b2ec368, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "No! It was the fact that Odin replaced it with some insane modern
+      stylistic throne that is wildly impractical! There isn\u2019t even a seat man,
+      it's all strings!"
+    audio: {fileID: 8300000, guid: 5f59fc36aa344b34fa20a6fa99da05da, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: How does that even work?
+    audio: {fileID: 8300000, guid: 312976b8bd7f19d4dbd19e688741dcd0, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "THAT'S WHAT I'M SAYING! I am the god of chairs, I know chairs inside
+      and out and Odin knows that. The fact he didn\u2019t ask me is a downright
+      insult. I\u2019m so sick and tired of these bigwig gods just ignoring us lesser
+      gods."
+    audio: {fileID: 8300000, guid: 029c66d9fabe670468e39d5c8c2a58f8, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: ' Finally! Someone who agrees with me.'
+    audio: {fileID: 8300000, guid: 86be55e686d0b394f97ef8b15b033ffd, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Now, now, it\u2019s good that you are expressing your feelings, but
+      it would be very difficult to create lasting change in the world, particularly
+      against the leaders of our pantheons."
+    audio: {fileID: 8300000, guid: 64ad0a21bea33ca4b9f8821e0aaaab16, type: 3}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "You know, you could use a scapegoat to shove all the blame onto someone
+      in order to rile up the people, promising and promoting change. Then just use
+      that angry crowd to simply lynch the people in power that you don\u2019t like."
+    audio: {fileID: 8300000, guid: d9c6f6f717cb45c42bd6b281b4703eff, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "\u2026"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "You\u2019ve thought this through, haven\u2019t you?"
+    audio: {fileID: 8300000, guid: 47060f94f191e9a40a11dcea3fa67cda, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Why didn\u2019t you tell me about that plan? We could have revolted
+      centuries ago!"
+    audio: {fileID: 8300000, guid: 22227301f8edfb44e95fad64ebfbef88, type: 3}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "Because you didn\u2019t have the charisma to lead the people?"
+    audio: {fileID: 8300000, guid: a0d7e9128e7dc5e4185338da0c3dadc3, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: You would have helped!
+    audio: {fileID: 8300000, guid: 83969d448d961494789d4f8c6ff04ec6, type: 3}
+  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+    dialogue: "Nope. I don\u2019t get my hands dirty."
+    audio: {fileID: 8300000, guid: ecb66c6f6db190843a3a1299f3ab9699, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Enough! No one is going to be riling up any angry mobs. A far smarter
+      strategy would be to break in with a small team and eliminate the top dog.
+      There would be fewer consequences if we fail, plus it wouldn\u2019t involve
+      crowd management."
+    audio: {fileID: 8300000, guid: 2058820048d6f79498bb6c0da61813c3, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Looks like our calm and collected friend here has taken a turn towards
+      revolution. Do you have a vendetta against someone?
+    audio: {fileID: 8300000, guid: 19cd38c173fc4c546a9f48db829f708d, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: As a matter of fact, I do, but that is beside the point.
+    audio: {fileID: 8300000, guid: 9864e43d395d9ff48adeb51766d4b600, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: You could join us. We could overthrow Greece first.
+    audio: {fileID: 8300000, guid: e511c5441476a764aa9e2b286f7da8f7, type: 3}
+  - speaker: {fileID: 11400000, guid: a6211ce8e27537e43936c1d7c82dc45e, type: 2}
+    dialogue: Not a good idea, dears. Something is blocking my routes there. Someone
+      named Cratus, I think, is stirring up some trouble there.
+    audio: {fileID: 8300000, guid: 1a0ba21c2a0b52840be30bd44f576fb3, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: He can handle it. But if you two really plan on doing this, then you
+      still need supervision.
+    audio: {fileID: 8300000, guid: 6c8e17fb6b855054ba5554a028c92c9b, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Fine. The sooner we can teach that pompous prince some manners, the
+      better.\r"
+    audio: {fileID: 8300000, guid: 5410503c9b8d629498b883a0e0e40762, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Who?
+    audio: {fileID: 8300000, guid: 05bd81817d502d645bcede1f03dacfee, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Ra. He\u2019s the king of the gods in Egypt. No clue how he got there,
+      though."
+    audio: {fileID: 8300000, guid: 6c0ce1dd3b0ccad4dbb074de2c490f7d, type: 3}
+  - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
+    dialogue: '*slide whistle*'
+    audio: {fileID: 8300000, guid: 2d0b745769bf4874290ad6f2cf90a0ed, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: Yes, we should also train a bit before we leave. Mat should be able
+      to help with that.
+    audio: {fileID: 8300000, guid: f9c72541e9575244a90de38ea8593eef, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Battle training? Sounds fun.
+    audio: {fileID: 8300000, guid: 8edd0753ef379b74bb91dca2ae3eed6c, type: 3}
