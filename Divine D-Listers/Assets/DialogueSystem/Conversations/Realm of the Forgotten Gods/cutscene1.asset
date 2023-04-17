@@ -47,7 +47,7 @@ MonoBehaviour:
     dialogue: The little dear loves her slide whistles. Miss Rizzle here! My domain
       is public transportation.
     audio: {fileID: 8300000, guid: 71b49fcc946da934a82eb6f67c334999, type: 3}
-  - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
+  - speaker: {fileID: 11400000, guid: 22ce5c83662f7df4c830824e0e2c1961, type: 2}
     dialogue: "And I\u2019m Deathskull ruler of the 8th Realm of Cosmic Chaos and\u2014"
     audio: {fileID: 8300000, guid: 79e708a4e3461b14d83e4f5ccea5a6a5, type: 3}
   - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
