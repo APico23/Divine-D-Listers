@@ -13,27 +13,32 @@ public class rizzleScript : MonoBehaviour
     public GameObject fadeOutPanel;
     public float fadeWait;
 
+    public playerMove move;
 
-    private void Awake()
+    public int index;
+    public convoTracker tracker;
+
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        if (fadeInPanel != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity);
-            Destroy(panel, 1);
+            if (tracker.convoAt != 10)
+            {
+                int temp = tracker.convoAt;
+                tracker.convoAt = index;
+                dialogueStarter.startConvo();
+            }
+            else {
+                playerStorage.initialValue = playerPosition;
+                playerStorage.currentScene = sceneToLoad;
+                StartCoroutine(fadeCo());
+
+            }
+                        
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && !other.isTrigger)
-        {
-            playerStorage.initialValue = playerPosition;
-            playerStorage.currentScene = sceneToLoad;
-            StartCoroutine(fadeCo());
-            //SceneManager.LoadScene(sceneToLoad);
-        }
-    }
-
+   
     public IEnumerator fadeCo()
     {
         if (fadeOutPanel != null)

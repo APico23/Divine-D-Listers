@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: MissRizzle
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: a6211ce8e27537e43936c1d7c82dc45e, type: 2}
+    dialogue: You kids ready to go?
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "Let\u2019s go show \u2018em who\u2019s boss!"
+    audio: {fileID: 0}

@@ -4114,6 +4114,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a49ade4d1f0be3945919a2a429a70f1b, type: 2}
   - {fileID: 11400000, guid: 7f3193e93c72ea6489d3f80a78aafeae, type: 2}
   - {fileID: 11400000, guid: 654bb419b967a7445b90eeb032db7fe8, type: 2}
+  - {fileID: 11400000, guid: 510ad581292bacd45ab4c014e3a3a33b, type: 2}
+  - {fileID: 11400000, guid: d624ef88708711b4985d06398dbeb5d1, type: 2}
   tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &184477879
@@ -4885,6 +4887,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5384a8aa4ab438c4b92e3a2de509b4b8, type: 2}
   - {fileID: 11400000, guid: 07eb7b90570749a43bc75ea941ecb0a4, type: 2}
   - {fileID: 11400000, guid: 219f33ed2cd88b243a03e550b4106397, type: 2}
+  - {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
   players:
   - {fileID: 11400000, guid: c244862502e2a3c459a18b02350ccae2, type: 2}
   - {fileID: 11400000, guid: bd6bb00c258dba247b590c40bea92d19, type: 2}
@@ -5438,8 +5441,8 @@ GameObject:
   - component: {fileID: 1133994704}
   - component: {fileID: 1133994703}
   - component: {fileID: 1133994705}
-  - component: {fileID: 1133994706}
   - component: {fileID: 1133994707}
+  - component: {fileID: 1133994708}
   m_Layer: 0
   m_Name: Miss Rizzle
   m_TagString: Untagged
@@ -5534,24 +5537,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1133994706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133994702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1158dd30268d57b4f802abbb7e4ead4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: startingRoom
-  playerPosition: {x: 20, y: -12}
-  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
-  fadeInPanel: {fileID: 8141140690596591496, guid: 84c12d21966ee37428e2e37d22b29e55, type: 3}
-  fadeOutPanel: {fileID: 77927408449156218, guid: 664d46af31fe3d04ba9444a81a60207c, type: 3}
-  fadeWait: 0.33
 --- !u!61 &1133994707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5562,7 +5547,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5578,6 +5563,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46875, y: 0.96875}
   m_EdgeRadius: 0
+--- !u!114 &1133994708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133994702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c1fff4ea625f4438328e49e47a49b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: startingRoom
+  playerPosition: {x: 20, y: -12}
+  playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
+  fadeInPanel: {fileID: 8141140690596591496, guid: 84c12d21966ee37428e2e37d22b29e55, type: 3}
+  fadeOutPanel: {fileID: 77927408449156218, guid: 664d46af31fe3d04ba9444a81a60207c, type: 3}
+  fadeWait: 0.33
+  move: {fileID: 751324717}
+  index: 10
+  tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
 --- !u!1 &1137196586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,7 +10400,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.019693539, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10405,7 +10411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6652098, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1487207787
 SpriteRenderer:
