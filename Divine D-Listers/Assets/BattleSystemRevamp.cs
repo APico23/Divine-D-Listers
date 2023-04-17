@@ -40,6 +40,8 @@ public class BattleSystemRevamp : MonoBehaviour
     public Animator actualTransition;
     public Image background;
     public GameObject transition;
+    public GameObject attackLocked;
+    public GameObject runLocked;
 
     private int jormDamage;
     private int hameedaDamage;
@@ -151,6 +153,8 @@ public class BattleSystemRevamp : MonoBehaviour
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
 
+        attackLocked.SetActive(false);
+        runLocked.SetActive(false);
 
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
@@ -269,6 +273,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         attack.SetActive(false);
         runButton.SetActive(false);
+        attackLocked.SetActive(true);
+        runLocked.SetActive(true);
         if (battleStart.isMultiple)
         {
         if (turnNum > 4)
@@ -312,6 +318,8 @@ public class BattleSystemRevamp : MonoBehaviour
                 {
                     turnNum++;
                     state = BattleState.JORMTURN;
+                    attackLocked.SetActive(false);
+                    runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
                     jormTurn();
@@ -339,6 +347,8 @@ public class BattleSystemRevamp : MonoBehaviour
                 {
                     turnNum++;
                     state = BattleState.HAMEEDATURN;
+                    attackLocked.SetActive(false);
+                    runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
                     hameedaTurn();
@@ -366,6 +376,8 @@ public class BattleSystemRevamp : MonoBehaviour
                 {
                     turnNum++;
                     state = BattleState.EXOUNOSTURN;
+                    attackLocked.SetActive(false);
+                    runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
                     exounosTurn();
@@ -639,6 +651,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         specialMeter.increaseMeter(1);
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         Debug.Log(damageDone);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, u));
     }
@@ -711,6 +724,7 @@ public class BattleSystemRevamp : MonoBehaviour
         //code for attacks goes here
         qualityCounter++;
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
 
     }
@@ -731,6 +745,7 @@ public class BattleSystemRevamp : MonoBehaviour
         //code for attacks goes here
         builtCounter++;
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -773,6 +788,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         //code for attacks goes here
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -825,6 +841,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         specialMeter.increaseMeter(1);
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineAttack(playerUnit3, damageDone, isCrit, u));
 
     }
@@ -866,6 +883,7 @@ public class BattleSystemRevamp : MonoBehaviour
         StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -919,6 +937,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         specialMeter.increaseMeter(1);
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
         //code for attacks goes here
     }
@@ -940,6 +959,7 @@ public class BattleSystemRevamp : MonoBehaviour
         //code for attacks goes here
         PhaseCounter++;
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -960,6 +980,7 @@ public class BattleSystemRevamp : MonoBehaviour
         //code for attacks goes here
         kholCounter++;
         attack.SetActive(false);
+        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -1073,6 +1094,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public void callTheRunFuntion() 
     {
         runButton.SetActive(false);
+        runLocked.SetActive(true);
         StartCoroutine(run()); 
     }
 

@@ -17,7 +17,7 @@ public class gameStartController : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (tracker.convoAt == 0)
         {
