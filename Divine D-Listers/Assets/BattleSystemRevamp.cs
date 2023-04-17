@@ -327,7 +327,14 @@ public class BattleSystemRevamp : MonoBehaviour
                     runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
-                    jormTurn();
+                    if (playerUnit1.onFire)
+                    {
+                        StartCoroutine(yetAnotherCR("Jorm"));
+                    }
+                    else
+                    {
+                        jormTurn();
+                    }
                 }
             }
             else if (speeds[turnNum] == "Ham.")
@@ -343,7 +350,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         melt(playerUnit2, 1);
                     }
                 }
-                    if (playerUnit2.isDead)
+                if (playerUnit2.isDead)
                 {
                     turnNum++;
                     battleSequence();
@@ -356,7 +363,14 @@ public class BattleSystemRevamp : MonoBehaviour
                     runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
-                    hameedaTurn();
+                    if (playerUnit2.onFire)
+                    {
+                        StartCoroutine(yetAnotherCR("Hameeda"));
+                    }
+                    else
+                    {
+                        hameedaTurn();
+                    }
                 }
             }
             else if (speeds[turnNum] == "Ex.")
@@ -385,7 +399,14 @@ public class BattleSystemRevamp : MonoBehaviour
                     runLocked.SetActive(false);
                     attack.SetActive(true);
                     runButton.SetActive(true);
-                    exounosTurn();
+                    if (playerUnit3.onFire)
+                    {
+                        StartCoroutine(yetAnotherCR("Exounos"));
+                    }
+                    else
+                    {
+                        exounosTurn();
+                    }
                 }
             }
             else if (speeds[turnNum] == "Enemy1")
@@ -1722,6 +1743,21 @@ public class BattleSystemRevamp : MonoBehaviour
             damaged(u, unit, 3);
             u.statusCounter++;
 
+        }
+    }
+    public IEnumerator yetAnotherCR(string name) {
+        yield return new WaitForSeconds(2);
+        if (name == "Jorm")
+        {
+            jormTurn();
+        }
+        else if (name == "Hameeda")
+        {
+            hameedaTurn();
+        }
+        else if (name == "Exounos")
+        {
+            exounosTurn();   
         }
     }
 }
