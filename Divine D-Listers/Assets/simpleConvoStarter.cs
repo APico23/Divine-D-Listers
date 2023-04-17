@@ -7,6 +7,7 @@ public class simpleConvoStarter : MonoBehaviour
 {
     public int index;
     public convoTracker tracker;
+
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,4 +18,5 @@ public class simpleConvoStarter : MonoBehaviour
             tracker.convoAt = temp;
         }
     }
+
 }

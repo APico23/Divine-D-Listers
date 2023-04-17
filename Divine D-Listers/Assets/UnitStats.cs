@@ -108,8 +108,10 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
                 maxHP += 2;
             }
             exp -= expNeeded;
+            Debug.Log(exp);
             expNeeded += 10;
-            attemptLvlUp(exp,unit);
+            xp = 0;
+            attemptLvlUp(xp,unit);
         }
     }
 
