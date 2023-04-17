@@ -42,12 +42,14 @@ public class outOfBattleUIManager : MonoBehaviour
 
     public void statsButton()
     {
+        playerMoveScript.canMove = false;
         statsMenu.SetActive(true);
     }
 
     public void statsButtonResume()
     {
         statsMenu.SetActive(false);
+        playerMoveScript.canMove = true;
     }
 
     public void resumeButton() 

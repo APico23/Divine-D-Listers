@@ -1619,8 +1619,15 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.poisoned = false;
         playerUnit2.poisoned = false;
         playerUnit3.poisoned = false;
+        exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+        exounosHealthBar.setHealth(playerUnit3.currentHp);
+        hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+        hameedaHealthBar.setHealth(playerUnit2.currentHp);
+        jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+        jormHealthBar.setHealth(playerUnit1.currentHp);
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
+        StartCoroutine(playerCoroutineNeutral());
     }
 
     private IEnumerator hameedaSpecial()
