@@ -13,6 +13,7 @@ public class ammitManager : MonoBehaviour
     public Vector2 playerPosition;
     public randomEncounters ammitEnemy;
     public Sprite background;
+    public Quest ammitBeat;
 
     public void OnCollisionEnter2D(Collision2D other)
     {
@@ -24,30 +25,30 @@ public class ammitManager : MonoBehaviour
                 tracker.continueConvo();
                 return;
             }
-            if (tracker.convoAt == 1 && riddle2.isCompleted == false)
+            if (tracker.convoAt == 1 && !ammitBeat.isCompleted)
             {
                 playerStorage.initialValue = playerPosition;
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(ammitEnemy);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
                 SceneManager.LoadScene("battleScene");
-                riddle2.isCompleted = true;
+                
             }
             else if (tracker.convoAt == 1)
             {
                 dialogueStarter.startConvo();
                 tracker.continueConvo();
+                riddle2.isCompleted = true;
             }
         }
     }
 
     public void Start()
     {
-        if (riddle2.isCompleted)
+        if (ammitBeat.isCompleted)
         {
-            
             gameObject.GetComponent<SpriteRenderer>().sprite = hurt;
         }
-            }
+    }
 
 
 }

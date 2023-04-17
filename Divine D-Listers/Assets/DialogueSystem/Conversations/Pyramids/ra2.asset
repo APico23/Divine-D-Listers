@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: ra2
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 4540059a4e6be4c408c777fc97f4ae1b, type: 2}
+    dialogue: "Fine, you win\u2026"
+    audio: {fileID: 8300000, guid: f987bbcd1d27d584fa5ad0715efb3b22, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: Now apologize.
+    audio: {fileID: 8300000, guid: 1195a37203d8de34d9f905201cca94ab, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: "Hameeda\u2026"
+    audio: {fileID: 8300000, guid: f46e6034d26ec2b4e8b4355763e6d719, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: Apologize!
+    audio: {fileID: 8300000, guid: 016fa3f8db69e374c8fc74c664312f32, type: 3}
+  - speaker: {fileID: 11400000, guid: 4540059a4e6be4c408c777fc97f4ae1b, type: 2}
+    dialogue: "Ugh. I\u2019m sorry for treating you lesser deities like dirt. I was
+      wrong.\r"
+    audio: {fileID: 8300000, guid: c408be23b7d43214db130a54b78415f8, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "See? That wasn\u2019t so hard."
+    audio: {fileID: 8300000, guid: 1754611984627134aaeedbeadcaccf61, type: 3}
+  - speaker: {fileID: 11400000, guid: a07d89541bccbd340a33fe42ecd0364b, type: 2}
+    dialogue: "I\u2019ve never seen him so humbled. Thank you, D-Listers, for bringing
+      some humility to our ruler."
+    audio: {fileID: 8300000, guid: f3608236aa95d0e4db024fb22feda66d, type: 3}

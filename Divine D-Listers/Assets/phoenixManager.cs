@@ -12,6 +12,7 @@ public class phoenixManager : MonoBehaviour
     public Sprite egg;
     public randomEncounters phoenixEnemy;
     public Sprite background;
+    public Quest phoenixBeat;
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -34,7 +35,7 @@ public class phoenixManager : MonoBehaviour
                     SceneManager.LoadScene("battleScene");
                     tracker.continueConvo();
                 }                
-                else if (tracker.convoAt == 3)
+                else if (tracker.convoAt == 3 && phoenixBeat)
                 {
                     tracker.convoAt = 2;
                     dialogueStarter.startConvo();
@@ -42,6 +43,13 @@ public class phoenixManager : MonoBehaviour
                     riddle1.isCompleted = true;
                     tracker.continueConvo();
                     tracker.continueConvo();
+                }
+                else if (tracker.convoAt == 3 && !phoenixBeat)
+                {
+                    playerStorage.initialValue = playerPosition;
+                    GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(phoenixEnemy);
+                    GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
+                    SceneManager.LoadScene("battleScene");
                 }
             }
             else
@@ -56,7 +64,7 @@ public class phoenixManager : MonoBehaviour
     {
 
         Debug.Log(tracker.convoAt);
-        if (tracker.convoAt == 3) {
+        if (tracker.convoAt == 3 && phoenixBeat.isCompleted) {
             Debug.Log("Hit");
             gameObject.GetComponent<SpriteRenderer>().sprite = egg;
         }else if (tracker.convoAt >= 4)

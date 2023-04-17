@@ -13,6 +13,10 @@ public class BattleSystemRevamp : MonoBehaviour
 {
     public BattleState state;
 
+    public Quest ammitBeat;
+    public Quest raBeat;
+    public Quest phoenixBeat;
+
     private inventory playerInventory;
 
     public GameObject jormPrefab;
@@ -168,7 +172,13 @@ public class BattleSystemRevamp : MonoBehaviour
         enemyPrefab = battleStart.enemyMain.getRandomFighter();
         enemyPrefab2 = battleStart.enemyMain.getRandomFighter();
 
-        background.sprite = battleStart.background;
+        if (battleStart.enemyMain.getLength() == 2)
+        {
+            enemyPrefab = battleStart.enemyMain.getFighter(0);
+            enemyPrefab2 = battleStart.enemyMain.getFighter(1);
+        }
+
+            background.sprite = battleStart.background;
 
         GameObject playerGO = Instantiate(jormPrefab, jormBattleSpawn);
         playerUnit1 = playerGO.GetComponent<Unit>().unitStats;
@@ -1046,6 +1056,18 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private IEnumerator winCoroutineWait()
     {
+        if (enemyUnit.name == "Pheonix")
+        {
+            phoenixBeat.isCompleted= true;
+        }
+        if (enemyUnit.name == "Ammit")
+        {
+            ammitBeat.isCompleted= true;
+        }
+        if (enemyUnit.name == "Ra")
+        {
+            raBeat.isCompleted= true;
+        }
         yield return new WaitForSeconds(4);
         winScreen.SetActive(true);
     }
