@@ -61,6 +61,9 @@ public class BattleSystemRevamp : MonoBehaviour
     private int builtCounter=0;
     private int kholCounter = 0;
     private int randNum;
+    private int turnTracker = 0;
+    private bool isTutorial=false;
+    private bool isBoss = false;
 
     public GameObject ragnarockingChair;
     public GameObject mythiKohl;
@@ -286,6 +289,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             turnNum = 0;
             speeds = getInitiative();
+            turnTracker++;
         }
         }
         else
@@ -294,6 +298,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 turnNum = 0;
                 speeds = getInitiative();
+                turnTracker++;
             }
         }
         
@@ -324,10 +329,13 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.JORMTURN;
                     attackLocked.SetActive(false);
-                    runLocked.SetActive(false);
+                    if (!isBoss)
+                    {
+                        runLocked.SetActive(false);
+                        runButton.SetActive(true);
+                    }
                     attack.SetActive(true);
-                    runButton.SetActive(true);
-                    if (playerUnit1.onFire)
+                    if (playerUnit1.onFire || isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
                     }
@@ -360,10 +368,13 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.HAMEEDATURN;
                     attackLocked.SetActive(false);
-                    runLocked.SetActive(false);
+                    if (!isBoss)
+                    {
+                        runLocked.SetActive(false);
+                        runButton.SetActive(true);
+                    }
                     attack.SetActive(true);
-                    runButton.SetActive(true);
-                    if (playerUnit2.onFire)
+                    if (playerUnit2.onFire || isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
                     }
@@ -396,10 +407,13 @@ public class BattleSystemRevamp : MonoBehaviour
                     turnNum++;
                     state = BattleState.EXOUNOSTURN;
                     attackLocked.SetActive(false);
-                    runLocked.SetActive(false);
+                    if (!isBoss)
+                    {
+                        runLocked.SetActive(false);
+                        runButton.SetActive(true);
+                    }
                     attack.SetActive(true);
-                    runButton.SetActive(true);
-                    if (playerUnit3.onFire)
+                    if (playerUnit3.onFire||isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
                     }
@@ -1068,27 +1082,28 @@ public class BattleSystemRevamp : MonoBehaviour
         
         if (u.unitName == "Pheonix")
         {
-
+            isBoss = true;
             Pheonix(randNum);
         }
         else if (u.unitName == "Ammit")
         {
-
+            isBoss= true;
             Ammit(randNum);
         }
         else if (u.unitName == "Ra")
         {
-
+            isBoss= true;
             Ra(randNum);
         }
         else if (u.unitName == "Punching Bag")
         {
-
+            isTutorial = true;
+            isBoss= true;
             punchingBag();
         }
         else if (u.unitName == "Annubis")
         {
-
+            isBoss = true;
             Annubis(randNum);
         }
         else
@@ -1130,7 +1145,7 @@ public class BattleSystemRevamp : MonoBehaviour
     {
         if (player.currentHp <= 0)
         {
-            player.isDead = true;                    
+            player.isDead = true;
         }
 
         if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead)
@@ -1700,10 +1715,38 @@ public class BattleSystemRevamp : MonoBehaviour
 
     void punchingBag()
     {
-            
-        StartCoroutine(TypeText("Its a punching bag. It can't attack."));
-            
+        if (turnTracker == 0)
+        {
+            StartCoroutine(TypeText("On your turn you can click the attack button."));
+            StartCoroutine(tutorialCR(turnTracker));
+        }
+        else if (turnTracker == 1)
+        {
+            StartCoroutine(TypeText("The special meter on the right lets you unlease a powerful ability."));
+            StartCoroutine(tutorialCR(turnTracker));
+        }
+        else if (turnTracker == 2)
+        {
+            StartCoroutine(TypeText("Jorm and Hameeda both deal a lot of damage with theirs."));
+            StartCoroutine(tutorialCR(turnTracker));
+        }
+        else if (turnTracker == 3)
+        {
+            StartCoroutine(TypeText("Charge Jorm and Exounus special with the A and D keys"));
+            StartCoroutine(tutorialCR(turnTracker));
+        }
+        else if (turnTracker == 4)
+        {
+            StartCoroutine(TypeText("The run button can be used to avoid certain fights."));
+            StartCoroutine(tutorialCR(turnTracker));
+        }
+        else
+        {
+            StartCoroutine(TypeText("You can beat the bag now."));
+        }
+
     }
+    
     void ignite(UnitStats u)
     {
         u.statusEffect = true;
@@ -1746,7 +1789,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
     public IEnumerator yetAnotherCR(string name) {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         if (name == "Jorm")
         {
             jormTurn();
@@ -1758,6 +1801,31 @@ public class BattleSystemRevamp : MonoBehaviour
         else if (name == "Exounos")
         {
             exounosTurn();   
+        }
+    }
+    public IEnumerator tutorialCR(int turn)
+    {
+        yield return new WaitForSeconds(3);
+        if (turn == 0)
+        {
+            StartCoroutine(TypeText("A menu of options will open and on click it might let you select a target."));
+        }
+        else if (turn == 1)
+        {
+            StartCoroutine(TypeText("It fills whenever a party member is attacked or attacks."));
+        }
+        else if (turn == 2)
+        {
+            StartCoroutine(TypeText("Exounos fully heals all party members, even when they're knocked down."));
+        }
+        else if(turn==3)
+        {
+            StartCoroutine(TypeText("Charge Hameeda's by clicking the orb."));
+        }
+        else if (turn == 4)
+        {
+            StartCoroutine(TypeText("You are now all set to take on the pantheon. Good luck."));
+            enemyhp = 1;
         }
     }
 }
