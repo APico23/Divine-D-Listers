@@ -21,7 +21,6 @@ public class gameStartController : MonoBehaviour
     {
         if (tracker.convoAt == 0)
         {
-            Debug.Log(move.canMove);
             if (move.canMove)
             {
                 tracker.continueConvo();
