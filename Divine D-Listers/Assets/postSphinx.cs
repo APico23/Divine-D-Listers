@@ -17,6 +17,13 @@ public class postSphinx : MonoBehaviour
                 sphinxCheck.convoAt = 1;
                 tracker.continueConvo();
             }
+            if (tracker.convoAt == 1 && sphinxCheck.convoAt == 4)
+            {
+                sphinxCheck.convoAt = 5;
+                dialogueStarter.startConvo();
+                sphinxCheck.convoAt = 4;
+                tracker.continueConvo();
+            }
         }
     }
 }

@@ -16,13 +16,13 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
     dialogue: So, I hear you want to learn how to fight before you beat up gods that
       have been in power for eons.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 68bde92b16843b6498886a9630b803b7, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: "Yeah, we\u2019d like to know the basics."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 6896b5e7436826a46a46ff9813a5d53e, type: 3}
   - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
     dialogue: Are you ready?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 5395f38e4a7ed33408fa24df8b310dbd, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: "Let\u2019s do this."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: d52eccde1a6926d438df1d3825f529fe, type: 3}

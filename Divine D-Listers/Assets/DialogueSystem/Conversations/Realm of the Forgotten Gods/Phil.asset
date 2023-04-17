@@ -15,7 +15,7 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
     dialogue: Hey, watch it.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 88abe6b0dc158644aab06c446c35b2e3, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Sorry.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 44752b84912e01f46a514762ae4800de, type: 3}

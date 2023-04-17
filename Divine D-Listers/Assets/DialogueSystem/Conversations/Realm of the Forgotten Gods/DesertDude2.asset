@@ -16,4 +16,4 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: f4b401a589323314792f305fda6972a4, type: 2}
     dialogue: 'Oh, yeah, I forgot to mention: you can open the pause menu by hitting
       the button in the top right corner.'
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 21fc5a2e1772edb4b8ef81d818e57156, type: 3}

@@ -24,7 +24,6 @@ public class rizzleScript : MonoBehaviour
         {
             if (tracker.convoAt != 10)
             {
-                int temp = tracker.convoAt;
                 tracker.convoAt = index;
                 dialogueStarter.startConvo();
             }

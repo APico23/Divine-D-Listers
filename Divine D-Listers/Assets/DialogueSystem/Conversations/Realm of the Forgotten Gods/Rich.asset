@@ -15,19 +15,19 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: 8440f25dce84785439504ce49abb7cbe, type: 2}
     dialogue: "\u2018Sup."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: a4cee22c584936b41a17c7ce07ff2182, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Who are you?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: c272734b0e804274c8afb799d6c07dab, type: 3}
   - speaker: {fileID: 11400000, guid: 8440f25dce84785439504ce49abb7cbe, type: 2}
     dialogue: "I\u2019m Rich, the god of paywalls."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 07e0721ea0f5ec44690ab1106a1e246d, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: "Why weren\u2019t you in the meeting?"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: e2262a0f0094c7e4fab33b046ae1a80a, type: 3}
   - speaker: {fileID: 11400000, guid: 8440f25dce84785439504ce49abb7cbe, type: 2}
     dialogue: Because money is all the therapy I need.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: d7f3da53805473c4e9fea70b7c2321ef, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: ...okay then.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 79e434fee1290d84d9550c1d36a430f7, type: 3}

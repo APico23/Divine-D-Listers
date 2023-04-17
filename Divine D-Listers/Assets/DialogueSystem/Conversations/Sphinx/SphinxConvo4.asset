@@ -15,35 +15,35 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Have you found the answer?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 7b90c3228b87b0347a976c7c6a375715, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: "Here\u2019s the 20 bucks from Ammit."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: d63d7acb98989db48a5b8b9bcd015abc, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Oh, yeah! Thanks!
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 12522c61a7edac147a200e5c348f96f9, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: "\u2026why do I get the feeling that\u2014"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: be3bc78391717b04eacc965a3f1806f4, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: "I didn\u2019t know who owed me? Because I forgot to write it down!"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 31096eebf55b79e498bd72a3204ae109, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: You forgot to write it down. Of course. Are we just running errands
       for you?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: e7e283066e85daf4d9586f84290cd5f1, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Do you want to know the final riddle or not?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 1534ca2ab4e80294aa01e73ca9bb3302, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Please.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: cff0618107cd807469a112b8dbffe2c7, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: What is my favorite color?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: cb12ee013665db94b9608f031fc0140f, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Do you actually know the answer to this one?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 1b96af8db52ed654b90a3ffae32c3603, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Of course! Return to me when you have found the answer.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: baf13d588925d5941a498ddb5f0be804, type: 3}

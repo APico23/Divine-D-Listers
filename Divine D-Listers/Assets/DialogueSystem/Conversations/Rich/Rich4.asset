@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: Rich4
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 8440f25dce84785439504ce49abb7cbe, type: 2}
+    dialogue: Alright! Thank you for your business!
+    audio: {fileID: 8300000, guid: 0f87cef8509aa594991b5db94a35fc88, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: " So, what\u2019s the answer?"
+    audio: {fileID: 8300000, guid: 932fc23c4c28a504f9d3fdee229ea876, type: 3}
+  - speaker: {fileID: 11400000, guid: 8440f25dce84785439504ce49abb7cbe, type: 2}
+    dialogue: "Aquamarine! Here\u2019s a gem of that color to show the Sphinx."
+    audio: {fileID: 8300000, guid: 7b9e0b81833686a47bb3c5462ce17e33, type: 3}

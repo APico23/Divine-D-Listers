@@ -15,13 +15,19 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
     dialogue: Hail warriors! I am the great and powerful bird of fla-
+    audio: {fileID: 8300000, guid: 060a5a3e541b1e1469e2e62d212c63c8, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: That looks like a walking fried chicken.
+    audio: {fileID: 8300000, guid: f78a957dc77e47749b63d2fc09f0105f, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Maybe that's the answer?
+    audio: {fileID: 8300000, guid: 9f079fa125862434fa7f66482823e924, type: 3}
   - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
     dialogue: What???? I am no chicken! I AM THE MAJEST-
+    audio: {fileID: 8300000, guid: 7902c36621df734408165a035cb50975, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Well, best answer we've found so far. Let's get it.
+    audio: {fileID: 8300000, guid: ffa1e2205dddc684a9269688f94bff13, type: 3}
   - speaker: {fileID: 11400000, guid: 5e2bf352027d88f499d03a8ce2da6a46, type: 2}
     dialogue: How dare you! Bring it on!
+    audio: {fileID: 8300000, guid: 5c4b5ae7559021d4da6a8ff33a0e5b16, type: 3}

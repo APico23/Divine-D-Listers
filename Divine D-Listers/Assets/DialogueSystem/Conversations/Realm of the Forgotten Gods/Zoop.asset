@@ -15,13 +15,13 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
     dialogue: '*slide whistle*'
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 9a2513eab85f89b4aa9f66d7dd6eb532, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: " Really? I\u2019ll make sure to remember that."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 33f93333e17e80d4b85da229bbb8898d, type: 3}
   - speaker: {fileID: 11400000, guid: 834bb54acf14c6742802a62df4227b35, type: 2}
     dialogue: '*slide whistle*'
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: e765460761e744340968f9e8535d51bb, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Neat.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 4321fd85b5892a642a0109a0b246fe50, type: 3}

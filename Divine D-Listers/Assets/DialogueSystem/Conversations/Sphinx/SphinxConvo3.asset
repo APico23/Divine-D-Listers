@@ -15,25 +15,40 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Have you found the answer?
+    audio: {fileID: 8300000, guid: b34065ae659905a4bb9bce589190a1ed, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Fried chicken?
+    audio: {fileID: 8300000, guid: 51ecb4fc449574e47810866367804250, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: No, I don't think so. Did you come up with anything else?
+    dialogue: 'No, I don''t think so. '
+    audio: {fileID: 8300000, guid: 53639353dfa2c34409e6402b3ba4a2c9, type: 3}
+  - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
+    dialogue: Did you come up with anything else?
+    audio: {fileID: 8300000, guid: 922cae89a20d2a14280d99c743467a4f, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: We've got this phoenix egg...
+    audio: {fileID: 8300000, guid: c04cf73656824bd4db29ceb3cf4d9d4a, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
-    dialogue: Is that your favorite food?
+    dialogue: Is this your favorite food?
+    audio: {fileID: 8300000, guid: 129d91a2b507d224cb5beede89f4a322, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Oh, yeah! That's what it was...
+    dialogue: Oh, yeah! That's what it is...
+    audio: {fileID: 8300000, guid: 550ecbe214403bf44afc91125a0d011a, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: ... ... ... Did you forget?
+    audio: {fileID: 8300000, guid: 8a99cddfa0674c747894970a69891e65, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: What? Of course not!
+    audio: {fileID: 8300000, guid: 09219232f6cd46640bf33f8a1e8efa0b, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Just give us the next riddle.
+    audio: {fileID: 8300000, guid: 95c3fd19cd598b54c9e0499894f0b0a1, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Who owes me 20 bucks?
+    audio: {fileID: 8300000, guid: 9f84d2836c73812438d603d4ff647583, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: You can't be serious.
+    audio: {fileID: 8300000, guid: 2a77c332fe54b334b8322689bc922ccf, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Return to me when you have found the answer.
+    audio: {fileID: 8300000, guid: c7dfcc43504d2274fbf35bb6694dca91, type: 3}

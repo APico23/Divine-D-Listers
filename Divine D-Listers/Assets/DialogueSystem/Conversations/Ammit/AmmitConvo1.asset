@@ -14,18 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allLines:
   - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
-    dialogue: Did the Sphinx send you?
-    audio: {fileID: 0}
+    dialogue: You dare enter the realm of the mighty Ammit!
+    audio: {fileID: 8300000, guid: 8454f5f5ec7d1ae4b8031c6f42fc34bc, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
-    dialogue: "Maybe. What\u2019s it to you?"
-    audio: {fileID: 0}
+    dialogue: Depends, do you owe the sphinx 20 bucks?
+    audio: {fileID: 8300000, guid: 2f049210a1555b146940190e85b1468a, type: 3}
   - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
     dialogue: "It\u2019s been 1000 years since I borrowed that money! Why do you
       people keep getting sent to collect?"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 1193eb07c613fc54baedbba7012cb1c3, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: "So it\u2019s you, then."
+    audio: {fileID: 8300000, guid: 7fe88ec14523aa843b2fc20a270815db, type: 3}
+  - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
+    dialogue: "\u2026"
+    audio: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "\u2026"
     audio: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
-    dialogue: "You\u2019ll have to fight me if you want it!"
-    audio: {fileID: 0}
+    dialogue: No?
+    audio: {fileID: 8300000, guid: da731a698c885ae47a9ae3ea8b1271dd, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: 'Please just give us the 20 bucks. '
+    audio: {fileID: 8300000, guid: 73570a66f47b3ee4aad91c03f1c0d88a, type: 3}
+  - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
+    dialogue: "Never! You\u2019ll have to fight me if you want it!"
+    audio: {fileID: 8300000, guid: 00ae5f662853ab24ba02ca7701b919bc, type: 3}

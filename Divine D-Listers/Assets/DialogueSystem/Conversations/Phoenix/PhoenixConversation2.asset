@@ -15,18 +15,29 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: I'm sorry... what just happened here?
+    audio: {fileID: 8300000, guid: 189a00bec97d5824f872d3ae81c36906, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Phoenixes are in a perpetual life cycle. I guess when you kill one,
       it turns into an egg?
+    audio: {fileID: 8300000, guid: 4967729ff25bbad4388c055c8ee26d24, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: I thought they erupted into a pile of ashes.
+    audio: {fileID: 8300000, guid: 8a08901fe1000784b91ecd7f5603c41e, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Well, that's not what happened here.
+    audio: {fileID: 8300000, guid: aab2e7fbe3fe4564a89a717a04d0ebeb, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
-    dialogue: Clearly. What do we do with this egg though?
+    dialogue: 'Clearly. '
+    audio: {fileID: 8300000, guid: acfe1127953644b45ad861f3407d82f8, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: What do we do with this egg though?
+    audio: {fileID: 8300000, guid: 0599402656629744db6593bcbaeaaba7, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Maybe the Sphinx is a late breakfast kinda guy?
+    audio: {fileID: 8300000, guid: 3cd30f48252ddd64991a00960f208e51, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Might as well bring it with us.
-  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    audio: {fileID: 8300000, guid: 3d6c3526138b74048bb0d5104279a1eb, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Back to the Sphinx we go.
+    audio: {fileID: 8300000, guid: 01535f41bfdc99c4cbfc3116b5100a6b, type: 3}

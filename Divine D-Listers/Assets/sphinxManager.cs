@@ -10,6 +10,8 @@ public class sphinxManager : MonoBehaviour
     public convoTracker tracker;
     public Quest riddle1;
     public Quest riddle2;
+    public Quest riddle3;
+    public Quest riddleDone;
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -34,12 +36,13 @@ public class sphinxManager : MonoBehaviour
                     dialogueStarter.startConvo();
                 }
             }
-            if (riddle2.isStarted)
+            else if (!riddle3.isStarted)
             {
                 if (riddle2.isCompleted)
                 {
                     tracker.convoAt = 4;
                     dialogueStarter.startConvo();
+                    riddle3.isStarted = true;
                 }
                 else
                 {
@@ -49,7 +52,32 @@ public class sphinxManager : MonoBehaviour
                 }
                 
             }
+            if (riddle3.isStarted)
+            {
+                if (riddle3.isCompleted)
+                {
+                    tracker.convoAt = 6;
+                    dialogueStarter.startConvo();
+                    riddleDone.isCompleted= true;
+                }
+                else
+                {
+                    tracker.convoAt = 1;
+                    dialogueStarter.startConvo();
+                    tracker.convoAt = 4;
+                }
+            }
             
         }
     }
+
+    private void Update()
+    {
+        if (riddleDone.isCompleted)
+        {
+           gameObject.GetComponent<SpriteRenderer>().enabled = false;
+           gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
 }

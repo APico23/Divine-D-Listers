@@ -6123,6 +6123,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e61c966a8a876f488121819f422a262, type: 2}
   - {fileID: 11400000, guid: 44686070af9d24148932885ab62468c4, type: 2}
   - {fileID: 11400000, guid: a77d2a7330cbb594a8176db04f0b020e, type: 2}
+  - {fileID: 11400000, guid: fc7fd8b157666014283ec8c336443368, type: 2}
+  - {fileID: 11400000, guid: 221dee3e678ccdf4a837dd9f69065023, type: 2}
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &1795018209
@@ -6140,6 +6142,8 @@ MonoBehaviour:
   tracker: {fileID: 11400000, guid: 8febeb0a21e6fb340b13e213e89454b0, type: 2}
   riddle1: {fileID: 11400000, guid: f8aa99ea2d9ac8845acdcaf2d26c1f7e, type: 2}
   riddle2: {fileID: 11400000, guid: 6c35563a7307bce49a89ef492eab3c8c, type: 2}
+  riddle3: {fileID: 11400000, guid: 6c1df8e496b669c4db287abd051d23d2, type: 2}
+  riddleDone: {fileID: 11400000, guid: db9beb390b34d9f4da29d79e5ce34487, type: 2}
 --- !u!1 &1833017204
 GameObject:
   m_ObjectHideFlags: 0

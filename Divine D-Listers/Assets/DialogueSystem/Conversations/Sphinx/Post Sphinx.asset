@@ -21,7 +21,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: f68dd4cb5d3cfd8428ca59485baf9874, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: How would I know? I never spent much time around sphinxes.
-    audio: {fileID: 8300000, guid: 5d4b0fab6e4b6ae42b970f94f0ce14f5, type: 3}
+    audio: {fileID: 8300000, guid: a1e326cf0f820c7449154139096fbed6, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Might as well look around, I guess.
     audio: {fileID: 8300000, guid: ad94714ca7a399a47903878f813dfd4c, type: 3}

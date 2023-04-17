@@ -63,13 +63,13 @@ MonoBehaviour:
     dialogue: "Hameeda. I\u2019m the goddess of kohl. No, not coal in your stocking.
       Not Kohl\u2019s the department store \u2014 though it is spelled that way \u2014
       but kohl, a kind of makeup that no one seems to care about anymore."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 64b37f2e8caa2e8409b93c64a12626ff, type: 3}
   - speaker: {fileID: 11400000, guid: b6c75b2145f9d7249b502afe0b5f05e3, type: 2}
     dialogue: "That\u2019s because everyone is afraid of lead poisoning. "
     audio: {fileID: 8300000, guid: 2482ae35c460a5a42bd9d5b7001bf108, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Shut up.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: a2afbce188bb77242bc7cfa9756689ec, type: 3}
   - speaker: {fileID: 11400000, guid: 3bf589b9bc7427549b0cd1d06a34a304, type: 2}
     dialogue: " I\u2019m Mat. Punching bags are my thing."
     audio: {fileID: 8300000, guid: e14339e31bb580043830433f4991d71d, type: 3}

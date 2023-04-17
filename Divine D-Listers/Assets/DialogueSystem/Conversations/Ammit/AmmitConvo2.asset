@@ -15,7 +15,7 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: 80bb7258b4461354a99ea8c26dac94f0, type: 2}
     dialogue: "Fine! I surrender. Here\u2019s the 20 bucks I owe the sphinx."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 0e40284104508a24ebce74a15b7c83e1, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Wonderful! Back to the Sphinx we go.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 225ccf8718e3aaa4f8f3bb579602c779, type: 3}

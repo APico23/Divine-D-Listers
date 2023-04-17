@@ -15,13 +15,13 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: 6a030ec1f6cf13e4e94eba50e2bc2eb1, type: 2}
     dialogue: "Hey there! I\u2019m Sheldon!"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: ce3abc007d1b8044fa6e6ac87a1939d5, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Nice to meet you, little guy.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 6811628461583624db5730452d0eca33, type: 3}
   - speaker: {fileID: 11400000, guid: 6a030ec1f6cf13e4e94eba50e2bc2eb1, type: 2}
     dialogue: "I don\u2019t always attend the meetings, but they can be fun sometimes."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: a434a67e06b18b04e963d144e9a22790, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Oh, okay.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 1afcf3e61b252c7459708ac18efa0b75, type: 3}

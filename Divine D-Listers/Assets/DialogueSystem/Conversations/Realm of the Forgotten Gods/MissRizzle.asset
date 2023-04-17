@@ -15,7 +15,7 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: a6211ce8e27537e43936c1d7c82dc45e, type: 2}
     dialogue: You kids ready to go?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: c59239b053da0b2469dda9bdf89d3672, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: "Let\u2019s go show \u2018em who\u2019s boss!"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 802f57f8405e3834696c7ac9918430e4, type: 3}
