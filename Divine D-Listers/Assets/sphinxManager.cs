@@ -52,7 +52,7 @@ public class sphinxManager : MonoBehaviour
                 }
                 
             }
-            if (riddle3.isStarted)
+            else if (riddle3.isStarted)
             {
                 if (riddle3.isCompleted)
                 {

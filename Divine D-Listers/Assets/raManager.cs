@@ -23,7 +23,7 @@ public class raManager : MonoBehaviour
                 dialogueStarter.startConvo();
                 tracker.continueConvo();
             }
-            if (tracker.convoAt == 1 && !raBeat.isCompleted) {
+            else if (tracker.convoAt == 1 && !raBeat.isCompleted) {
                 playerStorage.initialValue = playerPosition;
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(raFight);
                 GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
