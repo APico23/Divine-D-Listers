@@ -79,6 +79,9 @@ public class BattleSystemRevamp : MonoBehaviour
     UnitStats enemyUnit;
     UnitStats enemyUnit2;
 
+    SpriteRenderer enemysprite;
+    SpriteRenderer enemy2sprite;
+
     private string[] speeds;
 
     public Text dialougeText;
@@ -178,11 +181,13 @@ public class BattleSystemRevamp : MonoBehaviour
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
+        enemysprite= enemyGO.GetComponent<SpriteRenderer>();
 
         if (battleStart.isMultiple)
         {
             GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
             enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
+            enemy2sprite = enemyGO.GetComponent<SpriteRenderer>();
         }
 
         playerUnit1.currentHp = playerUnit1.maxHP; 
@@ -991,10 +996,12 @@ public class BattleSystemRevamp : MonoBehaviour
         if(isEnemy1 && enemyhp<=0)
         {
             isEnemy1dead = true;
+            enemysprite.GetComponent<SpriteRenderer>().enabled = false;
         }
         else if (battleStart.isMultiple && enemy2hp<=0)
         {
             isEnemy2dead = true;
+            enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
         }
         yield return new WaitForSeconds(3);
 
@@ -1102,7 +1109,7 @@ public class BattleSystemRevamp : MonoBehaviour
     {
         if (player.currentHp <= 0)
         {
-            player.isDead = true;
+            player.isDead = true;                    
         }
 
         if (playerUnit1.isDead && playerUnit2.isDead && playerUnit3.isDead)
