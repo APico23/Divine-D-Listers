@@ -1588,8 +1588,10 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(true);
         if (battleStart.isMultiple)
         {
-            StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit2));
+            enemy2hp -= damageDone;
         }
+        enemyhp -= damageDone;
+        
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
     }
 
@@ -1633,8 +1635,9 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(true);
         if (battleStart.isMultiple)
         {
-            StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit2));
+            enemy2hp -= damageDone;
         }
+        enemyhp -= damageDone;        
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 
