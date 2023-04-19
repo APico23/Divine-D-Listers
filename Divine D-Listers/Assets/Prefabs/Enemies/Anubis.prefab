@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 576937330693341026}
   - component: {fileID: -5422071844104033701}
   m_Layer: 0
-  m_Name: Annubis
+  m_Name: Anubis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
