@@ -1603,6 +1603,7 @@ public class BattleSystemRevamp : MonoBehaviour
             enemyhp = enemyUnit.maxHP;
             enemyUnit.isDead = false;
             isEnemy1dead = false;
+            enemysprite.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
