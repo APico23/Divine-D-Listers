@@ -205,7 +205,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
             enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
-            enemy2sprite = enemyGO.GetComponent<SpriteRenderer>();
+            enemy2sprite = enemyGO2.GetComponent<SpriteRenderer>();
         }
 
         playerUnit1.currentHp = playerUnit1.maxHP; 
