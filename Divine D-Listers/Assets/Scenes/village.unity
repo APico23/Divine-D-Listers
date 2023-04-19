@@ -2061,6 +2061,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
+      propertyPath: m_Size.y
+      value: 6.1831846
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.7247367
+      objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628507, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: sceneToLoad
       value: mainRoom2
@@ -2198,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Size.x
-      value: 0.76285934
+      value: 8.063866
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Size.y
@@ -2206,7 +2214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Offset.x
-      value: 0.056840897
+      value: -3.495617
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Offset.y
@@ -8865,7 +8873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Size.x
-      value: 0.5175247
+      value: 4.9201508
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Size.y
@@ -8873,7 +8881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Offset.x
-      value: 0.021930695
+      value: 2.2232437
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_Offset.y
@@ -9139,6 +9147,14 @@ PrefabInstance:
     - target: {fileID: 6771243390083628504, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
+      propertyPath: m_Size.y
+      value: 3.191266
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771243390083628506, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.3315825
       objectReference: {fileID: 0}
     - target: {fileID: 6771243390083628507, guid: 99d06cacfa52d3448baff55336cce73e, type: 3}
       propertyPath: sceneToLoad
