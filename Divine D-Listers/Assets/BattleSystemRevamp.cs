@@ -1627,7 +1627,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
                 hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit2);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
                 if (crit <= enemyUnit2.luck)
                 {
@@ -1641,7 +1641,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
                 hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit2);
                 damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
                 if (crit <= enemyUnit2.luck)
                 {
