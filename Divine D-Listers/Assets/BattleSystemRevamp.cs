@@ -205,7 +205,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             GameObject enemyGO2 = Instantiate(enemyPrefab2, enemyBattleSpawn2);
             enemyUnit2 = enemyGO2.GetComponent<Unit>().unitStats;
-            enemy2sprite = enemyGO.GetComponent<SpriteRenderer>();
+            enemy2sprite = enemyGO2.GetComponent<SpriteRenderer>();
         }
 
         playerUnit1.currentHp = playerUnit1.maxHP; 
@@ -781,8 +781,6 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             qualityCounter++;
         }
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
 
     }
@@ -805,8 +803,6 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             builtCounter++;
         }
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -848,8 +844,7 @@ public class BattleSystemRevamp : MonoBehaviour
             StartCoroutine(TypeText("The " + u.unitName + " is drowzy enough."));
         }
         //code for attacks goes here
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
+       
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -901,8 +896,6 @@ public class BattleSystemRevamp : MonoBehaviour
             enemy2hp -= damageDone;
         }
         specialMeter.increaseMeter(1);
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineAttack(playerUnit3, damageDone, isCrit, u));
 
     }
@@ -943,8 +936,6 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -997,8 +988,6 @@ public class BattleSystemRevamp : MonoBehaviour
             enemy2hp -= damageDone;
         }
         specialMeter.increaseMeter(1);
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
         //code for attacks goes here
     }
@@ -1022,8 +1011,6 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             PhaseCounter++;
         }
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
@@ -1046,13 +1033,20 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             kholCounter++;
         }
-        attack.SetActive(false);
-        attackLocked.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
     }
 
     private IEnumerator playerCoroutineAttack(UnitStats u, int d, bool b, UnitStats e)
     {
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        runButton.SetActive(false);
+        runLocked.SetActive(true);
+        exounosHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        hameedaHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
         StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
 
         if(isEnemy1 && enemyhp<=0)
@@ -1079,7 +1073,16 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private IEnumerator playerCoroutineNeutral()
     {
-            yield return new WaitForSeconds(3);
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        runButton.SetActive(false);
+        runLocked.SetActive(true);
+        exounosHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        hameedaHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
+        yield return new WaitForSeconds(3);
             state = BattleState.PAUSE;
             isBattleWon();
             battleSequence();
