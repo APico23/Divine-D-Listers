@@ -40,6 +40,7 @@ public class phoenixManager : MonoBehaviour
                     tracker.convoAt = 2;
                     dialogueStarter.startConvo();
                     gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     riddle1.isCompleted = true;
                     tracker.continueConvo();
                     tracker.continueConvo();
@@ -64,13 +65,15 @@ public class phoenixManager : MonoBehaviour
     {
 
         Debug.Log(tracker.convoAt);
-        if (tracker.convoAt == 3 && phoenixBeat.isCompleted) {
-            Debug.Log("Hit");
-            gameObject.GetComponent<SpriteRenderer>().sprite = egg;
-        }else if (tracker.convoAt >= 4)
-        {
+        if  (tracker.convoAt >= 4) {
             Debug.Log("Hit2");
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else if (phoenixBeat.isCompleted)
+        {
+            Debug.Log("Hit");
+            gameObject.GetComponent<SpriteRenderer>().sprite = egg;
         }
     }
 }

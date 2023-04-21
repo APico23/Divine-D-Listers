@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Phoenix
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
-  unitName: Pheonix
+  unitName: Phoenix
   unitLevel: 5
   exp: 120
   expNeeded: 0
