@@ -9870,8 +9870,8 @@ MonoBehaviour:
   player1Sprite: {fileID: 3381029315277051365}
   player2Sprite: {fileID: 8072827341837181340}
   player3Sprite: {fileID: 4498553603866309896}
-  enemySlash: {fileID: 0}
-  playerSlash: {fileID: 0}
+  enemySlash: {fileID: 668349438149004976}
+  playerSlash: {fileID: 7115362808898483124}
   partyBurn: {fileID: 4744019718906370028}
   sleep: {fileID: 5081303380551789767}
   rock: {fileID: 6171388875902613026}
