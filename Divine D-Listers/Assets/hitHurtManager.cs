@@ -42,7 +42,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.attack;
         enemySprite.sprite = enemy.hurt;
         enemySlash.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         return;
     }
     public void playerspecial(UnitStats player, UnitStats enemy)
@@ -50,7 +50,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.special;
         enemySprite.sprite = enemy.hurt;
         sleep.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         return;
     }
 
@@ -60,7 +60,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.hurt;
         enemySprite.sprite = enemy.attack; 
         playerSlash.Play();
-        Destroy(gameObject, 1f);
+       Destroy(gameObject, 2f);
         return;
     }
     public void partyHurt(UnitStats player1, UnitStats player2, UnitStats player3, UnitStats enemy, string type)
@@ -79,7 +79,7 @@ public class hitHurtManager : MonoBehaviour
             rock2.Play();
             rock3.Play();
         }
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         return;
     }
 }
