@@ -64,6 +64,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private int PhaseCounter = 0;
     private int builtCounter=0;
     private int kholCounter = 0;
+    private int roarCounter = 0;
     private int randNum;
     private int turnTracker = 0;
     private bool isTutorial=false;
@@ -82,12 +83,15 @@ public class BattleSystemRevamp : MonoBehaviour
     public Transform exounosBattleSpawn;
     public ParticleSystem jormHeal;
     public ParticleSystem jormDefend;
+    public ParticleSystem jormBreak;
     public ParticleSystem hameedaHeal;
     public ParticleSystem hamDefend;
+    public ParticleSystem hamBreak;
     public ParticleSystem exoHeal;
     public ParticleSystem exoDefend;
+    public ParticleSystem exoBreak;
     public ParticleSystem enemyHeal;
-    public ParticleSystem eienemy2Heal;
+    public ParticleSystem enemy2Heal;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -245,6 +249,13 @@ public class BattleSystemRevamp : MonoBehaviour
             playerUnit2.defence -= qualityCounter;
             playerUnit3.defence -= qualityCounter;
             qualityCounter= 0;
+        }
+        if (roarCounter > 0)
+        {
+            playerUnit1.defence += (roarCounter*3);
+            playerUnit2.defence += (roarCounter*3);
+            playerUnit3.defence += (roarCounter*3);
+            roarCounter = 0;
         }
         if (PhaseCounter > 0)
         {
@@ -806,9 +817,16 @@ public class BattleSystemRevamp : MonoBehaviour
             exoDefend.Play();
             playerUnit3.defence += 1;
         }
-        StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
+        if (qualityCounter < 5)
+        {
+            StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
+        }
+        else
+        {
+            StartCoroutine(TypeText("The party has become as fortified as possible."));
+        }
         //code for attacks goes here
-        if(qualityCounter < 5)
+        if (qualityCounter < 5)
         {
             qualityCounter++;
         }
@@ -1479,7 +1497,7 @@ public class BattleSystemRevamp : MonoBehaviour
     void Ammit(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (randNum < 5)
+        if (randNum < 3)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
@@ -1491,6 +1509,27 @@ public class BattleSystemRevamp : MonoBehaviour
             damaged(playerUnit2, 1, damageDone);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             damaged(playerUnit3, 2, damageDone);
+        }
+        else if(randNum>=3 && randNum<6 && roarCounter < 3)
+        {
+            
+            if (playerUnit1.defence > 0)
+            {
+                jormBreak.Play();
+                playerUnit1.defence -= 3;
+            }
+            if (playerUnit2.defence > 0)
+            {
+                hamBreak.Play();
+                playerUnit2.defence -= 3;
+            }
+            if (playerUnit3.defence > 0)
+            {
+                exoBreak.Play();
+                playerUnit3.defence -= 3;
+            }
+            roarCounter++;
+            StartCoroutine(TypeText(enemyUnit.unitName + " roars and the party feels vulnerable."));
         }
         else
         {
