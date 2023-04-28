@@ -68,6 +68,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private int turnTracker = 0;
     private bool isTutorial=false;
     private bool isBoss = false;
+    
 
     public GameObject ragnarockingChair;
     public GameObject mythiKohl;
@@ -79,6 +80,14 @@ public class BattleSystemRevamp : MonoBehaviour
     public Transform jormBattleSpawn;
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
+    public ParticleSystem jormHeal;
+    public ParticleSystem jormDefend;
+    public ParticleSystem hameedaHeal;
+    public ParticleSystem hamDefend;
+    public ParticleSystem exoHeal;
+    public ParticleSystem exoDefend;
+    public ParticleSystem enemyHeal;
+    public ParticleSystem eienemy2Heal;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -201,6 +210,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
         enemysprite= enemyGO.GetComponent<SpriteRenderer>();
+        
 
         if (battleStart.isMultiple)
         {
@@ -783,14 +793,17 @@ public class BattleSystemRevamp : MonoBehaviour
         jormStats.SetActive(true);
         if (qualityCounter<5)
         {
+            jormDefend.Play();
             playerUnit1.defence += 1;
         }
         if (qualityCounter < 5)
         {
+            hamDefend.Play();
             playerUnit2.defence += 1;
         }
         if (qualityCounter < 5)
         {
+            exoDefend.Play();
             playerUnit3.defence += 1;
         }
         StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
@@ -810,6 +823,7 @@ public class BattleSystemRevamp : MonoBehaviour
         if (builtCounter<5)
         {
             playerUnit1.defence += 2;
+            jormDefend.Play();
             StartCoroutine(TypeText(playerUnit1.unitName + " builds up his defence with chairs."));
         }
         else
@@ -931,6 +945,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
             jormHealthBar.setHealth(playerUnit1.currentHp);
+            jormHeal.Play();
         }
         if (playerUnit2.currentHp < playerUnit2.maxHP && !playerUnit2.isDead)
         {
@@ -941,6 +956,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
+            hameedaHeal.Play();
         }
         if (playerUnit3.currentHp < playerUnit3.maxHP && !playerUnit3.isDead)
         {
@@ -951,6 +967,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             exounosHealthBar.setHealth(playerUnit3.currentHp);
+            exoHeal.Play();
         }
         StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
@@ -1305,6 +1322,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 enemyhp = enemyUnit.maxHP;
             }
+            enemyHeal.Play();
             StartCoroutine(TypeText(enemyUnit.unitName + " wraps itself in fire and some of its wounds heal"));
         }
         else if (randNum < 7)
@@ -1618,6 +1636,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
         if (isEnemy1dead)
         {
+            enemyHeal.Play();
             enemyhp = enemyUnit.maxHP;
             enemyUnit.isDead = false;
             isEnemy1dead = false;
@@ -1751,6 +1770,9 @@ public class BattleSystemRevamp : MonoBehaviour
         hameedaHealthBar.setHealth(playerUnit2.currentHp);
         jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
         jormHealthBar.setHealth(playerUnit1.currentHp);
+        jormHeal.Play();
+        hameedaHeal.Play();
+        exoHeal.Play();
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
