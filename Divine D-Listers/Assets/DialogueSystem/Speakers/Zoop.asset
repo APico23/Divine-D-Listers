@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Zoop
   m_EditorClassIdentifier: 
   speakerName: Zoop
-  speakerSprite: {fileID: -304420525, guid: 054de9bf3dc3bb34999ae30ceda627a0, type: 3}
+  speakerSprite: {fileID: 21300000, guid: dfb15dcf399e6f1488fddf0a1dee1f77, type: 3}

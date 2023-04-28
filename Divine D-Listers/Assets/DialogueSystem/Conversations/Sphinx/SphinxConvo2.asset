@@ -15,7 +15,7 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Have you found the answer?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 16284d448744a0748b58657a93786658, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: No, not yet.
     audio: {fileID: 8300000, guid: 6ac3302963978c54c9c21ede3dd60caa, type: 3}
@@ -25,22 +25,22 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: Anubis was getting on my case about security issues, apparently my
       previous riddles were too "mainstream"
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 8df271b8af5f45b4784605f38a327594, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Oh come on it couldn't have been that bad. What was the original riddle?
     audio: {fileID: 8300000, guid: c73dbda7b27339f44a9f284e04c4122a, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: What has four legs in the morning, two legs-
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: ac71496ca9cdbbc46bf84f338eb0c712, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: Man!
     audio: {fileID: 8300000, guid: 28fa11a072db31b42ba2867988574125, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
     dialogue: SEE! Everyone knows that one, it made my job so much easier.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 4c4e36f8c1169704b8daff5e70f69935, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Soooo, since we got the answer right can we go through?
     audio: {fileID: 8300000, guid: ab532af129669464ba23d03b5a7a9bbf, type: 3}
   - speaker: {fileID: 11400000, guid: e554b9e8a041d3841a8f509966903662, type: 2}
-    dialogue: Nice try, come back when you know my favorite food.
-    audio: {fileID: 0}
+    dialogue: Nice try, come back when you have the answer to my original riddles.
+    audio: {fileID: 8300000, guid: ac8fa0276d5d4554a82dbd302227f163, type: 3}
