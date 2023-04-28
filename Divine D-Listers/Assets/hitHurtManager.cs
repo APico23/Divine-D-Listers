@@ -9,6 +9,9 @@ public class hitHurtManager : MonoBehaviour
 
     public Image playerSprite;
     public Image enemySprite;
+    public Image player1Sprite;
+    public Image player2Sprite;
+    public Image player3Sprite;
 
     private static hitHurtManager instance;
     private Animator anim;
@@ -41,6 +44,15 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.hurt;
         enemySprite.sprite = enemy.attack;
         anim.SetBool("playerHurt", true);
+        Destroy(gameObject, 1f);
+        return;
+    }
+    public void partyHurt(UnitStats player1, UnitStats player2, UnitStats player3, UnitStats enemy)
+    {
+        player1Sprite.sprite = player1.hurt;
+        player2Sprite.sprite = player2.hurt;
+        player3Sprite.sprite = player3.hurt;
+        enemySprite.sprite = enemy.attack;
         Destroy(gameObject, 1f);
         return;
     }

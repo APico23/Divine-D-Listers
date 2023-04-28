@@ -64,10 +64,14 @@ public class BattleSystemRevamp : MonoBehaviour
     private int PhaseCounter = 0;
     private int builtCounter=0;
     private int kholCounter = 0;
+    private int roarCounter = 0;
+    private int defendCounter = 0;
     private int randNum;
     private int turnTracker = 0;
     private bool isTutorial=false;
     private bool isBoss = false;
+    private bool isDefended = false;
+    
 
     public GameObject ragnarockingChair;
     public GameObject mythiKohl;
@@ -79,6 +83,23 @@ public class BattleSystemRevamp : MonoBehaviour
     public Transform jormBattleSpawn;
     public Transform hameedaBattleSpawn;
     public Transform exounosBattleSpawn;
+    public ParticleSystem jormHeal;
+    public ParticleSystem jormDefend;
+    public ParticleSystem jormBreak;
+    public ParticleSystem jormBurn;
+    public ParticleSystem jormPoison;
+    public ParticleSystem hameedaHeal;
+    public ParticleSystem hamDefend;
+    public ParticleSystem hamBreak;
+    public ParticleSystem hamBurn;
+    public ParticleSystem hamPoison;
+    public ParticleSystem exoHeal;
+    public ParticleSystem exoDefend;
+    public ParticleSystem exoBreak;
+    public ParticleSystem exoBurn;
+    public ParticleSystem exoPoison;
+    public ParticleSystem enemyHeal;
+    public ParticleSystem ankhShield;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -101,7 +122,8 @@ public class BattleSystemRevamp : MonoBehaviour
     public Text exounosHp;
     public Text Jexp;
     public Text Eexp;
-    public Text Hexp; 
+    public Text Hexp;
+    public Text gold;
 
     private int turnNum = 0;
 
@@ -163,8 +185,9 @@ public class BattleSystemRevamp : MonoBehaviour
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
 
-        attackLocked.SetActive(false);
-        runLocked.SetActive(false);
+        attackLocked.SetActive(true);
+        runLocked.SetActive(true);
+        runButton.SetActive(false);
 
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
@@ -200,6 +223,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleSpawn);
         enemyUnit = enemyGO.GetComponent<Unit>().unitStats;
         enemysprite= enemyGO.GetComponent<SpriteRenderer>();
+        
 
         if (battleStart.isMultiple)
         {
@@ -234,6 +258,13 @@ public class BattleSystemRevamp : MonoBehaviour
             playerUnit2.defence -= qualityCounter;
             playerUnit3.defence -= qualityCounter;
             qualityCounter= 0;
+        }
+        if (roarCounter > 0)
+        {
+            playerUnit1.defence += (roarCounter*3);
+            playerUnit2.defence += (roarCounter*3);
+            playerUnit3.defence += (roarCounter*3);
+            roarCounter = 0;
         }
         if (PhaseCounter > 0)
         {
@@ -321,17 +352,28 @@ public class BattleSystemRevamp : MonoBehaviour
         //make this a switch case later
         if (state != BattleState.WON)
         {
+            exounosStats.SetActive(true);
+            jormStats.SetActive(true);
+            hameedaStats.SetActive(true);
             if (speeds[turnNum] == "Jorm")
-            {
+            {               
                 if (playerUnit1.statusEffect)
                 {
                     if(playerUnit1.onFire)
                     {
                         burn(playerUnit1, 0);
+                        if (playerUnit1.statusCounter < 3)
+                        {
+                            jormBurn.Play();
+                        }
                     }
                     else if(playerUnit1.poisoned)
                     {
                         melt(playerUnit1, 0);
+                        if (playerUnit1.statusCounter < 3)
+                        {
+                            jormPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit1.isDead)
@@ -354,6 +396,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
                     }
+                    else if (playerUnit1.poisoned)
+                    {
+                        StartCoroutine(yetAnotherCR("Jorm"));
+                    }
                     else
                     {
                         jormTurn();
@@ -367,10 +413,18 @@ public class BattleSystemRevamp : MonoBehaviour
                     if (playerUnit2.onFire)
                     {
                         burn(playerUnit2, 1);
+                        if (playerUnit2.statusCounter < 3)
+                        {
+                            hamBurn.Play();
+                        }
                     }
                     else if (playerUnit2.poisoned)
                     {
                         melt(playerUnit2, 1);
+                        if (playerUnit2.statusCounter < 3)
+                        {
+                            hamPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit2.isDead)
@@ -393,6 +447,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
                     }
+                    else if (playerUnit2.poisoned)
+                    {
+                        StartCoroutine(yetAnotherCR("Hameeda"));
+                    }
                     else
                     {
                         hameedaTurn();
@@ -406,10 +464,18 @@ public class BattleSystemRevamp : MonoBehaviour
                     if (playerUnit3.onFire)
                     {
                         burn(playerUnit3, 2);
+                        if (playerUnit3.statusCounter < 3)
+                        {
+                            exoBurn.Play();
+                        }
                     }
                     else if (playerUnit3.poisoned)
                     {
                         melt(playerUnit3, 2);
+                        if (playerUnit3.statusCounter < 3)
+                        {
+                            exoPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit3.isDead)
@@ -429,6 +495,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     if (playerUnit3.onFire)
+                    {
+                        StartCoroutine(yetAnotherCR("Exounos"));
+                    }
+                    else if (playerUnit3.poisoned)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
                     }
@@ -607,6 +677,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     Eexp.text = "+" + enemyUnit.exp;
             }
             playerInventory.playerGold += enemyUnit.gold;
+            gold.text = "" + playerInventory.playerGold;
             //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + enemyUnit.gold;
             StartCoroutine(winCoroutineWait());
         }
@@ -644,6 +715,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
             playerInventory.playerGold += (enemyUnit.gold + enemyUnit2.gold);
+            gold.text = "" + playerInventory.playerGold;
             //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + (enemyUnit.gold + enemyUnit2.gold);
             StartCoroutine(winCoroutineWait());
         }
@@ -765,19 +837,29 @@ public class BattleSystemRevamp : MonoBehaviour
         jormStats.SetActive(true);
         if (qualityCounter<5)
         {
+            jormDefend.Play();
             playerUnit1.defence += 1;
         }
         if (qualityCounter < 5)
         {
+            hamDefend.Play();
             playerUnit2.defence += 1;
         }
         if (qualityCounter < 5)
         {
+            exoDefend.Play();
             playerUnit3.defence += 1;
         }
-        StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
+        if (qualityCounter < 5)
+        {
+            StartCoroutine(TypeText("Jorm makes sure the party is safe. Just a few extra nails in place."));
+        }
+        else
+        {
+            StartCoroutine(TypeText("The party has become as fortified as possible."));
+        }
         //code for attacks goes here
-        if(qualityCounter < 5)
+        if (qualityCounter < 5)
         {
             qualityCounter++;
         }
@@ -792,6 +874,7 @@ public class BattleSystemRevamp : MonoBehaviour
         if (builtCounter<5)
         {
             playerUnit1.defence += 2;
+            jormDefend.Play();
             StartCoroutine(TypeText(playerUnit1.unitName + " builds up his defence with chairs."));
         }
         else
@@ -913,6 +996,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
             jormHealthBar.setHealth(playerUnit1.currentHp);
+            jormHeal.Play();
         }
         if (playerUnit2.currentHp < playerUnit2.maxHP && !playerUnit2.isDead)
         {
@@ -923,6 +1007,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
             hameedaHealthBar.setHealth(playerUnit2.currentHp);
+            hameedaHeal.Play();
         }
         if (playerUnit3.currentHp < playerUnit3.maxHP && !playerUnit3.isDead)
         {
@@ -933,6 +1018,7 @@ public class BattleSystemRevamp : MonoBehaviour
             }
             exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
             exounosHealthBar.setHealth(playerUnit3.currentHp);
+            exoHeal.Play();
         }
         StartCoroutine(TypeText("The party dozes off for a moment before waking rejuvinated."));
         //code for attacks goes here
@@ -1047,8 +1133,14 @@ public class BattleSystemRevamp : MonoBehaviour
         hameedaHUD.SetActive(false);
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
-        StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
-
+        if (!isEnemy1 && isDefended)
+        {
+            StartCoroutine(TypeText("Anubis blocked " + u.unitName + "'s attack!"));
+        }
+        else 
+        {
+            StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
+        }
         if(isEnemy1 && enemyhp<=0)
         {
             isEnemy1dead = true;
@@ -1061,7 +1153,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         yield return new WaitForSeconds(3);
 
-        if (b)
+        if (b&&!isDefended)
         {
             StartCoroutine(TypeText("A CRITICAL HIT!"));
             yield return new WaitForSeconds(3);
@@ -1161,7 +1253,13 @@ public class BattleSystemRevamp : MonoBehaviour
     public IEnumerator run() {
         
         int randNum = Random.Range(0, 3);
-
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        hameedaHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        exounosHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
         if (randNum == 0)
         {
             StartCoroutine(TypeText("Jorm and the party got away safely!"));
@@ -1287,6 +1385,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 enemyhp = enemyUnit.maxHP;
             }
+            enemyHeal.Play();
             StartCoroutine(TypeText(enemyUnit.unitName + " wraps itself in fire and some of its wounds heal"));
         }
         else if (randNum < 7)
@@ -1443,7 +1542,7 @@ public class BattleSystemRevamp : MonoBehaviour
     void Ammit(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (randNum < 5)
+        if (randNum < 3)
         {
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
@@ -1455,6 +1554,27 @@ public class BattleSystemRevamp : MonoBehaviour
             damaged(playerUnit2, 1, damageDone);
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             damaged(playerUnit3, 2, damageDone);
+        }
+        else if(randNum>=3 && randNum<6 && roarCounter < 3)
+        {
+            
+            if (playerUnit1.defence > 0)
+            {
+                jormBreak.Play();
+                playerUnit1.defence -= 3;
+            }
+            if (playerUnit2.defence > 0)
+            {
+                hamBreak.Play();
+                playerUnit2.defence -= 3;
+            }
+            if (playerUnit3.defence > 0)
+            {
+                exoBreak.Play();
+                playerUnit3.defence -= 3;
+            }
+            roarCounter++;
+            StartCoroutine(TypeText(enemyUnit.unitName + " roars and the party feels vulnerable."));
         }
         else
         {
@@ -1599,14 +1719,27 @@ public class BattleSystemRevamp : MonoBehaviour
     {
 
         if (isEnemy1dead)
-        {
+        {   
+            ankhShield.Stop();
+            isDefended= false;
+            defendCounter = 1;
+            enemyHeal.Play();
             enemyhp = enemyUnit.maxHP;
             enemyUnit.isDead = false;
             isEnemy1dead = false;
             enemysprite.GetComponent<SpriteRenderer>().enabled = true;
+            StartCoroutine(TypeText("Anubis revives Ra!"));
+        }
+        else if (defendCounter <= 0)
+        {
+            ankhShield.Play();
+            isDefended = true;
+            defendCounter--;
+            StartCoroutine(TypeText("Anubis defends himself from all attacks!"));
         }
         else
         {
+            defendCounter--;
             randNum = Random.Range(0, 3);
             crit = Random.Range(1, 201);
             rounded = 10 * (enemyUnit2.damage / 100f);
@@ -1694,7 +1827,7 @@ public class BattleSystemRevamp : MonoBehaviour
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
-        if (battleStart.isMultiple)
+        if (battleStart.isMultiple && !isDefended)
         {
             enemy2hp -= damageDone;
         }
@@ -1733,6 +1866,9 @@ public class BattleSystemRevamp : MonoBehaviour
         hameedaHealthBar.setHealth(playerUnit2.currentHp);
         jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
         jormHealthBar.setHealth(playerUnit1.currentHp);
+        jormHeal.Play();
+        hameedaHeal.Play();
+        exoHeal.Play();
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
         StartCoroutine(playerCoroutineNeutral());
@@ -1748,7 +1884,7 @@ public class BattleSystemRevamp : MonoBehaviour
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
-        if (battleStart.isMultiple)
+        if (battleStart.isMultiple && !isDefended)
         {
             enemy2hp -= damageDone;
         }
@@ -1832,7 +1968,14 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
     public IEnumerator yetAnotherCR(string name) {
-        yield return new WaitForSeconds(3);
+        if (isTutorial)
+        {
+            yield return new WaitForSeconds(5);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3);
+        }
         if (name == "Jorm")
         {
             jormTurn();
@@ -1848,7 +1991,7 @@ public class BattleSystemRevamp : MonoBehaviour
     }
     public IEnumerator tutorialCR(int turn)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         if (turn == 0)
         {
             StartCoroutine(TypeText("A menu of options will open and on click it might let you select a target."));

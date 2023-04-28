@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Phil
   m_EditorClassIdentifier: 
   speakerName: Phil
-  speakerSprite: {fileID: -345129230, guid: 054de9bf3dc3bb34999ae30ceda627a0, type: 3}
+  speakerSprite: {fileID: 21300000, guid: 6de4b3d4825c4414c9123169f43db6c1, type: 3}

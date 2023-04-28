@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c900192484e89df48a872fb2b72c6ef3, type: 3}
+  m_Name: mummy
+  m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 0}
+  unitName: Mummy
+  unitLevel: 2
+  exp: 15
+  expNeeded: 0
+  gold: 5
+  damage: 12
+  luck: 15
+  defence: 10
+  speed: 6
+  maxHP: 18
+  currentHp: 18
+  statusCounter: 0
+  isDead: 0
+  isAttacking: 0
+  isHit: 0
+  leveledUp: 0
+  onFire: 0
+  statusEffect: 0
+  poisoned: 0
+  attack: {fileID: -1441352700, guid: 32d9c9453d20ae444b1bca1a686df5bf, type: 3}
+  hurt: {fileID: 899362194, guid: 32d9c9453d20ae444b1bca1a686df5bf, type: 3}
+  defaultUnitLevel: 2
+  defaultExp: 15
+  defaultExpNeeded: 0
+  defaultDamage: 12
+  defaultLuck: 15
+  defaultDefence: 10
+  defaultSpeed: 6
+  defaultMaxHP: 18
+  defaultCurrentHp: 18
