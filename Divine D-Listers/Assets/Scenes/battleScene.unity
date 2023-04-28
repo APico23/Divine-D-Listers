@@ -1491,6 +1491,7 @@ MonoBehaviour:
   Jexp: {fileID: 365517298}
   Eexp: {fileID: 1003160213}
   Hexp: {fileID: 432289983}
+  gold: {fileID: 749712400}
   jormHealthBar: {fileID: 1993709651}
   hameedaHealthBar: {fileID: 842421202}
   exounosHealthBar: {fileID: 216327331}
@@ -3152,7 +3153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: 0
 --- !u!222 &749712401
 CanvasRenderer:
   m_ObjectHideFlags: 0

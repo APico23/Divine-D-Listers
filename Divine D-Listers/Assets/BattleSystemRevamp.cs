@@ -101,7 +101,8 @@ public class BattleSystemRevamp : MonoBehaviour
     public Text exounosHp;
     public Text Jexp;
     public Text Eexp;
-    public Text Hexp; 
+    public Text Hexp;
+    public Text gold;
 
     private int turnNum = 0;
 
@@ -622,6 +623,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     Eexp.text = "+" + enemyUnit.exp;
             }
             playerInventory.playerGold += enemyUnit.gold;
+            gold.text = "" + playerInventory.playerGold;
             //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + enemyUnit.gold;
             StartCoroutine(winCoroutineWait());
         }
@@ -659,6 +661,7 @@ public class BattleSystemRevamp : MonoBehaviour
                 Eexp.text = "+" + (enemyUnit.exp + enemyUnit2.exp);
             }
             playerInventory.playerGold += (enemyUnit.gold + enemyUnit2.gold);
+            gold.text = "" + playerInventory.playerGold;
             //winScreen.transform.Find("Gold count").GetComponent<Text>().text = "" + (enemyUnit.gold + enemyUnit2.gold);
             StartCoroutine(winCoroutineWait());
         }
