@@ -114,5 +114,15 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
             attemptLvlUp(xp,unit);
         }
     }
-
+    void Update()
+    {
+        if (isDead)
+        {
+           unitAnimator.SetBool("UnitIsDowned", true);
+        }
+        if (!isDead)
+        {
+           unitAnimator.SetBool("UnitIsDowned", false);
+        }
+    }
 }

@@ -30,6 +30,28 @@ public class shopManager : MonoBehaviour
         }
     }
 
+    public void cheeseBought()
+    {
+        if (playerInventory.playerGold >= 30)
+        {
+            playerInventory.playerGold -= 30;
+            goldCount.SetText("" + playerInventory.playerGold);
+            playerInventory.addItem(itemType.AMBROSIA);
+        }
+
+    }
+   
+    public void featherBought()
+    {
+        if (playerInventory.playerGold >= 50)
+        {
+            playerInventory.playerGold -= 50;
+            goldCount.SetText("" + playerInventory.playerGold);
+            playerInventory.addItem(itemType.AMBROSIA);
+        }
+
+    }
+
     public void back()
     {
         move.canMove = true;
