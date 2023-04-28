@@ -65,10 +65,12 @@ public class BattleSystemRevamp : MonoBehaviour
     private int builtCounter=0;
     private int kholCounter = 0;
     private int roarCounter = 0;
+    private int defendCounter = 0;
     private int randNum;
     private int turnTracker = 0;
     private bool isTutorial=false;
     private bool isBoss = false;
+    private bool isDefended = false;
     
 
     public GameObject ragnarockingChair;
@@ -97,7 +99,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public ParticleSystem exoBurn;
     public ParticleSystem exoPoison;
     public ParticleSystem enemyHeal;
-    public ParticleSystem enemy2Heal;
+    public ParticleSystem ankhShield;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -1131,8 +1133,14 @@ public class BattleSystemRevamp : MonoBehaviour
         hameedaHUD.SetActive(false);
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
-        StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
-
+        if (!isEnemy1 && isDefended)
+        {
+            StartCoroutine(TypeText("Anubis blocked " + u.unitName + "'s attack!"));
+        }
+        else 
+        {
+            StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
+        }
         if(isEnemy1 && enemyhp<=0)
         {
             isEnemy1dead = true;
@@ -1145,7 +1153,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         yield return new WaitForSeconds(3);
 
-        if (b)
+        if (b&&!isDefended)
         {
             StartCoroutine(TypeText("A CRITICAL HIT!"));
             yield return new WaitForSeconds(3);
@@ -1711,15 +1719,27 @@ public class BattleSystemRevamp : MonoBehaviour
     {
 
         if (isEnemy1dead)
-        {
+        {   
+            ankhShield.Stop();
+            isDefended= false;
+            defendCounter = 1;
             enemyHeal.Play();
             enemyhp = enemyUnit.maxHP;
             enemyUnit.isDead = false;
             isEnemy1dead = false;
             enemysprite.GetComponent<SpriteRenderer>().enabled = true;
+            StartCoroutine(TypeText("Anubis revives Ra!"));
+        }
+        else if (defendCounter <= 0)
+        {
+            ankhShield.Play();
+            isDefended = true;
+            defendCounter--;
+            StartCoroutine(TypeText("Anubis defends himself from all attacks!"));
         }
         else
         {
+            defendCounter--;
             randNum = Random.Range(0, 3);
             crit = Random.Range(1, 201);
             rounded = 10 * (enemyUnit2.damage / 100f);
@@ -1807,7 +1827,7 @@ public class BattleSystemRevamp : MonoBehaviour
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
-        if (battleStart.isMultiple)
+        if (battleStart.isMultiple && !isDefended)
         {
             enemy2hp -= damageDone;
         }
@@ -1864,7 +1884,7 @@ public class BattleSystemRevamp : MonoBehaviour
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
-        if (battleStart.isMultiple)
+        if (battleStart.isMultiple && !isDefended)
         {
             enemy2hp -= damageDone;
         }
