@@ -9872,11 +9872,11 @@ MonoBehaviour:
   player3Sprite: {fileID: 4498553603866309896}
   enemySlash: {fileID: 0}
   playerSlash: {fileID: 0}
-  partyBurn: {fileID: 0}
-  sleep: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  rock3: {fileID: 0}
+  partyBurn: {fileID: 4744019718906370028}
+  sleep: {fileID: 5081303380551789767}
+  rock: {fileID: 6171388875902613026}
+  rock2: {fileID: 5889862772012885401}
+  rock3: {fileID: 3567362884414518854}
 --- !u!1 &1707668159131366835
 GameObject:
   m_ObjectHideFlags: 0
