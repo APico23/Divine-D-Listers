@@ -45,7 +45,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.attack;
         enemySprite.sprite = enemy.hurt;
         enemySlash.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         fullCanvas.SetActive(true);
         return;
     }
@@ -55,7 +55,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.special;
         enemySprite.sprite = enemy.hurt;
         sleep.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         fullCanvas.SetActive(true);
         return;
     }
@@ -66,7 +66,7 @@ public class hitHurtManager : MonoBehaviour
         playerSprite.sprite = player.hurt;
         enemySprite.sprite = enemy.attack; 
         playerSlash.Play();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         fullCanvas.SetActive(true);
         return;
     }
@@ -87,7 +87,7 @@ public class hitHurtManager : MonoBehaviour
             rock2.Play();
             rock3.Play();
         }
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         fullCanvas.SetActive(true);
         return;
     }
