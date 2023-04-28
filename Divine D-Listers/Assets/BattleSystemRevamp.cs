@@ -84,12 +84,18 @@ public class BattleSystemRevamp : MonoBehaviour
     public ParticleSystem jormHeal;
     public ParticleSystem jormDefend;
     public ParticleSystem jormBreak;
+    public ParticleSystem jormBurn;
+    public ParticleSystem jormPoison;
     public ParticleSystem hameedaHeal;
     public ParticleSystem hamDefend;
     public ParticleSystem hamBreak;
+    public ParticleSystem hamBurn;
+    public ParticleSystem hamPoison;
     public ParticleSystem exoHeal;
     public ParticleSystem exoDefend;
     public ParticleSystem exoBreak;
+    public ParticleSystem exoBurn;
+    public ParticleSystem exoPoison;
     public ParticleSystem enemyHeal;
     public ParticleSystem enemy2Heal;
 
@@ -177,8 +183,9 @@ public class BattleSystemRevamp : MonoBehaviour
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
 
-        attackLocked.SetActive(false);
-        runLocked.SetActive(false);
+        attackLocked.SetActive(true);
+        runLocked.SetActive(true);
+        runButton.SetActive(false);
 
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
@@ -353,10 +360,18 @@ public class BattleSystemRevamp : MonoBehaviour
                     if(playerUnit1.onFire)
                     {
                         burn(playerUnit1, 0);
+                        if (playerUnit1.statusCounter < 3)
+                        {
+                            jormBurn.Play();
+                        }
                     }
                     else if(playerUnit1.poisoned)
                     {
                         melt(playerUnit1, 0);
+                        if (playerUnit1.statusCounter < 3)
+                        {
+                            jormPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit1.isDead)
@@ -396,10 +411,18 @@ public class BattleSystemRevamp : MonoBehaviour
                     if (playerUnit2.onFire)
                     {
                         burn(playerUnit2, 1);
+                        if (playerUnit2.statusCounter < 3)
+                        {
+                            hamBurn.Play();
+                        }
                     }
                     else if (playerUnit2.poisoned)
                     {
                         melt(playerUnit2, 1);
+                        if (playerUnit2.statusCounter < 3)
+                        {
+                            hamPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit2.isDead)
@@ -439,10 +462,18 @@ public class BattleSystemRevamp : MonoBehaviour
                     if (playerUnit3.onFire)
                     {
                         burn(playerUnit3, 2);
+                        if (playerUnit3.statusCounter < 3)
+                        {
+                            exoBurn.Play();
+                        }
                     }
                     else if (playerUnit3.poisoned)
                     {
                         melt(playerUnit3, 2);
+                        if (playerUnit3.statusCounter < 3)
+                        {
+                            exoPoison.Play();
+                        }
                     }
                 }
                 if (playerUnit3.isDead)
@@ -1214,7 +1245,13 @@ public class BattleSystemRevamp : MonoBehaviour
     public IEnumerator run() {
         
         int randNum = Random.Range(0, 3);
-
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        hameedaHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        exounosHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
         if (randNum == 0)
         {
             StartCoroutine(TypeText("Jorm and the party got away safely!"));
