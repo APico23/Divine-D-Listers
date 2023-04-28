@@ -321,8 +321,11 @@ public class BattleSystemRevamp : MonoBehaviour
         //make this a switch case later
         if (state != BattleState.WON)
         {
+            exounosStats.SetActive(true);
+            jormStats.SetActive(true);
+            hameedaStats.SetActive(true);
             if (speeds[turnNum] == "Jorm")
-            {
+            {               
                 if (playerUnit1.statusEffect)
                 {
                     if(playerUnit1.onFire)
@@ -351,6 +354,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     if (playerUnit1.onFire )
+                    {
+                        StartCoroutine(yetAnotherCR("Jorm"));
+                    }
+                    else if (playerUnit1.poisoned)
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
                     }
@@ -393,6 +400,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
                     }
+                    else if (playerUnit2.poisoned)
+                    {
+                        StartCoroutine(yetAnotherCR("Hameeda"));
+                    }
                     else
                     {
                         hameedaTurn();
@@ -429,6 +440,10 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     if (playerUnit3.onFire)
+                    {
+                        StartCoroutine(yetAnotherCR("Exounos"));
+                    }
+                    else if (playerUnit3.poisoned)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
                     }
@@ -1832,7 +1847,14 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
     public IEnumerator yetAnotherCR(string name) {
-        yield return new WaitForSeconds(3);
+        if (isTutorial)
+        {
+            yield return new WaitForSeconds(5);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3);
+        }
         if (name == "Jorm")
         {
             jormTurn();
@@ -1848,7 +1870,7 @@ public class BattleSystemRevamp : MonoBehaviour
     }
     public IEnumerator tutorialCR(int turn)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         if (turn == 0)
         {
             StartCoroutine(TypeText("A menu of options will open and on click it might let you select a target."));
