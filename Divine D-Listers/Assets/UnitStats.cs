@@ -37,6 +37,7 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
 
     public Sprite attack;
     public Sprite hurt;
+    public Sprite special;
 
     public int defaultUnitLevel;
 

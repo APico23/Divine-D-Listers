@@ -34,6 +34,7 @@ MonoBehaviour:
   poisoned: 0
   attack: {fileID: 21300000, guid: 716fe2ad90a23c44bb9693ad3af63509, type: 3}
   hurt: {fileID: 21300000, guid: 226ae0e9df860664984e615b5c392ba3, type: 3}
+  special: {fileID: 21300000, guid: 716fe2ad90a23c44bb9693ad3af63509, type: 3}
   defaultUnitLevel: 8
   defaultExp: 250
   defaultExpNeeded: 0

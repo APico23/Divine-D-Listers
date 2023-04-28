@@ -99,7 +99,8 @@ public class BattleSystemRevamp : MonoBehaviour
     public ParticleSystem exoBurn;
     public ParticleSystem exoPoison;
     public ParticleSystem enemyHeal;
-    public ParticleSystem ankhShield;
+    public ParticleSystem ankhShield1;
+    public ParticleSystem ankhShield2;
 
     UnitStats playerUnit1;
     UnitStats playerUnit2;
@@ -912,7 +913,7 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit3.isAttacking = true;
         Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
         hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-        hitHurtManager.playerHit(playerUnit3, u);
+        hitHurtManager.playerspecial(playerUnit3, u);
 
         
         exounosHUD.SetActive(false);
@@ -1390,6 +1391,9 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         else if (randNum < 7)
         {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.partyHurt(playerUnit1,playerUnit2,playerUnit3, enemyUnit,"burn");
             rounded = 7 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(7 * rounded);
@@ -1544,6 +1548,9 @@ public class BattleSystemRevamp : MonoBehaviour
         randNum = Random.Range(0, 10);
         if (randNum < 3)
         {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit,"rock");
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(5 * rounded);
@@ -1647,6 +1654,9 @@ public class BattleSystemRevamp : MonoBehaviour
         randNum = Random.Range(0, 10);
         if (randNum < 7)
         {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit,"burn");
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(5 * rounded);
@@ -1720,8 +1730,9 @@ public class BattleSystemRevamp : MonoBehaviour
 
         if (isEnemy1dead)
         {   
-            ankhShield.Stop();
-            isDefended= false;
+            ankhShield1.Stop();
+            ankhShield2.Stop();
+            isDefended = false;
             defendCounter = 1;
             enemyHeal.Play();
             enemyhp = enemyUnit.maxHP;
@@ -1732,7 +1743,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         else if (defendCounter <= 0)
         {
-            ankhShield.Play();
+            ankhShield1.Play();
+            ankhShield2.Play();
             isDefended = true;
             defendCounter--;
             StartCoroutine(TypeText("Anubis defends himself from all attacks!"));
