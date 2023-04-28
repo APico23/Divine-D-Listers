@@ -9875,6 +9875,8 @@ MonoBehaviour:
   partyBurn: {fileID: 0}
   sleep: {fileID: 0}
   rock: {fileID: 0}
+  rock2: {fileID: 0}
+  rock3: {fileID: 0}
 --- !u!1 &1707668159131366835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11475,7 +11477,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
     timeMode: 0
     fps: 30
@@ -11590,7 +11592,7 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 2
     uvChannelMask: -1
     rowMode: 1
     sprites:
@@ -16296,7 +16298,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
     timeMode: 0
     fps: 30
@@ -16411,7 +16413,7 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 2
     uvChannelMask: -1
     rowMode: 1
     sprites:
@@ -26014,7 +26016,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
     timeMode: 0
     fps: 30
@@ -26129,7 +26131,7 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 2
     uvChannelMask: -1
     rowMode: 1
     sprites:
