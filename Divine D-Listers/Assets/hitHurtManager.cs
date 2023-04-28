@@ -22,6 +22,7 @@ public class hitHurtManager : MonoBehaviour
 
     private static hitHurtManager instance;
     private Animator anim;
+    private GameObject fullCanvas;
     
 
     private void Awake()
@@ -30,6 +31,7 @@ public class hitHurtManager : MonoBehaviour
         {
             instance = this;
             anim = GetComponent<Animator>();
+            fullCanvas = GameObject.Find("Canvas");
         }
         else
         {
@@ -39,32 +41,38 @@ public class hitHurtManager : MonoBehaviour
 
    public void playerHit(UnitStats player, UnitStats enemy)
     {
+        fullCanvas.SetActive(false);
         playerSprite.sprite = player.attack;
         enemySprite.sprite = enemy.hurt;
         enemySlash.Play();
         Destroy(gameObject, 1f);
+        fullCanvas.SetActive(true);
         return;
     }
     public void playerspecial(UnitStats player, UnitStats enemy)
     {
+        fullCanvas.SetActive(false);
         playerSprite.sprite = player.special;
         enemySprite.sprite = enemy.hurt;
         sleep.Play();
         Destroy(gameObject, 1f);
+        fullCanvas.SetActive(true);
         return;
     }
 
     public void playerHurt(UnitStats player, UnitStats enemy)
     {
-       
+        fullCanvas.SetActive(false);
         playerSprite.sprite = player.hurt;
         enemySprite.sprite = enemy.attack; 
         playerSlash.Play();
         Destroy(gameObject, 1f);
+        fullCanvas.SetActive(true);
         return;
     }
     public void partyHurt(UnitStats player1, UnitStats player2, UnitStats player3, UnitStats enemy, string type)
     {
+        fullCanvas.SetActive(false);
         player1Sprite.sprite = player1.hurt;
         player2Sprite.sprite = player2.hurt;
         player3Sprite.sprite = player3.hurt;
@@ -80,6 +88,7 @@ public class hitHurtManager : MonoBehaviour
             rock3.Play();
         }
         Destroy(gameObject, 1f);
+        fullCanvas.SetActive(true);
         return;
     }
 }
