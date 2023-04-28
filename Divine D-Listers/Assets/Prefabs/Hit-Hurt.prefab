@@ -218,9 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 1707668158804020240}
   enemySprite: {fileID: 1707668159131366833}
-  player1Sprite: {fileID: 0}
-  player2Sprite: {fileID: 0}
-  player3Sprite: {fileID: 0}
+  player1Sprite: {fileID: 3381029315277051365}
+  player2Sprite: {fileID: 8072827341837181340}
+  player3Sprite: {fileID: 4498553603866309896}
 --- !u!1 &1707668159131366835
 GameObject:
   m_ObjectHideFlags: 0
