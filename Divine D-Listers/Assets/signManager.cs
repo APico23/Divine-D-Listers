@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class signManager : MonoBehaviour
 {
-    public int index;
     public convoTracker tracker;
     public Quest riddle2;
 
@@ -12,16 +11,21 @@ public class signManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (tracker.convoAt != 0 && riddle2.isStarted && !riddle2.isCompleted)
+            {
+                tracker.convoAt = 2;
+                dialogueStarter.startConvo();
+            }
             if (tracker.convoAt == 0)
             {
                 dialogueStarter.startConvo();
+                tracker.continueConvo();
             }
-
-
-            int temp = tracker.convoAt;
-            tracker.convoAt = index;
-            dialogueStarter.startConvo();
-            tracker.convoAt = temp;
+            else
+            {
+                tracker.convoAt = 1;
+                dialogueStarter.startConvo();
+            }            
         }
     }
 }

@@ -22,6 +22,7 @@ public class goldManager : MonoBehaviour
                 tracker.convoAt = 0;
                 dialogueStarter.startConvo();
                 playerInventory.playerGold += 5000;
+                gold.isCompleted = true;
             }
         }
     }

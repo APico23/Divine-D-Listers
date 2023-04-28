@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Deathskull
   m_EditorClassIdentifier: 
   speakerName: Deathskull
-  speakerSprite: {fileID: 21300000, guid: 6de4b3d4825c4414c9123169f43db6c1, type: 3}
+  speakerSprite: {fileID: 213113376, guid: 6de4b3d4825c4414c9123169f43db6c1, type: 3}

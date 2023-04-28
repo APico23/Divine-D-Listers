@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: lumberjack
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: Ah what a beautiful sight.
+    audio: {fileID: 8300000, guid: 7111217877cfbc94ba39b1a121020ff0, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "What\u2019s your deal?"
+    audio: {fileID: 8300000, guid: 3eb3dbfd4fde80d42b82f786282d351b, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: I am the god of falling trees, and man this tree just fell so hard
+      right now.
+    audio: {fileID: 8300000, guid: 4dbc93f6d1975cc42b2dde1cd709cddf, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: "Alright well we\u2019ll just leave you to your business then."
+    audio: {fileID: 8300000, guid: f0c1f6f4bab04664bbb508cc76fd19a6, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: Wait, could you help me real quick?
+    audio: {fileID: 8300000, guid: af32bb964c9e8ba4ca1d255c56ca6f3d, type: 3}
+  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
+    dialogue: ' With what?'
+    audio: {fileID: 8300000, guid: 332fa9e5fad56574ca1348ca8417a9a4, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: I need some help when it comes to moving this tree.
+    audio: {fileID: 8300000, guid: 873644a24e14c504bb0dd1fa3814bb13, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: "Aren\u2019t you the god of fallen trees? Why can you just move it
+      yourself?"
+    audio: {fileID: 8300000, guid: 94d9c827dc0ea214a8b4abf1263eab7f, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: "I\u2019m the god of falling trees. This is a fallen tree and that's
+      beyond my realm of expertise."
+    audio: {fileID: 8300000, guid: c90463267a5f80d44a4d106f9bdb38c9, type: 3}
+  - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
+    dialogue: Seriously?
+    audio: {fileID: 8300000, guid: caa51bd087e8c864288337d4ee391fc0, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: "Look, I need to move this log over to a designated zone, but I can\u2019t
+      do it. If you do it for me then I\u2019ll\u2026 I\u2019ll move that boulder
+      in town."
+    audio: {fileID: 8300000, guid: 229065cf1aeee374baa58daffb43826a, type: 3}
+  - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
+    dialogue: So you can move a boulder, but not a tree.
+    audio: {fileID: 8300000, guid: 26408c1e532ea9347bd0c252c1ec7d07, type: 3}
+  - speaker: {fileID: 11400000, guid: 472771e71a6980f499b5406dc6363e16, type: 2}
+    dialogue: Yup.
+    audio: {fileID: 8300000, guid: 8ae8a0870a9f62542a9a24739f61794a, type: 3}

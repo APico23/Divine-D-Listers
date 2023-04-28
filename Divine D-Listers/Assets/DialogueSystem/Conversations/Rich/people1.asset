@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e610050b496a949bfb8efea919b7d9, type: 3}
+  m_Name: people1
+  m_EditorClassIdentifier: 
+  allLines:
+  - speaker: {fileID: 11400000, guid: 7fe8a7e306a6cc2459da8ad75227ccf8, type: 2}
+    dialogue: Have you heard the story about that boulder to the east of town?
+    audio: {fileID: 8300000, guid: 32dd36a0c011ecf4ab6f5c35b2f8379a, type: 3}
+  - speaker: {fileID: 11400000, guid: cb60fa35117e52a46b03cffb5f0411a1, type: 2}
+    dialogue: Please gods, not again.
+    audio: {fileID: 8300000, guid: 02798cfc7550bb642ac7a96d226bd6e4, type: 3}
+  - speaker: {fileID: 11400000, guid: 7fe8a7e306a6cc2459da8ad75227ccf8, type: 2}
+    dialogue: "Legends say there\u2019s a great treasure behind that boulder."
+    audio: {fileID: 8300000, guid: 54f7229cad6dffa4eb940ba354013d38, type: 3}
+  - speaker: {fileID: 11400000, guid: cb60fa35117e52a46b03cffb5f0411a1, type: 2}
+    dialogue: Why do you keep saying that? This is like the 8th time today.
+    audio: {fileID: 8300000, guid: ad5156300934be146908ad143891edb4, type: 3}
+  - speaker: {fileID: 11400000, guid: 7fe8a7e306a6cc2459da8ad75227ccf8, type: 2}
+    dialogue: A mighty fortune awaits anyone who can move that boulder.
+    audio: {fileID: 8300000, guid: 14d252b6b3d38ce49ba6b00871ed1230, type: 3}
+  - speaker: {fileID: 11400000, guid: cb60fa35117e52a46b03cffb5f0411a1, type: 2}
+    dialogue: Yeah, Yeah thousands of gold lies in wait.
+    audio: {fileID: 8300000, guid: dd4a8c6cb834dd54fb1c84c8c29464f4, type: 3}
+  - speaker: {fileID: 11400000, guid: 7fe8a7e306a6cc2459da8ad75227ccf8, type: 2}
+    dialogue: Thousands of gold lies in wait behind that stone.
+    audio: {fileID: 8300000, guid: 4bdb16dcba946f44e8d763612173faa7, type: 3}
+  - speaker: {fileID: 11400000, guid: cb60fa35117e52a46b03cffb5f0411a1, type: 2}
+    dialogue: What is wrong with you?
+    audio: {fileID: 8300000, guid: 45993b1b578854f42b1b4a6253c2accf, type: 3}

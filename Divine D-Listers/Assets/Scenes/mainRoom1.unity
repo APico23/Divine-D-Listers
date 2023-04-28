@@ -4953,10 +4953,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tracker: {fileID: 0}
+  - {fileID: 11400000, guid: a4aa886c6ca395d459d30a1853b7ee92, type: 2}
+  - {fileID: 11400000, guid: 9db0b429865cfaf488bf2d404484d09a, type: 2}
+  - {fileID: 11400000, guid: 360e1af45bb028f418abe4d4a3aefda1, type: 2}
+  tracker: {fileID: 11400000, guid: f55e5573279ba144abdb42331f56631e, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!114 &1722082348
 MonoBehaviour:
@@ -4970,6 +4970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459721a7c4bbaf40ab3fe6290578a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tracker: {fileID: 11400000, guid: f55e5573279ba144abdb42331f56631e, type: 2}
+  riddle2: {fileID: 11400000, guid: 6c35563a7307bce49a89ef492eab3c8c, type: 2}
 --- !u!1001 &1937191288
 PrefabInstance:
   m_ObjectHideFlags: 0

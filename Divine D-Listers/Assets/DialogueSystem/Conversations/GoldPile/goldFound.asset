@@ -15,16 +15,16 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Are you seeing this?
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 978ace395884bf34985e1772687e5627, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: It appears to be a large pile of gold.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: fc0925a1aab94bd49a42888243e9dccf, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}
     dialogue: Pinch me.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: cfd4e0bb096246e4985787bbebede2b5, type: 3}
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: Let's take as much as we can
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: cdc518b4862f50f4db4768c10a4d402b, type: 3}
   - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
     dialogue: I think we can get about 5000 gold.
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: d8bcb6402a534804baddb3147b2a2360, type: 3}

@@ -7,6 +7,7 @@ public class richManager : MonoBehaviour
     public Quest riddle3;
     public convoTracker tracker;
     public inventory playerInventory;
+    public Quest fiveCheck;
 
     public void OnCollisionEnter2D(Collision2D other)
     {
@@ -17,6 +18,7 @@ public class richManager : MonoBehaviour
                 if (tracker.convoAt == 0)
                 {
                     tracker.convoAt = 1;
+                    fiveCheck.isStarted = true;
                     dialogueStarter.startConvo();
                 }
                 else

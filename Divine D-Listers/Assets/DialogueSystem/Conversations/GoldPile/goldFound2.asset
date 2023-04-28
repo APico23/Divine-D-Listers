@@ -15,4 +15,4 @@ MonoBehaviour:
   allLines:
   - speaker: {fileID: 11400000, guid: d61324893e369e84ea05df7ae8cf039a, type: 2}
     dialogue: I think we have enough
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 8ba2d73131256e949911d90d9402e9eb, type: 3}
