@@ -775,7 +775,10 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         else
         {
-            enemy2hp -= damageDone;
+            if (!isDefended)
+            {
+                enemy2hp -= damageDone;
+            }
         }
         specialMeter.increaseMeter(1);
         attack.SetActive(false);
@@ -977,7 +980,10 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         else
         {
-            enemy2hp -= damageDone;
+            if (!isDefended)
+            {
+                enemy2hp -= damageDone;
+            }
         }
         specialMeter.increaseMeter(1);
         StartCoroutine(playerCoroutineAttack(playerUnit3, damageDone, isCrit, u));
@@ -1072,7 +1078,10 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         else
         {
-            enemy2hp -= damageDone;
+            if (!isDefended)
+            {
+                enemy2hp -= damageDone;
+            }
         }
         specialMeter.increaseMeter(1);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit,u));
