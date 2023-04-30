@@ -10,6 +10,8 @@ public class outOfBattleUIManager : MonoBehaviour
     public GameObject statsMenu;
     public GameObject bottomPanel;
     public GameObject player;
+    public GameObject inventory;
+    public GameObject resumeItems;
     playerMove playerMoveScript;
 
     // Start is called before the first frame update
@@ -20,6 +22,8 @@ public class outOfBattleUIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         bottomPanel.SetActive(false);
         statsMenu.SetActive(false);
+        inventory.SetActive(false);
+        resumeItems.SetActive(false);
     }
 
     public void pauseButton() 
@@ -63,5 +67,19 @@ public class outOfBattleUIManager : MonoBehaviour
     {
         optionsPanel.SetActive(false);
         bottomPanel.SetActive(true);
+    }
+
+
+    public void resumeButtonItems()
+    {
+        resumeItems.SetActive(false);
+        inventory.SetActive(false);
+        playerMoveScript.canMove = true;
+    }
+
+    public void items() {
+        playerMoveScript.canMove = false;
+        inventory.SetActive(true);
+        resumeItems.SetActive(true);
     }
 }

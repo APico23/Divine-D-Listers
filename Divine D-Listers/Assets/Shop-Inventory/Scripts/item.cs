@@ -10,22 +10,19 @@ public class item
     public string itemName;
     public int index;
 
-    public item(itemType type, int i, Sprite s)
+    public item(itemType type, int i)
     {
         switch (type) {
             case itemType.AMBROSIA:
                 itemName = "Ambrosia";
-                sprite = s;
                 index = i;
                 break;
             case itemType.CHEESE:
                 itemName = "Brick Of Cheese";
-                sprite = s;
                 index = i;
                 break;
             case itemType.FEATHER:
                 itemName = "Phoenix Feather";
-                sprite = s;
                 index = i;
                 break;
             default:

@@ -13,7 +13,7 @@ public class inventory : ScriptableObject, ISerializationCallbackReceiver
 
     public item[] playerItems;
 
-    private int openPosition;
+    public int openPosition;
 
     public void OnAfterDeserialize()
     {
@@ -31,7 +31,7 @@ public class inventory : ScriptableObject, ISerializationCallbackReceiver
     {
         if (openPosition <= 15)
         {
-            playerItems[openPosition] = new item(type, openPosition, itemSprites[(int)type]);
+            playerItems[openPosition] = new item(type, openPosition);
             openPosition++;
             return true;
         }
