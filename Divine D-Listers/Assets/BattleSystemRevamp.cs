@@ -17,6 +17,8 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest raBeat;
     public Quest phoenixBeat;
 
+    public Animator hameedaspecialAnimator;
+
     private inventory playerInventory;
 
     public GameObject jormPrefab;
@@ -1900,6 +1902,11 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(false);
         GameObject ult = Instantiate(mythiKohl);
         yield return new WaitForSeconds(5.2f);
+
+        hameedaspecialAnimator.SetBool("ActivateSpecial", true);
+        yield return new WaitForSeconds(0.75f);
+        hameedaspecialAnimator.SetBool("ActivateSpecial", false);
+
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 22 + add;
         isCrit = false;

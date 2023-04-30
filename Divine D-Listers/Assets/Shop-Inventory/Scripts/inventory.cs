@@ -14,6 +14,7 @@ public class inventory : ScriptableObject, ISerializationCallbackReceiver
     public item[] playerItems;
 
     public int openPosition;
+    
 
     public void OnAfterDeserialize()
     {
