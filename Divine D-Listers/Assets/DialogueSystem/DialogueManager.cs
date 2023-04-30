@@ -96,6 +96,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 speaker2Sprite.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.getSprite();
+                speaker2Sprite.transform.localScale = new Vector3(-1, 1, 1);
                 speaker1Speaking = false;
             }
         }
