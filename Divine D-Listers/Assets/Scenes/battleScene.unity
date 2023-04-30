@@ -26026,6 +26026,7 @@ MonoBehaviour:
   raBeat: {fileID: 11400000, guid: ae251c8edf5cc6240bb36050c90e74ba, type: 2}
   phoenixBeat: {fileID: 11400000, guid: 0f412211bea645243be04456582ac88a, type: 2}
   hameedaspecialAnimator: {fileID: 732341381}
+  hameedaSpecialCutscene: {fileID: 732341377}
   jormPrefab: {fileID: 5414976602541213657, guid: 5a680178ced87544e8124d5be2b0bc20, type: 3}
   hameedaPrefab: {fileID: 7174722585883007405, guid: 691158315278a25478b7c14dd392ff0c, type: 3}
   exounosPrefab: {fileID: 8520190963824623131, guid: f84f586b3db954d49b356fa6d36308f0, type: 3}

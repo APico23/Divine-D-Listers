@@ -18,6 +18,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest phoenixBeat;
 
     public Animator hameedaspecialAnimator;
+    public GameObject hameedaSpecialCutscene;
 
     private inventory playerInventory;
 
@@ -191,6 +192,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runLocked.SetActive(true);
         runButton.SetActive(false);
+        hameedaSpecialCutscene.SetActive(false);
 
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
@@ -1903,9 +1905,11 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject ult = Instantiate(mythiKohl);
         yield return new WaitForSeconds(5.2f);
 
+        hameedaSpecialCutscene.SetActive(true);
         hameedaspecialAnimator.SetBool("ActivateSpecial", true);
         yield return new WaitForSeconds(0.75f);
         hameedaspecialAnimator.SetBool("ActivateSpecial", false);
+        hameedaSpecialCutscene.SetActive(false);
 
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 22 + add;
