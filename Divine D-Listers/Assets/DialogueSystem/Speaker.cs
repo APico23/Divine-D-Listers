@@ -6,6 +6,7 @@ public class Speaker : ScriptableObject
 {
     [SerializeField] private string speakerName;
     [SerializeField] private Sprite speakerSprite;
+    public bool faceLeft;
 
     public string getName()
     {

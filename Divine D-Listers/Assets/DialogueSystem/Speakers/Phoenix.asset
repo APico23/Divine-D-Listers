@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Phoenix
   speakerSprite: {fileID: -1818313099, guid: 08eb600adcdcbad48a9ea7f8014f54e2, type: 3}
+  faceLeft: 1
