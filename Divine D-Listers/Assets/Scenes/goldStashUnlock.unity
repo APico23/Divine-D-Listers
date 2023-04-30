@@ -2169,6 +2169,7 @@ GameObject:
   - component: {fileID: 577626433}
   - component: {fileID: 577626432}
   - component: {fileID: 577626431}
+  - component: {fileID: 577626435}
   m_Layer: 0
   m_Name: lumberjack
   m_TagString: Untagged
@@ -2189,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convos:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9043e86320372f4438634dd34f36226f, type: 2}
   tracker: {fileID: 11400000, guid: d9ab07b2f11fcde4ba2044c7f7593b81, type: 2}
   dialogue: {fileID: 8186640829207193039, guid: f74ea134edcece845958fb3fb329310e, type: 3}
 --- !u!61 &577626432
@@ -2285,6 +2286,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577626435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577626430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e0304d99bf89c4398e7fa0ebdcbeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  tracker: {fileID: 11400000, guid: d9ab07b2f11fcde4ba2044c7f7593b81, type: 2}
 --- !u!1001 &578251001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2292,6 +2307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474029424572514231, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2663285427986493051, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_RootOrder
       value: 2
