@@ -1566,7 +1566,7 @@ public class BattleSystemRevamp : MonoBehaviour
             hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit,"rock");
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            enemyDamage = Mathf.RoundToInt(8 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + " slams the ground and rocks fall from the ceiling."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1820,6 +1820,86 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
+    void TrueRa(int randNum)
+    {
+        randNum = Random.Range(0, 10);
+        if (randNum < 7)
+        {
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+        }
+        else if (specialMeter.getMeter() == specialMeter.getMaxMeter())
+            
+        {
+            specialMeter.setMeter(0);
+        }
+        else
+        {
+            randNum = Random.Range(0, 3);
+            crit = Random.Range(1, 201);
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+
+            if (randNum == 0 && !playerUnit1.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit1, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit1, 0, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Jorm for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 1 && !playerUnit2.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit2, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit2, 1, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Hameeda for " + damageDone + " damage!"));
+
+            }
+            else if (randNum == 2 && !playerUnit3.isDead)
+            {
+                Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+                hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+                hitHurtManager.playerHurt(playerUnit3, enemyUnit);
+                damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+                if (crit <= enemyUnit.luck)
+                {
+                    damageDone *= 2;
+                }
+                damaged(playerUnit3, 2, damageDone);
+                StartCoroutine(TypeText(enemyUnit.unitName + " attacks Exounos for " + damageDone + " damage!"));
+
+            }
+            else
+            {
+                StartCoroutine(TypeText("The attack missed!"));
+            }
+        }
+    }
     public void special()
     {
         Debug.Log("Hit");
@@ -2044,6 +2124,78 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             StartCoroutine(TypeText("You are now all set to take on the pantheon. Good luck."));
             enemyhp = 1;
+        }
+    }
+    public void brick()
+    {
+        damageDone = 7;
+        if (battleStart.isMultiple && !isDefended)
+        {
+            enemy2hp -= damageDone;
+        }
+        enemyhp -= damageDone;
+    }
+    public void wing()
+    {
+        if (playerUnit2.isDead)
+        {
+            playerUnit2.currentHp = playerUnit2.maxHP /2;
+            hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+            hameedaHealthBar.setHealth(playerUnit2.currentHp);
+            hameedaHeal.Play();
+            playerUnit2.isDead = false;
+        }
+        if (playerUnit3.isDead)
+        {
+            playerUnit3.currentHp = playerUnit3.maxHP / 2;
+            exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+            exounosHealthBar.setHealth(playerUnit3.currentHp);
+            exoHeal.Play();
+            playerUnit3.isDead = false;
+        }
+        if( playerUnit1.isDead )
+        {
+            playerUnit1.isDead = false;
+            playerUnit1.currentHp = playerUnit1.maxHP /2;
+            jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+            jormHealthBar.setHealth(playerUnit1.currentHp);
+            jormHeal.Play();
+        }
+    }
+    public void ambrosia()
+    {
+        if (!playerUnit2.isDead)
+        {
+            playerUnit2.currentHp += 10;
+            if(playerUnit2.currentHp>playerUnit2.maxHP)
+            {
+                playerUnit2.currentHp=playerUnit2.maxHP;
+            }
+            hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+            hameedaHealthBar.setHealth(playerUnit2.currentHp);
+            hameedaHeal.Play();
+        }
+        if (!playerUnit3.isDead)
+        {
+            playerUnit3.currentHp += 10;
+            if (playerUnit3.currentHp > playerUnit3.maxHP)
+            {
+                playerUnit3.currentHp = playerUnit3.maxHP;
+            }
+            exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+            exounosHealthBar.setHealth(playerUnit3.currentHp);
+            exoHeal.Play();
+        }
+        if (playerUnit1.isDead)
+        {
+            playerUnit1.currentHp += 10;
+            if (playerUnit1.currentHp > playerUnit1.maxHP)
+            {
+                playerUnit1.currentHp = playerUnit1.maxHP;
+            }
+            jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+            jormHealthBar.setHealth(playerUnit1.currentHp);
+            jormHeal.Play();
         }
     }
 }
