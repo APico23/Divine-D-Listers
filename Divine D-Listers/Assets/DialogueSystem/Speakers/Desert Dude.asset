@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Desert Dude
   speakerSprite: {fileID: 1758237521, guid: 0137cc7ea576f244db547c949af26b44, type: 3}
+  faceLeft: 1

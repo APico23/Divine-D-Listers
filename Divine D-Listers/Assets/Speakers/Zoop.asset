@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 251db0b6aa37b70449c61c5b2ef2e459, type: 3}
-  m_Name: Ammit
+  m_Name: Zoop
   m_EditorClassIdentifier: 
-  speakerName: Ammit
-  speakerSprite: {fileID: 21300000, guid: ea734c1d01e76ae44b1c002e9095f143, type: 3}
-  faceLeft: 1
+  speakerName: Zoop
+  speakerSprite: {fileID: -2032792990, guid: dfb15dcf399e6f1488fddf0a1dee1f77, type: 3}

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Anubis
   speakerSprite: {fileID: -1105564564, guid: fd375198beb548e4cac1ef127e44fa43, type: 3}
+  faceLeft: 1

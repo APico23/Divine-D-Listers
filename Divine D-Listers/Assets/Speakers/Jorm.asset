@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 251db0b6aa37b70449c61c5b2ef2e459, type: 3}
-  m_Name: Ammit
+  m_Name: Jorm
   m_EditorClassIdentifier: 
-  speakerName: Ammit
-  speakerSprite: {fileID: 21300000, guid: ea734c1d01e76ae44b1c002e9095f143, type: 3}
-  faceLeft: 1
+  speakerName: Jorm
+  speakerSprite: {fileID: -1127939701, guid: 08eb600adcdcbad48a9ea7f8014f54e2, type: 3}
