@@ -12,6 +12,7 @@ public class TaskLog : MonoBehaviour
     public GameObject self;
     private bool isMovedUp;
     private bool isMovedDown;
+    private bool isMoving;
 
     void Start()
     {
@@ -31,18 +32,22 @@ public class TaskLog : MonoBehaviour
 
     public void moveTaskLog() 
     {
-        if (isMovedUp)
+        if (!isMoving)
         {
-            StartCoroutine(moveDown());
-        }
-        else if (isMovedDown)
-        {
-            StartCoroutine(moveUp());
+            if (isMovedUp)
+            {
+                StartCoroutine(moveDown());
+            }
+            else if (isMovedDown)
+            {
+                StartCoroutine(moveUp());
+            }
         }
     }
 
     public IEnumerator moveUp() 
     {
+        isMoving = true;
         int counter = 0;
         while (counter < 225) {
             self.transform.Translate(0, 2f, 0);
@@ -50,11 +55,13 @@ public class TaskLog : MonoBehaviour
             counter++;
         }
         isMovedDown = false;
-        isMovedUp = true; 
+        isMovedUp = true;
+        isMoving = false;
     }
 
     public IEnumerator moveDown()
     {
+        isMoving = true;
         int counter = 0;
         while (counter < 225)
         {
@@ -63,7 +70,8 @@ public class TaskLog : MonoBehaviour
             counter++;
         }
         isMovedUp = false;
-        isMovedDown = true; 
+        isMovedDown = true;
+        isMoving = false;
     }
 
     bool checkObjective()
