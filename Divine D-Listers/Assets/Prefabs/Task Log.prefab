@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7667202921552341225}
   - component: {fileID: 6786446737399988576}
   - component: {fileID: 3197734602103436904}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8695824405644713163}
   - component: {fileID: 3603539159563876169}
   - component: {fileID: 7064243452971070768}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 8246687098072270566}
   - component: {fileID: 1909342621535771906}
   - component: {fileID: 8288122993438739758}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Task Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 75e2165d61dc3c4468887b90b9700399, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -361,5 +361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 7064243452971070768}
   currentObjective: 
+  playerInfo: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   self: {fileID: 9014618694721998204}
