@@ -1760,7 +1760,7 @@ public class BattleSystemRevamp : MonoBehaviour
             enemysprite.GetComponent<SpriteRenderer>().enabled = true;
             StartCoroutine(TypeText("Anubis revives Ra!"));
         }
-        else if (defendCounter <= 0)
+        else if (defendCounter == 0)
         {
             ankhShield1.Play();
             ankhShield2.Play();
