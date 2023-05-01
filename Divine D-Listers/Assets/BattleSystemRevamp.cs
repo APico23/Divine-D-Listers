@@ -1971,8 +1971,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject ult = Instantiate(ragnarockingChair);
         yield return new WaitForSeconds(5.2f);
 
-        Instantiate(js, hst);
-        yield return new WaitForSeconds(3.3f);
+        
 
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 18 + add;
@@ -1984,14 +1983,15 @@ public class BattleSystemRevamp : MonoBehaviour
             enemy2hp -= damageDone;
         }
         enemyhp -= damageDone;
-        
+        GameObject cutScene = Instantiate(js, hst);
+        Destroy(cutScene, 3.3f);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
     }
 
     private IEnumerator exounousSpecial()
     {
-        Instantiate(es, hst);
-        yield return new WaitForSeconds(3.9f);
+        GameObject cutScene = Instantiate(es, hst);
+        Destroy(cutScene, 3.9f);
 
         mainUI.SetActive(false);
         GameObject ult = Instantiate(foodComa);
@@ -2035,8 +2035,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject ult = Instantiate(mythiKohl);
         yield return new WaitForSeconds(5.2f);
 
-        Instantiate(hs, hst);
-        yield return new WaitForSeconds(2f);
+        
 
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 22 + add;
@@ -2047,7 +2046,9 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             enemy2hp -= damageDone;
         }
-        enemyhp -= damageDone;        
+        enemyhp -= damageDone;
+        GameObject cutScene = Instantiate(hs, hst);
+        Destroy(cutScene, 2f);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 
