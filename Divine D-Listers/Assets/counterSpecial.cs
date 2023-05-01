@@ -13,6 +13,6 @@ public class counterSpecial : MonoBehaviour
 
     public int getCount()
     {
-        return count/10;
+        return count;
     }
 }
