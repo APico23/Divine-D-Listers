@@ -210,7 +210,7 @@ public class BattleSystemRevamp : MonoBehaviour
         exounosHUD.SetActive(false);
         enemy1Select.SetActive(false);
         enemy2select.SetActive(false);
-
+        inventory.SetActive(false);
         attackLocked.SetActive(true);
         itemLocked.SetActive(true);
         runLocked.SetActive(true);
@@ -2324,74 +2324,103 @@ public class BattleSystemRevamp : MonoBehaviour
     }
     public void brick()
     {
-        damageDone = 7;
-        if (battleStart.isMultiple && !isDefended)
+        for (int i = 0; i < playerInventory.openPosition; i++)
         {
-            enemy2hp -= damageDone;
+            if (playerInventory.playerItems[i].itemName == "Brick Of Cheese")
+            {
+                playerInventory.removeItem(i);
+                inventory.SetActive(false);
+                damageDone = 7;
+                if (battleStart.isMultiple && !isDefended)
+                {
+                    enemy2hp -= damageDone;
+                }
+                enemyhp -= damageDone;
+                break;
+            }
+            
         }
-        enemyhp -= damageDone;
+      
     }
     public void wing()
     {
-        if (playerUnit2.isDead)
+        for (int i = 0; i < playerInventory.openPosition; i++)
         {
-            playerUnit2.currentHp = playerUnit2.maxHP /2;
-            hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
-            hameedaHealthBar.setHealth(playerUnit2.currentHp);
-            hameedaHeal.Play();
-            playerUnit2.isDead = false;
-        }
-        if (playerUnit3.isDead)
-        {
-            playerUnit3.currentHp = playerUnit3.maxHP / 2;
-            exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
-            exounosHealthBar.setHealth(playerUnit3.currentHp);
-            exoHeal.Play();
-            playerUnit3.isDead = false;
-        }
-        if( playerUnit1.isDead )
-        {
-            playerUnit1.isDead = false;
-            playerUnit1.currentHp = playerUnit1.maxHP /2;
-            jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
-            jormHealthBar.setHealth(playerUnit1.currentHp);
-            jormHeal.Play();
+            if (playerInventory.playerItems[i].itemName == "Phoenix Feather")
+            {
+                playerInventory.removeItem(i);
+                inventory.SetActive(false);
+                if (playerUnit2.isDead)
+                {
+                    playerUnit2.currentHp = playerUnit2.maxHP / 2;
+                    hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+                    hameedaHealthBar.setHealth(playerUnit2.currentHp);
+                    hameedaHeal.Play();
+                    playerUnit2.isDead = false;
+                }
+                if (playerUnit3.isDead)
+                {
+                    playerUnit3.currentHp = playerUnit3.maxHP / 2;
+                    exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+                    exounosHealthBar.setHealth(playerUnit3.currentHp);
+                    exoHeal.Play();
+                    playerUnit3.isDead = false;
+                }
+                if (playerUnit1.isDead)
+                {
+                    playerUnit1.isDead = false;
+                    playerUnit1.currentHp = playerUnit1.maxHP / 2;
+                    jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+                    jormHealthBar.setHealth(playerUnit1.currentHp);
+                    jormHeal.Play();
+                }
+                break;
+            }
         }
     }
     public void ambrosia()
     {
-        if (!playerUnit2.isDead)
+        for (int i = 0; i < playerInventory.openPosition; i++)
         {
-            playerUnit2.currentHp += 10;
-            if(playerUnit2.currentHp>playerUnit2.maxHP)
+            if (playerInventory.playerItems[i].itemName == "Ambrosia")
             {
-                playerUnit2.currentHp=playerUnit2.maxHP;
+                playerInventory.removeItem(i);
+                inventory.SetActive(false);
+                if (!playerUnit2.isDead)
+                {
+                    playerUnit2.currentHp += 10;
+                    if (playerUnit2.currentHp > playerUnit2.maxHP)
+                    {
+                        playerUnit2.currentHp = playerUnit2.maxHP;
+                    }
+                    hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
+                    hameedaHealthBar.setHealth(playerUnit2.currentHp);
+                    hameedaHeal.Play();
+                }
+                if (!playerUnit3.isDead)
+                {
+                    playerUnit3.currentHp += 10;
+                    if (playerUnit3.currentHp > playerUnit3.maxHP)
+                    {
+                        playerUnit3.currentHp = playerUnit3.maxHP;
+                    }
+                    exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
+                    exounosHealthBar.setHealth(playerUnit3.currentHp);
+                    exoHeal.Play();
+                }
+                if (playerUnit1.isDead)
+                {
+                    playerUnit1.currentHp += 10;
+                    if (playerUnit1.currentHp > playerUnit1.maxHP)
+                    {
+                        playerUnit1.currentHp = playerUnit1.maxHP;
+                    }
+                    jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
+                    jormHealthBar.setHealth(playerUnit1.currentHp);
+                    jormHeal.Play();
+                    break;
+                }
             }
-            hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
-            hameedaHealthBar.setHealth(playerUnit2.currentHp);
-            hameedaHeal.Play();
-        }
-        if (!playerUnit3.isDead)
-        {
-            playerUnit3.currentHp += 10;
-            if (playerUnit3.currentHp > playerUnit3.maxHP)
-            {
-                playerUnit3.currentHp = playerUnit3.maxHP;
-            }
-            exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
-            exounosHealthBar.setHealth(playerUnit3.currentHp);
-            exoHeal.Play();
-        }
-        if (playerUnit1.isDead)
-        {
-            playerUnit1.currentHp += 10;
-            if (playerUnit1.currentHp > playerUnit1.maxHP)
-            {
-                playerUnit1.currentHp = playerUnit1.maxHP;
-            }
-            jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
-            jormHealthBar.setHealth(playerUnit1.currentHp);
-            jormHeal.Play();
         }
     }
 
@@ -2399,7 +2428,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
         itemButton.SetActive(false);
         itemLocked.SetActive(true);
-        playerInventory.SetActive(true);
+        inventory.SetActive(true);
     }
 
 }
