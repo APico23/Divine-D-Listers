@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TrueRa
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
-  unitName: True Ra
+  unitName: Sun God Ra
   unitLevel: 12
   exp: 600
   expNeeded: 0

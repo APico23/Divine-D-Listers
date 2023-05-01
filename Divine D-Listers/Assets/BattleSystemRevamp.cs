@@ -1249,7 +1249,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             raBeat.isCompleted= true;
         }
-        if (enemyUnit.name == "True Ra")
+        if (enemyUnit.name == "Sun God Ra")
         {
             trueRaBeat.isCompleted = true;
         }
