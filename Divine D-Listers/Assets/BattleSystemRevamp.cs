@@ -1187,7 +1187,11 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 enemysprite.GetComponent<SpriteRenderer>().enabled = false;
             }
-            
+            else
+            {
+                enemyUnit.isDead = true;
+            }
+
         }
         else if (battleStart.isMultiple && enemy2hp<=0)
         {
@@ -1195,6 +1199,10 @@ public class BattleSystemRevamp : MonoBehaviour
             if (!isRaub)
             {
                 enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit2.isDead = true;
             }
         }
         yield return new WaitForSeconds(3);
