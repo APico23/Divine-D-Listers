@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4653743617991337862}
   - component: {fileID: 2672693454686368915}
   - component: {fileID: 6526883554535980642}
+  - component: {fileID: 6595649980255045284}
   m_Layer: 0
   m_Name: exounos
   m_TagString: Untagged
@@ -119,3 +120,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6595649980255045284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520190963824623131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c898437027fefc478841b2f9f2a44b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

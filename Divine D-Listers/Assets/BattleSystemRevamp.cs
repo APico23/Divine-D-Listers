@@ -16,6 +16,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest ammitBeat;
     public Quest raBeat;
     public Quest phoenixBeat;
+    public Quest trueRaBeat;
 
     private inventory playerInventory;
 
@@ -1209,6 +1210,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             raBeat.isCompleted= true;
         }
+        if (enemyUnit.name == "True Ra")
+        {
+            trueRaBeat.isCompleted = true;
+        }
         yield return new WaitForSeconds(4);
         winScreen.SetActive(true);
     }
@@ -1255,7 +1260,7 @@ public class BattleSystemRevamp : MonoBehaviour
             isBoss = true;
             Anubis(randNum);
         }
-        else if (u.unitName == "TrueRa")
+        else if (u.unitName == "True Ra")
         {
             isBoss = true;
             TrueRa(randNum);
@@ -1760,7 +1765,7 @@ public class BattleSystemRevamp : MonoBehaviour
             enemysprite.GetComponent<SpriteRenderer>().enabled = true;
             StartCoroutine(TypeText("Anubis revives Ra!"));
         }
-        else if (defendCounter <= 0)
+        else if (defendCounter == 0)
         {
             ankhShield1.Play();
             ankhShield2.Play();
@@ -1833,7 +1838,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(10 * rounded);

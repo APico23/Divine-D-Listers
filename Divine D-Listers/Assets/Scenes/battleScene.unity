@@ -26061,6 +26061,7 @@ MonoBehaviour:
   ammitBeat: {fileID: 11400000, guid: 78420a6a966c0f84eafaecfaeba5861e, type: 2}
   raBeat: {fileID: 11400000, guid: ae251c8edf5cc6240bb36050c90e74ba, type: 2}
   phoenixBeat: {fileID: 11400000, guid: 0f412211bea645243be04456582ac88a, type: 2}
+  trueRaBeat: {fileID: 11400000, guid: 91d1ada6e4207b44e99ad5318f316d06, type: 2}
   hs: {fileID: 6659929711889141680, guid: 9439c6460c4701a47b9ec32b1d3cc275, type: 3}
   hst: {fileID: 119638297}
   js: {fileID: 2711084332632231160, guid: 583d920c25f5e05499a04458e9b9dd2b, type: 3}
