@@ -81,22 +81,22 @@ public class TaskLog : MonoBehaviour
             currentObjective = "Train up and go to Egypt";
             return true;
         }
-        else if (playerInfo.quests[0].isStarted && !playerInfo.quests[8].isCompleted)
+        else if (playerInfo.quests[0].isStarted && !playerInfo.quests[0].isCompleted)
         {
             currentObjective = "Find the Sphinx's Favorite Food";
             return true;
         }
-        else if (playerInfo.quests[8].isCompleted && !playerInfo.quests[1].isStarted)
+        else if (playerInfo.quests[0].isCompleted && !playerInfo.quests[1].isStarted)
         {
             currentObjective = "Return to the sphinx";
             return true;
         }
-        else if (playerInfo.quests[1].isStarted && !playerInfo.quests[7].isCompleted)
+        else if (playerInfo.quests[1].isStarted && !playerInfo.quests[1].isCompleted)
         {
             currentObjective = "Find who owes the Sphinx 20$";
             return true;
         }
-        else if (playerInfo.quests[7].isCompleted && !playerInfo.quests[3].isStarted)
+        else if (playerInfo.quests[1].isCompleted && !playerInfo.quests[3].isStarted)
         {
             currentObjective = "Return to the sphinx";
             return true;
