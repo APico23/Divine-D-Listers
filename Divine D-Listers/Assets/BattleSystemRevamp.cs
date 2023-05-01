@@ -18,6 +18,9 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest phoenixBeat;
     public Quest trueRaBeat;
 
+    public GameObject specialLocked;
+    public GameObject itemLocked;
+
     private inventory playerInventory;
 
     public GameObject hs;
@@ -77,6 +80,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private int turnTracker = 0;
     private bool isTutorial=false;
     private bool isBoss = false;
+    private bool isRaub = false;
     private bool isDefended = false;
     
 
@@ -160,6 +164,18 @@ public class BattleSystemRevamp : MonoBehaviour
         setupBattle();
     }
 
+    void Update() 
+    {
+        if (specialMeter.getMeter() == specialMeter.getMaxMeter()) 
+        {
+            specialLocked.SetActive(false);
+        }
+        else 
+        {
+            specialLocked.SetActive(true);
+        }
+    }
+
     void setupBattle()
     {
         randNum = Random.Range(0, 10);
@@ -194,6 +210,7 @@ public class BattleSystemRevamp : MonoBehaviour
         enemy2select.SetActive(false);
 
         attackLocked.SetActive(true);
+        itemLocked.SetActive(true);
         runLocked.SetActive(true);
         runButton.SetActive(false);
         winScreen = GameObject.Find("Game Win");
@@ -209,6 +226,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             enemyPrefab = battleStart.enemyMain.getFighter(0);
             enemyPrefab2 = battleStart.enemyMain.getFighter(1);
+            isRaub = true;
         }
         else
         {
@@ -336,6 +354,7 @@ public class BattleSystemRevamp : MonoBehaviour
         runButton.SetActive(false);
         attackLocked.SetActive(true);
         runLocked.SetActive(true);
+        itemLocked.SetActive(true);
         if (battleStart.isMultiple)
         {
         if (turnNum > 4)
@@ -399,6 +418,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         runButton.SetActive(true);
                     }
                     attack.SetActive(true);
+                    itemLocked.SetActive(false);
                     if (playerUnit1.onFire )
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
@@ -450,6 +470,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         runButton.SetActive(true);
                     }
                     attack.SetActive(true);
+                    itemLocked.SetActive(false);
                     if (playerUnit2.onFire || isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
@@ -501,6 +522,7 @@ public class BattleSystemRevamp : MonoBehaviour
                         runButton.SetActive(true);
                     }
                     attack.SetActive(true);
+                    itemLocked.SetActive(false);
                     if (playerUnit3.onFire)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
@@ -1144,6 +1166,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
@@ -1160,12 +1183,19 @@ public class BattleSystemRevamp : MonoBehaviour
         if(isEnemy1 && enemyhp<=0)
         {
             isEnemy1dead = true;
-            enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            if (!isRaub)
+            {
+                enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            
         }
         else if (battleStart.isMultiple && enemy2hp<=0)
         {
             isEnemy2dead = true;
-            enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            if (!isRaub)
+            {
+                enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         yield return new WaitForSeconds(3);
 
@@ -1185,6 +1215,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
         hameedaHUD.SetActive(false);
@@ -1280,6 +1311,7 @@ public class BattleSystemRevamp : MonoBehaviour
         int randNum = Random.Range(0, 3);
         attack.SetActive(false);
         attackLocked.SetActive(true);
+        itemLocked.SetActive(true);
         hameedaHUD.SetActive(false);
         jormHUD.SetActive(false);
         exounosHUD.SetActive(false);
