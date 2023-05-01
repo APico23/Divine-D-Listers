@@ -20,6 +20,8 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public GameObject specialLocked;
     public GameObject itemLocked;
+    public GameObject itemButton;
+    public GameObject inventory;
 
     private inventory playerInventory;
 
@@ -354,6 +356,7 @@ public class BattleSystemRevamp : MonoBehaviour
         runButton.SetActive(false);
         attackLocked.SetActive(true);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         if (battleStart.isMultiple)
         {
@@ -427,6 +430,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit1.onFire )
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
@@ -487,6 +491,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit2.onFire || isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
@@ -546,6 +551,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit3.onFire)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
@@ -1189,6 +1195,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1239,6 +1246,58 @@ public class BattleSystemRevamp : MonoBehaviour
         isBattleWon();
         battleSequence();
     }
+    private IEnumerator playerCoroutineSpecial(UnitStats u, int d, bool b, UnitStats e)
+    {
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        runButton.SetActive(false);
+        runLocked.SetActive(true);
+        itemButton.SetActive(false);
+        itemLocked.SetActive(true);
+        exounosHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        hameedaHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
+        
+            StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
+        
+        if (enemyhp <= 0)
+        {
+            isEnemy1dead = true;
+            if (!isRaub)
+            {
+                enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit.isDead = true;
+            }
+
+        }
+        if (battleStart.isMultiple && enemy2hp <= 0)
+        {
+            isEnemy2dead = true;
+            if (!isRaub)
+            {
+                enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit2.isDead = true;
+            }
+        }
+        yield return new WaitForSeconds(3);
+
+        if (b && !isDefended)
+        {
+            StartCoroutine(TypeText("A CRITICAL HIT!"));
+            yield return new WaitForSeconds(3);
+        }
+        state = BattleState.PAUSE;
+        isBattleWon();
+        battleSequence();
+    }
 
     private IEnumerator playerCoroutineNeutral()
     {
@@ -1246,6 +1305,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1342,6 +1402,7 @@ public class BattleSystemRevamp : MonoBehaviour
         int randNum = Random.Range(0, 3);
         attack.SetActive(false);
         attackLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         hameedaHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1905,7 +1966,7 @@ public class BattleSystemRevamp : MonoBehaviour
             hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            enemyDamage = Mathf.RoundToInt(8 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1931,10 +1992,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            enemyDamage = Mathf.RoundToInt(7 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1949,7 +2010,7 @@ public class BattleSystemRevamp : MonoBehaviour
             crit = Random.Range(1, 201);
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(11 * rounded);
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
 
             if (randNum == 0 && !playerUnit1.isDead)
             {
@@ -2042,7 +2103,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject cutScene = Instantiate(js, hst);
         yield return new WaitForSeconds(3.9f);
         Destroy(cutScene);
-        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
+        StartCoroutine(playerCoroutineSpecial(playerUnit1, damageDone, isCrit, enemyUnit));
     }
 
     private IEnumerator exounousSpecial()
@@ -2111,7 +2172,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject cutScene = Instantiate(hs, hst);
         yield return new WaitForSeconds(2f);
         
-        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
+        StartCoroutine(playerCoroutineSpecial(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 
     void punchingBag()
@@ -2333,5 +2394,13 @@ public class BattleSystemRevamp : MonoBehaviour
             jormHeal.Play();
         }
     }
+
+    public void item() {
+
+        itemButton.SetActive(false);
+        itemLocked.SetActive(true);
+        playerInventory.SetActive(true);
+    }
+
 }
 
