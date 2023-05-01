@@ -9848,6 +9848,26 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c76c47ede9bb5f94daaa826df01c87be, type: 3}
+    - target: {fileID: 6289454297130026282, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5180683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289454297130026282, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5180683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289454297130026282, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5180683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289454297130026282, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289454297130026282, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -56.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8519630834430379954, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
       propertyPath: m_Enabled
       value: 0
