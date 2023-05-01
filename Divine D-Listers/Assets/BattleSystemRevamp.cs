@@ -2388,38 +2388,48 @@ public class BattleSystemRevamp : MonoBehaviour
                 inventory.SetActive(false);
                 if (!playerUnit2.isDead)
                 {
-                    playerUnit2.currentHp += 10;
+                    if (playerUnit2.currentHp < playerUnit2.maxHP)
+                    {
+                        playerUnit2.currentHp += 10;
+                        hameedaHeal.Play();
+                    }
                     if (playerUnit2.currentHp > playerUnit2.maxHP)
                     {
                         playerUnit2.currentHp = playerUnit2.maxHP;
                     }
                     hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
                     hameedaHealthBar.setHealth(playerUnit2.currentHp);
-                    hameedaHeal.Play();
                 }
                 if (!playerUnit3.isDead)
                 {
-                    playerUnit3.currentHp += 10;
+                    if (playerUnit3.currentHp < playerUnit3.maxHP)
+                    {
+                        playerUnit3.currentHp += 10;
+                        exoHeal.Play();
+                    }
                     if (playerUnit3.currentHp > playerUnit3.maxHP)
                     {
                         playerUnit3.currentHp = playerUnit3.maxHP;
                     }
                     exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
-                    exounosHealthBar.setHealth(playerUnit3.currentHp);
-                    exoHeal.Play();
+                    exounosHealthBar.setHealth(playerUnit3.currentHp);                    
                 }
-                if (playerUnit1.isDead)
+                if (!playerUnit1.isDead)
                 {
-                    playerUnit1.currentHp += 10;
+                    if (playerUnit1.currentHp < playerUnit1.maxHP)
+                    {
+                        playerUnit1.currentHp += 10;
+                        jormHeal.Play();
+                    }
                     if (playerUnit1.currentHp > playerUnit1.maxHP)
                     {
                         playerUnit1.currentHp = playerUnit1.maxHP;
                     }
                     jormHp.text = playerUnit1.currentHp + "/" + playerUnit1.maxHP;
-                    jormHealthBar.setHealth(playerUnit1.currentHp);
-                    jormHeal.Play();
-                    break;
+                    jormHealthBar.setHealth(playerUnit1.currentHp);                    
+                    
                 }
+                break;
             }
         }
     }
