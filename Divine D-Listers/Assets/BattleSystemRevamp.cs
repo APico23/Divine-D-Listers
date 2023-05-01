@@ -1255,6 +1255,11 @@ public class BattleSystemRevamp : MonoBehaviour
             isBoss = true;
             Anubis(randNum);
         }
+        else if (u.unitName == "TrueRa")
+        {
+            isBoss = true;
+            TrueRa(randNum);
+        }
         else
         {
             basic(randNum, unit1, unit2, unit3, u);
