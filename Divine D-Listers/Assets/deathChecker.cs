@@ -11,7 +11,7 @@ public class deathChecker : MonoBehaviour
 
     void Start()
     {
-        me = gameObject.GetComponent<UnitStats>();
+        me = gameObject.GetComponent<Unit>().unitStats;
         unitAnimator = gameObject.GetComponent<Animator>();
     }
 
