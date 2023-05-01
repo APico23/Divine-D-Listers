@@ -95,12 +95,21 @@ public class DialogueManager : MonoBehaviour
                 if (currentConvo.GetLineByIndex(currentIndex).speaker.faceLeft) {
                     speakerSprite.transform.localScale = new Vector3(-1, 1, 1);
                 }
+                else
+                {
+                    speakerSprite.transform.localScale = new Vector3(1, 1, 1);
+                }
             }
             else
             {
                 speaker2Sprite.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.getSprite();
                 if (!currentConvo.GetLineByIndex(currentIndex).speaker.faceLeft){
+                    Debug.Log(currentConvo.GetLineByIndex(currentIndex).speaker.faceLeft);
                     speaker2Sprite.transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    speaker2Sprite.transform.localScale = new Vector3(1, 1, 1);
                 }
                 speaker1Speaking = false;
             }

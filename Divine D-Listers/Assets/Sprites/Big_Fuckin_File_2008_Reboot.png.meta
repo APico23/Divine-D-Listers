@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 054de9bf3dc3bb34999ae30ceda627a0
+guid: f01dcf5f07eb3d44a8ed5acbada2a7de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -101,71 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Realm_NPCs_0
+      name: Big_Fuckin_File_2008_Reboot_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1
-        width: 15
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5fede0ec6146a64eae677b2aaf28b10
-      internalID: -304420525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Realm_NPCs_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 1
-        width: 15
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51f878fd7e980e347aeeb12b5b27b2f1
-      internalID: 1265072816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Realm_NPCs_2
-      rect:
-        serializedVersion: 2
-        x: 72
+        x: 0
         y: 0
-        width: 15
-        height: 32
+        width: 1024
+        height: 576
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58409c4fabbcfee4abe5e2bb3bc5c86c
-      internalID: -345129230
+      spriteID: 0481469f2444b474694498986e1fc8cf
+      internalID: 1074377466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Realm_NPCs_3
+      name: Big_Fuckin_File_2008_Reboot_1
       rect:
         serializedVersion: 2
-        x: 104
+        x: 1024
         y: 0
-        width: 15
-        height: 31
+        width: 1024
+        height: 576
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +140,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50e7f3c6892146f4780ac046d5b2c811
-      internalID: 1720887751
+      spriteID: f9d6cf3407a5b9740a10acfce3760e15
+      internalID: 788342213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2abf5b765e1f44d8607f07aba898a0
+      internalID: 1541676612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617ff29efb118264fba00ee220644f37
+      internalID: 1948457192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_4
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d3584fc66e3de4b94b76d82fac12e2
+      internalID: 616143765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_5
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9ddb7365df8864e87f0ed38bf11208
+      internalID: 176173571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_6
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13c0326e045a6247be532d1bc7312a4
+      internalID: 786257816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_7
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bc8628c47729e418dc930217474566
+      internalID: -409045249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Fuckin_File_2008_Reboot_8
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 0
+        width: 1024
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34db0da91c30fec4088e05d2dafdfcbb
+      internalID: 456245307
       vertices: []
       indices: 
       edges: []
@@ -211,10 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Realm_NPCs_1: 1265072816
-      Realm_NPCs_2: -345129230
-      Realm_NPCs_3: 1720887751
-      Realm_NPCs_0: -304420525
+      Big_Fuckin_File_2008_Reboot_2: 1541676612
+      Big_Fuckin_File_2008_Reboot_7: -409045249
+      Big_Fuckin_File_2008_Reboot_8: 456245307
+      Big_Fuckin_File_2008_Reboot_5: 176173571
+      Big_Fuckin_File_2008_Reboot_0: 1074377466
+      Big_Fuckin_File_2008_Reboot_6: 786257816
+      Big_Fuckin_File_2008_Reboot_3: 1948457192
+      Big_Fuckin_File_2008_Reboot_4: 616143765
+      Big_Fuckin_File_2008_Reboot_1: 788342213
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

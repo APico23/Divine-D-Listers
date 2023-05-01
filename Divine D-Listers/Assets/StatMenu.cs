@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StatMenu : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class StatMenu : MonoBehaviour
 
     private GameObject[] banners;
     private UnitStats[] playerStats;
+    private inventory playerInventory;
 
     public Text attackT;
     public Text luckT;
@@ -27,7 +29,7 @@ public class StatMenu : MonoBehaviour
     public Text healthT;
     public Text speedT;
     public Text levelT;
-    public Text goldT;
+    public TextMeshProUGUI goldCount;
 
 
 
@@ -37,6 +39,11 @@ public class StatMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerInventory = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>().inventory;
+        goldCount.SetText("" + playerInventory.playerGold);
+
+
+
         currentIndex = 0;
         exounosBanner.SetActive(false);
         hameedaBanner.SetActive(false);
@@ -56,7 +63,6 @@ public class StatMenu : MonoBehaviour
         healthT.text = "" + playerStats[currentIndex].maxHP;
         speedT.text = "" + playerStats[currentIndex].speed;
         levelT.text = "" + playerStats[currentIndex].unitLevel;
-        goldT.text = "" + playerStats[currentIndex].gold;
     }
     public void Left() 
     {
