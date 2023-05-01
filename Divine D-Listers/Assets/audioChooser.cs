@@ -10,6 +10,7 @@ public class audioChooser : MonoBehaviour
     public AudioClip mainTheme;
     public AudioClip battleTheme;
     public AudioClip realmTheme;
+    public AudioClip pyramidTheme;
     
 
 
@@ -39,7 +40,16 @@ public class audioChooser : MonoBehaviour
                 speaker.Play();
             }
         }
-        if (curScene != "realmOfForgottenGods" && curScene != "battleScene")
+        if (curScene == "pyramid")
+        {
+            if (speaker.clip != pyramidTheme)
+            {
+                speaker.clip = pyramidTheme;
+                speaker.loop = true;
+                speaker.Play();
+            }
+        }
+        if (curScene != "realmOfForgottenGods" && curScene != "battleScene" && curScene != "pyramid")
         {
             if (speaker.clip != mainTheme)
             {

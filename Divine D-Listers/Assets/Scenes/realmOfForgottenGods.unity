@@ -9294,7 +9294,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1cfc4ead0aa8b0a4eb0247e0e1582891, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9420,6 +9420,7 @@ MonoBehaviour:
   mainTheme: {fileID: 8300000, guid: 1cfc4ead0aa8b0a4eb0247e0e1582891, type: 3}
   battleTheme: {fileID: 8300000, guid: f2b103aa92d196c44b1fa5a16b746c36, type: 3}
   realmTheme: {fileID: 8300000, guid: f45e1c3355de66347bcee0ab4fc69447, type: 3}
+  pyramidTheme: {fileID: 8300000, guid: f79b88be5fa38d246a7cb8a0259835ca, type: 3}
 --- !u!1 &369902417
 GameObject:
   m_ObjectHideFlags: 0
