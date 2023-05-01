@@ -49,7 +49,7 @@ public class TaskLog : MonoBehaviour
     {
         isMoving = true;
         int counter = 0;
-        while (counter < 225) {
+        while (counter < 175) {
             self.transform.Translate(0, 2f, 0);
             yield return new WaitForSeconds(0.01f);
             counter++;
@@ -63,7 +63,7 @@ public class TaskLog : MonoBehaviour
     {
         isMoving = true;
         int counter = 0;
-        while (counter < 225)
+        while (counter < 175)
         {
             self.transform.Translate(0, -2f, 0);
             yield return new WaitForSeconds(0.01f);

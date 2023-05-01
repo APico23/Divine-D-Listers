@@ -32,8 +32,9 @@ public class UnitStats : ScriptableObject, ISerializationCallbackReceiver
     public bool onFire = false;
     public bool statusEffect = false;
     public bool poisoned = false;
+    public bool blighted = false;
 
-    
+
 
     public Sprite attack;
     public Sprite hurt;
