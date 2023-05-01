@@ -6,11 +6,13 @@ public class deathChecker : MonoBehaviour
 {
 
     UnitStats me;
+    Animator unitAnimator;
 
 
     void Start()
     {
         me = gameObject.GetComponent<UnitStats>();
+        unitAnimator = gameObject.GetComponent<Animator>();
     }
 
     
@@ -18,11 +20,11 @@ public class deathChecker : MonoBehaviour
     {
         if (me.isDead)
         {
-            me.unitAnimator.SetBool("UnitIsDowned", true);
+            unitAnimator.SetBool("UnitIsDowned", true);
         }
         if (!me.isDead)
         {
-            me.unitAnimator.SetBool("UnitIsDowned", false);
+            unitAnimator.SetBool("UnitIsDowned", false);
         }
     }
 }
