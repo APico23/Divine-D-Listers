@@ -1298,7 +1298,39 @@ public class BattleSystemRevamp : MonoBehaviour
         isBattleWon();
         battleSequence();
     }
+    private IEnumerator brickCheese(int d)
+    {
+        
+        StartCoroutine(TypeText("The cheese brick hits for " + d + " damage!"));
 
+        if (enemyhp <= 0)
+        {
+            isEnemy1dead = true;
+            if (!isRaub)
+            {
+                enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit.isDead = true;
+            }
+
+        }
+        if (battleStart.isMultiple && enemy2hp <= 0)
+        {
+            isEnemy2dead = true;
+            if (!isRaub)
+            {
+                enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit2.isDead = true;
+            }
+        }
+        yield return new WaitForSeconds(3);
+        isBattleWon();
+    }
     private IEnumerator playerCoroutineNeutral()
     {
         attack.SetActive(false);
@@ -2078,6 +2110,7 @@ public class BattleSystemRevamp : MonoBehaviour
             {
                 StartCoroutine(exounousSpecial());
             }
+            specialLocked.SetActive(true);
             //do the cool attack thing
         }
     }
@@ -2336,6 +2369,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     enemy2hp -= damageDone;
                 }
                 enemyhp -= damageDone;
+                StartCoroutine(brickCheese(damageDone));
                 break;
             }
             
