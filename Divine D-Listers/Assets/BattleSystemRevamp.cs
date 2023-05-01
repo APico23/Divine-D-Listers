@@ -20,6 +20,8 @@ public class BattleSystemRevamp : MonoBehaviour
 
     public GameObject specialLocked;
     public GameObject itemLocked;
+    public GameObject itemButton;
+    public GameObject inventory;
 
     private inventory playerInventory;
 
@@ -354,6 +356,7 @@ public class BattleSystemRevamp : MonoBehaviour
         runButton.SetActive(false);
         attackLocked.SetActive(true);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         if (battleStart.isMultiple)
         {
@@ -427,6 +430,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit1.onFire )
                     {
                         StartCoroutine(yetAnotherCR("Jorm"));
@@ -487,6 +491,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit2.onFire || isTutorial)
                     {
                         StartCoroutine(yetAnotherCR("Hameeda"));
@@ -546,6 +551,7 @@ public class BattleSystemRevamp : MonoBehaviour
                     }
                     attack.SetActive(true);
                     itemLocked.SetActive(false);
+                    itemButton.SetActive(true);
                     if (playerUnit3.onFire)
                     {
                         StartCoroutine(yetAnotherCR("Exounos"));
@@ -1189,6 +1195,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1245,6 +1252,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1297,6 +1305,7 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runButton.SetActive(false);
         runLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         exounosHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -1393,6 +1402,7 @@ public class BattleSystemRevamp : MonoBehaviour
         int randNum = Random.Range(0, 3);
         attack.SetActive(false);
         attackLocked.SetActive(true);
+        itemButton.SetActive(false);
         itemLocked.SetActive(true);
         hameedaHUD.SetActive(false);
         jormHUD.SetActive(false);
@@ -2384,5 +2394,13 @@ public class BattleSystemRevamp : MonoBehaviour
             jormHeal.Play();
         }
     }
+
+    public void item() {
+
+        itemButton.SetActive(false);
+        itemLocked.SetActive(true);
+        playerInventory.SetActive(true);
+    }
+
 }
 
