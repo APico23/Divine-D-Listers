@@ -36,7 +36,7 @@ public class shopManager : MonoBehaviour
         {
             playerInventory.playerGold -= 30;
             goldCount.SetText("" + playerInventory.playerGold);
-            playerInventory.addItem(itemType.AMBROSIA);
+            playerInventory.addItem(itemType.CHEESE);
         }
 
     }
@@ -47,7 +47,7 @@ public class shopManager : MonoBehaviour
         {
             playerInventory.playerGold -= 50;
             goldCount.SetText("" + playerInventory.playerGold);
-            playerInventory.addItem(itemType.AMBROSIA);
+            playerInventory.addItem(itemType.FEATHER);
         }
 
     }
