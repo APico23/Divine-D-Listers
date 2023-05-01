@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,11 @@ public class raManager : MonoBehaviour
     public VectorValue playerStorage;
     public Vector2 playerPosition;
     public Sprite background;
+    public PlayableDirector cutscene2;
+    public Quest ra2Beat;
+    public randomEncounters trueRaFight;
+    public PlayableDirector cutscene3;
+
 
     public void OnCollisionEnter2D(Collision2D other)
     {
@@ -31,8 +37,31 @@ public class raManager : MonoBehaviour
             } else if (tracker.convoAt == 1 && raBeat.isCompleted)
             {
                 dialogueStarter.startConvo();
+                tracker.continueConvo();
+            } else if (tracker.convoAt == 2 && !ra2Beat.isCompleted)
+            {
+                StartCoroutine(cutSceneLoader());
+            } else if (tracker.convoAt == 2 && ra2Beat.isCompleted)
+            {
+                dialogueStarter.startConvo();
+                tracker.continueConvo();
+            }
+            else if (tracker.convoAt == 3)
+            {
+                cutscene3.Play();
             }
 
         }
     }
+
+
+    IEnumerator cutSceneLoader()
+    {
+        cutscene2.Play();
+        yield return new WaitForSeconds(3.5f);
+        GameObject.Find("BattleStarter").GetComponent<battleStarter>().setEnemy(trueRaFight);
+        GameObject.Find("BattleStarter").GetComponent<battleStarter>().background = background;
+        SceneManager.LoadScene("battleScene");
+    }
+
 }

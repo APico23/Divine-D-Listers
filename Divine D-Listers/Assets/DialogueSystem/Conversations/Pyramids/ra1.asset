@@ -14,22 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allLines:
   - speaker: {fileID: 11400000, guid: 4540059a4e6be4c408c777fc97f4ae1b, type: 2}
-    dialogue: Ha ha ha! Do it again, Anubis. Do it again!
-    audio: {fileID: 8300000, guid: f8947731f8e205a47a4eaaf92bf1386d, type: 3}
-  - speaker: {fileID: 11400000, guid: a07d89541bccbd340a33fe42ecd0364b, type: 2}
-    dialogue: Yes my Lord.
-    audio: {fileID: 8300000, guid: a477a47cffa368f4fa3cb465838a0bea, type: 3}
-  - speaker: {fileID: 11400000, guid: 4540059a4e6be4c408c777fc97f4ae1b, type: 2}
-    dialogue: That feels so weird! How do even you do that???
-    audio: {fileID: 8300000, guid: 8b043bcfb33406b478867c0c5ae75f17, type: 3}
-  - speaker: {fileID: 11400000, guid: a07d89541bccbd340a33fe42ecd0364b, type: 2}
-    dialogue: Magic, my lord. My domain is over death, so I can resurrect you whenever
-      you fall in battle.
-    audio: {fileID: 8300000, guid: 4f7e734dcfea50c4fbe578a3da88a00c, type: 3}
-  - speaker: {fileID: 11400000, guid: a325509dc82e78840b6919be663f6492, type: 2}
-    dialogue: "That doesn\u2019t sound good."
-    audio: {fileID: 8300000, guid: cb1612c08be6d5d459ee6a0d7f51deee, type: 3}
-  - speaker: {fileID: 11400000, guid: 4540059a4e6be4c408c777fc97f4ae1b, type: 2}
     dialogue: Ah, good. More servants have arrived. Where are the snacks and presents?
     audio: {fileID: 8300000, guid: 741276eb4c6400948beb97ffed56d514, type: 3}
   - speaker: {fileID: 11400000, guid: 4ca6327de76c51244afc51d82075c677, type: 2}

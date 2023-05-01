@@ -16,6 +16,7 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest ammitBeat;
     public Quest raBeat;
     public Quest phoenixBeat;
+    public Quest trueRaBeat;
 
     private inventory playerInventory;
 
@@ -1209,6 +1210,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             raBeat.isCompleted= true;
         }
+        if (enemyUnit.name == "True Ra")
+        {
+            trueRaBeat.isCompleted = true;
+        }
         yield return new WaitForSeconds(4);
         winScreen.SetActive(true);
     }
@@ -1255,7 +1260,7 @@ public class BattleSystemRevamp : MonoBehaviour
             isBoss = true;
             Anubis(randNum);
         }
-        else if (u.unitName == "TrueRa")
+        else if (u.unitName == "True Ra")
         {
             isBoss = true;
             TrueRa(randNum);

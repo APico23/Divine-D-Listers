@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251db0b6aa37b70449c61c5b2ef2e459, type: 3}
   m_Name: DownedRa
   m_EditorClassIdentifier: 
-  speakerName: 
-  speakerSprite: {fileID: 0}
-  faceLeft: 0
+  speakerName: Ra
+  speakerSprite: {fileID: 21300000, guid: d348e262763a1ee42889d014bfe5e55e, type: 3}
+  faceLeft: 1
