@@ -1838,7 +1838,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
             enemyDamage = Mathf.RoundToInt(10 * rounded);

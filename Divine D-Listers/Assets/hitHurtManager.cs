@@ -8,6 +8,7 @@ public class hitHurtManager : MonoBehaviour
 {
 
     public Image playerSprite;
+    public Image raSprite;
     public Image enemySprite;
     public Image player1Sprite;
     public Image player2Sprite;
@@ -86,6 +87,28 @@ public class hitHurtManager : MonoBehaviour
         }
         Destroy(gameObject, 2f);
         
+        return;
+    }
+
+    public void TrueRa(UnitStats player1, UnitStats player2, UnitStats player3, UnitStats enemy, string type)
+    {
+        StartCoroutine(hideCanvas());
+        player1Sprite.sprite = player1.hurt;
+        player2Sprite.sprite = player2.hurt;
+        player3Sprite.sprite = player3.hurt;
+        anim.SetBool("trueRa", true);
+        if (type == "burn")
+        {
+            partyBurn.Play();
+        }
+        else
+        {
+            rock.Play();
+            rock2.Play();
+            rock3.Play();
+        }
+        Destroy(gameObject, 2f);
+
         return;
     }
 
