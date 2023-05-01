@@ -401,6 +401,14 @@ public class BattleSystemRevamp : MonoBehaviour
                             jormPoison.Play();
                         }
                     }
+                    else if (playerUnit1.blighted)
+                    {
+                        sunBlight(playerUnit1, 2);
+                        if (playerUnit1.statusCounter < 3)
+                        {
+                            jormBurn.Play();
+                        }
+                    }
                 }
                 if (playerUnit1.isDead)
                 {
@@ -453,6 +461,14 @@ public class BattleSystemRevamp : MonoBehaviour
                             hamPoison.Play();
                         }
                     }
+                    else if (playerUnit2.blighted)
+                    {
+                        sunBlight(playerUnit2, 2);
+                        if (playerUnit2.statusCounter < 3)
+                        {
+                            hamBurn.Play();
+                        }
+                    }
                 }
                 if (playerUnit2.isDead)
                 {
@@ -503,6 +519,13 @@ public class BattleSystemRevamp : MonoBehaviour
                         if (playerUnit3.statusCounter < 3)
                         {
                             exoPoison.Play();
+                        }
+                    }
+                    else if (playerUnit3.blighted){
+                        sunBlight(playerUnit3, 2);
+                        if (playerUnit3.statusCounter < 3)
+                        {
+                            exoBurn.Play();
                         }
                     }
                 }
@@ -1723,7 +1746,7 @@ public class BattleSystemRevamp : MonoBehaviour
             hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit,"burn");
             rounded = 8 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(5 * rounded);
+            enemyDamage = Mathf.RoundToInt(8 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1874,7 +1897,37 @@ public class BattleSystemRevamp : MonoBehaviour
     void TrueRa(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (randNum < 7)
+        if (specialMeter.getMeter() == specialMeter.getMaxMeter())
+        {
+            specialMeter.setMeter(0);
+            Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
+            hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
+            hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            rounded = 10 * (enemyUnit.damage / 100f);
+            if (rounded < 1) rounded = 1;
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
+            damaged(playerUnit1, 0, damageDone);
+            if (!playerUnit1.isDead)
+            {
+                blight(playerUnit1);
+            }
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit2.defence / 100f));
+            damaged(playerUnit2, 1, damageDone);
+            if (!playerUnit2.isDead)
+            {
+                blight(playerUnit2);
+            }
+            damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
+            damaged(playerUnit3, 2, damageDone);
+            if (!playerUnit3.isDead)
+            {
+                blight(playerUnit3);
+            }            
+        }
+        else if (randNum < 7)
+            
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
@@ -1890,18 +1943,13 @@ public class BattleSystemRevamp : MonoBehaviour
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             damaged(playerUnit3, 2, damageDone);
         }
-        else if (specialMeter.getMeter() == specialMeter.getMaxMeter())
-            
-        {
-            specialMeter.setMeter(0);
-        }
         else
         {
             randNum = Random.Range(0, 3);
             crit = Random.Range(1, 201);
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            enemyDamage = Mathf.RoundToInt(11 * rounded);
 
             if (randNum == 0 && !playerUnit1.isDead)
             {
@@ -2025,6 +2073,9 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.poisoned = false;
         playerUnit2.poisoned = false;
         playerUnit3.poisoned = false;
+        playerUnit1.blighted = false;
+        playerUnit2.blighted = false;
+        playerUnit3.blighted = false;
         exounosHp.text = playerUnit3.currentHp + "/" + playerUnit3.maxHP;
         exounosHealthBar.setHealth(playerUnit3.currentHp);
         hameedaHp.text = playerUnit2.currentHp + "/" + playerUnit2.maxHP;
@@ -2114,6 +2165,31 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             StartCoroutine(TypeText(u.unitName+" is hurt by their burns."));
             damaged(u,unit,2);
+            u.statusCounter++;
+        }
+    }
+    void blight(UnitStats u)
+    {
+        u.statusEffect = true;
+        u.blighted = true;
+    }
+    void sunBlight(UnitStats u, int unit)
+    {
+        if (u.statusCounter >= 3)
+        {
+            u.statusEffect = false;
+            u.blighted = false;
+            u.statusCounter = 0;
+        }
+        else
+        {
+            StartCoroutine(TypeText(u.unitName + " is hurt by the intense heat of the sun."));
+            damaged(u, unit, 4);
+            u.defence -= 2;
+            if(u.defence< 0)
+            {
+                u.defence= 0;
+            }
             u.statusCounter++;
         }
     }
