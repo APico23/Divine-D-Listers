@@ -22,8 +22,8 @@ MonoBehaviour:
   luck: 30
   defence: 14
   speed: 19
-  maxHP: 44
-  currentHp: 44
+  maxHP: 50
+  currentHp: 50
   statusCounter: 0
   isDead: 0
   isAttacking: 0
@@ -32,6 +32,7 @@ MonoBehaviour:
   onFire: 0
   statusEffect: 0
   poisoned: 0
+  blighted: 0
   attack: {fileID: -1292682928, guid: 0dee8d8baafcb9f4e996532939612ec6, type: 3}
   hurt: {fileID: 21300000, guid: 15db1bb33bab3e247a91de5e53aedd5f, type: 3}
   special: {fileID: 797520397, guid: 0dee8d8baafcb9f4e996532939612ec6, type: 3}
@@ -42,5 +43,5 @@ MonoBehaviour:
   defaultLuck: 30
   defaultDefence: 14
   defaultSpeed: 19
-  defaultMaxHP: 44
-  defaultCurrentHp: 44
+  defaultMaxHP: 50
+  defaultCurrentHp: 50

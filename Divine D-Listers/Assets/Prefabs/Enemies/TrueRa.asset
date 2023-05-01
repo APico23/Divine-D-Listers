@@ -22,8 +22,8 @@ MonoBehaviour:
   luck: 20
   defence: 15
   speed: 30
-  maxHP: 50
-  currentHp: 50
+  maxHP: 60
+  currentHp: 60
   statusCounter: 0
   isDead: 0
   isAttacking: 0
@@ -43,5 +43,5 @@ MonoBehaviour:
   defaultLuck: 20
   defaultDefence: 15
   defaultSpeed: 30
-  defaultMaxHP: 50
-  defaultCurrentHp: 50
+  defaultMaxHP: 60
+  defaultCurrentHp: 60
