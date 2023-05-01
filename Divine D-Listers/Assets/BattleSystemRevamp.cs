@@ -1978,11 +1978,11 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(false);
         GameObject ult = Instantiate(ragnarockingChair);
         yield return new WaitForSeconds(5.2f);
-
-        
-
         int add = ult.GetComponent<counterSpecial>().getCount();
-        damageDone = 18 + add;
+        rounded = 10 * (playerUnit1.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        jormDamage = Mathf.RoundToInt(10 * rounded);
+        damageDone = 18 + jormDamage + (add/8);
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
@@ -2010,9 +2010,9 @@ public class BattleSystemRevamp : MonoBehaviour
         playerUnit1.isDead = false;
         playerUnit2.isDead = false;
         playerUnit3.isDead = false;
-        playerUnit1.currentHp = playerUnit1.maxHP + add;
-        playerUnit2.currentHp = playerUnit2.maxHP + add;
-        playerUnit3.currentHp = playerUnit3.maxHP + add;
+        playerUnit1.currentHp = playerUnit1.maxHP + (add/5);
+        playerUnit2.currentHp = playerUnit2.maxHP + (add/5);
+        playerUnit3.currentHp = playerUnit3.maxHP + (add/5);
         playerUnit1.statusEffect = false;
         playerUnit2.statusEffect = false;
         playerUnit3.statusEffect = false;
@@ -2044,11 +2044,11 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(false);
         GameObject ult = Instantiate(mythiKohl);
         yield return new WaitForSeconds(5.2f);
-
-        
-
         int add = ult.GetComponent<counterSpecial>().getCount();
-        damageDone = 22 + add;
+        rounded = 10 * (playerUnit2.damage / 100f);
+        if (rounded < 1) rounded = 1;
+        hameedaDamage = Mathf.RoundToInt(10 * rounded);
+        damageDone = 22 + hameedaDamage + (add/5);
         isCrit = false;
         Destroy(ult.gameObject);
         mainUI.SetActive(true);
