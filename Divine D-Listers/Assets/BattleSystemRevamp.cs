@@ -1239,6 +1239,57 @@ public class BattleSystemRevamp : MonoBehaviour
         isBattleWon();
         battleSequence();
     }
+    private IEnumerator playerCoroutineSpecial(UnitStats u, int d, bool b, UnitStats e)
+    {
+        attack.SetActive(false);
+        attackLocked.SetActive(true);
+        runButton.SetActive(false);
+        runLocked.SetActive(true);
+        itemLocked.SetActive(true);
+        exounosHUD.SetActive(false);
+        jormHUD.SetActive(false);
+        hameedaHUD.SetActive(false);
+        enemy1Select.SetActive(false);
+        enemy2select.SetActive(false);
+        
+            StartCoroutine(TypeText("Hit! " + u.unitName + " attacks " + e.unitName + " for " + d + " damage!"));
+        
+        if (enemyhp <= 0)
+        {
+            isEnemy1dead = true;
+            if (!isRaub)
+            {
+                enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit.isDead = true;
+            }
+
+        }
+        if (battleStart.isMultiple && enemy2hp <= 0)
+        {
+            isEnemy2dead = true;
+            if (!isRaub)
+            {
+                enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                enemyUnit2.isDead = true;
+            }
+        }
+        yield return new WaitForSeconds(3);
+
+        if (b && !isDefended)
+        {
+            StartCoroutine(TypeText("A CRITICAL HIT!"));
+            yield return new WaitForSeconds(3);
+        }
+        state = BattleState.PAUSE;
+        isBattleWon();
+        battleSequence();
+    }
 
     private IEnumerator playerCoroutineNeutral()
     {
@@ -2042,7 +2093,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject cutScene = Instantiate(js, hst);
         yield return new WaitForSeconds(3.9f);
         Destroy(cutScene);
-        StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
+        StartCoroutine(playerCoroutineSpecial(playerUnit1, damageDone, isCrit, enemyUnit));
     }
 
     private IEnumerator exounousSpecial()
@@ -2111,7 +2162,7 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject cutScene = Instantiate(hs, hst);
         yield return new WaitForSeconds(2f);
         
-        StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
+        StartCoroutine(playerCoroutineSpecial(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 
     void punchingBag()
