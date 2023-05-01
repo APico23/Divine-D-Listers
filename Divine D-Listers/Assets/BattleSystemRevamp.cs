@@ -17,10 +17,13 @@ public class BattleSystemRevamp : MonoBehaviour
     public Quest raBeat;
     public Quest phoenixBeat;
 
-    public Animator hameedaspecialAnimator;
-    public GameObject hameedaSpecialCutscene;
-
     private inventory playerInventory;
+
+    public GameObject hs;
+    public Transform hst;
+    public GameObject js;
+    public GameObject es;
+   
 
     public GameObject jormPrefab;
     public GameObject hameedaPrefab;
@@ -192,8 +195,6 @@ public class BattleSystemRevamp : MonoBehaviour
         attackLocked.SetActive(true);
         runLocked.SetActive(true);
         runButton.SetActive(false);
-        hameedaSpecialCutscene.SetActive(false);
-
         winScreen = GameObject.Find("Game Win");
         winScreen.SetActive(false);
 
@@ -1927,6 +1928,10 @@ public class BattleSystemRevamp : MonoBehaviour
         mainUI.SetActive(false);
         GameObject ult = Instantiate(ragnarockingChair);
         yield return new WaitForSeconds(5.2f);
+
+        Instantiate(js, hst);
+        yield return new WaitForSeconds(3.3f);
+
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 18 + add;
         isCrit = false;
@@ -1943,6 +1948,9 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private IEnumerator exounousSpecial()
     {
+        Instantiate(es, hst);
+        yield return new WaitForSeconds(3.9f);
+
         mainUI.SetActive(false);
         GameObject ult = Instantiate(foodComa);
         yield return new WaitForSeconds(5.2f);
@@ -1985,11 +1993,8 @@ public class BattleSystemRevamp : MonoBehaviour
         GameObject ult = Instantiate(mythiKohl);
         yield return new WaitForSeconds(5.2f);
 
-        hameedaSpecialCutscene.SetActive(true);
-        hameedaspecialAnimator.SetBool("ActivateSpecial", true);
-        yield return new WaitForSeconds(0.75f);
-        hameedaspecialAnimator.SetBool("ActivateSpecial", false);
-        hameedaSpecialCutscene.SetActive(false);
+        Instantiate(hs, hst);
+        yield return new WaitForSeconds(2f);
 
         int add = ult.GetComponent<counterSpecial>().getCount();
         damageDone = 22 + add;
