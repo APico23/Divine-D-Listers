@@ -1984,14 +1984,16 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         enemyhp -= damageDone;
         GameObject cutScene = Instantiate(js, hst);
-        Destroy(cutScene, 3.3f);
+        yield return new WaitForSeconds(3.3f);
+        Destroy(cutScene);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
     }
 
     private IEnumerator exounousSpecial()
     {
         GameObject cutScene = Instantiate(es, hst);
-        Destroy(cutScene, 3.9f);
+        yield return new WaitForSeconds(3.9f);
+        Destroy(cutScene);
 
         mainUI.SetActive(false);
         GameObject ult = Instantiate(foodComa);
@@ -2048,7 +2050,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         enemyhp -= damageDone;
         GameObject cutScene = Instantiate(hs, hst);
-        Destroy(cutScene, 2f);
+        yield return new WaitForSeconds(2f);
+        Destroy(cutScene);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 
