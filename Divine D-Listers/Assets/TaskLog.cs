@@ -44,8 +44,8 @@ public class TaskLog : MonoBehaviour
     public IEnumerator moveUp() 
     {
         int counter = 0;
-        while (counter < 50) {
-            self.transform.Translate(0, 1f, 0);
+        while (counter < 225) {
+            self.transform.Translate(0, 2f, 0);
             yield return new WaitForSeconds(0.01f);
             counter++;
         }
@@ -56,9 +56,9 @@ public class TaskLog : MonoBehaviour
     public IEnumerator moveDown()
     {
         int counter = 0;
-        while (counter < 50)
+        while (counter < 225)
         {
-            self.transform.Translate(0, -1f, 0);
+            self.transform.Translate(0, -2f, 0);
             yield return new WaitForSeconds(0.01f);
             counter++;
         }
