@@ -1299,7 +1299,7 @@ public class BattleSystemRevamp : MonoBehaviour
             isBoss = true;
             Anubis(randNum);
         }
-        else if (u.unitName == "True Ra")
+        else if (u.unitName == "Sun God Ra")
         {
             isBoss = true;
             TrueRa(randNum);
