@@ -1905,7 +1905,7 @@ public class BattleSystemRevamp : MonoBehaviour
             hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            enemyDamage = Mathf.RoundToInt(8 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1931,10 +1931,10 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
-            hitHurtManager.TrueRa(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
+            hitHurtManager.partyHurt(playerUnit1, playerUnit2, playerUnit3, enemyUnit, "burn");
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(10 * rounded);
+            enemyDamage = Mathf.RoundToInt(7 * rounded);
             StartCoroutine(TypeText(enemyUnit.unitName + "'s staff shines with a blinding light as you feel why he controls the sun."));
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit1.defence / 100f));
             damaged(playerUnit1, 0, damageDone);
@@ -1949,7 +1949,7 @@ public class BattleSystemRevamp : MonoBehaviour
             crit = Random.Range(1, 201);
             rounded = 10 * (enemyUnit.damage / 100f);
             if (rounded < 1) rounded = 1;
-            enemyDamage = Mathf.RoundToInt(11 * rounded);
+            enemyDamage = Mathf.RoundToInt(10 * rounded);
 
             if (randNum == 0 && !playerUnit1.isDead)
             {
