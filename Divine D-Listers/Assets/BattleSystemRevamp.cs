@@ -2399,7 +2399,7 @@ public class BattleSystemRevamp : MonoBehaviour
 
         itemButton.SetActive(false);
         itemLocked.SetActive(true);
-        //playerInventory.SetActive(true);
+        playerInventory.SetActive(true);
     }
 
 }
