@@ -10506,8 +10506,8 @@ MonoBehaviour:
   playerPosition: {x: 20, y: -12}
   playerStorage: {fileID: 11400000, guid: 533d69cf2338e2a46ac8d67807dc3fde, type: 2}
   fadeInPanel: {fileID: 8141140690596591496, guid: 84c12d21966ee37428e2e37d22b29e55, type: 3}
-  fadeOutPanel: {fileID: 77927408449156218, guid: 664d46af31fe3d04ba9444a81a60207c, type: 3}
-  fadeWait: 0.33
+  fadeOutPanel: {fileID: 2471350975754099182, guid: 01e4d3c12b57fd44e8771f3a475d3912, type: 3}
+  fadeWait: 1.5
   move: {fileID: 751324717}
   index: 10
   tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
