@@ -780,8 +780,8 @@ public class BattleSystemRevamp : MonoBehaviour
 
 
 
-        specialMeter.setMeter(specialMeter.getMeter() + 1);
-        //specialMeter.setMeter(specialMeter.getMaxMeter());
+       specialMeter.setMeter(specialMeter.getMeter() + 1);
+       // specialMeter.setMeter(specialMeter.getMaxMeter());
 
         isCrit = false;
         crit = Random.Range(1, 201);
@@ -1984,7 +1984,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         enemyhp -= damageDone;
         GameObject cutScene = Instantiate(js, hst);
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(3.9f);
         Destroy(cutScene);
         StartCoroutine(playerCoroutineAttack(playerUnit1, damageDone, isCrit, enemyUnit));
     }
@@ -2050,7 +2050,7 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         enemyhp -= damageDone;
         GameObject cutScene = Instantiate(hs, hst);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         Destroy(cutScene);
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
     }
