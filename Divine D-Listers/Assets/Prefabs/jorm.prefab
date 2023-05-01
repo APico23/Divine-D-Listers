@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6998703907221032045}
   - component: {fileID: 6956984883321309736}
   - component: {fileID: 6914324638878142984}
+  - component: {fileID: -5511230443930282486}
   m_Layer: 0
   m_Name: jorm
   m_TagString: Untagged
@@ -119,3 +120,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-5511230443930282486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5414976602541213657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c898437027fefc478841b2f9f2a44b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
