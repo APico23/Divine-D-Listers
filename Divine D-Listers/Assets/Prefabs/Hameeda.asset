@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitAnimator: {fileID: 0}
   unitName: Hameeda
-  unitLevel: 7
-  exp: 100
-  expNeeded: 110
+  unitLevel: 1
+  exp: 0
+  expNeeded: 50
   gold: 0
-  damage: 152
-  luck: 17
-  defence: 19
-  speed: 20
-  maxHP: 26
-  currentHp: 0
+  damage: 14
+  luck: 5
+  defence: 12
+  speed: 14
+  maxHP: 14
+  currentHp: 14
   statusCounter: 0
-  isDead: 1
-  isAttacking: 1
+  isDead: 0
+  isAttacking: 0
   isHit: 0
   leveledUp: 0
   onFire: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   defaultUnitLevel: 1
   defaultExp: 0
   defaultExpNeeded: 50
-  defaultDamage: 140
+  defaultDamage: 14
   defaultLuck: 5
   defaultDefence: 12
   defaultSpeed: 14
