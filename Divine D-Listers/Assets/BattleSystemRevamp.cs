@@ -2058,8 +2058,8 @@ public class BattleSystemRevamp : MonoBehaviour
         }
         enemyhp -= damageDone;
         GameObject cutScene = Instantiate(hs, hst);
-        yield return new WaitForSeconds(4f);
-        Destroy(cutScene);
+        yield return new WaitForSeconds(2f);
+        
         StartCoroutine(playerCoroutineAttack(playerUnit2, damageDone, isCrit, enemyUnit));
     }
 

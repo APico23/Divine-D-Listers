@@ -14,7 +14,7 @@ public class HameedaSpecialRevamp : MonoBehaviour
     }
 
     private IEnumerator Delete() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Destroy(self); 
     }
 }
