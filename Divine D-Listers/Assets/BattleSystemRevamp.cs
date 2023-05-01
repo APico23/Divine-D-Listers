@@ -1694,7 +1694,7 @@ public class BattleSystemRevamp : MonoBehaviour
     void Ammit(int randNum)
     {
         randNum = Random.Range(0, 10);
-        if (randNum < 3)
+        if (randNum < 4)
         {
             Instantiate(hitHurtScreen, Vector3.zero, Quaternion.identity);
             hitHurtManager = GameObject.Find("Hit-Hurt(Clone)").GetComponent<hitHurtManager>();
@@ -1710,7 +1710,7 @@ public class BattleSystemRevamp : MonoBehaviour
             damageDone = enemyDamage - Mathf.RoundToInt(enemyDamage * (playerUnit3.defence / 100f));
             damaged(playerUnit3, 2, damageDone);
         }
-        else if(randNum>=3 && randNum<6 && roarCounter < 3)
+        else if(randNum>=4 && randNum<6 && roarCounter < 3)
         {
             
             if (playerUnit1.defence > 0)
