@@ -2424,12 +2424,18 @@ public class BattleSystemRevamp : MonoBehaviour
         }
     }
 
-    public void item() {
-
+    public void item() 
+    {
         itemButton.SetActive(false);
         itemLocked.SetActive(true);
         inventory.SetActive(true);
     }
 
+    public void itemBack() 
+    {
+        inventory.SetActive(false);
+        itemLocked.SetActive(false);
+        itemButton.SetActive(true);
+    }
 }
 

@@ -13,9 +13,9 @@ public class inventoryHelper : MonoBehaviour
     public TextMeshProUGUI cheeseCount;
     public TextMeshProUGUI featherCount;
 
-    public int ac;
-    public int cc;
-    public int fc;
+    private int ac;
+    private int cc;
+    private int fc;
 
 
     void Start()
