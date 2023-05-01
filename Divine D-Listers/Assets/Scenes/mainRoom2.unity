@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 773534790}
   smoothing: 1
-  maxPosition: {x: 61, y: 8}
+  maxPosition: {x: 61, y: 12}
   minPosition: {x: 41, y: -7}
 --- !u!1 &1172986211
 GameObject:

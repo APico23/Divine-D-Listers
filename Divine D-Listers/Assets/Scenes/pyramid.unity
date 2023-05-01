@@ -11234,7 +11234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 162287546}
-  smoothing: 0.01
+  smoothing: 1
   maxPosition: {x: -24.03, y: -12}
   minPosition: {x: -31, y: -21}
 --- !u!95 &1137196592

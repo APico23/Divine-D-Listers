@@ -1237,19 +1237,19 @@ public class BattleSystemRevamp : MonoBehaviour
 
     private IEnumerator winCoroutineWait()
     {
-        if (enemyUnit.name == "Phoenix")
+        if (enemyUnit.unitName == "Phoenix")
         {
             phoenixBeat.isCompleted= true;
         }
-        if (enemyUnit.name == "Ammit")
+        if (enemyUnit.unitName == "Ammit")
         {
             ammitBeat.isCompleted= true;
         }
-        if (enemyUnit.name == "Ra")
+        if (enemyUnit.unitName == "Ra")
         {
             raBeat.isCompleted= true;
         }
-        if (enemyUnit.name == "Sun God Ra")
+        if (enemyUnit.unitName == "Sun God Ra")
         {
             trueRaBeat.isCompleted = true;
         }
