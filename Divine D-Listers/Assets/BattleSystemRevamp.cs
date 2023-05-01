@@ -2080,7 +2080,7 @@ public class BattleSystemRevamp : MonoBehaviour
         int add = ult.GetComponent<counterSpecial>().getCount();
         rounded = 10 * (playerUnit1.damage / 100f);
         if (rounded < 1) rounded = 1;
-        jormDamage = Mathf.RoundToInt(10 * rounded);
+        jormDamage = Mathf.RoundToInt(2 * rounded);
         damageDone = 18 + jormDamage + (add/8);
         isCrit = false;
         Destroy(ult.gameObject);
@@ -2149,7 +2149,7 @@ public class BattleSystemRevamp : MonoBehaviour
         int add = ult.GetComponent<counterSpecial>().getCount();
         rounded = 10 * (playerUnit2.damage / 100f);
         if (rounded < 1) rounded = 1;
-        hameedaDamage = Mathf.RoundToInt(10 * rounded);
+        hameedaDamage = Mathf.RoundToInt(2 * rounded);
         damageDone = 22 + hameedaDamage + (add/5);
         isCrit = false;
         Destroy(ult.gameObject);
