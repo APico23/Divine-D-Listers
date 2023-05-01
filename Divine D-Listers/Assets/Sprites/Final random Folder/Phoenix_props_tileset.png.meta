@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02a774751bb7bef43b3c5906b5fa4fdb
+guid: 87a9c0862d55a1346be6b286c81cd7b2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rich_Overworld_0
+      name: Phoenix_props_tileset_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 8
+        y: 32
+        width: 12
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a6532445cfcb5e4f8b5b6390530a928
-      internalID: -199011428
+      spriteID: 66f362b85184105478721b2ff95dfe5a
+      internalID: 445812231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rich_Overworld_1
+      name: Phoenix_props_tileset_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 40
+        y: 32
+        width: 12
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,19 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99c2f7aeadc646c44a2b99194cabe789
-      internalID: 1742728335
+      spriteID: 6c6cb7836ffb8c9419ab8675225c1b35
+      internalID: -1359020841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rich_Overworld_2
+      name: Phoenix_props_tileset_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
+        x: 72
+        y: 32
+        width: 12
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,8 +173,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3eff99c6eabe811499077240abce192c
-      internalID: -2010365018
+      spriteID: 7630a13cf1b0cad4da61533a3f4e0d56
+      internalID: -207987754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phoenix_props_tileset_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 32
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7819c804da9e84cbe2d7a772039add
+      internalID: -98707888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phoenix_props_tileset_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0b7abe36dcc954d8871c5af46aae69
+      internalID: -28558548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phoenix_props_tileset_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f903be3a037552444b7950fcb1dbd85f
+      internalID: -1120864948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phoenix_props_tileset_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e6a57c96d41214bb9eb75583478ce9
+      internalID: 407586966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phoenix_props_tileset_7
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 12
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf61b040da785974ea8c5e1d74d9ca25
+      internalID: -162979296
       vertices: []
       indices: 
       edges: []
@@ -190,9 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rich_Overworld_1: 1742728335
-      Rich_Overworld_2: -2010365018
-      Rich_Overworld_0: -199011428
+      Phoenix_props_tileset_5: -1120864948
+      Phoenix_props_tileset_1: -1359020841
+      Phoenix_props_tileset_4: -28558548
+      Phoenix_props_tileset_0: 445812231
+      Phoenix_props_tileset_6: 407586966
+      Phoenix_props_tileset_2: -207987754
+      Phoenix_props_tileset_7: -162979296
+      Phoenix_props_tileset_3: -98707888
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

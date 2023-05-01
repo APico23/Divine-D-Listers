@@ -9744,6 +9744,7 @@ GameObject:
   - component: {fileID: 637167319}
   - component: {fileID: 637167318}
   - component: {fileID: 637167317}
+  - component: {fileID: 637167321}
   m_Layer: 0
   m_Name: Sheldon
   m_TagString: Untagged
@@ -9858,6 +9859,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &637167321
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637167316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 925d1ddf5739e2c48919c18afc00083e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &668709623
 GameObject:
   m_ObjectHideFlags: 0
@@ -9870,6 +9891,7 @@ GameObject:
   - component: {fileID: 668709624}
   - component: {fileID: 668709627}
   - component: {fileID: 668709626}
+  - component: {fileID: 668709628}
   m_Layer: 0
   m_Name: phil
   m_TagString: Untagged
@@ -9984,6 +10006,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
+--- !u!95 &668709628
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668709623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16852d3a6ada5954cbfc694ea6140e89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &751324717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2663285427986493044, guid: 5a5311c1f42cc624998138ff19e07116, type: 3}
@@ -10054,6 +10096,7 @@ GameObject:
   - component: {fileID: 1044370091}
   - component: {fileID: 1044370094}
   - component: {fileID: 1044370093}
+  - component: {fileID: 1044370095}
   m_Layer: 0
   m_Name: zoop
   m_TagString: Untagged
@@ -10168,6 +10211,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
+--- !u!95 &1044370095
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044370090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 027b80577dd780c4290508f13fe994f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1133994702
 GameObject:
   m_ObjectHideFlags: 0
@@ -10292,7 +10355,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.46875, y: 0.96875}
+    oldSize: {x: 0.46875, y: 1}
     newSize: {x: 0.46875, y: 0.96875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15104,6 +15167,7 @@ GameObject:
   - component: {fileID: 1487207787}
   - component: {fileID: 1487207786}
   - component: {fileID: 1487207785}
+  - component: {fileID: 1487207789}
   m_Layer: 0
   m_Name: Rich
   m_TagString: Untagged
@@ -15218,6 +15282,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1487207789
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487207784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a40a364c2e645d419fee7a7a746c9f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1697157015
 GameObject:
   m_ObjectHideFlags: 0
@@ -15356,6 +15440,7 @@ GameObject:
   - component: {fileID: 1775321962}
   - component: {fileID: 1775321961}
   - component: {fileID: 1775321964}
+  - component: {fileID: 1775321965}
   m_Layer: 0
   m_Name: Exounos
   m_TagString: Untagged
@@ -15376,18 +15461,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07430507, y: -0.025363237}
+  m_Offset: {x: -0.0071011633, y: 0.010823429}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.04, y: 1.01}
+    oldSize: {x: 0.8125, y: 1}
     newSize: {x: 1.04, y: 1.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47542927, y: 0.7056388}
+  m_Size: {x: 0.7545843, y: 0.9641155}
   m_EdgeRadius: 0
 --- !u!212 &1775321962
 SpriteRenderer:
@@ -15430,7 +15515,7 @@ SpriteRenderer:
   m_SortingLayerID: 1564096457
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 344700482, guid: 32b1dd6fd3ceef046a14a4a4bcd6ed99, type: 3}
+  m_Sprite: {fileID: 1386702235, guid: 0190688f4437e4c4f943e7decdce8eac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15449,8 +15534,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775321960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.01, y: 2.1263, z: 0}
-  m_LocalScale: {x: 1.7837466, y: 1.7837466, z: 1.7837466}
+  m_LocalPosition: {x: -4.11, y: 2.81, z: 0}
+  m_LocalScale: {x: 1.3265188, y: 1.3265188, z: 1.3265188}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -15470,6 +15555,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 8
   tracker: {fileID: 11400000, guid: 07caa69efbb09a947b38f09b30faf48d, type: 2}
+--- !u!95 &1775321965
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775321960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7514cd1f8bb56204d9453c66506b5afa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1984480242
 GameObject:
   m_ObjectHideFlags: 0
