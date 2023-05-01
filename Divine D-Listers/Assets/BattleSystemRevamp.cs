@@ -77,6 +77,7 @@ public class BattleSystemRevamp : MonoBehaviour
     private int turnTracker = 0;
     private bool isTutorial=false;
     private bool isBoss = false;
+    private bool isRaub = false;
     private bool isDefended = false;
     
 
@@ -209,6 +210,7 @@ public class BattleSystemRevamp : MonoBehaviour
         {
             enemyPrefab = battleStart.enemyMain.getFighter(0);
             enemyPrefab2 = battleStart.enemyMain.getFighter(1);
+            isRaub = true;
         }
         else
         {
@@ -1160,12 +1162,19 @@ public class BattleSystemRevamp : MonoBehaviour
         if(isEnemy1 && enemyhp<=0)
         {
             isEnemy1dead = true;
-            enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            if (!isRaub)
+            {
+                enemysprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            
         }
         else if (battleStart.isMultiple && enemy2hp<=0)
         {
             isEnemy2dead = true;
-            enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            if (!isRaub)
+            {
+                enemy2sprite.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         yield return new WaitForSeconds(3);
 
